@@ -1,0 +1,22 @@
+uuid: cae2fbcd-34fd-4389-89fa-930007b50a50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.media_landing_page
+  module:
+    - text
+id: node.media_landing_page.body
+field_name: body
+entity_type: node
+bundle: media_landing_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

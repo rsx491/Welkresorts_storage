@@ -1,0 +1,9 @@
+uuid: 410a1a78-5b04-4897-a027-96a851d2632d
+langcode: en
+status: true
+dependencies: {  }
+id: resort_activities
+label: 'Resort Activities'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

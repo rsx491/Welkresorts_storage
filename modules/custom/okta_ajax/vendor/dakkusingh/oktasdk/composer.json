@@ -1,0 +1,26 @@
+{
+    "name": "dakkusingh/oktasdk",
+    "description": "PHP client library for the Okta API (v1)",
+    "keywords": ["okta", "sdk", "api"],
+    "license": "MIT",
+    "authors": [{
+        "name": "Dakku Singh",
+        "email": "dakku78@gmail.com"
+    }],
+    "support": {
+        "issues": "https://github.com/dakkusingh/oktasdk-php/issues"
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "^6.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "phpdocumentor/phpdocumentor": "^2.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Okta\\": "src/"
+        }
+    }
+}

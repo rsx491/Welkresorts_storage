@@ -1,0 +1,19 @@
+uuid: c6e43b9b-e018-4b4f-9180-2fdd011d0dd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_insider_tips_subtitle
+    - node.type.welk_experience
+id: node.welk_experience.field_insider_tips_subtitle
+field_name: field_insider_tips_subtitle
+entity_type: node
+bundle: welk_experience
+label: 'Insider tips subtitle'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

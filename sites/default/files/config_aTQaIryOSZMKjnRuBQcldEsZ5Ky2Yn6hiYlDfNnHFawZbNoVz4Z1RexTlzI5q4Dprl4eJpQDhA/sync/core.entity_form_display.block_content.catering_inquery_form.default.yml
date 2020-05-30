@@ -1,0 +1,32 @@
+uuid: f541d4a5-b258-4f72-a45f-0c2ea0e29a04
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.catering_inquery_form
+    - field.field.block_content.catering_inquery_form.body
+  module:
+    - text
+id: block_content.catering_inquery_form.default
+targetEntityType: block_content
+bundle: catering_inquery_form
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 26
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,350 @@
+uuid: e448d79b-17b6-4302-b64b-5af7eb5b1dfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.tours.body
+    - field.field.node.tours.field_benefits_description
+    - field.field.node.tours.field_description
+    - field.field.node.tours.field_description_t
+    - field.field.node.tours.field_enable_show_on_resort
+    - field.field.node.tours.field_gallery
+    - field.field.node.tours.field_hero_section_tr
+    - field.field.node.tours.field_highlight_section_t
+    - field.field.node.tours.field_image
+    - field.field.node.tours.field_inspire_description
+    - field.field.node.tours.field_inspire_sub_title
+    - field.field.node.tours.field_inspire_title
+    - field.field.node.tours.field_inspire_top_description
+    - field.field.node.tours.field_inspire_top_title
+    - field.field.node.tours.field_inspire_video
+    - field.field.node.tours.field_meta_tags
+    - field.field.node.tours.field_social_feed_image_section
+    - field.field.node.tours.field_social_feed_images
+    - field.field.node.tours.field_stay_play
+    - field.field.node.tours.field_sub_title
+    - field.field.node.tours.field_sub_title_t
+    - field.field.node.tours.field_title
+    - field.field.node.tours.field_to
+    - field.field.node.tours.field_tours_activities
+    - field.field.node.tours.field_tours_benefits_section
+    - field.field.node.tours.field_tours_items
+    - field.field.node.tours.field_view_details_url
+    - field.field.node.tours.field_welk_exp_btn
+    - field.field.node.tours.field_welk_exp_desc
+    - field.field.node.tours.field_welk_exp_faq
+    - field.field.node.tours.field_welk_exp_heading
+    - field.field.node.tours.field_welk_exp_image
+    - field.field.node.tours.field_welk_exp_title
+    - node.type.tours
+  module:
+    - entity_reference_revisions
+    - file
+    - image
+    - link
+    - metatag
+    - text
+    - user
+id: node.tours.default
+targetEntityType: node
+bundle: tours
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_benefits_description:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_description:
+    weight: 120
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_description_t:
+    weight: 138
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_enable_show_on_resort:
+    weight: 139
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_gallery:
+    weight: 134
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_hero_section_tr:
+    type: entity_reference_revisions_entity_view
+    weight: 102
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_highlight_section_t:
+    type: entity_reference_revisions_entity_view
+    weight: 133
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 121
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_inspire_description:
+    weight: 125
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_inspire_sub_title:
+    weight: 123
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_inspire_title:
+    weight: 126
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_inspire_top_description:
+    weight: 128
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_inspire_top_title:
+    weight: 124
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_inspire_video:
+    weight: 127
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_meta_tags:
+    weight: 148
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_social_feed_image_section:
+    weight: 140
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_social_feed_images:
+    weight: 141
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_stay_play:
+    weight: 107
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_sub_title:
+    weight: 119
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_sub_title_t:
+    weight: 137
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_title:
+    weight: 118
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_to:
+    weight: 136
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_tours_activities:
+    type: entity_reference_revisions_entity_view
+    weight: 135
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_tours_benefits_section:
+    type: entity_reference_revisions_entity_view
+    weight: 106
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_tours_items:
+    type: entity_reference_revisions_entity_view
+    weight: 104
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_value_section_faq_t:
+    type: entity_reference_revisions_entity_view
+    weight: 117
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_value_section_header:
+    weight: 114
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_view_details_url:
+    weight: 122
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_welk_exp_btn:
+    weight: 147
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_welk_exp_desc:
+    weight: 144
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_welk_exp_faq:
+    type: entity_reference_revisions_entity_view
+    weight: 146
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_welk_exp_heading:
+    weight: 143
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_welk_exp_image:
+    weight: 145
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_welk_exp_title:
+    weight: 142
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,19 @@
+uuid: a8c1854f-5bc5-494c-98cc-f82f2cfccafe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_measurement_
+    - paragraphs.paragraphs_type.room_features
+id: paragraph.room_features.field_measurement_
+field_name: field_measurement_
+entity_type: paragraph
+bundle: room_features
+label: 'Measurement Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

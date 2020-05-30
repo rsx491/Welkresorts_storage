@@ -1,0 +1,407 @@
+{%  set base_url = url('<front>')  %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Welk Resorts Booking - Review Changed Reservation</title>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/jquery.datepick.css">
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/main.css" />
+</head>
+
+<body>
+   <div class="main-wrapper">
+      <!-- header start-->
+      <header>	
+	{% if _context[""]["#items"]['booking_details_data'].itenary_ID is not empty %}
+		 <div class="container p-0">
+			<div class="row booking-header align-items-center">
+			   <div class="order-xl-1 order-lg-1 order-md-1 order-sm-1 order-1 col-xl-6 col-lg-5 col-md-6 col-sm-6 col-5">
+				  <div class="row align-items-center">
+					 <div class="col-lg-4 col-xl-3 col-12 nopadding">
+						<img src="{{file_url(_context[""]["#items"]['header_block_val']['bookingLogo'] )}}" alt="Welk Logo" class="img-fluid">
+					 </div>
+					 
+					 <div class="col-lg-8 col-xl-9 col-12">
+						<h6 class="header-location p-0 m-0">{{ _context[""]["#items"]['header_query_val']['h1_resortname'] | raw }}</h6>
+						<p class="p-0 m-0 d-none d-lg-block d-xl-block header-info ">{{ _context[""]["#items"]['header_query_val']['h1_address'] | raw }}</p>
+					 </div>
+					 
+				  </div>
+			   </div>
+			   <div class="order-xl-2 order-lg-2 order-md-3 order-sm-3 order-3 col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 ta-rating">
+				  <div class="row">
+					 <div class="col-lg-12 col-xl-12 col-6">
+						<p class="p-0 m-0 header-info ">TripAdvisor Ratings</p>
+					 </div>
+					<div class="col-lg-12 col-xl-12 col-6">
+						<img src="{{ file_url(_context[""]["#items"]['header_query_val']['resort_tripadvisor_image']) }}" alt="ta-logo">
+					   
+					</div>
+				  </div>
+			   </div>
+			   <div
+				  class="nopadding order-xl-3 order-lg-3 order-md-2 order-sm-2 order-2 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-7">
+				  <ul class="list-inline clearfix header-contact">
+					 <li class="list-inline-item">
+						<a href="#" class="d-none d-sm-block d-md-block d-lg-block d-xl-block">{{ _context[""]["#items"]['header_query_val']['h1_contact'] }}</a>
+						<a href="#" class="d-block d-sm-none callIn">CALL</a>
+					 </li>
+					 
+							
+					 <li class="list-inline-item float-right signIn"><a href="{{ _context[""]["#items"]['header_block_val']['headerLink'] }}" title="{{ _context[""]["#items"]['header_title'] }}">{{ _context[""]["#items"]['header_block_val']['headerTitle'] }}</a></li>
+					 
+				  </ul>
+				  <div class="best-rates-header align-items-center" data-target="#bestRatesModal"
+							data-toggle="modal">Best Rate Guaranteed
+					 <span class="info-icon"></span>
+				  </div>
+				<div class="modal" id="bestRatesModal">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<!-- Modal Header -->
+							<div class="modal-header">
+								<h4 class="modal-title">Best Rates</h4>
+								<button class="close" data-dismiss="modal" type="button"></button>
+							</div>
+
+							<!-- Modal body -->
+							<div class="modal-body">
+								{{ drupal_region('best_rates_guaranteed') }}
+							</div>
+
+							<!-- Modal footer -->
+							<div class="modal-footer">
+								<button class="btn btn-danger" data-dismiss="modal" type="button">
+									Close
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			   </div>
+			</div>
+		 </div>
+      </header>
+      <!--/ header end -->
+      <div class="content-wrapper">
+         <!-- page-header -->
+         <div class="booking-page-header">
+            <div class="container">
+               <div class="row pl-0">
+                  <span class="get-away-text">{{ drupal_field('field_review_changed_reservation', 'block_content', 21) }}</span>
+               </div>
+            </div>
+         </div>
+         <!--/page-header -->
+         <!-- reservation changed -->
+         <div class="resrvation-changed">
+            <div class="container">
+               <!--button container-->
+               <div class="d-none d-lg-block d-xl-block clearfix reservation-btn-div">                  
+				  <a data-toggle="modal" data-target="#cancelReservation" class="btn btn-secondary medium float-right"href="{{ base_url }}reservation/session/out">Cancel Changes</a>			
+                  <a class="btn btn-primary medium float-right mr-4" href="{{ base_url }}reservation/confirm-stay">Continue to Checkout</a>
+               </div>
+               <!--button container-->
+               <div class="row">
+                  <div class="col-lg-6 col-xl-6 col-12 noPadMobile oR">
+                     <div class="oReservation">
+                        <div class="oReservationBg">
+                           <h3>Original Reservation</h3>
+                        </div>
+                        <!-- show only mobile -->
+                        <hr class="d-none d-lg-block d-xl-block" />
+                        <!-- toggle mobile -->
+                        <div class="collapse show" id="oReservationMobile">
+							<div class="confirm-room-details">
+								<p class="mt-1"><strong>{{ _context[""]["#items"]['header_query_val']['h1_resortname'] | raw }}</strong></p>
+								<span>
+									{{ _context[""]["#items"]["booking_details_data"].check_in }} to {{ _context[""]["#items"]["booking_details_data"].check_out }}<br />
+									{{ _context[""]["#items"]["booking_details_data"].no_room }}, {{ _context[""]["#items"]["booking_details_data"].no_adult }}<br />
+								</span>
+							</div>
+							{% for booking_data_key,booking_data_value in _context[""]["#items"]['booking_room_detail_data']%}
+								{% if booking_data_value|raw is not empty %}
+									{% set count = booking_data_key+1 %}
+									<div class="confirm-room-details">
+										<em>ROOM {{ count }}</em>
+										{% if booking_data_value|raw is not empty %}
+											{{ booking_data_value|raw }}
+										{% endif %}
+									</div>
+								{% endif %}
+							{% endfor %}
+							{{ _context[""]["#items"]['extension_booking_room_detail_data']|raw }}
+                        </div>
+                        <!-- toggle mobile -->
+                     </div>
+                  </div>
+                  <div class="col-lg-6 col-xl-6 col-12 oNR">
+                     <div class="nReservation">
+                        <h3>New Reservation</h3>
+                        <hr />
+                        <div class="confirm-room-details">
+                              <p class="mt-1"><strong>{{ _context[""]["#items"]['header_query_val']['h1_resortname'] | raw }}</strong></p>
+							<span>
+								{{ _context[""]["#items"]["booking_details_data"].check_in }} to {{ _context[""]["#items"]["booking_details_data"].check_out }}<br />
+								{{ _context[""]["#items"]["booking_details_data"].no_room }}, {{ _context[""]["#items"]["booking_details_data"].no_adult }}<br />
+							</span>
+                        </div>
+						{% for b,f in _context[""]["#items"]['upgraded_room'].roomStays %}
+							{% for c,d in f.roomTypes %}
+								{% if d.roomTypeCode == _context[""]["#items"]['upgrade_room_type_code'] %}
+									<div class="confirm-room-details">
+										<p class="mt-1"><strong>{{ d.roomTypeName }}</strong></p>
+										<div class="d-flex justify-content-between align-items-center">
+										{% set total_tax = 0 %}
+										{% set amount_total = 0 %}
+										{% set resort_amount = 0 %}
+											{% for rp_key,rp_value in f.ratePlans %}
+												{% if rp_value.ratePlanCode ==  _context[""]["#items"]['rate_plan_code'] %}
+													<div>															
+														<span>
+															{{ rp_value.ratePlanName }}<br />
+															<a title="Change Room" data-toggle="modal" data-target="#rateDetails" class="change-room-link" href="#"> Rate Details</a>
+														</span>																
+													</div>
+													
+															<!-- Modal -->
+															<div class="modal fade" id="rateDetails" tabindex="-1" role="dialog" aria-labelledby="bookingRoom"
+																 aria-hidden="true">
+																<div class="modal-dialog modal-lg " role="document">
+																	<div class="modal-content ">
+																	   <div class="modal-header d-block container">
+																		  <h2 class="modal-title  text-center" id="exampleModalLongTitle">{{ each_room_details.room_name }}</h2>
+																		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																			 <span aria-hidden="true">&times;</span>
+																		  </button>
+																		</div>
+																		<div class="modal-body container">
+																		  <!--tabs - photo & 3d tour -->
+																		  <div class="row">
+																			<div class="col-6">
+																			
+																				<h4>Rate Overview</h4>
+																				<br />
+																				<p>{{ rp_value.ratePlanDescription }}</p>
+																				<br />
+																				<h4>Deposit Policy</h4>
+																				<br />
+																				<p>{{ rp_value.guaranteePolicy.policyDescription }}</p>
+																				<br />
+																				<h4>Cancellation Policy</h4>
+																				<br />
+																				<p>{{ rp_value.cancellationPolicy.policyDescription }}</p>
+																				<br />
+																			
+																			</div>
+																			<div class="col-6">
+																				<h4 class="text-center mb-4">Price Breakdown</h4>
+																					<table class="table text-right price-table-breakdown">
+																						<thead>
+																							<tr>
+																								<th>&nbsp;</th>
+																								<th><strong>{{ each_room_details.rate_details_plan.no_room }} Room(s) for {{ each_room_details.rate_details_plan.no_night }} Night(s)</strong></th>
+																								<th><strong>Prices in USD</strong></th>
+																							</tr>
+																						</thead>
+																						<tbody>
+																							
+																							
+																							{% for nr_key,nr_value in d.nightlyRates %}
+																								{% if nr_value.ratePlanCode == _context[""]["#items"]['rate_plan_code'] %}					
+																								
+																									{% set total_tax = total_tax + nr_value.totalTax %}
+																									{% set amount_total = amount_total + nr_value.amtTotal %}
+																									{% set resort_amount = _context[""]["#items"]['resort_fee'] %}
+																									<tr>
+																										<td>&nbsp;</td>
+																										<td>{{ nr_value.date }}</td>
+																										<td>{{ nr_value.amtBeforeTax }}</td>
+																									</tr>
+																								{% endif %}
+																							{% endfor %}
+																						</tbody>
+																					</table>	
+																					
+																					<table>
+																					{% set totalAmountAfterCal = resort_amount + amount_total %}
+																					{% set cashRewardAmount = (15/100)* totalAmountAfterCal %}
+																						<tbody>
+																							<tr>
+																								<td>&nbsp;</td>
+																								<td>Resort Fees <img src="{{ base_url }}themes/custom/welkresorts/dest/images/info-icon-grey.svg" /></td>
+																								<td>${{ resort_amount }}</td>
+																							</tr>
+																							<!--<tr>
+																								<td>&nbsp;</td>
+																								<td><strong>Taxes</strong></td>
+																								<td><strong>${{ total_tax }}</strong></td>
+																							</tr>-->
+																							<tr>
+																								<td>&nbsp;</td>
+																								<td><strong>Total</strong></td>
+																								<td><strong>${{ totalAmountAfterCal }}</strong></td>
+																							</tr>
+																							<tr>
+																								<td>&nbsp;</td>
+																								<td><strong>Cash Rewards</strong></td>
+																								<td><strong>${{ cashRewardAmount }}</strong></td>
+																							</tr>
+																						</tbody>
+																					</table>
+																			</div>
+																		</div>
+																		  <!--tabs - photo & 3d tour -->
+																	</div>
+																	   <div class="modal-footer container">
+																		  <!--<button type="button" class="btn btn-primary medium">Select Rate</button>-->
+																		  <button type="button" class="btn btn-secondary medium" data-dismiss="modal">Close</button>
+																	   </div>
+																	</div>
+																 </div>
+															</div>
+													<div>
+														<p class="p-0 m-0"><strong>${{ rp_value.leadRate }}</strong></p>
+														<span class="reservePrice">USD For 2 Nights</span>
+													</div>
+												{% endif %}
+											{% endfor %}
+										</div>
+									</div>
+								 	          
+									<!--table-->
+									<table class="table text-right">
+									{% set totalAmountAfterCalWithTax = resort_amount + total_tax + amount_total %}
+									{% set cashRewardAmountWithTax = (15/100)* totalAmountAfterCalWithTax %}
+									   <tbody>
+										  <tr>
+											 <td>Resort Fees <img src="{{ theme_path }}/dest/images/info-icon-grey.svg" /></td>
+											 <td><strong>${{ resort_amount }} <span class="reservePrice">USD</span></strong></td>
+										  </tr>
+										  <tr>
+											 <td>Taxes</td>
+											 <td><strong>${{ total_tax }} <span class="reservePrice">USD</span></strong></td>
+										  </tr>
+										  <tr>
+											 <td><strong>Total</strong></td>
+											 <td><strong>${{ totalAmountAfterCalWithTax }} <span class="reservePrice">USD</span></strong></td>
+										  </tr>
+										  <tr>
+											 <td>Cash Rewards <img src="{{ theme_path }}/dest/images/info-icon-grey.svg" /></td>
+											 <td><strong>${{ cashRewardAmountWithTax }} <span class="reservePrice">USD</span></strong></td>
+										  </tr>
+									   </tbody>
+									</table>
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+                        <div class="d-block d-sm-none clearfix reservation-btn-div">
+                           <button type="button" class="btn btn-primary medium"><a href="{{ base_url }}reservation/confirm-stay">Continue to Checkout</a></button>
+                           <br />
+                           <button type="button" data-toggle="modal" data-target="#cancelReservation"
+                              class="btn btn-secondary medium"><a href="{{ base_url }}/reservation/session/out">Cancel Changes</a></button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- reservation changed -->
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="cancelReservation" tabindex="-1" role="dialog" aria-labelledby="bookingRoom"
+         aria-hidden="true">
+         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content ">
+               <div class="modal-header d-block container">
+                  <h2 class="modal-title  text-center" id="exampleModalLongTitle">Cancel Reservation</h2>
+                  <p class="text-center p-0 m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae
+                     nunc eget nunc posuere. Sed in urna in.</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body container">
+                  <!--cancel -->
+                  <div class="row">
+                     <div class="col-12 default-style">
+                        <div class="form-group mb-0">
+                           <label for="Region">Reason for Canceling</label>
+                           <select class="form-control" id="Region">
+                              <option>Select One</option>
+                              <option>Select Two</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer container p-0 justify-content-start">
+                  <button type="button" class="btn btn-primary large ">Complete Cancellation</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Modal -->
+		<footer class="footer-wrapper">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-12 footer-logo col-lg-6 pl-0">
+					  {{ drupal_region('Welk_logo_footer') }}
+					</div>
+					<div class="col-12 col-lg-6 top-footer-list">
+						<ul class="list-inline float-right">
+							<li class="list-inline-item"><a href="{{ _context[""]["'#items'"]['header_block_val']['footerLink']}}" title="Explore Resorts">{{ _context[""]["#items"]['header_block_val']['footerTitle']}}</a></li>
+							<li class="list-inline-item"><a href="tel:{{ _context[""]["'#items'"]['central_number']}}">{{ _context[""]["#items"]['header_block_val'] ['cNumber']}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		 <div class="divider"></div>
+		 <div class="copy-rights">
+			<div class="container">
+			   <div class="row">
+					<div class="col-12 col xl-3 col-lg-3 col-md-3 col-sm-3 pl-0">
+						{{ drupal_region('Footer_copyright') }}
+					</div>
+					<div class="col-12 col xl-9 col-lg-9 col-md-9 col-sm-9">
+						<ul class="footer-nav">
+							{% for terms in footer_menu_list %}
+								{% if terms.url.value %}
+									<li>
+										<a href="{{ terms.url.value }}" title="{{ terms.name.value }}">{{ terms.name.value }}</a>
+									</li>
+								{% else %}
+									<li>
+										<a href="{{ file_url(terms.file_link.value) }}" target="_blank" title="{{ terms.name.value }}">{{ terms.name.value }}</a>
+									</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+					</div>
+			   </div>
+			</div>
+		 </div>
+		</footer>
+	{% else %}
+		<div Class="container">
+			<div class="row">
+				<p>Oops!!! Make a fresh reservation</p>
+			</div>
+		</div>
+	{% endif %}
+   </div>
+          <script src="{{ theme_path }}/dest/js/lib/jquery-3.4.1.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/popper.min.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/bootstrap.min.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/owl.carousel.min.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/jquery.plugin.min.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/jquery.datepick.js"></script>
+         <script src="{{ theme_path }}/dest/js/custom.js"></script>
+</body>
+
+</html>

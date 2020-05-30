@@ -1,0 +1,21 @@
+uuid: 1f5ebe3e-8b8a-43d7-87d0-8854a7058b62
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_wedding_and_event_reach_ou
+field_name: field_wedding_and_event_reach_ou
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

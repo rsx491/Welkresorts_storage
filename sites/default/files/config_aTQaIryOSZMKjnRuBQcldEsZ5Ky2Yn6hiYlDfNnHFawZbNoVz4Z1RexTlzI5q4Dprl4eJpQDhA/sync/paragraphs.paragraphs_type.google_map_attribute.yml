@@ -1,0 +1,9 @@
+uuid: 1551265f-5b84-4063-8246-d3e7c8f129e5
+langcode: en
+status: true
+dependencies: {  }
+id: google_map_attribute
+label: 'Google  Map Attribute'
+icon_uuid: null
+description: 'This is related to resort name,resort activities,latitude and longitude.'
+behavior_plugins: {  }

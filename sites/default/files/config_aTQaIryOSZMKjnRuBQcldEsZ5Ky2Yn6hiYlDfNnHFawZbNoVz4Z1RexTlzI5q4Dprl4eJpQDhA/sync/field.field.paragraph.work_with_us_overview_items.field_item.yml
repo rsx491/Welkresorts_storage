@@ -1,0 +1,21 @@
+uuid: 2c819f6a-58f1-439e-81dc-c613e2381d5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_item
+    - paragraphs.paragraphs_type.work_with_us_overview_items
+  module:
+    - text
+id: paragraph.work_with_us_overview_items.field_item
+field_name: field_item
+entity_type: paragraph
+bundle: work_with_us_overview_items
+label: 'Item Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

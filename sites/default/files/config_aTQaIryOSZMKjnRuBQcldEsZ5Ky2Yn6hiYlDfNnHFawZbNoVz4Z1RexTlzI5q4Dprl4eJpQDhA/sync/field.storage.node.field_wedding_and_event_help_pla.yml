@@ -1,0 +1,19 @@
+uuid: 979c9c3e-5790-4593-b94d-6a48e21993d3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_wedding_and_event_help_pla
+field_name: field_wedding_and_event_help_pla
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

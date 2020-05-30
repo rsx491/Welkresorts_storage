@@ -1,0 +1,23 @@
+uuid: a8acc2f5-bb96-4803-b890-2908e8c14508
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_view_openings_url
+    - node.type.work_with_us
+  module:
+    - link
+id: node.work_with_us.field_view_openings_url
+field_name: field_view_openings_url
+entity_type: node
+bundle: work_with_us
+label: 'View Openings URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

@@ -1,0 +1,73 @@
+uuid: b28d5721-8ea0-4281-aa85-74d8923c3d28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.calendar_activities.field_activity_center
+    - field.field.paragraph.calendar_activities.field_activity_charge
+    - field.field.paragraph.calendar_activities.field_activity_flags
+    - field.field.paragraph.calendar_activities.field_calendar_activity_descript
+    - field.field.paragraph.calendar_activities.field_calendar_activity_title
+    - field.field.paragraph.calendar_activities.field_day
+    - field.field.paragraph.calendar_activities.field_time_time_duration
+    - paragraphs.paragraphs_type.calendar_activities
+id: paragraph.calendar_activities.default
+targetEntityType: paragraph
+bundle: calendar_activities
+mode: default
+content:
+  field_activity_center:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_activity_charge:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_activity_flags:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_calendar_activity_descript:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_calendar_activity_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_day:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_time_time_duration:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

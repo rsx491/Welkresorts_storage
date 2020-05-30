@@ -1,0 +1,25 @@
+uuid: bd82acfd-c983-4ddb-92c5-fb0bb76984d2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:welk_logo_footer:68bd027a-d712-4a81-8ff2-c0d30207d839'
+  module:
+    - block_content
+  theme:
+    - welkresorts
+id: welk_resort_logo
+theme: welkresorts
+region: Welk_logo_footer
+weight: 0
+provider: null
+plugin: 'block_content:68bd027a-d712-4a81-8ff2-c0d30207d839'
+settings:
+  id: 'block_content:68bd027a-d712-4a81-8ff2-c0d30207d839'
+  label: 'Welk Resort Logo'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

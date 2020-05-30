@@ -1,0 +1,22 @@
+uuid: 1c935d33-b0ed-4b41-abc7-6facfc98a9ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: path_pattern_for_amenities_activities
+label: 'Path pattern for Amenities & Activities'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/[node:field_select_resort]/amenities-activities'
+selection_criteria:
+  4e626d6a-9610-4184-9ea0-751a09faf251:
+    id: node_type
+    bundles:
+      amenities_activities: amenities_activities
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 4e626d6a-9610-4184-9ea0-751a09faf251
+selection_logic: and
+weight: -5
+relationships: {  }

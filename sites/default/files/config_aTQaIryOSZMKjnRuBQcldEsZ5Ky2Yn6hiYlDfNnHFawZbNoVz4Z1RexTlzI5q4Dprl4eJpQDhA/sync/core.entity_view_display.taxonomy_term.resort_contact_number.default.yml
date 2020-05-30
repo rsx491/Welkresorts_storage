@@ -1,0 +1,39 @@
+uuid: 394d4cb0-0fd8-47d5-a949-7820fed5d264
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.resort_contact_number.field_contact_number
+    - field.field.taxonomy_term.resort_contact_number.field_resort_code
+    - taxonomy.vocabulary.resort_contact_number
+  module:
+    - text
+id: taxonomy_term.resort_contact_number.default
+targetEntityType: taxonomy_term
+bundle: resort_contact_number
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_number:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_resort_code:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

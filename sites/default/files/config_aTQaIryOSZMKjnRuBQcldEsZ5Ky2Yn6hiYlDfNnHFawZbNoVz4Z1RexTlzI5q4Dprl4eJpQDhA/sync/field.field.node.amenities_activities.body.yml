@@ -1,0 +1,22 @@
+uuid: fd5dcecf-258f-4d70-a8eb-4591e10f782c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.amenities_activities
+  module:
+    - text
+id: node.amenities_activities.body
+field_name: body
+entity_type: node
+bundle: amenities_activities
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

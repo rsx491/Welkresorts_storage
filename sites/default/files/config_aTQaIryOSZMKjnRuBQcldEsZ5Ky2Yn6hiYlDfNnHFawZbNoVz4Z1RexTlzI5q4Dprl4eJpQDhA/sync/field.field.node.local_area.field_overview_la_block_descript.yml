@@ -1,0 +1,21 @@
+uuid: d29b3503-087d-4d96-bda9-daa877fd5f71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_la_block_descript
+    - node.type.local_area
+  module:
+    - text
+id: node.local_area.field_overview_la_block_descript
+field_name: field_overview_la_block_descript
+entity_type: node
+bundle: local_area
+label: 'Overview Block Description'
+description: 'Description to display in the block on overview.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

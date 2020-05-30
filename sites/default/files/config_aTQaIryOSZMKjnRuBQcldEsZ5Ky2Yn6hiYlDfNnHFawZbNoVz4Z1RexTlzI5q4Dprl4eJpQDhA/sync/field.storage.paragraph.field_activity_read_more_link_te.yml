@@ -1,0 +1,21 @@
+uuid: b0c6012e-1e54-46dd-bb68-c76331cda7df
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_activity_read_more_link_te
+field_name: field_activity_read_more_link_te
+entity_type: paragraph
+type: string
+settings:
+  max_length: 20
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

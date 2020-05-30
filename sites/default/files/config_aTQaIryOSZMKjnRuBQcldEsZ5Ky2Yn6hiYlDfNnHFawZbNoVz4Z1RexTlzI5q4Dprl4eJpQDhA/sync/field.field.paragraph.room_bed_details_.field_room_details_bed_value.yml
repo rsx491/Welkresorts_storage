@@ -1,0 +1,23 @@
+uuid: fcc0bb98-0743-4d43-89eb-febf0672e302
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_room_details_bed_value
+    - paragraphs.paragraphs_type.room_bed_details_
+id: paragraph.room_bed_details_.field_room_details_bed_value
+field_name: field_room_details_bed_value
+entity_type: paragraph
+bundle: room_bed_details_
+label: 'Room Details Bed Value'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

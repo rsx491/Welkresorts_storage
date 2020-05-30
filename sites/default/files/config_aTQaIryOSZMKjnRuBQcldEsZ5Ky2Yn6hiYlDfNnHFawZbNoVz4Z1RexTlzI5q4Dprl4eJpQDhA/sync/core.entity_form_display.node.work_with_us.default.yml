@@ -1,0 +1,483 @@
+uuid: e6d7a484-f3e7-41f6-bf17-72090133a006
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.work_with_us.body
+    - field.field.node.work_with_us.field_award_section
+    - field.field.node.work_with_us.field_awards_and_recognition_de
+    - field.field.node.work_with_us.field_benefits_description
+    - field.field.node.work_with_us.field_benefits_section
+    - field.field.node.work_with_us.field_description
+    - field.field.node.work_with_us.field_hero_gallery
+    - field.field.node.work_with_us.field_hero_section_wws
+    - field.field.node.work_with_us.field_image
+    - field.field.node.work_with_us.field_join_our_team
+    - field.field.node.work_with_us.field_meta_tags
+    - field.field.node.work_with_us.field_sub_title
+    - field.field.node.work_with_us.field_title
+    - field.field.node.work_with_us.field_value_section_description
+    - field.field.node.work_with_us.field_value_section_faq
+    - field.field.node.work_with_us.field_value_section_header
+    - field.field.node.work_with_us.field_value_section_image
+    - field.field.node.work_with_us.field_value_section_title
+    - field.field.node.work_with_us.field_view_openings_url
+    - field.field.node.work_with_us.field_work_with_us_comment
+    - field.field.node.work_with_us.field_work_with_us_comment_autho
+    - field.field.node.work_with_us.field_work_with_us_description
+    - field.field.node.work_with_us.field_work_with_us_header
+    - field.field.node.work_with_us.field_work_with_us_items
+    - field.field.node.work_with_us.field_work_with_us_overview_desc
+    - field.field.node.work_with_us.field_work_with_us_title
+    - field.field.node.work_with_us.field_work_with_us_video
+    - image.style.thumbnail
+    - node.type.work_with_us
+  module:
+    - field_group
+    - file
+    - image
+    - imce
+    - link
+    - metatag
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_b:
+      children:
+        - field_benefits_description
+        - field_benefits_section
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Benefits Section'
+      region: content
+    group_career_section:
+      children:
+        - field_title
+        - field_sub_title
+        - field_description
+        - field_image
+        - field_view_openings_url
+      parent_name: ''
+      weight: 10
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Career Section'
+      region: content
+    group_hero_section:
+      children:
+        - field_hero_section_wws
+        - field_hero_gallery
+      parent_name: ''
+      weight: 11
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Hero Section'
+      region: content
+    group_work_with_us:
+      children:
+        - field_work_with_us_title
+        - field_work_with_us_header
+        - field_work_with_us_description
+        - field_work_with_us_video
+        - field_join_our_team
+        - field_work_with_us_comment
+        - field_work_with_us_comment_autho
+      parent_name: group_work_with_us_description
+      weight: 16
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Work With Us'
+      region: content
+    group_work_with_us_description:
+      children:
+        - field_work_with_us_overview_desc
+        - group_work_with_us
+        - group_blog_items
+        - group_work_with_us_value_section
+      parent_name: ''
+      weight: 12
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Work with us - Description'
+      region: content
+    group_blog_items:
+      children:
+        - field_work_with_us_items
+      parent_name: group_work_with_us_description
+      weight: 17
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Blog Items'
+      region: content
+    group_work_with_us_value_section:
+      children:
+        - field_value_section_title
+        - field_value_section_header
+        - field_value_section_description
+        - field_value_section_image
+        - field_value_section_faq
+      parent_name: group_work_with_us_description
+      weight: 18
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'work with us - value section'
+      region: content
+    group_award_section:
+      children:
+        - field_awards_and_recognition_de
+        - field_award_section
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Award Section'
+      region: content
+id: node.work_with_us.default
+targetEntityType: node
+bundle: work_with_us
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_award_section:
+    type: paragraphs
+    weight: 4
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+    third_party_settings: {  }
+  field_awards_and_recognition_de:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_benefits_description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_benefits_section:
+    type: entity_reference_paragraphs
+    weight: 3
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_description:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_hero_gallery:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_hero_section_wws:
+    type: entity_reference_paragraphs
+    weight: 10
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_image:
+    weight: 13
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_join_our_team:
+    type: link_default
+    weight: 19
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_meta_tags:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_sub_title:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_title:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_value_section_description:
+    type: text_textarea
+    weight: 23
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_value_section_faq:
+    type: paragraphs
+    weight: 26
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+    third_party_settings: {  }
+  field_value_section_header:
+    type: text_textarea
+    weight: 22
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_value_section_image:
+    type: image_image
+    weight: 24
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+  field_value_section_title:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_view_openings_url:
+    weight: 14
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_work_with_us_comment:
+    type: text_textarea
+    weight: 20
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_with_us_comment_autho:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_with_us_description:
+    type: text_textarea
+    weight: 17
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_with_us_header:
+    type: text_textarea
+    weight: 15
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_with_us_items:
+    type: paragraphs
+    weight: 26
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+    third_party_settings: {  }
+  field_work_with_us_overview_desc:
+    type: text_textarea
+    weight: 15
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_with_us_title:
+    type: string_textfield
+    weight: 14
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_work_with_us_video:
+    type: file_generic
+    weight: 18
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+  path:
+    type: path
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 9
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  body: true

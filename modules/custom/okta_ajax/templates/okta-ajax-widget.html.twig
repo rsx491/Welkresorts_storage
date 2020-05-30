@@ -1,0 +1,292 @@
+{#
+ /**
+  * Create Okta authentication widget and handle response
+  * creates custom page title block to include customized title and description
+ **/
+#}
+
+
+
+<div class="page-heading">
+  <div class="container">
+    <div class="inner-wrapper">
+        
+          <h2>{{ okta_config.account_title }}</h2>
+          <p>{{ okta_config.account_description }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- tab menu -->
+<div class="myaccount tab-components" style="display:none;">
+    <div class="container">
+        <div class="inner-wrapper">
+            <ul class="d-flex">
+                <li><a class="active tab-button signin-button" href="#" title="Account Sign In" onClick="tabSignIn();return false;" >Account Sign In</a></li>
+                <li><a href="#" class="tab-button register-button" title="Create Account" onClick="tabRegister();return false;">Create Account</a></li>
+            </ul>
+        </div>
+        <div class="row" style="text-align:center;">
+          <h3 style="width:100%;">Sign In to Your Welk Resorts Account</h3>
+    </div>
+</div>
+
+<div id="okta_ajax_forgotpwd" style="display:none;">
+  <h3>Provide the Following to Retrieve Password</h3>
+  <div class="row">
+    <label>Email Address</label>
+  </div>
+  <div class="row">
+    <input type="text" name="okta_forgotpwd_email" id="okta_forgotpwd_email">
+    <p></p>
+  </div>
+  <div class="row">
+    <a class="btn btn-primary large" onClick="oktaRequestForgotPwd(); return false;">Continue</a>
+    <a class="btn large" onClick="oktaCancelForgotPwd(); return false;">Cancel</a>
+  </div>
+</div>
+
+<div id="okta_ajax_widget" style="">
+</div>
+
+<div id="okta_ajax_loggedin" style="display:none;">
+	<p>Redirecting to My Profile..</p>
+</div>
+
+<script>
+
+window.oktaDomain = 'https://{{ okta_config.domain }}.oktapreview.com';
+window.oktaAccountPath = '{{ okta_config.account_path }}';
+window.oktaProfilePath = '{{ okta_config.profile_path }}';
+window.oktaIsLogged = {% if okt_config.is_logged %}'{{ okta_config.is_logged }}'{% else %} false {% endif %};
+window.oktaFrontURL = '{{ okta_config.front_url }}';
+
+window.oktaSignInTabHeader = '{{ okta_config.signin_tab_header}}';
+window.oktaRegisterTabHeader = '{{ okta_config.register_tab_header}}';
+
+
+window.hashkeys = {};
+
+function oktaRequestForgotPwd() {
+  let email = document.getElementById('account-recovery-username').value;
+  if(email && !window._oktaSendingForgotPwd && email.length > 3 && 0 < email.indexOf('@') ){
+    window._oktaSendingForgotPwd = true;
+    oktaSelfApi('reset_password',{username:email},{},function(response){
+        res = {};
+        if( /The website encountered an unexpected/.test(response.responseText) ) {
+            res = {'error': response.responseText };
+        } else {
+            res = JSON.parse(response.responseText);
+        }
+        console.log("reset response",res);
+        var header = 'Check Your Email';
+        var msg = "A link to reset your password was sent to your email";
+        if(res.error){
+            header = 'Error';
+            msg = "There was an error attempting to send a password reset: "+res.error;
+            document.querySelector('div[data-se="o-form-error-container"]').innerHTML = '<div><div class="okta-form-infobox-error infobox infobox-error" role="alert">      <span class="icon error-16"></span>              <p>'+msg+'</p>          </div></div>';
+        } else {
+          document.querySelector('div[data-se="o-form-fieldset-container"]').innerHTML="<h3>"+header+"</h3><p>"+msg+"</p>";
+          document.querySelector('a[data-se="back-link"]').addEventListener("click",function(){location.reload();});
+          document.querySelector('a[data-se="back-link"]').innerText="Click Here to Sign In";
+        }
+        window._oktaSendingForgotPwd=false;
+    });
+  }
+}
+function oktaCancelForgotPwd() {
+
+}
+
+function tabSignIn(dontClick) {
+  
+    document.querySelector('div.myaccount h3').innerText=window.oktaSignInTabHeader?window.oktaSignInTabHeader:"Sign In to Your Welk Resorts Account";
+    if( !dontClick && document.querySelector('a[data-se="back-link"]') ) {
+      document.querySelector('a[data-se="back-link"]').click();
+    }
+    document.querySelector('a.signin-button').classList.add('active');
+    document.querySelector('a.register-button').classList.remove('active');
+  
+}
+function tabRegister(dontClick) {
+  
+    document.querySelector('div.myaccount h3').innerText=window.oktaRegisterTabHeader?window.oktaRegisterTabHeader:"Create Your Welk Resorts Account";
+    if( !dontClick && document.querySelector('a.registration-link') ) {
+      document.querySelector('a.registration-link').click();
+    }
+    document.querySelector('a.signin-button').classList.remove('active');
+    document.querySelector('a.register-button').classList.add('active');
+  
+}
+
+//document.addEventListener('DOMContentLoaded', function(){
+function initSignIn(){
+  var okta_s = false ;//window.sessionStorage.getItem('okta_session');
+  //check url hash for callback info or errors
+  if(location.hash && location.hash.length>1) {
+    let keyvals = location.hash.substring(1).split('&');
+    for(var i=0;i<keyvals.length;i++){
+    let vals = keyvals[i].split('=');
+    hashkeys[vals[0]] = vals[1];
+    }
+    if(hashkeys['error'] && hashkeys['error_description'] ) {
+    alert("Login Error ["+hashkeys['error']+"] - "+hashkeys['error_description']);
+    }
+  } 
+
+  var signInOptions = {
+    language: 'en',
+    baseUrl: 'https://{{ okta_config.domain }}.oktapreview.com',
+    clientId: '{{ okta_config.client_id }}',
+    redirectUri: '{{ okta_config.redirect_uri }}',
+    features: { 
+      registration: true, 
+      multiOptionalFactorEnroll: true, 
+      rememberMe: false,
+      showPasswordToggleOnSignInPage: true 
+    },
+    idps: [
+      {type: 'FACEBOOK', id: '0oanfxm770GZP87eu0h7'},
+      {type: 'GOOGLE', id: '0oanj0oa6pcwhDWRi0h7'}
+    ],
+    idpDisplay: 'PRIMARY',
+    authParams: { 
+      issuer: 'https://{{ okta_config.domain }}.oktapreview.com/oauth2/default', 
+      display:'page', 
+      responseType: 'id_token', scopes: ['openid', 'email', 'profile'] 
+    },
+    i18n: {
+      en: {
+        'errors.E0000007': 'Please check your email to activate or finish resetting your password'
+      }
+    },
+    el: '#okta_ajax_widget'
+  };
+  if(window.location.href != window.oktaAccountPath){
+    signInOptions.authParams.state = window.location.href;
+  }
+  var signIn = new OktaSignIn(signInOptions);
+  signIn.on('afterRender', function(context) {
+    console.log("afterRender - "+context.controller);
+    if(document.querySelector('a[data-se="back-link"]')){
+      document.querySelector('a[data-se="back-link"]').addEventListener('click',function(){ tabSignIn(true); } );
+    }
+    if(document.querySelector('a.registration-link')){
+      document.querySelector('a.registration-link').addEventListener('click',function(){ tabRegister(true); } );
+    }
+    if(context.controller=="forgot-password") {
+      document.querySelector('a[data-se="back-link"]').addEventListener("click",function(){location.reload();});
+      var backLink = document.querySelector('a.link.help.js-back');
+      if(backLink){
+        backLink.className="button button-wide email-button link-button";
+        backLink.innerText="Cancel";
+      }
+      if( document.querySelector('a[data-se="email-button"]') ) {
+        //clone and replace button to remove previous listeners
+        var el = document.querySelector('a[data-se="email-button"]');
+        var elClone = el.cloneNode(true);
+        elClone.removeAttribute('data-se');
+        elClone.addEventListener('click',function(event){
+          oktaRequestForgotPwd();
+          return false;
+        });
+        el.parentNode.replaceChild(elClone,el);
+        
+      }
+    } else if( context.controller=="password-reset-email-sent") {
+      document.querySelector('a[data-se="back-link"]').addEventListener("click",function(){location.reload();});
+      if(document.querySelector('h2.okta-form-title.o-form-head') ) {
+	     document.querySelector('h2.okta-form-title.o-form-head').innerText="Check Your Email";
+      }
+       if(document.querySelector('p.o-form-explain') ) {
+         document.querySelector('p.o-form-explain').innerText="A link to reset your password was sent to your email.";
+       }
+    } 
+  });
+  window._oktaSignIn = signIn;
+
+  if( location.hash && /id_token=/.test(location.hash) ){
+    console.log("Found token in url from oauth redirect");
+    var tokens = location.hash.split(/\#(\w\_\d)+?\=/);
+    tokens = tokens[0].split('&');
+    var token = tokens[0].replace(/\#id_token=/,'').trim().replace(/^"(.+)"$/, '$1');
+    window.sessionStorage.setItem('okta_session', token);
+    okta_s = token;
+    oktaSelfApi('introspect',{token:okta_s},{}, function(res) {
+      let state = window.sessionStorage.getItem('okta_state');
+
+      if(state && /^http/.test(state) ){
+        window.location.href = state;
+      } else if(window.opener && window.opener != window) {
+            //is open in a popup window. send message to parent and close
+            let msg = { msg_type: 'id_token', id_token: token, introspect: res.responseText };
+            window.opener.postMessage(JSON.stringify(msg), '*');
+      } else {
+        console.log("neither state nor popup, going to profile");
+        window.location.href = oktaProfilePath ;
+      }
+    });
+    if(tokens.length>1 && /state=/.test(tokens[1]) ){
+      window.sessionStorage.setItem('okta_state', decodeURIComponent(tokens[1].replace('state=','')) );
+    }
+
+  }  else {
+    //call getToken to check whether user is signed in
+    console.log("No token in location hash, call get_token");
+    oktaSelfApi('get_token',{},{}, function(res) {
+      console.log("token", res);
+      if(res && res.responseText && res.responseText.length > 5 ) {
+          var tokenO = JSON.parse(res.responseText);
+          window.sessionStorage.setItem('okta_session', res.responseText.trim().replace(/^"(.+)"$/, '$1') );
+          let state = window.sessionStorage.getItem('okta_state');
+          if(state && /^http/.test(state) ){
+            document.getElementById('okta_ajax_loggedin').innerHTML="Currently logged in";
+            document.getElementById('okta_ajax_loggedin').style.display='block';
+          } else if(window.opener && window.opener != window) {
+            //is open in a popup window. send message to parent and close
+            console.log("In popup");
+            let msg = { msg_type: 'id_token', id_token: res.responseText.trim().replace(/^"(.+)"$/, '$1') };
+            window.opener.postMessage(JSON.stringify(msg), '*');
+          } else {
+            console.log("Neither popup or state, going to profile");
+            window.location.href = oktaProfilePath;
+          }
+          return;
+      } else {
+          window.sessionStorage.removeItem('okta_state'); window.sessionStorage.removeItem('okta_session');
+          document.querySelector('div.tab-components').style.display='block';
+          signIn.renderEl({
+            el: '#okta_ajax_widget'
+          }, function success(res) {
+            console.log("widget success", res);
+            window.sessionStorage.setItem("okta_response", res);
+            if(res.status==='SUCCESS') {
+              console.log("Retrieved session token", res.session.token);
+              window.sessionStorage.setItem('okta_session', res.session.trim().replace(/^"(.+)"$/, '$1') );
+            } else {
+              console.log("returned result but not success", res);
+              //alert("Authentication did not return success: "+res.status);
+            }
+          }, function error(err){
+            console.log("Error logging in"); console.log(err); 
+          });
+      }
+    });
+  }
+}//end init
+window.oktaInitTimer = setInterval(function(){
+  if(typeof(OktaSignIn)!="undefined" && typeof(oktaSelfApi) != "undefined"){
+    clearTimeout(window.oktaInitTimer);
+    initSignIn();
+  }
+},200);
+
+
+
+
+
+
+//}, false); //finish content loaded
+
+
+</script>

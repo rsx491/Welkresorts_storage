@@ -1,0 +1,30 @@
+uuid: 4308977c-8bf3-4389-9c1f-a359bef859eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accomodation_node
+    - node.type.accomodation
+    - node.type.resort_destinations
+  module:
+    - entity_reference_revisions
+id: node.resort_destinations.field_accomodation_node
+field_name: field_accomodation_node
+entity_type: node
+bundle: resort_destinations
+label: 'Accomodation Node'
+description: 'Accomodation content reference.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      accomodation: accomodation
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

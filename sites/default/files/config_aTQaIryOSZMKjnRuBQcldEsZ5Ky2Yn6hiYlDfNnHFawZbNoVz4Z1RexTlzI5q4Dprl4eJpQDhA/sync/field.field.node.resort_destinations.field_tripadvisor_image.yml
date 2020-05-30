@@ -1,0 +1,38 @@
+uuid: 62be91c4-eb1d-4d70-8dc5-9f53a258b1ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tripadvisor_image
+    - node.type.resort_destinations
+  module:
+    - image
+id: node.resort_destinations.field_tripadvisor_image
+field_name: field_tripadvisor_image
+entity_type: node
+bundle: resort_destinations
+label: 'Tripadvisor - image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

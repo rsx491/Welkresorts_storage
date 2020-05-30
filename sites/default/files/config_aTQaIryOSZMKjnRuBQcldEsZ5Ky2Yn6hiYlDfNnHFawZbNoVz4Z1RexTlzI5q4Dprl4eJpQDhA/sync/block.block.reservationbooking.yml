@@ -1,0 +1,31 @@
+uuid: 97eb0715-3fe2-4d0e-bcf2-c77c346d5031
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:booking_section_content:a8391c9a-21b7-45fa-b783-b7148b530abd'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: reservationbooking
+theme: welkresorts
+region: Central_contact_number
+weight: 0
+provider: null
+plugin: 'block_content:a8391c9a-21b7-45fa-b783-b7148b530abd'
+settings:
+  id: 'block_content:a8391c9a-21b7-45fa-b783-b7148b530abd'
+  label: 'Reservation Booking'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/reservation/booking\r\n/reservation/details\r\n/select-rate"
+    negate: false
+    context_mapping: {  }

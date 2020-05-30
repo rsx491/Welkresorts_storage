@@ -1,0 +1,161 @@
+uuid: f480e5cb-205c-4361-9a74-645ab3ba3253
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.media_landing_page.body
+    - field.field.node.media_landing_page.field_attraction_subtitle
+    - field.field.node.media_landing_page.field_attraction_title
+    - field.field.node.media_landing_page.field_featured_resort_activites_
+    - field.field.node.media_landing_page.field_featured_resort_activities
+    - field.field.node.media_landing_page.field_hero_gallery
+    - field.field.node.media_landing_page.field_hero_section_mlp
+    - field.field.node.media_landing_page.field_highlight_description
+    - field.field.node.media_landing_page.field_highlight_image
+    - field.field.node.media_landing_page.field_highlight_subtitle
+    - field.field.node.media_landing_page.field_highlight_title
+    - field.field.node.media_landing_page.field_local_area_attractions
+    - field.field.node.media_landing_page.field_meta_tags
+    - field.field.node.media_landing_page.field_resort_activities_featured
+    - field.field.node.media_landing_page.field_stay_play
+    - node.type.media_landing_page
+  module:
+    - entity_reference_revisions
+    - file
+    - image
+    - metatag
+    - text
+    - user
+id: node.media_landing_page.default
+targetEntityType: node
+bundle: media_landing_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_attraction_subtitle:
+    weight: 112
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_attraction_title:
+    weight: 111
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_featured_resort_activites_:
+    weight: 109
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_featured_resort_activities:
+    weight: 108
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_hero_gallery:
+    weight: 115
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_hero_section_mlp:
+    type: entity_reference_revisions_entity_view
+    weight: 114
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_highlight_description:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_highlight_image:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_highlight_subtitle:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_highlight_title:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_local_area_attractions:
+    weight: 107
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_meta_tags:
+    weight: 116
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_resort_activities_featured:
+    type: entity_reference_revisions_entity_view
+    weight: 113
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_stay_play:
+    weight: 110
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

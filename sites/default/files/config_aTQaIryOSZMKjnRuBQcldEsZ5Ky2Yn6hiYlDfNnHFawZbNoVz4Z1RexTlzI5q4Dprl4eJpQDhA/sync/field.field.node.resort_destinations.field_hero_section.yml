@@ -1,0 +1,34 @@
+uuid: 75bf4604-e19c-4cb9-8228-821148403537
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_section
+    - node.type.resort_destinations
+    - paragraphs.paragraphs_type.videobackground_banner_block
+  module:
+    - entity_reference_revisions
+id: node.resort_destinations.field_hero_section
+field_name: field_hero_section
+entity_type: node
+bundle: resort_destinations
+label: 'Hero Section'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      videobackground_banner_block: videobackground_banner_block
+    target_bundles_drag_drop:
+      videobackground_banner_block:
+        enabled: true
+        weight: 3
+      welk_experience:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

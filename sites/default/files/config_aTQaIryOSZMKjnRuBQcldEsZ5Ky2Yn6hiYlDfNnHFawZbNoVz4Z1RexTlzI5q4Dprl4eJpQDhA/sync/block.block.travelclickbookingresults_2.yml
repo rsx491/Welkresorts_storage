@@ -1,0 +1,26 @@
+uuid: f6795207-40b3-486a-ad2b-31e80528be94
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+    - travelclick
+  theme:
+    - welkresorts
+id: travelclickbookingresults_2
+theme: welkresorts
+region: Room_details
+weight: 0
+provider: null
+plugin: travelclick_availability_block
+settings:
+  id: travelclick_availability_block
+  label: 'TravelClick Booking Results'
+  provider: travelclick
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /reservation/booking
+    negate: false
+    context_mapping: {  }

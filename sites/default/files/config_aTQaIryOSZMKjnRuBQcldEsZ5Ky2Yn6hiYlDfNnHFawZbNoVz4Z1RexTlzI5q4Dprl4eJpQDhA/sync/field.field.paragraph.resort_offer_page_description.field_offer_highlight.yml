@@ -1,0 +1,21 @@
+uuid: 53276db7-8c5b-4eee-af01-63ad168c2794
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_offer_highlight
+    - paragraphs.paragraphs_type.resort_offer_page_description
+  module:
+    - options
+id: paragraph.resort_offer_page_description.field_offer_highlight
+field_name: field_offer_highlight
+entity_type: paragraph
+bundle: resort_offer_page_description
+label: 'Offer Highlight'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

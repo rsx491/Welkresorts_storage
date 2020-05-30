@@ -1,0 +1,19 @@
+uuid: b66615b3-8782-4099-949c-b2a82cb1479e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highlight_subtitle
+    - node.type.amenities_activities
+id: node.amenities_activities.field_highlight_subtitle
+field_name: field_highlight_subtitle
+entity_type: node
+bundle: amenities_activities
+label: 'Highlight subtitle'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

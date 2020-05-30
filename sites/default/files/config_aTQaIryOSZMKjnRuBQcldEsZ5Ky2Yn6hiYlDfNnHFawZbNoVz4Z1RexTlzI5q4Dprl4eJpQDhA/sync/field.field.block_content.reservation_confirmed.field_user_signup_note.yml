@@ -1,0 +1,19 @@
+uuid: 16664377-3100-4759-8e1b-fe5a0fd79f68
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_user_signup_note
+id: block_content.reservation_confirmed.field_user_signup_note
+field_name: field_user_signup_note
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'user signup note'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

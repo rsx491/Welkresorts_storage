@@ -1,0 +1,23 @@
+uuid: 9bab7174-8672-48dd-b93e-f79000e34c6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comments_for_blog
+    - field.field.block_content.comments_for_blog.field_blog_comment
+  module:
+    - webform
+id: block_content.comments_for_blog.default
+targetEntityType: block_content
+bundle: comments_for_blog
+mode: default
+content:
+  field_blog_comment:
+    weight: 0
+    label: hidden
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: content
+hidden: {  }

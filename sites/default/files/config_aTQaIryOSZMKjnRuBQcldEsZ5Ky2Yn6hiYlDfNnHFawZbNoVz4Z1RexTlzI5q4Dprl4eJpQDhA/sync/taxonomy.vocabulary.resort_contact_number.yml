@@ -1,0 +1,8 @@
+uuid: 295fcaa4-569e-4678-ac09-71fb13e70468
+langcode: en
+status: true
+dependencies: {  }
+name: 'Resort Contact Number'
+vid: resort_contact_number
+description: 'This is for the Contact Number of the Resorts'
+weight: 0

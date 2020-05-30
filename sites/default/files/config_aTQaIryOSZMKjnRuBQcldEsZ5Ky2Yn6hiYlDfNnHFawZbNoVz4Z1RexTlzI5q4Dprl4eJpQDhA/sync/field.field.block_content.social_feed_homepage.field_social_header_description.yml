@@ -1,0 +1,21 @@
+uuid: 65817e15-6fb6-4ee3-b404-20055b846582
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_feed_homepage
+    - field.storage.block_content.field_social_header_description
+  module:
+    - text
+id: block_content.social_feed_homepage.field_social_header_description
+field_name: field_social_header_description
+entity_type: block_content
+bundle: social_feed_homepage
+label: 'Social Header Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

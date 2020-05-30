@@ -1,0 +1,843 @@
+body {
+  &.active {
+    //Fixed Container for Resort Destination
+    .content-wrapper.clearfix,
+    .footer-wrapper {
+      position: fixed;
+      width: 100%;
+    }
+
+    .footer-wrapper {
+      bottom: 0;
+    }
+  }
+}
+
+.main-wrapper > .container-fluid {
+  padding: 0;
+
+  .content-wrapper {
+    position: relative;
+
+    @include breakpoint(mobileonly) {
+      z-index: 1;
+    }
+  }
+}
+
+.container {
+  max-width: 1110px;
+  padding: 0px;
+
+  @include breakpoint(mobileonly) {
+    padding: 0px 15px;
+  }
+}
+
+//Modal Window
+#myModal {
+  .modal-header {
+    position: relative;
+
+    button {
+      position: absolute;
+      top: 18px;
+      right: 25px;
+    }
+  }
+}
+
+/*Welk Experience*/
+
+.welk-experience {
+  display: block;
+  padding: 120px;
+
+  @include breakpoint(mobileonly) {
+    padding: 56px 0 35px;
+  }
+
+  span {
+    display: block;
+  }
+
+  span.experience {
+    color: $gray-darken-color;
+    @include font-stage-Montserrat(500, 13px, 16px);
+    letter-spacing: 2.71px;
+    text-transform: uppercase;
+    padding: 0 0 8px;
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Montserrat(500, 12px, 15px);
+      padding: 0 0 5px;
+    }
+  }
+
+  span.get-away-text {
+    color: $gray-darken-1-color;
+    @include font-stage-Playfair-Display(bold, 46px, 48px);
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Playfair-Display(bold, 30px, 36px);
+      padding: 4px 0 20px;
+    }
+  }
+
+  .welk-resorts-is-more {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(normal, 18px, 28px);
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Open-Sans(normal, 15px, 24px);
+      padding-top: 5px;
+    }
+  }
+
+  .integer-ultrices {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 16px, 28px);
+    margin: 15px 0px 20px 0px;
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Open-Sans(normal, 14px, 20px);
+    }
+  }
+
+  .welk-resorts-address {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 16px, 28px);
+
+    @include breakpoint(mobileonly) {
+      margin-top: 25px;
+    }
+  }
+
+  .location-map,
+  .location-phone-no {
+    color: $gray-darken-1-color;
+    @include font-stage-Open-Sans(400, 14px, 28px);
+    text-transform: uppercase;
+    margin: 22px 10px 0px 0px;
+  }
+
+  .trip-adv-logo {
+    width: 250px;
+    height: 250px;
+    border: 1px solid #e6e6e6;
+    line-height: 40px;
+    padding: 40px;
+    margin: 48px 0px 0px 0px;
+    background: $white-color;
+
+    @include breakpoint(mobileonly) {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      height: auto;
+      margin-top: 20px;
+    }
+  }
+
+  .view-more {
+    a {
+      color: $gray-darken-1-color;
+      @include font-stage-Montserrat(500, 14px, 16px);
+      text-transform: uppercase;
+      letter-spacing: 1.75px;
+    }
+  }
+  &.media {
+    padding-top: 0;
+    padding-bottom: 0;
+    .stay-play {
+      margin-top: 80px;
+    }
+  }
+}
+
+/*Spacious Accommodation*/
+
+.spacious-accommodation {
+  .wave-btn {
+    background: url("../../src/images/wave-texture.jpg") no-repeat;
+    width: 104px;
+    height: 104px;
+    position: relative;
+    margin-bottom: -50px;
+    z-index: 9;
+    left: -112px;
+    top: -60px;
+
+    @include breakpoint(mobileonly) {
+      background: url("../../src/images/wave-texture-m.jpg") no-repeat;
+      width: 64px;
+      height: 64px;
+      margin-bottom: -35px;
+      left: 0px;
+      top: -10px;
+      z-index: 1;
+    }
+  }
+
+  img {
+    max-width: 560px;
+    height: 580px;
+    position: relative;
+    left: -112px;
+    top: -60px;
+
+    @include breakpoint(mobileonly) {
+      left: 0;
+      max-width: 100%;
+      top: -10px;
+      height: 269px;
+    }
+  }
+
+  .card {
+    border: none;
+    border-bottom: 1px solid $gray-lighten-1-color;
+    padding: 20px 0;
+
+    .card-header {
+      background: none;
+      border: none;
+      padding: 0;
+
+      .btn-link.collapsed,
+      .btn-link {
+        width: 95%;
+        padding-left: 0;
+        padding-right: 0;
+
+        .field--item {
+          color: $gray-darken-1-color;
+          @include font-stage-Montserrat(600, 15px, 24px);
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          background: url("../../src/images/accordion-toggle.svg") right center no-repeat;
+          width: 100%;
+          text-align: left;
+
+          @include breakpoint(mobileonly) {
+            @include font-stage-Montserrat(600, 13px, 24px);
+            letter-spacing: 1.73px;
+            background-size: 13px;
+          }
+        }
+
+        &.btn-link.collapsed:hover .field--item {
+          color: $blue-lighten-color;
+          display: block;
+          text-decoration: none;
+        }
+
+        @include breakpoint(mobileonly) {
+          @include font-stage-Montserrat(600, 13px, 24px);
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &:focus {
+          text-decoration: none;
+          outline: none;
+        }
+      }
+
+      &.active {
+        .btn-link {
+          .field--item {
+            background: url("../../src/images/accordion-toggle-up.svg") right center no-repeat;
+            color: $blue-lighten-color;
+            text-decoration: none;
+
+            @include breakpoint(mobileonly) {
+              background-size: 13px;
+            }
+          }
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          &:focus {
+            text-decoration: none;
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .card-body {
+      color: $gray-darken-color;
+      @include font-stage-Open-Sans(normal, 16px, 28px);
+      width: 95%;
+      padding-left: 0;
+      padding-right: 0;
+
+      @include breakpoint(mobileonly) {
+        padding: 0px 40px 0 0;
+        @include font-stage-Open-Sans(normal, 13px, 24px);
+        color: $gray-darken-color;
+      }
+      p {
+        @include breakpoint(mobileonly) {
+          font-size: 13px;
+        }
+      }
+    }
+
+    @include breakpoint(mobileonly) {
+      padding: 16px 0;
+    }
+  }
+
+  .btn-primary {
+    margin: 75px 0 120px;
+    @include font-stage-Montserrat(600, 13px, 14px);
+    color: $white-color;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    padding: 21px 55px;
+    display: inline-block;
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Montserrat(600, 12px, 14px);
+      padding: 14px 28px;
+      margin: 46px 0 65px;
+      height: 40px;
+    }
+  }
+  .divider {
+    @include breakpoint(mobileonly) {
+      border-top: none;
+      margin-top: 10px;
+    }
+  }
+}
+
+/*Vacation Awaits*/
+
+.vacation-awaits {
+  background: $blue-darken-color url("../../src/images/bg-wave-pattern-dark.png") top center no-repeat;
+  padding-top: 120px;
+  margin-bottom: 10px;
+
+  @include breakpoint(mobileonly) {
+    background: $blue-darken-color url("../../src/images/bg-wave-pattern-dark-mobile.jpg") top center no-repeat;
+    background-size: contain;
+  }
+
+  p.vacation-awaits-text {
+    color: $white-color;
+    @include font-stage-Playfair-Display(bold, 46px, 56px);
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Playfair-Display(bold, 30px, 32px);
+    }
+  }
+
+  .explore-text {
+    color: $white-color;
+    font: normal 18px/24px "Open Sans";
+    padding-bottom: 376px;
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Open-Sans(normal, 15px, 24px);
+      padding-bottom: 185px;
+    }
+  }
+
+  @include breakpoint(mobileonly) {
+    padding-top: 55px;
+  }
+}
+
+.destination-cards {
+  position: relative;
+  margin-top: -290px;
+  margin-bottom: 40px;
+
+  @include breakpoint(mobileonly) {
+    margin-top: -165px;
+  }
+
+  .col {
+    @include breakpoint(mobileonly) {
+      flex-basis: 100%;
+    }
+
+    .card-img-top {
+      -webkit-border-radius: 0px;
+      border-radius: 0px;
+      -moz-border-radius: 0px;
+      -ms-border-radius: 0px;
+      -o-border-radius: 0px;
+    }
+
+    &:last-child {
+      .card {
+        @include breakpoint(mobileonly) {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  .card {
+    border: none;
+
+    @include breakpoint(mobileonly) {
+      margin-bottom: 32px;
+    }
+
+    .card-img-zoom {
+      overflow: hidden;
+
+      img {
+        transform-origin: 0 0;
+        transition: transform 0.25s, visibility 0.25s ease-in;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .card-img-zoom {
+        overflow: hidden;
+
+        img {
+          transform: scale(1.1);
+        }
+      }
+
+      .card-body {
+        background: $white-color;
+        box-shadow: 10px 2px 34px 0 rgba(0, 0, 0, 0.1);
+
+        .explore-icon {
+          background: url("../../src/images/cta-arrow-up.svg") 0 2px no-repeat;
+          display: inline-block;
+          width: 25px;
+          height: 10px;
+        }
+      }
+    }
+  }
+
+  .card-body {
+    width: 90%;
+    background-color: $gray-lighten-2-color;
+    position: relative;
+    margin-top: -40px;
+    padding: 40px;
+
+    @include breakpoint(mobileonly) {
+      padding: 40px 32px 32px;
+    }
+
+    h6 {
+      color: $blue-darken-color;
+      @include font-stage-Montserrat(500, 13px, 16px);
+      letter-spacing: 1.63px;
+      text-transform: uppercase;
+      padding: 0;
+      margin: 0;
+
+      @include breakpoint(mobileonly) {
+        @include font-stage-Montserrat(500, 12px, 15px);
+        letter-spacing: 1.5px;
+      }
+    }
+
+    h2 {
+      color: $gray-darken-1-color;
+      @include font-stage-Playfair-Display(bold, 28px, 32px);
+      padding-top: 8px;
+      margin: 0;
+
+      @include breakpoint(mobileonly) {
+        @include font-stage-Playfair-Display(bold, 20px, 28px);
+      }
+    }
+
+    .card-text {
+      color: $gray-darken-2-color;
+      @include font-stage-Open-Sans(normal, 16px, 28px);
+      padding-top: 8px;
+      margin: 0;
+
+      @include breakpoint(mobileonly) {
+        @include font-stage-Open-Sans(normal, 13px, 20px);
+      }
+    }
+
+    @include breakpoint(mobileonly) {
+      box-shadow: none;
+    }
+
+    a {
+      color: $gray-darken-1-color;
+      @include font-stage-Montserrat(500, 14px, 16px);
+      letter-spacing: 1.75px;
+      text-transform: uppercase;
+      padding-top: 83px;
+      display: inline-block;
+
+      @include breakpoint(mobileonly) {
+        @include font-stage-Montserrat(500, 13px, 16px);
+      }
+    }
+
+    .explore-icon {
+      background: url("../../src/images/cta-arrow.svg") 0px 2px no-repeat;
+      width: 20px;
+      height: 10px;
+      display: inline-block;
+      -webkit-transition: all 0.35s ease-in-out;
+      transition: all 0.35s ease-in-out;
+    }
+    img {
+      &.img-responsive {
+        -moz-transform: translate(0, 100%);
+        -webkit-transform: translate(0, 100%);
+        -o-transform: translate(0, 100%);
+        -ms-transform: translate(0, 100%);
+        transform: translate(0, 100%);
+      }
+    }
+  }
+
+  &.small {
+    position: relative;
+    margin-top: 0;
+    padding: 0px 32px 0;
+    margin-bottom: 0;
+
+    @include breakpoint(mobileonly) {
+      padding: 0;
+    }
+    .row {
+      margin: 0 0 40px;
+      @include breakpoint(mobileonly) {
+        margin: 0 0 30px;
+      }
+      .col {
+        @include breakpoint(mobileonly) {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      &:last-child {
+        margin: 0;
+      }
+    }
+    .card {
+      .card-body {
+        h2 {
+          color: $gray-darken-1-color;
+          @include font-stage-Playfair-Display(bold, 21px, 28px);
+
+          @include breakpoint(mobileonly) {
+            @include font-stage-Playfair-Display(bold, 20px, 28px);
+          }
+        }
+
+        .card-text {
+          padding-top: 16px;
+          font-size: 14px;
+          line-height: 24px;
+        }
+        img {
+          -moz-transform: translate(0, 100%);
+          -webkit-transform: translate(0, 100%);
+          -o-transform: translate(0, 100%);
+          -ms-transform: translate(0, 100%);
+          transform: translate(0, 100%);
+          max-width: 70%;
+        }
+      }
+    }
+  }
+}
+
+// Blog Text
+.blog-text-wrapper {
+  text-align: center;
+
+  .small-text {
+    color: $gray-darken-color;
+    padding-bottom: 8px;
+
+    @include breakpoint(mobileonly) {
+      padding-bottom: 10px;
+    }
+  }
+
+  h2 {
+    @include font-stage-Playfair-Display(bold, 46px, 56px);
+    margin: 0;
+    @include breakpoint(mobileonly) {
+      @include font-stage-Playfair-Display(bold, 30px, 32px);
+    }
+  }
+
+  .checkout-blog {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 18px, 32px);
+    padding-top: 16px;
+    width: 45%;
+    margin: 0px auto;
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Open-Sans(400, 15px, 24px);
+      padding: 10px 0 48px;
+      width: 90%;
+    }
+  }
+}
+
+/* From Blogs */
+
+.from-blogs {
+  @extend .blog-text-wrapper;
+  padding: 80px 0;
+
+  @include breakpoint(mobileonly) {
+    padding: 20px 0 0px;
+  }
+}
+
+/* Inspired Stories */
+
+.inspired-stories {
+  background: $white-color;
+  position: relative;
+  padding: 0 7% 93px;
+  z-index: 9;
+  margin-top: 0;
+
+  @include breakpoint(mobileonly) {
+    padding: 0;
+    padding-bottom: 52px;
+
+    .container {
+      padding: 0;
+    }
+  }
+
+  .form-group {
+    margin: 0;
+  }
+
+  .box-wrapper {
+    border: none;
+
+    @include breakpoint(mobileonly) {
+      margin: 0;
+    }
+
+    h5 {
+      color: $blue-darken-color;
+      @include font-stage-Montserrat(500, 13px, 16px);
+      letter-spacing: 1.63px;
+      text-transform: uppercase;
+      padding: 24px 0 8px;
+      margin: 0;
+
+      @include breakpoint(mobileonly) {
+        @include font-stage-Montserrat(400, 12px, 15px);
+      }
+    }
+
+    h4 {
+      padding: 0 0 8px;
+      margin: 0;
+    }
+
+    .box-body {
+      top: 0;
+      width: 100%;
+      background: none;
+      box-shadow: none;
+      text-align: center;
+      padding: 0;
+
+      p {
+        padding-bottom: 32px;
+        margin: 0;
+      }
+
+      a {
+        text-align: left;
+        width: 130px;
+        -webkit-transition: all 0.35s ease-in-out;
+        transition: all 0.35s ease-in-out;
+        @include breakpoint(mobileonly) {
+          width: 125px;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .owl-carousel {
+    @extend %owl-carousel;
+
+    .owl-item {
+      @extend %owl-item;
+    }
+  }
+}
+
+/* Share Experience */
+
+.share-experience {
+  @extend .from-blogs;
+  padding-top: 100px;
+  background: $gray-lighten-2-color url("../../src/images/bg-wave-pattern-light.png") top center no-repeat;
+
+  @include breakpoint(mobileonly) {
+    background: $gray-lighten-2-color url("../../src/images/bg-wave-pattern-light-mobile.jpg") top center no-repeat;
+    padding: 50px 0;
+    background-size: contain;
+  }
+
+  .checkout-blog {
+    padding-bottom: 64px;
+    width: 50%;
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Open-Sans(400, 15px, 24px);
+      padding: 10px 0 53px;
+      width: 90%;
+    }
+  }
+  .container {
+    &.social {
+      @include breakpoint(mobileonly) {
+        padding: 0 0 45px;
+      }
+    }
+  }
+}
+
+.w-100 {
+  max-width: 250px;
+  float: left;
+}
+
+.cookies-info {
+  background: $blue-lighten-color;
+  padding: 10px 0;
+
+  p {
+    color: #ffffff;
+    @include font-stage-Open-Sans(400, 14px, 20px);
+    letter-spacing: 0.1px;
+    flex-basis: 70%;
+
+    a {
+      color: $white-color;
+      text-decoration: underline;
+    }
+  }
+
+  .btn-secondary {
+    color: $white-color;
+    padding: 0 27px;
+    border-color: $white-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: $blue-darken-1-color;
+    }
+  }
+}
+
+//Social Feed Gallery
+#socialFeed {
+  @include breakpoint(mobileonly) {
+    margin: 0 0 20px;
+  }
+  @extend %owl-carousel;
+  .owl-item {
+    img {
+      width: 100%;
+      height: 280px;
+    }
+    &.active {
+      @include breakpoint(mobileonly) {
+        padding: 0 55px;
+      }
+    }
+  }
+  .owl-nav {
+    top: 105px;
+    @include breakpoint(mobileonly) {
+      display: block;
+      button.owl-prev {
+        margin: 0;
+        left: 0;
+      }
+      button.owl-next {
+        right: 0;
+        margin: 0;
+      }
+    }
+  }
+  .owl-dots {
+    display: none;
+  }
+}
+.path-frontpage {
+  .from-blogs {
+    position: relative;
+    margin-top: -15px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    @include breakpoint(mobileonly) {
+      padding-top: 72px;
+      padding-bottom: 0px;
+    }
+  }
+}
+// Static Content Pages
+.page-node-type-terms-of-use,
+.page-node-type-privacy-policy {
+  .content-wrapper {
+    @include breakpoint(mobileonly) {
+      margin-top: 105px;
+    }
+    p {
+      @include font-stage-Open-Sans(normal, 13px, 20px);
+      padding: 0 0 10px;
+      margin: 0;
+    }
+    h3 {
+      padding: 30px 0 10px;
+    }
+    h5 {
+      @include font-stage-Playfair-Display(bold, 18px, 24px);
+      padding: 15px 0 0;
+      @include breakpoint(mobileonly) {
+        @include font-stage-Playfair-Display(bold, 14px, 20px);
+      }
+    }
+    ul {
+      list-style-type: disc;
+      padding: 0 20px 20px;
+      li {
+        @include font-stage-Open-Sans(normal, 13px, 22px);
+        color: $gray-darken-color;
+      }
+    }
+  }
+}

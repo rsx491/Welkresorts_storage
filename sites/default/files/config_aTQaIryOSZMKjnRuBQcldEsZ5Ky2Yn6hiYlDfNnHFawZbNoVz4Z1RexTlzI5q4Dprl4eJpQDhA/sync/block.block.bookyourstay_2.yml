@@ -1,0 +1,31 @@
+uuid: 152b3c75-c029-493f-a698-41569e2e756d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:booking_form_for_front_page:8c0a0ec7-ad11-45f3-a713-9289928ce4c0'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: bookyourstay_2
+theme: welkresorts
+region: book_your_stay
+weight: 0
+provider: null
+plugin: 'block_content:8c0a0ec7-ad11-45f3-a713-9289928ce4c0'
+settings:
+  id: 'block_content:8c0a0ec7-ad11-45f3-a713-9289928ce4c0'
+  label: 'Book Your Stay'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/*\r\n/reservation/booking\r\n/blogs\r\n/select-rate"
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,19 @@
+uuid: 3ac3f163-71ed-4e5a-9826-c3ea66cb65dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_catering_form_title
+field_name: field_catering_form_title
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,628 @@
+uuid: 52b2d46e-1079-468b-acfe-f28ffa7c794b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.amenities_activities.body
+    - field.field.node.amenities_activities.field_activity
+    - field.field.node.amenities_activities.field_additional_ammenities
+    - field.field.node.amenities_activities.field_additional_ammenities_desc
+    - field.field.node.amenities_activities.field_additional_ammenities_subt
+    - field.field.node.amenities_activities.field_additional_ammenities_titl
+    - field.field.node.amenities_activities.field_amenities_activities_desti
+    - field.field.node.amenities_activities.field_calendar_brochure
+    - field.field.node.amenities_activities.field_calendar_description
+    - field.field.node.amenities_activities.field_calendar_items
+    - field.field.node.amenities_activities.field_calendar_subtitle
+    - field.field.node.amenities_activities.field_calendar_title
+    - field.field.node.amenities_activities.field_contact_number
+    - field.field.node.amenities_activities.field_description
+    - field.field.node.amenities_activities.field_destination
+    - field.field.node.amenities_activities.field_gallery
+    - field.field.node.amenities_activities.field_hero_gallery
+    - field.field.node.amenities_activities.field_hero_section_aa
+    - field.field.node.amenities_activities.field_highlight_description
+    - field.field.node.amenities_activities.field_highlight_image
+    - field.field.node.amenities_activities.field_highlight_section
+    - field.field.node.amenities_activities.field_highlight_subtitle
+    - field.field.node.amenities_activities.field_highlight_title
+    - field.field.node.amenities_activities.field_inspire_description
+    - field.field.node.amenities_activities.field_inspire_sub_title
+    - field.field.node.amenities_activities.field_inspire_title
+    - field.field.node.amenities_activities.field_inspire_top_description
+    - field.field.node.amenities_activities.field_inspire_top_title
+    - field.field.node.amenities_activities.field_inspire_video
+    - field.field.node.amenities_activities.field_location_name
+    - field.field.node.amenities_activities.field_logo_image
+    - field.field.node.amenities_activities.field_mapped_triptease
+    - field.field.node.amenities_activities.field_meta_tags
+    - field.field.node.amenities_activities.field_overview_block_description
+    - field.field.node.amenities_activities.field_overview_block_image
+    - field.field.node.amenities_activities.field_overview_block_image_capti
+    - field.field.node.amenities_activities.field_overview_block_subtitle
+    - field.field.node.amenities_activities.field_overview_block_title
+    - field.field.node.amenities_activities.field_select_resort
+    - field.field.node.amenities_activities.field_select_state
+    - field.field.node.amenities_activities.field_sub_title
+    - field.field.node.amenities_activities.field_title
+    - image.style.thumbnail
+    - node.type.amenities_activities
+  module:
+    - field_group
+    - file
+    - image
+    - imce
+    - metatag
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_additional_ammenities:
+      children:
+        - field_additional_ammenities_subt
+        - field_additional_ammenities_titl
+        - field_additional_ammenities_desc
+        - field_additional_ammenities
+      parent_name: ''
+      weight: 13
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Additional Ammenities'
+      region: content
+    group_overview_block_a_a:
+      children:
+        - field_overview_block_subtitle
+        - field_overview_block_title
+        - field_overview_block_description
+        - field_overview_block_image
+        - field_overview_block_image_capti
+      parent_name: ''
+      weight: 9
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Overview Block'
+      region: content
+    group_header_section:
+      children:
+        - field_logo_image
+        - field_contact_number
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Header Section'
+      region: content
+    group_highlight_section:
+      children:
+        - field_highlight_subtitle
+        - field_highlight_title
+        - field_highlight_image
+        - field_highlight_description
+      parent_name: ''
+      weight: 16
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Highlight Section'
+      region: content
+    group_hero_section:
+      children:
+        - field_hero_section_aa
+        - field_hero_gallery
+      parent_name: ''
+      weight: 11
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Hero Section'
+      region: content
+    group_inspire_section:
+      children:
+        - field_inspire_title
+        - field_inspire_sub_title
+        - field_inspire_description
+        - field_inspire_video
+        - field_inspire_top_title
+        - field_inspire_top_description
+        - field_highlight_section
+      parent_name: ''
+      weight: 17
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Inspire Section'
+      region: content
+    group_gallery_section:
+      children:
+        - field_title
+        - field_sub_title
+        - field_description
+        - field_gallery
+      parent_name: ''
+      weight: 12
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Gallery Section'
+      region: content
+    group_calendar:
+      children:
+        - field_calendar_subtitle
+        - field_calendar_title
+        - field_calendar_description
+        - field_calendar_brochure
+        - field_calendar_items
+      parent_name: ''
+      weight: 18
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Calendar
+      region: content
+    group_url_pattern_fields:
+      children:
+        - field_select_state
+        - field_location_name
+        - field_select_resort
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'URL Pattern Fields'
+      region: content
+id: node.amenities_activities.default
+targetEntityType: node
+bundle: amenities_activities
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 8
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_activity:
+    type: entity_reference_paragraphs
+    weight: 14
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_additional_ammenities:
+    type: entity_reference_paragraphs
+    weight: 24
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_additional_ammenities_desc:
+    weight: 23
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_additional_ammenities_subt:
+    weight: 21
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_additional_ammenities_titl:
+    weight: 22
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_amenities_activities_desti:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_calendar_brochure:
+    type: file_generic
+    weight: 25
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+  field_calendar_description:
+    type: string_textarea
+    weight: 24
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_calendar_items:
+    type: paragraphs
+    weight: 26
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+    third_party_settings: {  }
+  field_calendar_subtitle:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_calendar_title:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_number:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_description:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_destination:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_gallery:
+    weight: 14
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_hero_gallery:
+    weight: 15
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_hero_section_aa:
+    type: entity_reference_paragraphs
+    weight: 14
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_highlight_description:
+    weight: 24
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_highlight_image:
+    weight: 23
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_highlight_section:
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_highlight_subtitle:
+    weight: 21
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_highlight_title:
+    weight: 22
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inspire_description:
+    weight: 23
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_inspire_sub_title:
+    weight: 22
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inspire_title:
+    weight: 21
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inspire_top_description:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_inspire_top_title:
+    weight: 25
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inspire_video:
+    weight: 24
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_location_name:
+    type: options_select
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_logo_image:
+    weight: 20
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_mapped_triptease:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_meta_tags:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_overview_block_description:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_overview_block_image:
+    weight: 12
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_overview_block_image_capti:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_overview_block_subtitle:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_overview_block_title:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_select_resort:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_select_state:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_sub_title:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_title:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

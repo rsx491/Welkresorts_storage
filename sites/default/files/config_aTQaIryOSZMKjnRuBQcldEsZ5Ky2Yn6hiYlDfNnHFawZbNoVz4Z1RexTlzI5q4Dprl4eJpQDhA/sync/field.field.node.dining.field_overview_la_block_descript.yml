@@ -1,0 +1,21 @@
+uuid: f129b53c-373b-4df7-90f0-86dedb436c89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_la_block_descript
+    - node.type.dining
+  module:
+    - text
+id: node.dining.field_overview_la_block_descript
+field_name: field_overview_la_block_descript
+entity_type: node
+bundle: dining
+label: 'Overview Block Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

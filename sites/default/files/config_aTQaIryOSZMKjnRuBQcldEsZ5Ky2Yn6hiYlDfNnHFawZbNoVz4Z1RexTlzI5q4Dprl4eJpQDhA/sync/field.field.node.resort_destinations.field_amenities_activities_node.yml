@@ -1,0 +1,30 @@
+uuid: f18220f1-06f7-4fdd-b292-6186a59fe072
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_amenities_activities_node
+    - node.type.amenities_activities
+    - node.type.resort_destinations
+  module:
+    - entity_reference_revisions
+id: node.resort_destinations.field_amenities_activities_node
+field_name: field_amenities_activities_node
+entity_type: node
+bundle: resort_destinations
+label: 'Amenities & Activities Node'
+description: 'Amenities and activities node reference for the same resort.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      amenities_activities: amenities_activities
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

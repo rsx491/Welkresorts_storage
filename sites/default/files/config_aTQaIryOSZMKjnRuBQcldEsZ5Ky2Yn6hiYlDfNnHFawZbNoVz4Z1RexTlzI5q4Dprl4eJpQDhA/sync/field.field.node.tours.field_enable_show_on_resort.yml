@@ -1,0 +1,23 @@
+uuid: 7153fc44-dd56-40fc-bb5c-d11820981b62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_enable_show_on_resort
+    - node.type.tours
+id: node.tours.field_enable_show_on_resort
+field_name: field_enable_show_on_resort
+entity_type: node
+bundle: tours
+label: 'Enable/Show on Resort'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

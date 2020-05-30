@@ -1,0 +1,21 @@
+uuid: 3c7ae7d2-4371-45ea-a8b3-fa2cc8200cb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_guest_description
+  module:
+    - text
+id: block_content.reservation_confirmed.field_guest_description
+field_name: field_guest_description
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'Guest Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

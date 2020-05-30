@@ -1,0 +1,22 @@
+uuid: 1d3d92d7-5eeb-495e-8c45-2f63601bfab6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: path_pattern_for_meetings_and_events
+label: 'Path pattern for Meetings and Events'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/[node:field_select_resort]/meetings'
+selection_criteria:
+  77b4335d-94de-44ae-a930-d6131cf25b4a:
+    id: node_type
+    bundles:
+      meetings_and_events: meetings_and_events
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 77b4335d-94de-44ae-a930-d6131cf25b4a
+selection_logic: and
+weight: -5
+relationships: {  }

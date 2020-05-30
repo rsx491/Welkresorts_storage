@@ -1,0 +1,50 @@
+<?php
+/**
+ * @file
+ * set theme for booking
+ */
+use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Form\FormBase;
+
+function travelclick_theme() {
+  return [
+    'travelclick_booking' => [
+      //'variables' => [ 'what' => 'ok' ],
+    ],
+    'select_rate' => [
+      //'variables' => [ 'what' => 'ok' ],
+    ],
+	'select_room' => [
+	  //'variables' => [ 'what' => 'ok' ],
+	],
+	'reservation_details' => [
+	  //'variables' => [ 'what' => 'ok' ],
+    ],
+    'reservation_comparison' => [
+	  //'variables' => [ 'what' => 'ok' ],
+	],
+  'resort_booking_form' => [
+    'template' => 'resort-booking-form',
+    'render element' => 'form',
+  ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter()
+ */
+function travelclick_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  //webforms wont be able to use this to modify booking search
+  //$form['id_label'] = array('#type' => 'label', '#title' => 'ID: '.$form_id, '#value'=>'id label','#description' => 'id label label' );
+  //if ($form_id == 'webform-submission-booking-form-block-content-5-add-form' ) {
+  //}
+
+}
+/**
+ * Implements hook_template_preprocess_default_variables_alter()
+ */
+function travelclick_template_preprocess_default_variables_alter(&$variables) {
+  $current_path = base_path() . drupal_get_path('theme', 'welkresorts');
+  $variables['theme_path'] = $current_path;
+}

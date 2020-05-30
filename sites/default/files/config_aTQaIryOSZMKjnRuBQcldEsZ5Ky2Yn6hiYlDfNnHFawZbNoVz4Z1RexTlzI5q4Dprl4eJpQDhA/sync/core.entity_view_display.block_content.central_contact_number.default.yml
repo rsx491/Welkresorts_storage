@@ -1,0 +1,21 @@
+uuid: 0ee03623-8993-4ebb-9ca3-fc1832742783
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.central_contact_number
+    - field.field.block_content.central_contact_number.field_c
+id: block_content.central_contact_number.default
+targetEntityType: block_content
+bundle: central_contact_number
+mode: default
+content:
+  field_c:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

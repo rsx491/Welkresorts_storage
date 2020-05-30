@@ -1,0 +1,64 @@
+uuid: c137d70e-2d64-4d6f-b0d0-7b80d8f65183
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_with_us_items
+    - node.type.work_with_us
+    - paragraphs.paragraphs_type.value_section_faq
+  module:
+    - entity_reference_revisions
+id: node.work_with_us.field_work_with_us_items
+field_name: field_work_with_us_items
+entity_type: node
+bundle: work_with_us
+label: 'Work with us - items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      value_section_faq: value_section_faq
+    target_bundles_drag_drop:
+      activities:
+        weight: 13
+        enabled: false
+      additional_ammenities:
+        weight: 14
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 15
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 16
+        enabled: false
+      local_area_attractions:
+        weight: 17
+        enabled: false
+      local_area_traveler_tips:
+        weight: 18
+        enabled: false
+      resort_offer_page_description:
+        weight: 19
+        enabled: false
+      room_bed_details:
+        weight: 20
+        enabled: false
+      value_section_faq:
+        enabled: true
+        weight: 21
+      videobackground_banner_block:
+        weight: 22
+        enabled: false
+      welk_experience:
+        weight: 23
+        enabled: false
+      work_with_us_overview_items:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions

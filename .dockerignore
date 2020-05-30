@@ -1,0 +1,6 @@
+#ignoring all sql dumps, zipped folders and content images
+**/*.sql
+**/*.zip
+sites/default/files/*
+sites/default/files/google*
+!sites/default/files/config*

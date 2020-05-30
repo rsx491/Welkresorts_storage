@@ -1,0 +1,47 @@
+uuid: 81f173b7-954a-4a67-8628-fd7d225235f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.amenities_and_activities_highlig.field_highlight_image
+    - field.field.paragraph.amenities_and_activities_highlig.field_image_description
+    - field.field.paragraph.amenities_and_activities_highlig.field_image_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.amenities_and_activities_highlig
+  module:
+    - image
+    - imce
+id: paragraph.amenities_and_activities_highlig.default
+targetEntityType: paragraph
+bundle: amenities_and_activities_highlig
+mode: default
+content:
+  field_highlight_image:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_image_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_image_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

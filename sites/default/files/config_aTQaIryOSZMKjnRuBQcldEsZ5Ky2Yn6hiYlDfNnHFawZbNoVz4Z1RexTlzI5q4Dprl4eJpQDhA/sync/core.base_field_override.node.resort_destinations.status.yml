@@ -1,0 +1,22 @@
+uuid: 99536933-f0b2-4bfb-b6f4-6cbbb45ff471
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.resort_destinations
+id: node.resort_destinations.status
+field_name: status
+entity_type: node
+bundle: resort_destinations
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

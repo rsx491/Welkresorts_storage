@@ -1,0 +1,19 @@
+uuid: f8e9f1e8-f341-4153-a613-990800d99a9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_item_title
+    - paragraphs.paragraphs_type.work_with_us_overview_items
+id: paragraph.work_with_us_overview_items.field_item_title
+field_name: field_item_title
+entity_type: paragraph
+bundle: work_with_us_overview_items
+label: 'Item Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

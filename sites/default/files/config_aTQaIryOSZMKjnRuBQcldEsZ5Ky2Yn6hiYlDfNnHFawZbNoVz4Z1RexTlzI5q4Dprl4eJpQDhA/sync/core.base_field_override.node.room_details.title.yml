@@ -1,0 +1,18 @@
+uuid: 3f0e6529-54d2-49b1-8aa0-6cc40c814978
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.room_details
+id: node.room_details.title
+field_name: title
+entity_type: node
+bundle: room_details
+label: 'Room Details'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

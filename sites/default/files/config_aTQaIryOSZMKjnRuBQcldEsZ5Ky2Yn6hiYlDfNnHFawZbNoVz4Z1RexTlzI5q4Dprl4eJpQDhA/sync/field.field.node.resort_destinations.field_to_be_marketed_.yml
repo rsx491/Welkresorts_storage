@@ -1,0 +1,23 @@
+uuid: c82742b6-fd87-4000-9aa3-fd01b93a9c65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_to_be_marketed_
+    - node.type.resort_destinations
+id: node.resort_destinations.field_to_be_marketed_
+field_name: field_to_be_marketed_
+entity_type: node
+bundle: resort_destinations
+label: 'To be marketed?'
+description: 'Select "Yes" if you want this content to be displayed as the marketed resort on the front page block.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

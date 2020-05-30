@@ -1,0 +1,29 @@
+uuid: 07597534-4f56-45bc-beb0-569453009147
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_destination
+    - node.type.resort_destinations
+    - taxonomy.vocabulary.destinations
+id: node.resort_destinations.field_destination
+field_name: field_destination
+entity_type: node
+bundle: resort_destinations
+label: Destination
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      destinations: destinations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

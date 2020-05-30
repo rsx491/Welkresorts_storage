@@ -1,0 +1,61 @@
+uuid: b541b7f3-0714-4a66-bd45-b675d138f1d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.amenities_activities.body
+    - node.type.amenities_activities
+  module:
+    - text
+    - user
+id: node.amenities_activities.teaser
+targetEntityType: node
+bundle: amenities_activities
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_activity: true
+  field_additional_ammenities: true
+  field_additional_ammenities_desc: true
+  field_additional_ammenities_subt: true
+  field_additional_ammenities_titl: true
+  field_amenities_activities_desti: true
+  field_contact_number: true
+  field_description: true
+  field_destination: true
+  field_gallery: true
+  field_hero_gallery: true
+  field_hero_section_aa: true
+  field_highlight_description: true
+  field_highlight_image: true
+  field_highlight_section: true
+  field_highlight_subtitle: true
+  field_highlight_title: true
+  field_inspire_description: true
+  field_inspire_sub_title: true
+  field_inspire_title: true
+  field_inspire_top_description: true
+  field_inspire_top_title: true
+  field_inspire_video: true
+  field_logo_image: true
+  field_overview_block_description: true
+  field_overview_block_image: true
+  field_overview_block_image_capti: true
+  field_overview_block_subtitle: true
+  field_overview_block_title: true
+  field_sub_title: true
+  field_title: true

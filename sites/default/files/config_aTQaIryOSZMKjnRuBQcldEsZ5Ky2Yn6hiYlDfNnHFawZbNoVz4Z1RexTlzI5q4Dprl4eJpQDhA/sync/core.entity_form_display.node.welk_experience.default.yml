@@ -1,0 +1,318 @@
+uuid: df0ae120-4f0b-4ea0-a883-f93e2f4bf130
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.welk_experience.body
+    - field.field.node.welk_experience.field_additional_ammenities
+    - field.field.node.welk_experience.field_banner_image_1
+    - field.field.node.welk_experience.field_banner_image_2
+    - field.field.node.welk_experience.field_hero_gallery
+    - field.field.node.welk_experience.field_hero_section_wex
+    - field.field.node.welk_experience.field_highlight_section_wex
+    - field.field.node.welk_experience.field_insider_tips_subtitle
+    - field.field.node.welk_experience.field_inspire_description
+    - field.field.node.welk_experience.field_inspire_sub_title
+    - field.field.node.welk_experience.field_inspire_title
+    - field.field.node.welk_experience.field_inspire_top_description
+    - field.field.node.welk_experience.field_inspire_top_title
+    - field.field.node.welk_experience.field_inspire_video
+    - field.field.node.welk_experience.field_meta_tags
+    - field.field.node.welk_experience.field_we_insider_tips_descriptio
+    - field.field.node.welk_experience.field_we_insider_tips_title
+    - field.field.node.welk_experience.field_welk_experience_desc
+    - field.field.node.welk_experience.field_welk_experience_items
+    - image.style.thumbnail
+    - node.type.welk_experience
+  module:
+    - field_group
+    - file
+    - image
+    - imce
+    - metatag
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_hero_section:
+      children:
+        - field_hero_section_wex
+        - field_hero_gallery
+      parent_name: ''
+      weight: 8
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Hero Section'
+      region: content
+    group_inspire_section:
+      children:
+        - field_inspire_title
+        - field_inspire_sub_title
+        - field_inspire_description
+        - field_inspire_video
+        - field_inspire_top_description
+        - field_inspire_top_title
+        - field_highlight_section_wex
+      parent_name: ''
+      weight: 12
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Inspire Section'
+      region: content
+    group_we_insider_tips:
+      children:
+        - field_insider_tips_subtitle
+        - field_we_insider_tips_title
+        - field_we_insider_tips_descriptio
+        - field_additional_ammenities
+      parent_name: ''
+      weight: 9
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Insider tips'
+      region: content
+id: node.welk_experience.default
+targetEntityType: node
+bundle: welk_experience
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_additional_ammenities:
+    weight: 13
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+    third_party_settings: {  }
+    type: paragraphs
+    region: content
+  field_banner_image_1:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_banner_image_2:
+    weight: 13
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_hero_gallery:
+    weight: 9
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_hero_section_wex:
+    type: entity_reference_paragraphs
+    weight: 8
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_highlight_section_wex:
+    type: entity_reference_paragraphs
+    weight: 15
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_insider_tips_subtitle:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inspire_description:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      soft_length_limit:
+        max_limit: 500
+        minimum_limit: null
+        style_select: true
+    type: string_textarea
+    region: content
+  field_inspire_sub_title:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inspire_title:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inspire_top_description:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_inspire_top_title:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_inspire_video:
+    weight: 12
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_meta_tags:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_we_insider_tips_descriptio:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_we_insider_tips_title:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_welk_experience_desc:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_welk_experience_items:
+    type: entity_reference_paragraphs
+    weight: 10
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  body: true

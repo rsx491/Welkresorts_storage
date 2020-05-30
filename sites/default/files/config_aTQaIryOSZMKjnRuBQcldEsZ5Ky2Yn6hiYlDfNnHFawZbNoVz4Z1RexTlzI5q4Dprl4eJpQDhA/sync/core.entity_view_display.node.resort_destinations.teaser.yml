@@ -1,0 +1,30 @@
+uuid: f9c4aa61-4d44-4779-b719-75faacebfba2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.resort_destinations.body
+    - node.type.resort_destinations
+  module:
+    - text
+    - user
+id: node.resort_destinations.teaser
+targetEntityType: node
+bundle: resort_destinations
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

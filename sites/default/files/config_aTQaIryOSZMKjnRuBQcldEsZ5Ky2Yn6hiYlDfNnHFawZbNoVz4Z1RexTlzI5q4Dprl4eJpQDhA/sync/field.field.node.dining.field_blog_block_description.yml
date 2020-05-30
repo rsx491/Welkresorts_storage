@@ -1,0 +1,19 @@
+uuid: 27e98c0e-4077-43d1-acd3-327351a38e51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_block_description
+    - node.type.dining
+id: node.dining.field_blog_block_description
+field_name: field_blog_block_description
+entity_type: node
+bundle: dining
+label: 'Blog Block Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

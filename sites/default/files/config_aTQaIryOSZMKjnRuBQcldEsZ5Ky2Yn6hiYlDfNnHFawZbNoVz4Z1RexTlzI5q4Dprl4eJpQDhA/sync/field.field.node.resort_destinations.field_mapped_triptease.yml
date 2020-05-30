@@ -1,0 +1,21 @@
+uuid: 2a7b9f9b-6bfe-4d8f-8a61-3b01553ead26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mapped_triptease
+    - node.type.resort_destinations
+  module:
+    - options
+id: node.resort_destinations.field_mapped_triptease
+field_name: field_mapped_triptease
+entity_type: node
+bundle: resort_destinations
+label: 'Mapped Triptease with Hotel Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

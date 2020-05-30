@@ -1,0 +1,203 @@
+uuid: b6d0efb4-5b0e-4acc-a96e-c223303db0e4
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: catering_inquiry_form
+title: 'Catering Inquiry Form'
+description: 'This is the form related to inquiry about catering'
+category: ''
+elements: "first_name:\n  '#type': textfield\n  '#title': 'FIRST NAME'\n  '#title_display': before\n  '#size': '50'\n  '#autocomplete': 'off'\n  '#required': true\n  '#required_error': 'Enter your first name'\nlast_name:\n  '#type': textfield\n  '#title': 'LAST NAME'\n  '#title_display': before\n  '#size': '50'\n  '#autocomplete': 'off'\n  '#required': true\n  '#required_error': 'Enter your Last Name'\nemail:\n  '#type': textfield\n  '#title': EMAIL\n  '#title_display': before\n  '#autocomplete': 'off'\n  '#input_mask': '''alias'': ''email'''\n  '#required': true\n  '#required_error': 'Please enter Email ID'\n  '#pattern': '^[_a-z0-9-]+(.[_a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)(.[a-z]{2,3})$'\n  '#pattern_error': 'Please Enter Valid Email ID'\nphone:\n  '#type': textfield\n  '#title': PHONE\n  '#title_display': before\n  '#autocomplete': 'off'\n  '#input_mask': '(999) 999-9999'\n  '#required': true\n  '#required_error': 'Enter your phone number'\ntype_of_event:\n  '#type': select\n  '#title': 'TYPE OF EVENT'\n  '#title_display': before\n  '#options':\n    Wedding: Wedding\n    'Social Event': 'Social Event'\n    Confrence: Confrence\n    Incentive: Incentive\n    'Sleeping Room': 'Sleeping Room'\n  '#required': true\n  '#required_error': 'Select Your Type Of Event'\ndate:\n  '#type': date\n  '#title': Date\n  '#title_display': before\n  '#required': true\n  '#required_error': 'Select date for your event'\n  '#date_date_min': today\n  '#datepicker': true\n  '#date_date_format': m/d/Y\nestimated_number_of_guest:\n  '#type': number\n  '#title': 'Estimated NUMBER OF GUEST'\n  '#title_display': before\n  '#autocomplete': 'off'\n  '#required': true\n  '#required_error': 'Please provide number of guest'\nestimated_budget:\n  '#type': select\n  '#title': 'ESTIMATED BUDGET'\n  '#title_display': before\n  '#options':\n    '$1 to $9,999': '$1 to $9,999'\n    '$10,000 to $14,999': '$10,000 to $14,999'\n    '$15,000 to $24,999': '$15,000 to $24,999'\n    '$25,000+': '$25,000+'\n  '#required': true\n  '#required_error': 'Select your event budget'\nmessage:\n  '#type': textarea\n  '#title': MESSAGE\n  '#title_display': before\n  '#autocomplete': 'off'\n  '#required': true\n  '#required_error': 'Enter your message'\nresort_destination:\n  '#type': hidden\n  '#title': 'Resort Destination'\ntime:\n  '#type': select\n  '#title': Time\n  '#options':\n    ' All Day': ' All Day'\n    Morning: Morning\n    Brunch: Brunch\n    ' Afternoon': ' Afternoon'\n    Evening: Evening\n  '#required': true\n  '#required_error': 'Please Select Time'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Submit Enquery'"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: message
+  confirmation_title: 'Inquery about catering'
+  confirmation_message: 'Thanks for Inquery,We get back to you soon!!!'
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: Reservations.support@welkgroup.com
+      to_options: {  }
+      cc_mail: Villa.rentals@welkgroup.com
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: wrdctest@welkgroup.com
+      from_options: {  }
+      from_name: 'Welk Resort'
+      subject: 'Catering Enquiry: [webform_submission:values:resort_destination] : [webform_submission:values:first_name] [webform_submission:values:last_name] : [webform_submission:values:date]'
+      body: "<span style=\"font-size:11.0pt\"><span style=\"background:white\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Hi Team,&lt;/p&gt;</span></span></span></span><br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"background:white\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Below are the details of a new catering enquiry.&lt;/p&gt;</span></span></span></span><br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"background:white\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;First Name : [webform_submission:values:first_name]&lt;/p&gt;<br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"background:white\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Last Name : [webform_submission:values:last_name]&lt;/p&gt;<br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"background:white\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Email : [webform_submission:values:email]&lt;/p&gt;<br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"background:white\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Phone : [webform_submission:values:phone]&lt;/p&gt;<br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"background:white\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;TYPE OF EVENT &ndash; [webform_submission:values:type_of_event]&lt;/p&gt;<br />\r\n<br />\r\n&lt;p&gt;Date- [webform_submission:values:date]&lt;/p&gt;<br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"background:white\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Time &ndash; [webform_submission:values:time]&lt;/p&gt;<br />\r\n<br />\r\n&lt;p&gt;Estimated Number of Guest &ndash;[webform_submission:values:estimated_number_of_guest]&lt;/p&gt;<br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Estimated Budget- <span style=\"background:white\">[webform_submission:values:estimated_budget]&lt;/p&gt;<br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Message from User- &nbsp;<span style=\"background:white\">[webform_submission:values:message]&lt;/p&gt;<br />\r\n<br />\r\n<span style=\"font-size:10.5pt\"><span style=\"background:white\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Please reach out to user for further details.&lt;/p&gt;<br />\r\n<br />\r\n&lt;p&gt;Thanks and Regard,&lt;/p&gt;</span></span></span></span><br />\r\n<span style=\"font-size:10.5pt\"><span style=\"line-height:107%\"><span style=\"font-family:&quot;Segoe UI&quot;,sans-serif\">&lt;p&gt;Welk Resort Website IT team&lt;/p&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''

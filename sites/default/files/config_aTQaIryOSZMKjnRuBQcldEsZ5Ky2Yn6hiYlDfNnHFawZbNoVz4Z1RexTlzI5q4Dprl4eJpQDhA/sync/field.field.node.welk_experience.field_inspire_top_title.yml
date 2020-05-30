@@ -1,0 +1,19 @@
+uuid: 2d8936ea-ef3b-42fb-b95c-ff46c4d3e5b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inspire_top_title
+    - node.type.welk_experience
+id: node.welk_experience.field_inspire_top_title
+field_name: field_inspire_top_title
+entity_type: node
+bundle: welk_experience
+label: 'Inspire top title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

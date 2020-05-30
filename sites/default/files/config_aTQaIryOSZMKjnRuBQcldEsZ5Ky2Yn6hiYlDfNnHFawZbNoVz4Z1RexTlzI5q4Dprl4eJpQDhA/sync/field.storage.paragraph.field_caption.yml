@@ -1,0 +1,21 @@
+uuid: 726fed78-929a-4c54-9f2f-a2671f141f80
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_caption
+field_name: field_caption
+entity_type: paragraph
+type: string
+settings:
+  max_length: 155
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

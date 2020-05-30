@@ -1,0 +1,19 @@
+uuid: 4f80981b-18c9-46ef-927e-e857cdfd9606
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_local_area_map_header
+field_name: field_local_area_map_header
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

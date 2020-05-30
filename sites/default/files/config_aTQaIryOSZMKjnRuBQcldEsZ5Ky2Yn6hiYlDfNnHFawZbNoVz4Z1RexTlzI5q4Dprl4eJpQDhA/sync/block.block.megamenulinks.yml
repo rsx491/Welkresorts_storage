@@ -1,0 +1,25 @@
+uuid: 402fd75e-fce8-48ba-85f7-fa7aaa3b7940
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:fb5c71d6-c868-4208-8c6b-d66090f50ae5'
+  module:
+    - block_content
+  theme:
+    - welkresorts
+id: megamenulinks
+theme: welkresorts
+region: Primary_menu
+weight: 0
+provider: null
+plugin: 'block_content:fb5c71d6-c868-4208-8c6b-d66090f50ae5'
+settings:
+  id: 'block_content:fb5c71d6-c868-4208-8c6b-d66090f50ae5'
+  label: 'Megamenu links'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

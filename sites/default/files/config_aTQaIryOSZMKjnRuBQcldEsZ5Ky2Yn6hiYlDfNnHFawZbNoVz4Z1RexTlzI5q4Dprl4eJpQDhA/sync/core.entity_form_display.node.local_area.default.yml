@@ -1,0 +1,586 @@
+uuid: 7d50efc5-b170-41bb-bd71-a8fc4c9e55a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.local_area.body
+    - field.field.node.local_area.field_attraction_subtitle
+    - field.field.node.local_area.field_attraction_title
+    - field.field.node.local_area.field_blog_block_description
+    - field.field.node.local_area.field_blog_block_sub_title
+    - field.field.node.local_area.field_blog_block_title
+    - field.field.node.local_area.field_contact_number
+    - field.field.node.local_area.field_destination
+    - field.field.node.local_area.field_hero_gallery
+    - field.field.node.local_area.field_hero_section_la
+    - field.field.node.local_area.field_highlighted_image
+    - field.field.node.local_area.field_local_area_attractions
+    - field.field.node.local_area.field_local_area_description
+    - field.field.node.local_area.field_local_area_destination
+    - field.field.node.local_area.field_local_area_google_map_api
+    - field.field.node.local_area.field_local_area_map_description
+    - field.field.node.local_area.field_local_area_map_header
+    - field.field.node.local_area.field_local_area_map_latitude
+    - field.field.node.local_area.field_local_area_map_longitude
+    - field.field.node.local_area.field_local_area_map_name
+    - field.field.node.local_area.field_local_area_map_title
+    - field.field.node.local_area.field_local_area_resort_latitude
+    - field.field.node.local_area.field_local_area_resort_longitud
+    - field.field.node.local_area.field_local_area_resort_map
+    - field.field.node.local_area.field_local_area_resort_name
+    - field.field.node.local_area.field_local_area_resort_zindex
+    - field.field.node.local_area.field_location_name
+    - field.field.node.local_area.field_logo_image
+    - field.field.node.local_area.field_mapped_triptease
+    - field.field.node.local_area.field_meta_tags
+    - field.field.node.local_area.field_overview_la_block_descript
+    - field.field.node.local_area.field_overview_la_block_image
+    - field.field.node.local_area.field_overview_la_block_image_ca
+    - field.field.node.local_area.field_overview_la_block_subtitle
+    - field.field.node.local_area.field_overview_la_block_title
+    - field.field.node.local_area.field_select_resort
+    - field.field.node.local_area.field_select_state
+    - field.field.node.local_area.field_travel
+    - field.field.node.local_area.field_traveler_tips
+    - image.style.thumbnail
+    - node.type.local_area
+  module:
+    - field_group
+    - file
+    - image
+    - imce
+    - metatag
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_local_area_attractions:
+      children:
+        - field_attraction_subtitle
+        - field_attraction_title
+        - field_local_area_attractions
+      parent_name: ''
+      weight: 14
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Local Area Attractions'
+      region: content
+    group_overview_page_block:
+      children:
+        - field_overview_la_block_title
+        - field_overview_la_block_subtitle
+        - field_overview_la_block_descript
+        - field_overview_la_block_image
+        - field_overview_la_block_image_ca
+      parent_name: ''
+      weight: 9
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Overview Page Block'
+      region: content
+    group_header_section:
+      children:
+        - field_logo_image
+        - field_contact_number
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Header Section'
+      region: content
+    group_traveler_tips:
+      children:
+        - field_travel
+        - field_traveler_tips
+      parent_name: ''
+      weight: 13
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Traveler Tips'
+      region: content
+    group_description:
+      children:
+        - field_local_area_description
+      parent_name: ''
+      weight: 17
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Description
+      region: content
+    group_location_:
+      children:
+        - field_local_area_map_name
+        - field_local_area_map_title
+        - field_local_area_map_header
+        - field_local_area_map_description
+        - field_local_area_google_map_api
+        - group_central_coordinate
+        - group_reasort
+      parent_name: ''
+      weight: 18
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Location map'
+      region: content
+    group_central_coordinate:
+      children:
+        - field_local_area_map_latitude
+        - field_local_area_map_longitude
+      parent_name: group_location_
+      weight: 32
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Central co-ordinate'
+      region: content
+    group_reasort:
+      children:
+        - field_local_area_resort_map
+      parent_name: group_location_
+      weight: 33
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Reasort Map Details'
+      region: content
+    group_hero_section:
+      children:
+        - field_hero_section_la
+        - field_hero_gallery
+      parent_name: ''
+      weight: 12
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Hero Section'
+      region: content
+    group_blog_block_section:
+      children:
+        - field_blog_block_title
+        - field_blog_block_sub_title
+        - field_blog_block_description
+      parent_name: ''
+      weight: 16
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Blog block section'
+      region: content
+    group_url_pattern_fields:
+      children:
+        - field_select_state
+        - field_location_name
+        - field_select_resort
+      parent_name: ''
+      weight: 21
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'URL Pattern Fields'
+      region: content
+id: node.local_area.default
+targetEntityType: node
+bundle: local_area
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 8
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_attraction_subtitle:
+    weight: 21
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_attraction_title:
+    weight: 22
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_blog_block_description:
+    weight: 21
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_blog_block_sub_title:
+    weight: 20
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_blog_block_title:
+    weight: 19
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_contact_number:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_destination:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_hero_gallery:
+    weight: 14
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_hero_section_la:
+    type: entity_reference_paragraphs
+    weight: 13
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_highlighted_image:
+    weight: 10
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_local_area_attractions:
+    type: entity_reference_paragraphs
+    weight: 23
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_local_area_description:
+    weight: 19
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_local_area_destination:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_local_area_google_map_api:
+    type: string_textfield
+    weight: 31
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_local_area_map_description:
+    type: text_textarea
+    weight: 30
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_local_area_map_header:
+    type: text_textarea
+    weight: 29
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_local_area_map_latitude:
+    type: string_textfield
+    weight: 29
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_local_area_map_longitude:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_local_area_map_name:
+    type: string_textfield
+    weight: 27
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_local_area_map_title:
+    type: string_textfield
+    weight: 28
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_local_area_resort_map:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+    third_party_settings: {  }
+  field_location_name:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_logo_image:
+    weight: 17
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_mapped_triptease:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_meta_tags:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_overview_la_block_descript:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_overview_la_block_image:
+    weight: 16
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_overview_la_block_image_ca:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_overview_la_block_subtitle:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_overview_la_block_title:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_select_resort:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_select_state:
+    weight: 22
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_travel:
+    weight: 20
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_traveler_tips:
+    type: entity_reference_paragraphs
+    weight: 21
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  field_local_area_resort_latitude: true
+  field_local_area_resort_longitud: true
+  field_local_area_resort_name: true
+  field_local_area_resort_zindex: true

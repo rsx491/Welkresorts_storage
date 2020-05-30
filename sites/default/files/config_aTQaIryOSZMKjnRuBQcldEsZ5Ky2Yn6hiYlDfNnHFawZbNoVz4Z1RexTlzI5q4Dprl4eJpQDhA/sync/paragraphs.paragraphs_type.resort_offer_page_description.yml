@@ -1,0 +1,9 @@
+uuid: 5df0d464-8007-47cb-8da5-691e36858a9d
+langcode: en
+status: true
+dependencies: {  }
+id: resort_offer_page_description
+label: 'Resort offer page - Description'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,42 @@
+uuid: 24aff6eb-945d-4cf6-a1e4-2eaa3ce75ff3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.media_landing_page.body
+    - node.type.media_landing_page
+  module:
+    - text
+    - user
+id: node.media_landing_page.teaser
+targetEntityType: node
+bundle: media_landing_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_attraction_subtitle: true
+  field_attraction_title: true
+  field_featured_resort_activites_: true
+  field_featured_resort_activities: true
+  field_hero_section: true
+  field_highlight_description: true
+  field_highlight_image: true
+  field_highlight_subtitle: true
+  field_highlight_title: true
+  field_local_area_attractions: true
+  field_resort_activities_featured: true
+  field_stay_play: true

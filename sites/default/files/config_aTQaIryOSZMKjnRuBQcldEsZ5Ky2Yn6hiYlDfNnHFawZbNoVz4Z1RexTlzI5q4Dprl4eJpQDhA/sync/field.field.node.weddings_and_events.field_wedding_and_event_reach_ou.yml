@@ -1,0 +1,19 @@
+uuid: fae4228f-017c-468f-ba67-f56ee045f72f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wedding_and_event_reach_ou
+    - node.type.weddings_and_events
+id: node.weddings_and_events.field_wedding_and_event_reach_ou
+field_name: field_wedding_and_event_reach_ou
+entity_type: node
+bundle: weddings_and_events
+label: 'Wedding And Event Reach Out'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

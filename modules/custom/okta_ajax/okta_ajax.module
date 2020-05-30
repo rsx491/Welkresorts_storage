@@ -1,0 +1,303 @@
+<?php
+/**
+ * @file
+ * set theme for ajax widget
+ */
+use Drupal\Core\Config\ConfigFactory;
+use Okta\Exception as OktaException;
+use Okta\Resource\Authentication;
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Config\FileStorage;
+use Symfony\Component\Yaml\Yaml;
+
+use MicrosoftAzure\Storage\Table\TableRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
+use MicrosoftAzure\Storage\Table\Models\Entity;
+use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
+use MicrosoftAzure\Storage\Table\Models\EdmTyp;
+
+use Drupal\okta_ajax\Controller\OktaLoginController;
+use Drupal\travelclick\Controller\TravelclickBookingController;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\okta_ajax\ApiService; 
+
+//make sure terms get installed from install yml script
+function okta_ajax_install() {
+  $base = DRUPAL_ROOT . '/' . drupal_get_path('module', 'okta_ajax');
+  $config_path = $base.'/config/install/taxonomy.terms.favorite_locations.yml';
+  $data = file_get_contents($config_path);
+  $terms = Yaml::parse($data);
+  if(!$terms['vocabulary'] || !$terms['terms'] ){
+    throw new Exception("Mising vocabulary or terms from configuration file");
+  }
+  $vid = $terms['vocabulary'];
+  foreach($terms['terms'] as $country=>$regions) {
+    $term = Term::create([
+      'name' => $country,
+      'vid' => $vid,
+      'parent' => null
+    ]);
+    $term->save();
+    $parent = $term->id();
+    foreach($regions as $region=>$locales) {
+      $term = Term::create(['name'=>$region,'parent'=>$parent,'vid'=>$vid]);
+      $term->save();
+      $parent = $term->id();
+      foreach($locales as $l) {
+        $term = Term::create(['name'=>$l,'parent'=>$parent,'vid'=>$vid])->save();
+      }
+    }
+  }
+}
+
+//attach login js library to all pages so that menu sign in always gets updated
+function okta_ajax_page_attachments_alter(array &$page) {
+  $page['#attached']['library'][] = 'okta_ajax/okta_ajax';
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    if('My Profile' == $node->getTitle() || 'My Account' == $node->getTitle() ) {
+      $page['#attached']['library'][] = 'okta_ajax/okta_page';
+    }
+  }
+}
+
+function okta_ajax_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Add content type suggestions.
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    if('My Profile' == $node->getTitle() || 'My Account' == $node->getTitle() ) {
+      $suggestions = ['okta--page'];
+    }
+  }
+}
+
+
+
+function okta_ajax_theme() {
+  $config = \Drupal::config('okta_ajax.settings');
+  $config_all = $config->get();
+  $oc = new OktaLoginController();
+  $account_paths = $oc->getPaths();
+  /** Start Fetch the room details from microsoft azure tables */
+  $conn = new TravelclickBookingController();
+  $db_connection= $conn->db_connection();
+  $tbl_booking = 'roomBookingDetail';
+  $tbl_itinery = 'itinerary';
+  $tempstore = \Drupal::service('tempstore.private')->get('okta_ajax');
+	$token = $tempstore->get('token');
+	if($token){
+		$userController = new OktaLoginController();
+		$user_details = $userController->introspect($token, 2);
+		$okta_id=$user_details->email;
+	}
+	else{
+		\Drupal::logger('welk_custom')->notice("Okta user is not login");
+  }
+  $email = $okta_id;
+  $current =  time();
+  $roomDetails = array();
+  if($db_connection){
+    $filter = "((email_id eq '".$email."') and (check_in_date gt ".$current."))";  // Active room displaying
+    $itinerary_details = $db_connection->queryEntities($tbl_itinery,$filter);
+    $itinerary_entities = $itinerary_details->getEntities();
+    //print '<pre>';print_r($itinerary_entities);die;
+    // json_decode($entity->getPropertyValue("rate_details_data"), true);
+    foreach($itinerary_entities as $iti_entity){
+      $iti_id = $iti_entity->getPropertyValue("RowKey"); // Confirmation number
+      $check_in_date = $iti_entity->getPropertyValue("check_in_date");
+      $check_out_date = $iti_entity->getPropertyValue("check_out_date");
+      $adults = $iti_entity->getPropertyValue("adults");
+      $status = $iti_entity->getPropertyValue("status");
+      $hotel_code = $iti_entity->getPropertyValue("hotel_code");
+      $hotel_address = $iti_entity->getPropertyValue("hotel_address");
+      $hotel_name = $iti_entity->getPropertyValue("hotel_name");
+      $destination_term_id  = $iti_entity->getPropertyValue("destination_term_id");
+      $manager=\Drupal::entityManager();
+      $field_definition = $manager->getFieldDefinitions("node","accomodation")["field_mapped_triptease"];
+      $field_mapped_triptease=$field_definition->getFieldStorageDefinition()->toArray()["settings"]["allowed_values"];
+      $hotelName = $field_mapped_triptease[$hotel_code]; // Hotel Name
+
+      $filter_itid = "((itinerary_id eq ".$iti_id.") and (status eq 'confirmed'))"; // filter only confirmed room in azure table
+      $booking_details = $db_connection->queryEntities($tbl_booking,$filter_itid);
+      $booking_entities = $booking_details->getEntities();
+      foreach($booking_entities as $booking_entity){
+        $room_type_code = $booking_entity->getPropertyValue("room_type_code");
+        $room_type_name = $booking_entity->getPropertyValue("room_type_name");
+        $rate_plan_name = $booking_entity->getPropertyValue("rate_plan_name");
+        $room_total = $booking_entity->getPropertyValue("room_total");
+        $currency = 'USD';
+        $total_duration = $booking_entity->getPropertyValue("total_duration");
+        $room_booking_no = $booking_entity->getPropertyValue("RowKey"); //Unique number
+        $cancellation_policy = $booking_entity->getPropertyValue("cancellation_policy");
+        $currency_code = $booking_entity->getPropertyValue("currency_code");
+        $deposit_policy = $booking_entity->getPropertyValue("deposit_policy");
+        $rate_overview = $booking_entity->getPropertyValue("rate_overview");
+        $no_rooms = $booking_entity->getPropertyValue("no_rooms");
+        $room_cancel_deadline = $booking_entity->getPropertyValue("room_cancel_deadline");
+        if($check_out_date > $room_cancel_deadline){
+          $button_display = 'enabled';
+        }else{
+          $button_display = 'disabled';
+        }
+        $roomDetails[] = array(
+          'resortName' => $hotel_name,
+          'resort_address' => $hotel_address,
+          'room_type_name' => $room_type_name,
+          'room_type_code' => $room_type_code,
+          'rate_plan_name' => $rate_plan_name,
+          'room_total' => $room_total,
+          'currency' => $currency,
+          'total_duration' => $total_duration,
+          'room_booking_no' => $room_booking_no,
+          'check_in_date' => $check_in_date,
+          'check_out_date' => $check_out_date,
+          'adults' => $adults,
+          'no_rooms' => $no_rooms,
+          'button_display' => $button_display,
+          'hoteCode' => $hotel_code,
+          'destination_term_id' => $destination_term_id
+        );
+      }
+    }
+  }
+  /** End Fetch the room details from microsoft azure tables */
+
+  $okta_config_all = \Drupal::config('okta_ajax.settings')->get();
+
+  $okta_config = [
+     'domain' => \Drupal::config('okta_ajax.settings')->get('okta_domain'),
+     'preview' => \Drupal::config('okta_ajax.settings')->get('preview_domain'),
+      'org_url' => \Drupal::config('okta_ajax.settings')->get('organisation_url'),
+     'api_key' => \Drupal::config('okta_ajax.settings')->get('okta_api_key'),
+     'account_path' => $account_paths['account'],
+     'profile_path' => $account_paths['profile'],
+     'account_title' => \Drupal::config('okta_ajax.settings')->get('account_title'),
+     'account_description' => \Drupal::config('okta_ajax.settings')->get('account_description') ,
+     'profile_title' => \Drupal::config('okta_ajax.settings')->get('profile_title') ,
+     'profile_description' => \Drupal::config('okta_ajax.settings')->get('profile_description'),
+     'is_logged'  => $oc->isLoggedIn(),
+     'front_url' => \Drupal::urlGenerator()->generateFromRoute('<front>', [], ['absolute' => TRUE]),
+     'room' => $roomDetails
+  ];
+  $okta_config = array_merge($okta_config_all, $okta_config);
+  \Drupal::logger('okta_ajax')->notice("Block configuration: ".print_r($okta_config,true) );
+  //TODO:: pull these from openID module config or create new admin panel
+  $okta_config['client_id'] = '0oamyegepiWpbi9Ec0h7';
+  $okta_config['redirect_uri'] = \Drupal::urlGenerator()->generateFromRoute('<front>', [], ['absolute' => TRUE]) . 'account'; 
+  return [
+    'okta_ajax_auth' => [
+       'variables' => [ 'okta_config' => $okta_config, 'okta_domain' => print_r($config_all,true), 'domain'=> $config->get('okta_domain') ],
+    ],
+    'okta_ajax_widget' => [
+      'variables' => [ 'okta_config' => $okta_config, 'domain' => $config->get('okta_domain') ],
+    ],
+    'okta_ajax_profile' => [
+      'variables' => [ 'okta_config' => $okta_config, 'domain' => $config->get('okta_domain') ],
+    ],
+    'okta_ajax_button' => [
+      'variables' => [ 'okta_config' => $okta_config, 'domain' => $config->get('okta_domain') ],
+    ],
+    'okta_ajax_popup' => [
+      'variables' => [ 'okta_config' => $okta_config, 'domain' => $config->get('okta_domain') ],
+    ],
+    'okta--page' => [
+      'template' => 'okta--page'
+    ],
+	'okta_ajax_manage_reservation_popup' => [
+      'variables' => [ 'okta_config' => $okta_config, 'domain' => $config->get('okta_domain') ],
+    ],
+  ];
+}
+
+/*
+function okta_ajax_block_build_oktaopenidwidget_alter(&$build, $block) {
+  \Drupal::logger('okta_ajax')->notice("Block alter called: ".print_r($build,true)." ------ ".print_r($block,true));
+}
+*/
+
+/**
+* Implements hook_link_alter
+**/
+function okta_ajax_link(&$variables) {
+  $url = $variables['url'];
+  if( $variables['text'] == t('Sign In') || $variables['text'] == t('My Account')) {
+	$tempstore = \Drupal::service('tempstore.private')->get('okta_ajax');
+	$okta_token = $tempstore->get('token');
+        if($okta_token && $variables['text'] == t('Sign In') ) {
+		$variables['text'] = 'My Account';
+        } else if(!$okta_token && $variables['text'] == t('My Account') ) {
+		$variables['text'] = 'Sign In';
+        }
+  }
+
+}
+/**
+ * Implements hook_form_alter().
+ */
+function okta_ajax_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if($form_id == 'webform_submission_cancel_reservation_node_53_add_form') {
+    $form['actions']['submit']['#submit'][] = 'okta_ajax_update_bookingtable';
+  }
+}
+/**
+ * Submit function okta_ajax_update_bookingtable
+ */
+function okta_ajax_update_bookingtable(array $form, FormStateInterface $form_state){
+  // Session Request
+  $session_val = \Drupal::request()->getSession();
+  $rowKey = $session_val->get('bookId');
+  $hcode = $session_val->get('hCode');
+  // DB connection
+  $conn = new TravelclickBookingController();
+  $db_connection= $conn->db_connection();
+  // Start Generate token
+  $client_id = '17xx9bj83kywdndja00f4j9zb0iy5md346t1';
+  $secret = 's2aoyrwoxn32dkd7v6k43drwn7b46jkc';
+  $api_base = 'https://api-staging.travelclick.com/';
+  $cancelurl = $api_base.'book/v1/hotel/'.$hcode.'/reservation/'.$rowKey;
+  $string = $client_id.":".$secret;
+  $octets = base64_encode($string);
+  $auth_basic = 'Basic '.$octets;
+  $response = \Drupal::httpClient()->post('https://api-staging.travelclick.com/oauth/token?grant_type=client_credentials', [
+    'verify' => false,
+    'headers' => [
+      'authorization' => $auth_basic,
+      'content-type' => 'application/json',
+    ]
+  ])->getBody()->getContents();
+  // print $response;die;
+  $res = json_decode($response);
+  if( $res && is_object($res) && isset($res->access_token) ) {
+    $token = $res->access_token;
+  } else {
+    throw new Exception("Unable to receive token: ".$response);
+  }
+  // End generate token
+  // Invoke cancel reservation API if token exists
+  if(isset($token) && $token != ''){
+    try{
+      $responseCancel = \Drupal::httpClient()->delete( $cancelurl , [
+        'headers' => [
+          'authorization' => 'Bearer '.$token,
+          'accept'	=> 'application/json',
+        ],
+      ]);
+    }catch(Exception $e){
+      watchdog_exception('cancel avail api is not responded', $e);
+    }
+  }
+  // End
+  $tbl_booking = 'roomBookingDetail';
+  if($db_connection){
+    try {
+      $result = $db_connection->getEntity($tbl_booking, "booking_details", $rowKey);
+      $entity = $result->getEntity();
+      $entity->setPropertyValue("status", 'cancelled'); //Modified STATUS.
+      $db_connection->updateEntity('roomBookingDetail', $entity);
+      // Logs a info
+      \Drupal::logger('travelclick')->info('cancelled reservation and updated table room_booking_details');
+    }
+    catch (ServiceException  $error) {
+      watchdog_exception('Table updated', $error, $error);
+    }
+  }
+}

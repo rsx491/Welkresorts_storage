@@ -1,0 +1,19 @@
+uuid: 3bcb26cc-6238-4405-98a4-6d95bdba654a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_title
+    - node.type.tours
+id: node.tours.field_sub_title
+field_name: field_sub_title
+entity_type: node
+bundle: tours
+label: 'Sub title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

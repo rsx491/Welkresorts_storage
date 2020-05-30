@@ -1,0 +1,19 @@
+uuid: 50a48512-a613-43b5-ba5f-fc1e8f827a9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_map_longitude
+    - node.type.resort_destinations
+id: node.resort_destinations.field_location_map_longitude
+field_name: field_location_map_longitude
+entity_type: node
+bundle: resort_destinations
+label: 'Location map - longitude'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

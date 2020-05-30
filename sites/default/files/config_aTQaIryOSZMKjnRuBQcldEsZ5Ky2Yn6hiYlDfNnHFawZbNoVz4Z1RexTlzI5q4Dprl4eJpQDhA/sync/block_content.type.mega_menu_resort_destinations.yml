@@ -1,0 +1,8 @@
+uuid: 9883bbb4-936c-4db5-8169-be4a76997257
+langcode: en
+status: true
+dependencies: {  }
+id: mega_menu_resort_destinations
+label: 'Mega Menu Resort Destinations'
+revision: 0
+description: 'This is the Resort Destinations link of Mega Menu'

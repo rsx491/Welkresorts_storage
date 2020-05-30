@@ -1,0 +1,21 @@
+uuid: 863ad70e-58d1-4e76-ab6f-6626bb0ffb08
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_bedrooms
+    - node.type.room_details
+  module:
+    - options
+id: node.room_details.field_number_of_bedrooms
+field_name: field_number_of_bedrooms
+entity_type: node
+bundle: room_details
+label: 'Number of Bedrooms'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

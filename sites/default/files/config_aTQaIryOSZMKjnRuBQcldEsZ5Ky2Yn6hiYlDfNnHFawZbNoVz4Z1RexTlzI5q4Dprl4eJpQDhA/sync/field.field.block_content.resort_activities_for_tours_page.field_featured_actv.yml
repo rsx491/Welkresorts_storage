@@ -1,0 +1,82 @@
+uuid: 28c38a50-6c25-4cb2-a5e7-c676fe3d3206
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.resort_activities_for_tours_page
+    - field.storage.block_content.field_featured_actv
+    - paragraphs.paragraphs_type.resort_activities
+  module:
+    - entity_reference_revisions
+id: block_content.resort_activities_for_tours_page.field_featured_actv
+field_name: field_featured_actv
+entity_type: block_content
+bundle: resort_activities_for_tours_page
+label: 'Featured Activities'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      resort_activities: resort_activities
+    target_bundles_drag_drop:
+      activities:
+        weight: 19
+        enabled: false
+      additional_ammenities:
+        weight: 20
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 21
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 22
+        enabled: false
+      booking_offer_section:
+        weight: 23
+        enabled: false
+      calendar_activities:
+        weight: 24
+        enabled: false
+      local_area_attractions:
+        weight: 25
+        enabled: false
+      local_area_traveler_tips:
+        weight: 26
+        enabled: false
+      resort_activities:
+        enabled: true
+        weight: 27
+      resort_offer_page_description:
+        weight: 28
+        enabled: false
+      room_bed_details_:
+        weight: 29
+        enabled: false
+      stay_and_play:
+        weight: 30
+        enabled: false
+      value_section_faq:
+        weight: 31
+        enabled: false
+      videobackground_banner_block:
+        weight: 32
+        enabled: false
+      welk_experience:
+        weight: 33
+        enabled: false
+      work_with_us_award_section:
+        weight: 34
+        enabled: false
+      work_with_us_benefits_section:
+        weight: 35
+        enabled: false
+      work_with_us_overview_items:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions

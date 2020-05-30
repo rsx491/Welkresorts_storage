@@ -1,0 +1,22 @@
+uuid: 4d14cf16-a027-4d26-be62-dba98bf24571
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - welkresorts
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: welkresorts_content
+theme: welkresorts
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

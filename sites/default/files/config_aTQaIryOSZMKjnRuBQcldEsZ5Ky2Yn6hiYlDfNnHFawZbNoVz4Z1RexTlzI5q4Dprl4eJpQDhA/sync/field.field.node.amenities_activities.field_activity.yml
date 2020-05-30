@@ -1,0 +1,43 @@
+uuid: 97877c3c-7111-4013-bc5e-83b1fa70739c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activity
+    - node.type.amenities_activities
+    - paragraphs.paragraphs_type.activities
+  module:
+    - entity_reference_revisions
+id: node.amenities_activities.field_activity
+field_name: field_activity
+entity_type: node
+bundle: amenities_activities
+label: Activity
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      activities: activities
+    target_bundles_drag_drop:
+      activities:
+        enabled: true
+        weight: 6
+      additional_ammenities:
+        weight: 7
+        enabled: false
+      local_area_attractions:
+        weight: 8
+        enabled: false
+      videobackground_banner_block:
+        weight: 9
+        enabled: false
+      welk_experience:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

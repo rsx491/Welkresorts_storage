@@ -1,0 +1,341 @@
+uuid: c452130f-f7e9-4265-b4ed-1b229652b35e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.meetings_and_events.body
+    - field.field.node.meetings_and_events.field_catering_form_description
+    - field.field.node.meetings_and_events.field_catering_form_title
+    - field.field.node.meetings_and_events.field_catering_inquery_form
+    - field.field.node.meetings_and_events.field_contact_number
+    - field.field.node.meetings_and_events.field_destination
+    - field.field.node.meetings_and_events.field_hero_gallery
+    - field.field.node.meetings_and_events.field_hero_section_me
+    - field.field.node.meetings_and_events.field_location_name
+    - field.field.node.meetings_and_events.field_logo_image
+    - field.field.node.meetings_and_events.field_mapped_triptease
+    - field.field.node.meetings_and_events.field_meta_tags
+    - field.field.node.meetings_and_events.field_select_resort
+    - field.field.node.meetings_and_events.field_select_state
+    - field.field.node.meetings_and_events.field_wedding_and_event_brochure
+    - field.field.node.meetings_and_events.field_wedding_and_event_descript
+    - field.field.node.meetings_and_events.field_wedding_and_event_header
+    - field.field.node.meetings_and_events.field_wedding_and_event_help_pla
+    - field.field.node.meetings_and_events.field_wedding_and_event_reach_ou
+    - field.field.node.meetings_and_events.field_wedding_and_event_title
+    - field.field.node.meetings_and_events.field_wedding_bro
+    - field.field.node.meetings_and_events.field_weding_resort_destination
+    - image.style.thumbnail
+    - node.type.meetings_and_events
+  module:
+    - field_group
+    - file
+    - image
+    - imce
+    - metatag
+    - paragraphs
+    - path
+    - text
+    - webform
+third_party_settings:
+  field_group:
+    group_header_section:
+      children:
+        - field_logo_image
+        - field_contact_number
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Header section'
+      region: content
+    group_hero_section:
+      children:
+        - field_hero_section_me
+        - field_hero_gallery
+      parent_name: ''
+      weight: 9
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Hero Section'
+      region: content
+    group_meeting_and_event_descript:
+      children:
+        - field_wedding_and_event_title
+        - field_wedding_and_event_header
+        - field_wedding_and_event_descript
+        - field_wedding_and_event_help_pla
+        - field_wedding_and_event_brochure
+        - field_wedding_bro
+        - group_catering_inquiry
+      parent_name: ''
+      weight: 11
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Meeting and event - Description'
+      region: content
+    group_catering_inquiry:
+      children:
+        - field_catering_form_title
+        - field_catering_form_description
+        - field_catering_inquery_form
+      parent_name: group_meeting_and_event_descript
+      weight: 28
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Catering Inquiry'
+      region: content
+    group_url_pattern_fields:
+      children:
+        - field_select_state
+        - field_location_name
+        - field_select_resort
+      parent_name: ''
+      weight: 14
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: 'URL Pattern Fields'
+      region: content
+id: node.meetings_and_events.default
+targetEntityType: node
+bundle: meetings_and_events
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 8
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_catering_form_description:
+    weight: 14
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_catering_form_title:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_catering_inquery_form:
+    weight: 15
+    settings:
+      default_data: true
+    third_party_settings: {  }
+    type: webform_entity_reference_select
+    region: content
+  field_contact_number:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_hero_gallery:
+    weight: 16
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_hero_section_me:
+    type: entity_reference_paragraphs
+    weight: 15
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_location_name:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_logo_image:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_mapped_triptease:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_meta_tags:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_select_resort:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_select_state:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_wedding_and_event_brochure:
+    weight: 26
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_wedding_and_event_descript:
+    weight: 24
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_wedding_and_event_header:
+    weight: 23
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_wedding_and_event_help_pla:
+    weight: 25
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_wedding_and_event_reach_ou:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_wedding_and_event_title:
+    weight: 22
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_wedding_bro:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_weding_resort_destination:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  field_destination: true

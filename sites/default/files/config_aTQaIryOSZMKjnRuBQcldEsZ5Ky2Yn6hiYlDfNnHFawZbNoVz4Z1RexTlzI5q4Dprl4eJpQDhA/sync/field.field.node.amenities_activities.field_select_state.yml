@@ -1,0 +1,29 @@
+uuid: f616b552-939f-4be5-acea-c80a6b63eea4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_select_state
+    - node.type.amenities_activities
+    - taxonomy.vocabulary.state
+id: node.amenities_activities.field_select_state
+field_name: field_select_state
+entity_type: node
+bundle: amenities_activities
+label: 'Select state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      state: state
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,22 @@
+uuid: ee522bad-873e-4b00-8104-98c69b203e47
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.weddings_and_events
+id: node.weddings_and_events.status
+field_name: status
+entity_type: node
+bundle: weddings_and_events
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

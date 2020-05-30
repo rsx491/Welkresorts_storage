@@ -1,0 +1,58 @@
+uuid: e54d62b0-da18-4d97-b372-0290514c04e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.booking_offer_section.field_more
+    - field.field.paragraph.booking_offer_section.field_offer_description
+    - field.field.paragraph.booking_offer_section.field_offer_title
+    - field.field.paragraph.booking_offer_section.field_view_details_link
+    - paragraphs.paragraphs_type.booking_offer_section
+  module:
+    - link
+    - text
+id: paragraph.booking_offer_section.default
+targetEntityType: paragraph
+bundle: booking_offer_section
+mode: default
+content:
+  field_more:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_offer_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_offer_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_view_details_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

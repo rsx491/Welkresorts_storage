@@ -1,0 +1,22 @@
+uuid: 0f2ddcc8-0d70-4006-a008-f454f0e12a78
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: path_patterns_for_events
+label: 'Path patterns for events'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/[node:field_select_resort]/events'
+selection_criteria:
+  9820edc2-c381-42fe-adf8-35a57a39ecac:
+    id: node_type
+    bundles:
+      events: events
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 9820edc2-c381-42fe-adf8-35a57a39ecac
+selection_logic: and
+weight: -6
+relationships: {  }

@@ -1,0 +1,19 @@
+uuid: 3d740852-55c5-47d0-85ed-e2c04118d77a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.field_rate_heading
+id: block_content.booking_section_content.field_rate_heading
+field_name: field_rate_heading
+entity_type: block_content
+bundle: booking_section_content
+label: 'Rate Heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

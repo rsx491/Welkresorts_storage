@@ -1,0 +1,19 @@
+uuid: f275a2bb-dbeb-4289-9e3b-b9eb3ad61d66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_with_us_comment_autho
+    - node.type.work_with_us
+id: node.work_with_us.field_work_with_us_comment_autho
+field_name: field_work_with_us_comment_autho
+entity_type: node
+bundle: work_with_us
+label: 'work with us - comment author'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

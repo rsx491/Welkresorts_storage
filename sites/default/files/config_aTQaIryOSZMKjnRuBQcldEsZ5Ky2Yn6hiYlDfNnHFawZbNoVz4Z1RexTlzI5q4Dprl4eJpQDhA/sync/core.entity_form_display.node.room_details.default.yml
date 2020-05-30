@@ -1,0 +1,569 @@
+uuid: 9b9289bf-b821-477f-9540-7bb2727fe85e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.room_details.body
+    - field.field.node.room_details.field_3d_gallery
+    - field.field.node.room_details.field_3d_tour
+    - field.field.node.room_details.field_accomodation_node
+    - field.field.node.room_details.field_bed
+    - field.field.node.room_details.field_contact_number
+    - field.field.node.room_details.field_destination
+    - field.field.node.room_details.field_faq
+    - field.field.node.room_details.field_feature_section_header
+    - field.field.node.room_details.field_feature_section_title
+    - field.field.node.room_details.field_hero_gallery
+    - field.field.node.room_details.field_hero_section_rd
+    - field.field.node.room_details.field_listing_page_image
+    - field.field.node.room_details.field_listing_page_subtitle
+    - field.field.node.room_details.field_listing_page_title
+    - field.field.node.room_details.field_location_name
+    - field.field.node.room_details.field_logo_image
+    - field.field.node.room_details.field_meta_tags
+    - field.field.node.room_details.field_number_of_bedrooms
+    - field.field.node.room_details.field_room_bed_details
+    - field.field.node.room_details.field_room_detail_capacity_text
+    - field.field.node.room_details.field_room_details_description
+    - field.field.node.room_details.field_room_details_floor_plan
+    - field.field.node.room_details.field_room_details_guest_capacit
+    - field.field.node.room_details.field_room_details_header
+    - field.field.node.room_details.field_room_details_measurement_t
+    - field.field.node.room_details.field_room_details_measurement_v
+    - field.field.node.room_details.field_room_details_title
+    - field.field.node.room_details.field_room_features
+    - field.field.node.room_details.field_room_type_code
+    - field.field.node.room_details.field_select_resort
+    - field.field.node.room_details.field_select_state
+    - image.style.thumbnail
+    - node.type.room_details
+  module:
+    - entity_reference_revisions
+    - field_group
+    - file
+    - image
+    - imce
+    - metatag
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_hero_section:
+      children:
+        - field_hero_section_rd
+        - field_hero_gallery
+        - field_3d_tour
+        - field_3d_gallery
+      parent_name: ''
+      weight: 10
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Hero Section'
+      region: content
+    group_header_section:
+      children:
+        - field_contact_number
+        - field_logo_image
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Header Section'
+      region: content
+    group_description:
+      children:
+        - field_room_details_title
+        - field_room_details_header
+        - field_room_details_description
+        - group_highlights
+        - group_room_amenities_
+        - field_room_details_floor_plan
+      parent_name: ''
+      weight: 15
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Description
+      region: content
+    group_highlights:
+      children:
+        - group_bed
+        - group_size
+        - group_guest
+      parent_name: group_description
+      weight: 21
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Highlights
+      region: content
+    group_guest:
+      children:
+        - field_room_details_guest_capacit
+        - field_room_detail_capacity_text
+      parent_name: group_highlights
+      weight: 28
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Guest
+      region: content
+    group_bed:
+      children:
+        - field_bed
+        - field_room_bed_details
+      parent_name: group_highlights
+      weight: 25
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Bed
+      region: content
+    group_size:
+      children:
+        - field_room_details_measurement_v
+        - field_room_details_measurement_t
+      parent_name: group_highlights
+      weight: 27
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Size
+      region: content
+    group_feature_section:
+      children:
+        - field_feature_section_title
+        - field_feature_section_header
+        - group_feature_section_faq
+      parent_name: ''
+      weight: 17
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Feature Section'
+      region: content
+    group_feature_section_faq:
+      children:
+        - field_faq
+      parent_name: group_feature_section
+      weight: 26
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Feature Section - FAQ'
+      region: content
+    group_accomodation_page_refrence:
+      children:
+        - field_accomodation_node
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Accomodation Page Refrence'
+      region: content
+    group_room_amenities_:
+      children:
+        - field_room_features
+      parent_name: group_description
+      weight: 22
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Room Amenities Feature'
+      region: hidden
+    group_url_pattern_fields:
+      children:
+        - field_select_state
+        - field_location_name
+        - field_select_resort
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'URL Pattern Fields'
+      region: content
+id: node.room_details.default
+targetEntityType: node
+bundle: room_details
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 9
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_3d_gallery:
+    weight: 14
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_3d_tour:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_accomodation_node:
+    type: entity_reference_revisions_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_bed:
+    type: image_image
+    weight: 22
+    region: content
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+  field_contact_number:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_destination:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_faq:
+    type: entity_reference_paragraphs
+    weight: 22
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_feature_section_header:
+    type: text_textarea
+    weight: 25
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_feature_section_title:
+    type: string_textfield
+    weight: 24
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_hero_gallery:
+    weight: 12
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: file_generic
+    region: content
+  field_hero_section_rd:
+    type: entity_reference_paragraphs
+    weight: 10
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_listing_page_image:
+    weight: 14
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_listing_page_subtitle:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_listing_page_title:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_location_name:
+    type: options_select
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_logo_image:
+    weight: 26
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_meta_tags:
+    type: metatag_firehose
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_number_of_bedrooms:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_room_bed_details:
+    type: paragraphs
+    weight: 23
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+    third_party_settings: {  }
+  field_room_detail_capacity_text:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_room_details_description:
+    type: text_textarea
+    weight: 20
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_room_details_floor_plan:
+    type: file_generic
+    weight: 23
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+  field_room_details_guest_capacit:
+    type: options_select
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_room_details_header:
+    type: text_textarea
+    weight: 19
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_room_details_measurement_t:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_room_details_measurement_v:
+    type: number
+    weight: 22
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_room_details_title:
+    type: string_textfield
+    weight: 18
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_room_features:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+    third_party_settings: {  }
+  field_room_type_code:
+    weight: 19
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_select_resort:
+    type: options_select
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_select_state:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 8
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

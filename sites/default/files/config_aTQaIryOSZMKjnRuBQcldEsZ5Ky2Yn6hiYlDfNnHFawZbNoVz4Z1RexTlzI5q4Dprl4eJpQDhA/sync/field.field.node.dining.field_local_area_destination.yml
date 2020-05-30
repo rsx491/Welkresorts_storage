@@ -1,0 +1,29 @@
+uuid: 95f3dafe-5e4a-4d74-bf40-880b1e2790dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_area_destination
+    - node.type.dining
+    - taxonomy.vocabulary.destinations
+id: node.dining.field_local_area_destination
+field_name: field_local_area_destination
+entity_type: node
+bundle: dining
+label: 'Local Area Destination'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      destinations: destinations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,4 @@
+services:
+  okta_ajax.api:
+    class: Drupal\okta_ajax\ApiService
+    arguments: ['@current_user']

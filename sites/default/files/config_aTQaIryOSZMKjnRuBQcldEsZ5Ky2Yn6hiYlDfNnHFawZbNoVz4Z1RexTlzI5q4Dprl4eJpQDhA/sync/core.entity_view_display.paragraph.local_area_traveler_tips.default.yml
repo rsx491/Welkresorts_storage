@@ -1,0 +1,42 @@
+uuid: 2d4c1878-ded5-4aa6-af8a-705dbe1b4245
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.local_area_traveler_tips.field_amenities_description
+    - field.field.paragraph.local_area_traveler_tips.field_amenities_name
+    - field.field.paragraph.local_area_traveler_tips.field_icon
+    - paragraphs.paragraphs_type.local_area_traveler_tips
+  module:
+    - image
+    - text
+id: paragraph.local_area_traveler_tips.default
+targetEntityType: paragraph
+bundle: local_area_traveler_tips
+mode: default
+content:
+  field_amenities_description:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_amenities_name:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_icon:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

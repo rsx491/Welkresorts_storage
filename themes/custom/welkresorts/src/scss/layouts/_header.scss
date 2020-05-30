@@ -1,0 +1,1134 @@
+/* Header Start here*/
+
+header {
+  position: relative;
+
+  .navbar {
+    padding: 35px 20px 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin-bottom: 0;
+    z-index: 99;
+
+    &.navbar-light {
+      box-shadow: inset 0 107px 107px -78px rgba(0, 0, 0, 0.65);
+      border-radius: 0px;
+      height: 104px;
+
+      @include breakpoint(mobileonly) {
+        box-shadow: none;
+        height: auto !important;
+      }
+    }
+
+    @include breakpoint(mobileonly) {
+      padding: 32px 0;
+      margin-bottom: 0;
+      display: block;
+      width: 100%;
+      margin-bottom: 0;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      position: fixed;
+    }
+
+    .navbar-brand {
+      background: url("../../src/images/welk-logo-header-light.svg") no-repeat;
+      height: 60px;
+      width: 100%;
+      max-width: 230px;
+      padding: 0;
+      position: absolute;
+      top: 28px;
+      margin: 0;
+      left: 22px;
+
+      @include breakpoint(mobileonly) {
+        background: url("../../src/images/welk-logo-mobile.jpg") 0px 5px no-repeat !important;
+        max-width: 75px;
+        position: absolute;
+        left: 40%;
+        top: 2px;
+      }
+    }
+
+    .navbar-we-mega-menu.navbar {
+      padding-top: 0;
+
+      @include breakpoint(mobileonly) {
+        padding: 0;
+        display: block;
+        right: 0;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin: 0px;
+      }
+
+      ul {
+        @include breakpoint(mobileonly) {
+          width: 100%;
+        }
+
+        li {
+          @include breakpoint(mobileonly) {
+            border-bottom: 1px solid $gray-lighten-color;
+          }
+
+          .we-megamenu-nolink {
+            @include breakpoint(mobileonly) {
+              @include font-stage-Montserrat(600, 15px, 16px);
+              letter-spacing: 1.88px;
+              padding: 20px 0 !important;
+              text-shadow: none !important;
+              border-top: 0px !important;
+            }
+          }
+
+          &.dropdown-menu {
+
+            .we-megamenu-nolink,
+            a {
+              &:after {
+                @include breakpoint(mobileonly) {
+                  content: "\f105";
+                  color: $blue-lighten-color;
+                  font-size: 16px;
+                  right: 0;
+                }
+              }
+            }
+
+            &.active {
+              a {
+                background: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .navbar-collapse {
+      padding: 0;
+
+      @include breakpoint(mobileonly) {
+        width: 100%;
+        position: fixed;
+        top: 64px;
+        z-index: 9999;
+        height: 100% !important;
+        background-color: $gray-lighten-2-color;
+        padding: 24px 14px;
+      }
+
+      .primary-menu {
+        top: -25px;
+
+        @include breakpoint(mobileonly) {
+          background: none;
+          z-index: 999;
+        }
+      }
+    }
+
+    .navbar-toggler,
+    .sign-in {
+      @include breakpoint(mobileonly) {
+        border: none;
+        outline: none;
+        color: $gray-darken-2-color;
+        @include font-stage-Montserrat(600, 12px, 16px);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        position: absolute;
+        top: 25px;
+        cursor: pointer;
+      }
+    }
+
+    .navbar-toggler {
+      @include breakpoint(mobileonly) {
+        padding: 0 !important;
+        left: 10px;
+      }
+    }
+
+    .sign-in {
+      @include breakpoint(mobileonly) {
+        background: url("../../src/images/user-icon.png") left center no-repeat;
+        padding-left: 18px;
+        text-align: right;
+        right: 10px;
+      }
+    }
+
+    .navbar-toggler-icon {
+      @include breakpoint(mobileonly) {
+        background: url("../../src/images/hamburger-menu-icon.png") left 2px no-repeat;
+      }
+    }
+
+    .navbar-nav {
+      @include breakpoint(mobileonly) {
+        margin: 0px 10px;
+      }
+    }
+
+    @include breakpoint(mobileonly) {
+      background: $white-color;
+      z-index: 999;
+    }
+  }
+
+  //Secondary Nav
+  .menu.secondary {
+    position: absolute;
+    width: auto;
+    right: 0;
+    top: 0;
+    z-index: 99;
+
+    @include breakpoint(mobileonly) {
+      display: block;
+      top: 0;
+      z-index: 99;
+      margin-top: 20px;
+      left: 0;
+      top: 160px;
+      width: auto;
+    }
+
+    .contact-number {
+      position: relative;
+      top: 3px;
+      @include font-stage-Montserrat(400, 12px, 23px);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: $white-color;
+      display: inline-block;
+      left: -110px;
+
+      @include breakpoint(mobileonly) {
+        top: 5px;
+        left: 15px;
+        margin: 0;
+        color: $gray-darken-2-color;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .utility-nav {
+    position: relative;
+    right: 14px;
+    top: -22px;
+
+    @include breakpoint(mobileonly) {
+      position: relative;
+      margin: 0;
+      right: 0;
+      top: 8px;
+    }
+
+    a {
+      @include font-stage-Montserrat(400, 12px, 18px);
+      display: inline-block;
+      padding: 0 15px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: $white-color;
+
+      @include breakpoint(mobileonly) {
+        color: $gray-darken-2-color;
+        @include font-stage-Open-Sans(600, 14px, 23px);
+        padding: 15px 0;
+        text-transform: capitalize;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      @include breakpoint(mobileonly) {
+        display: block;
+        padding-bottom: 10px;
+        text-align: left;
+      }
+
+      &:last-child {
+        @include breakpoint(mobileonly) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .book-now-sticky {
+    display: none !important;
+  }
+
+  .m-view {
+    &.navbar {
+      position: fixed;
+
+      @include breakpoint(mobileonly) {
+        position: fixed;
+        z-index: 9999;
+      }
+    }
+
+    .close-btn {
+      @include breakpoint(mobileonly) {
+        background: url("../../src/images/close-icon.jpg") no-repeat;
+        width: 20px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        top: 2px;
+      }
+    }
+  }
+
+  .book-now {
+    float: right;
+    padding: 12px 23px;
+    top: -10px;
+    position: relative;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.92px;
+    right: 30px;
+
+    @include breakpoint(mobileonly) {
+      width: 100%;
+      padding: 12px 0;
+      @include font-stage-Montserrat(600, 12px, 16px);
+      letter-spacing: 1.5px;
+      margin-top: 65px;
+      top: 0px;
+      right: 0;
+    }
+
+    &.mobile {
+      @include breakpoint(mobileonly) {
+        position: fixed;
+        z-index: 999;
+      }
+    }
+  }
+
+  .top-nav-wrapper {
+    &:hover {
+      .navbar-brand {
+        background: url("../../src/images/welk-logo-horizontal.svg") left center no-repeat;
+        background-size: 222px 48px;
+        top: 28px;
+        left: 20px;
+        height: 48px;
+
+        @include breakpoint(mobileonly) {
+          position: absolute;
+          left: 40%;
+          top: 2px;
+          height: 100%;
+        }
+      }
+
+      .navbar.navbar-expand-lg {
+        background: $white-color;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        position: fixed;
+        box-shadow: none;
+        width: 100%;
+
+        .we-mega-menu-ul {
+          li {
+
+            span,
+            a {
+              color: $gray-darken-2-color;
+              font-weight: 600;
+
+              &:before {
+                background: url("../../src/images/dropdown-grey-toggle-icon.svg") 0px 3px no-repeat;
+                width: 10px;
+                height: 10px;
+              }
+            }
+
+            .we-mega-menu-submenu {
+              display: block;
+              visibility: visible;
+              opacity: 1;
+              position: fixed;
+              width: 100% !important;
+
+              @include breakpoint(mobileonly) {
+                display: none;
+              }
+            }
+
+            &.active {
+
+              span,
+              a {
+                color: $blue-lighten-color;
+                font-weight: 600;
+
+                &:before {
+                  transform: rotate(180deg);
+                  position: absolute;
+                  right: 16px;
+                  top: 10px;
+                }
+              }
+            }
+
+            &:hover {
+
+              span,
+              a {
+                font-weight: 600;
+                color: $blue-lighten-color;
+                background: none;
+              }
+            }
+          }
+        }
+      }
+
+      .menu.secondary {
+        position: fixed;
+
+        @include breakpoint(mobileonly) {
+          position: fixed;
+          top: 224px;
+        }
+
+        .contact-number {
+          color: $gray-darken-2-color;
+          font-weight: 600;
+        }
+      }
+
+      .utility-nav {
+        @extend .utility-nav;
+
+        a {
+          color: $gray-darken-2-color;
+          font-weight: 600;
+
+          &:hover {
+            color: $blue-lighten-color;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  //Mega Menu Open
+  &.active {
+    .top-nav-wrapper {
+      @extend .region-we-mega-menu;
+
+      .we-mega-menu-submenu {
+        display: block !important;
+      }
+
+      .navbar-brand {
+        background: url("../../src/images/welk-logo-horizontal.svg") left center no-repeat;
+        background-size: 222px 48px;
+        top: 28px;
+        left: 20px;
+        height: 48px;
+      }
+
+      .navbar.navbar-expand-lg {
+        background: $white-color;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        position: fixed;
+        box-shadow: none;
+        width: 100%;
+
+        .we-mega-menu-ul {
+          li {
+
+            span,
+            a {
+              color: $gray-darken-2-color;
+              font-weight: 600;
+
+              &:before {
+                background: url("../../src/images/dropdown-grey-toggle-icon.svg") 0px 3px no-repeat;
+                width: 10px;
+                height: 10px;
+              }
+            }
+
+            .we-mega-menu-submenu {
+              display: block;
+              visibility: visible;
+              opacity: 1;
+              position: fixed;
+              width: 100% !important;
+
+              @include breakpoint(mobileonly) {
+                display: none;
+              }
+            }
+
+            &.active {
+
+              span,
+              a {
+                color: $blue-lighten-color;
+                font-weight: 600;
+
+                &:before {
+                  transform: rotate(180deg);
+                  position: absolute;
+                  right: 16px;
+                  top: 10px;
+                }
+              }
+            }
+
+            &:hover {
+
+              span,
+              a {
+                font-weight: 600;
+                color: $blue-lighten-color;
+                background: none;
+              }
+            }
+          }
+        }
+      }
+
+      .menu.secondary {
+        position: fixed;
+
+        @include breakpoint(mobileonly) {
+          position: fixed;
+        }
+
+        .contact-number {
+          color: $gray-darken-2-color;
+          font-weight: 600;
+        }
+      }
+
+      .utility-nav {
+        @extend .utility-nav;
+
+        a {
+          color: $gray-darken-2-color;
+          font-weight: 600;
+
+          &:hover {
+            color: $blue-lighten-color;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  //Sticky Header
+  &.fixed {
+    .top-nav-wrapper {
+      .navbar-brand {
+        background: url("../../src/images/welk-logo-horizontal.svg") left center no-repeat;
+        top: 10px;
+        left: 20px;
+        background-size: 185px 40px;
+        height: 40px;
+
+        @include breakpoint(mobileonly) {
+          position: absolute;
+          left: 40% !important;
+          top: 2px;
+          height: 100% !important;
+          overflow: hidden;
+        }
+      }
+
+      .navbar.navbar-expand-lg {
+        background: $white-color;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        position: fixed;
+        width: 100%;
+        box-shadow: none;
+        height: 72px;
+
+        @include breakpoint(mobileonly) {
+          padding: 32px 0;
+          z-index: 9999;
+          background: $white-color;
+        }
+
+        .we-mega-menu-ul {
+          @extend .we-mega-menu-ul;
+
+          li {
+
+            span,
+            a {
+              color: $gray-darken-2-color !important;
+              font-weight: 600 !important;
+
+              &:before {
+                background: url("../../src/images/dropdown-grey-toggle-icon.svg") 0px 2px no-repeat !important;
+                width: 10px;
+                height: 10px;
+
+                @include breakpoint(mobileonly) {
+                  background: none;
+                }
+              }
+
+              &:hover,
+              &:focus {
+                background: none;
+              }
+            }
+
+            .we-mega-menu-submenu {
+              display: block;
+              visibility: visible;
+              opacity: 1;
+              position: fixed;
+              height: 600px;
+              overflow: auto;
+              width: 100% !important;
+
+              @include breakpoint(mobileonly) {
+                display: none;
+              }
+            }
+
+            &.active {
+
+              span,
+              a {
+                color: $blue-lighten-color !important;
+                font-weight: 600 !important;
+              }
+            }
+
+            &:hover {
+
+              span,
+              a {
+                font-weight: 600;
+                color: $blue-lighten-color;
+                background: none;
+              }
+            }
+
+            &:focus a {
+              background: none;
+            }
+
+            &.active-trail {
+              background: none;
+
+              a {
+                background: none;
+              }
+            }
+          }
+        }
+      }
+
+      .menu.secondary {
+        display: none;
+      }
+
+      .book-now-sticky {
+        @extend .book-now-sticky;
+        display: block !important;
+
+        @include breakpoint(mobileonly) {
+          display: none;
+        }
+      }
+
+      &:hover {
+        .navbar-brand {
+          background: url("../../src/images/welk-logo-horizontal.svg") left center no-repeat;
+          top: 10px;
+          left: 20px;
+          background-size: 185px 40px;
+          height: 40px;
+
+          @include breakpoint(mobileonly) {
+            left: 40% !important;
+            top: 2px;
+            height: 100% !important;
+          }
+        }
+
+        .menu.secondary {
+          @include breakpoint(desktop) {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+
+  //Default Header except home page
+  &.default-header {
+    .top-nav-wrapper {
+      .navbar-brand {
+        background: url("../../src/images/welk-logo-horizontal.svg") left center no-repeat;
+        top: 28px;
+        height: 48px;
+        left: 20px;
+        background-size: 222px 48px;
+
+        @include breakpoint(mobileonly) {
+          left: 40% !important;
+          top: 2px !important;
+        }
+      }
+
+      .navbar.navbar-expand-lg {
+        background: $white-color;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        position: fixed;
+        width: 100%;
+        box-shadow: none;
+        height: 104px;
+
+        @include breakpoint(mobileonly) {
+          padding: 32px 0;
+        }
+
+        .we-mega-menu-ul {
+          li {
+
+            span,
+            a {
+              color: $gray-darken-2-color;
+              font-weight: 600;
+
+              &:before {
+                background: url("../../src/images/dropdown-grey-toggle-icon.svg") 0px 3px no-repeat;
+                width: 10px;
+                height: 10px;
+              }
+            }
+
+            .we-mega-menu-submenu {
+              display: none;
+              visibility: visible;
+              opacity: 1;
+              position: fixed;
+              width: 100% !important;
+
+              @include breakpoint(mobileonly) {
+                display: none;
+              }
+            }
+
+            &.active {
+
+              span,
+              a {
+                color: $blue-lighten-color;
+                font-weight: 600;
+
+                &:before {
+                  transform: rotate(180deg);
+                  position: absolute;
+                  right: 16px;
+                  top: 10px;
+                }
+              }
+            }
+
+            &:hover {
+
+              span,
+              a {
+                font-weight: 600;
+                color: $blue-lighten-color;
+                background: none;
+              }
+            }
+          }
+        }
+      }
+
+      .menu.secondary {
+        position: fixed;
+
+        @include breakpoint(mobileonly) {
+          position: fixed;
+        }
+
+        .contact-number {
+          color: $gray-darken-2-color;
+          font-weight: 600;
+        }
+      }
+
+      .utility-nav {
+        @extend .utility-nav;
+
+        a {
+          color: $gray-darken-2-color;
+          font-weight: 600;
+
+          &:hover {
+            color: $blue-lighten-color;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    &.fixed {
+      .top-nav-wrapper {
+        .navbar-brand {
+          background: url("../../src/images/welk-logo-horizontal.svg") left center no-repeat;
+          top: 10px;
+          left: 20px;
+          background-size: 185px 40px;
+          height: 40px;
+        }
+
+        .navbar.navbar-expand-lg {
+          height: 72px;
+        }
+
+        .menu.secondary {
+          @include breakpoint(desktop) {
+            display: none !important;
+          }
+        }
+      }
+    }
+
+    .banner-video-block {
+      margin-top: 104px;
+      margin-bottom: -104px;
+
+      .home-banner-text {
+        top: 180px;
+
+        @include breakpoint(mobileonly) {
+          top: 0px;
+          margin-top: 30px;
+          width: 92%;
+        }
+      }
+
+      .video-banner-wrapper {
+        img {
+          width: 100%;
+          height: 488px;
+        }
+      }
+    }
+  }
+
+  //Banner & Video Block
+  .banner-video-block {
+    @include breakpoint(mobileonly) {
+      margin-top: 102px;
+    }
+
+    .video-banner-wrapper {
+      height: 100% !important;
+
+      img {
+        width: 100%;
+        height: 816px;
+
+        @include breakpoint(mobileonly) {
+          max-height: 354px;
+        }
+      }
+
+      @include breakpoint(mobileonly) {
+        height: 354px !important;
+      }
+
+      &.active {
+        height: 100% !important;
+
+        @include breakpoint(mobileonly) {
+          height: 408px !important;
+        }
+
+        @include breakpoint(mobileonly) {
+          video {
+            height: 408px;
+            object-fit: cover;
+            display: block;
+          }
+        }
+      }
+
+      .caption {
+        position: absolute;
+        background: $black-color;
+        opacity: 0.8;
+        padding: 0 20px;
+        color: $white-color;
+        padding: 0 5px;
+        bottom: 15px;
+        right: 0;
+        padding: 11px 23px;
+        @include font-stage-Open-Sans(400, 13px, 16px);
+
+        @include breakpoint(mobileonly) {
+          right: 10px;
+        }
+      }
+    }
+
+    .field--type-entity-reference-revisions {
+      @include breakpoint(mobileonly) {
+        height: auto;
+      }
+    }
+
+    .container.position-relative {
+      max-height: 100%;
+      height: auto;
+
+      @include breakpoint(mobileonly) {
+        height: auto;
+        z-index: 100;
+      }
+    }
+
+    .home-banner-text {
+      position: absolute;
+      top: 242px;
+      width: 100%;
+
+      @include breakpoint(mobileonly) {
+        top: 0px;
+        margin-top: 30px;
+        width: 92%;
+      }
+
+      .create-your-own-adv {
+        color: $white-color;
+        @include font-stage-Playfair-Display(bold, 64px, 72px);
+        letter-spacing: -0.11px;
+        padding-bottom: 20px;
+        text-align: center;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+
+        @include breakpoint(mobileonly) {
+          top: 80px;
+          font-size: 36px;
+          line-height: 40px;
+          padding-bottom: 15px;
+        }
+      }
+
+      .with-luxury-hotels-l,
+      .with-luxury-hotels-l>p {
+        color: $white-color;
+        @include font-stage-Open-Sans(400, 18px, 28px);
+        text-align: center;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        padding-bottom: 35px;
+        max-width: 650px;
+        margin: 0px auto;
+
+        @include breakpoint(mobileonly) {
+          padding: 0;
+        }
+
+        p {
+          color: $white-color;
+
+          @include breakpoint(mobileonly) {
+            @include font-stage-Open-Sans(600, 14px, 20px);
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+            padding-bottom: 25px;
+            margin: 0;
+          }
+        }
+      }
+
+      .view-location {
+        display: -webkit-box;
+        /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+        display: -moz-box;
+        /* OLD: Firefox (buggy) */
+        display: -ms-flexbox;
+        /* MID: IE 10 */
+        display: -webkit-flex;
+        /* NEW, Chrome 21?28, Safari 6.1+ */
+        justify-content: center;
+        align-content: center;
+
+        @include breakpoint(mobileonly) {
+          margin-top: 20px;
+        }
+
+        a {
+          margin-right: 30px;
+          width: 182px;
+
+          @include breakpoint(mobileonly) {
+            padding: 11px 12px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .video-btn-wrapper {
+      display: -webkit-box;
+      /* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+      display: -moz-box;
+      /* OLD: Firefox (buggy) */
+      display: -ms-flexbox;
+      /* MID: IE 10 */
+      display: -webkit-flex;
+      /* NEW, Chrome 21?28, Safari 6.1+ */
+      align-items: center;
+      min-width: 147px;
+      justify-content: flex-end;
+      text-align: center;
+      height: 40px;
+      position: absolute;
+      bottom: 15px;
+      right: 0px;
+
+      @include breakpoint(mobileonly) {
+        right: 10px;
+      }
+
+      .col {
+        background: $black-color;
+        opacity: 0.8;
+        padding: 0 20px;
+        color: $white-color;
+        padding: 0 5px;
+        height: 40px;
+        @include font-stage-Open-Sans(400, 12px, 40px);
+
+        button {
+          background: $black-color;
+          opacity: 0.8;
+          margin: 0px;
+
+          &#sound {
+            background: url("../../src/images/icon-sound-off.png") center center no-repeat;
+            width: 18px;
+            height: 18px;
+            outline: none;
+
+            &.on {
+              background: url("../../src/images/icon-sound.png") center center no-repeat;
+              width: 18px;
+              height: 18px;
+              outline: none;
+            }
+          }
+        }
+
+        &.btn {
+          flex-basis: 25%;
+          -webkit-flex-basis: 25%;
+          max-width: 40px;
+          margin-left: 15px;
+          cursor: pointer;
+
+          &.pauseplay {
+            background: $black-color url("../../src/images/hero-pause-button.svg") center center no-repeat;
+          }
+
+          &.play {
+            background: $black-color url("../../src/images/hero-play-button.svg") center center no-repeat;
+          }
+        }
+      }
+    }
+
+    &.inner-page {
+      @include breakpoint(mobileonly) {
+        margin-top: 102px;
+      }
+
+      video {
+        width: 100%;
+
+        @include breakpoint(mobileonly) {
+          height: 288px;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .video-banner-wrapper,
+      .video-banner-wrapper img {
+        @include breakpoint(mobileonly) {
+          height: 288px !important;
+        }
+      }
+
+      .home-banner-text {
+        @include breakpoint(mobileonly) {
+          margin-top: 56px;
+        }
+
+        .create-your-own-adv {
+          @include breakpoint(mobileonly) {
+            font-size: 36px;
+          }
+        }
+
+        .with-luxury-hotels-l {
+          @include breakpoint(mobileonly) {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.active {
+  position: fixed;
+}
+
+.book-now-sticky {
+  position: fixed;
+  top: 14px;
+  width: 129px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.92px;
+  right: 30px;
+  display: block;
+  z-index: 999;
+  transition: none;
+}

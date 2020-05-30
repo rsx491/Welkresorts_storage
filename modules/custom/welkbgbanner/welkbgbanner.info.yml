@@ -1,0 +1,8 @@
+name: 'Welk Banner Video or Image'
+type: module
+description: 'The Video/Image background banner block'
+# core: 8.x
+package: 'Welkgroup'
+version: '8.x'
+core: '8.x'
+project: 'welk_bg_video_img'

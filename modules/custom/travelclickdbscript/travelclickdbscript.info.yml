@@ -1,0 +1,6 @@
+name: 'TravelClick CMS Update'
+description: 'Functions to Insert Data from travelclick api to CMS'
+type: module
+core: 8.x
+version: 8.x
+pacakge: Welkgroup

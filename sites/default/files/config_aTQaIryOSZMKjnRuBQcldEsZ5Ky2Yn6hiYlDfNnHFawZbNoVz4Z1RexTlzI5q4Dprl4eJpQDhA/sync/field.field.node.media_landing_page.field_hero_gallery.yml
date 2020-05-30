@@ -1,0 +1,27 @@
+uuid: 1b8844eb-09b2-45bc-9072-1f40e369b4fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_gallery
+    - node.type.media_landing_page
+  module:
+    - file
+id: node.media_landing_page.field_hero_gallery
+field_name: field_hero_gallery
+entity_type: node
+bundle: media_landing_page
+label: 'Hero Gallery'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg mp4'
+  max_filesize: '3 MB'
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

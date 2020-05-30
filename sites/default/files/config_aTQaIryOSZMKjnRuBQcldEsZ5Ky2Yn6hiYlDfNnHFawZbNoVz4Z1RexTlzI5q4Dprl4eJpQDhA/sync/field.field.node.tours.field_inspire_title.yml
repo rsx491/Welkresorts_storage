@@ -1,0 +1,19 @@
+uuid: 2bc1f261-626b-488b-8721-13f22efcd2a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inspire_title
+    - node.type.tours
+id: node.tours.field_inspire_title
+field_name: field_inspire_title
+entity_type: node
+bundle: tours
+label: 'Inspire Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

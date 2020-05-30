@@ -1,0 +1,21 @@
+uuid: d66a3945-3fdc-4029-a303-4aa74f8f5959
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_with_us_header
+    - node.type.work_with_us
+  module:
+    - text
+id: node.work_with_us.field_work_with_us_header
+field_name: field_work_with_us_header
+entity_type: node
+bundle: work_with_us
+label: 'work with us - Header'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

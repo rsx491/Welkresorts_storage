@@ -1,0 +1,23 @@
+uuid: f4fae85d-ce4f-4d37-bbc3-541318cdb337
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.welkresort
+    - field.storage.block_content.field_button_with_link_and_text
+  module:
+    - link
+id: block_content.welkresort.field_button_with_link_and_text
+field_name: field_button_with_link_and_text
+entity_type: block_content
+bundle: welkresort
+label: 'Button with Link and Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

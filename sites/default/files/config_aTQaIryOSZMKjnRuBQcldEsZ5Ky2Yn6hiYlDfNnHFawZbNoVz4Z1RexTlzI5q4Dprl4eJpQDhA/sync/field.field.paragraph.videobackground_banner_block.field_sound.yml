@@ -1,0 +1,23 @@
+uuid: 7d65a1c9-4f62-47ff-863c-eec5f73bcd8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sound
+    - paragraphs.paragraphs_type.videobackground_banner_block
+id: paragraph.videobackground_banner_block.field_sound
+field_name: field_sound
+entity_type: paragraph
+bundle: videobackground_banner_block
+label: Sound
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

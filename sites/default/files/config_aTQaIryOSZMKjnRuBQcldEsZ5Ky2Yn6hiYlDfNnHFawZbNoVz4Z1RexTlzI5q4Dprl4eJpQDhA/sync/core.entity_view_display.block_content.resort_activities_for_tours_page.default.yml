@@ -1,0 +1,42 @@
+uuid: 514d57ed-bffe-41ec-9d22-3f0d832f979a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.resort_activities_for_tours_page
+    - field.field.block_content.resort_activities_for_tours_page.field_featured_actv
+    - field.field.block_content.resort_activities_for_tours_page.field_su
+    - field.field.block_content.resort_activities_for_tours_page.field_title
+  module:
+    - entity_reference_revisions
+id: block_content.resort_activities_for_tours_page.default
+targetEntityType: block_content
+bundle: resort_activities_for_tours_page
+mode: default
+content:
+  field_featured_actv:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_su:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

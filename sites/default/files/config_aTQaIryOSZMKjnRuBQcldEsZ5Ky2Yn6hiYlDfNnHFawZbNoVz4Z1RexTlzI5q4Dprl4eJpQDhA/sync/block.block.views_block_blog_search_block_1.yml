@@ -1,0 +1,24 @@
+uuid: add56988-8f12-4afa-94ac-e2e0475f04ad
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.blog_search
+  module:
+    - views
+  theme:
+    - welkresorts
+id: views_block_blog_search_block_1
+theme: welkresorts
+region: banner
+weight: -26
+provider: null
+plugin: 'views_block:blog_search-block_1'
+settings:
+  id: 'views_block:blog_search-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

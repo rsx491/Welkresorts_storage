@@ -1,0 +1,106 @@
+<?php
+
+use Drupal\node\Entity\Node;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function welk_custom_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    if ($form_id == 'webform_submission_booking_form_block_content_5_add_form') {
+		$form['#attached']['library'][] = 'welk_custom/welk_custom.assests_session';
+        //print_r($form['elements']['destinations']); exit;
+        $path = \Drupal::request()->getpathInfo();
+        $arg  = explode('/',$path);
+				//print $arg[1];die;
+        if (!empty($arg[2]) && is_numeric($arg[2])) {
+            $resort_node = Node::load($arg[2]);
+            if (!empty($resort_node->field_destination)) {
+                $destination_target_id = $resort_node->field_destination->getValue();
+            }
+            if(isset($destination_target_id)) {
+                $form['elements']['destinations']['#default_value'] = $destination_target_id[0]['target_id'];
+            }
+        }
+		$request = \Drupal::request();
+        $session = $request->getSession();
+		if($session->get('tid_val') !== NULL){
+			$form['elements']['destinations']['#default_value'] = $session->get('tid_val');
+		}
+		if($session->get('booking_dates') !== NULL){
+			$form['elements']['check_in_check_out']['#default_value'] = $session->get('booking_dates');
+		}
+		if($session->get('booking_rooms_guests') !== NULL){
+			$form['elements']['rooms_guests']['#default_value'] = $session->get('booking_rooms_guests');
+		}
+		if($session->get('total_rooms') !== NULL){
+			$form['elements']['rooms']['#default_value'] = $session->get('total_rooms');
+		}
+		if($session->get('guest_breakup_rooms') !== NULL){
+			$form['elements']['guests']['#default_value'] = $session->get('guest_breakup_rooms');
+		}
+		
+		$form['#attached']['drupalSettings']['destinations'] = $session->get('tid_val');
+		$form['#attached']['drupalSettings']['check_in_check_out'] = $session->get('booking_dates');
+		$form['#attached']['drupalSettings']['rooms_guests'] = $session->get('booking_rooms_guests');
+		$form['#attached']['drupalSettings']['total_rooms'] = $session->get('total_rooms');
+		$form['#attached']['drupalSettings']['guest_breakup_rooms'] = $session->get('guest_breakup_rooms');
+		$form['actions']['submit']['#submit'][] = 'welk_custom_session_set';
+    }
+}
+
+function welk_custom_session_set(array $form, FormStateInterface $form_state){
+	$checkin_checkoutdate = $form_state->getValue('check_in_check_out');
+    $checkin_checkoutdate_arg  = explode('-',$checkin_checkoutdate);
+	$checkin_date=trim($checkin_checkoutdate_arg[0]);
+	$checkout_date=trim($checkin_checkoutdate_arg[1]);
+	$rooms_guests = $form_state->getValue('rooms_guests');
+	$rooms_guests_arg  = explode(':',$rooms_guests);
+	$room=trim($rooms_guests_arg[0]);
+	$guests=trim($rooms_guests_arg[1]);
+	$total_rooms = $form_state->getValue('rooms');
+	$guest_breakup_rooms = $form_state->getValue('guests');
+	$destination_id = $form_state->getValue('destinations');
+	$promocode= $form_state->getValue('promo_code');
+    $request = \Drupal::request();
+    $session = $request->getSession();
+
+    $session->set('booking_destination', $form_state->getValue('resort_destinations'));
+
+    $session->set('booking_dates', $form_state->getValue('check_in_check_out'));
+
+    $session->set('booking_rooms_guests', $form_state->getValue('rooms_guests'));
+	$session->set('checkin_date',$checkin_date);
+	$session->set('checkout_date', $checkout_date);
+	$session->set('room', $room);
+	$session->set('guests', $guests);
+	$session->set('total_rooms', $total_rooms);
+	$session->set('guest_breakup_rooms', $guest_breakup_rooms);
+	$session->set('destination_id', $destination_id);
+	$session->set('promo_code', $promocode);
+	$session->set('no_of_roomcount', 0);
+	$session->set('rateplandata', NULL);
+	$session->set('multiresponse', NULL);
+   }  
+
+/**
+ * Implements preprocess_views_view_field().
+ */
+function welk_custom_preprocess_views_view_field(&$variables) {
+    $view = $variables['view'];
+    $field = $variables['field'];
+    if (($view->storage->id() == "resort_destinations" && $view->current_display == 'block_1' && $field->field == 'field_destination')||($view->storage->id() == "resort_destinations_welk_experience" && $view->current_display == 'block_1' && $field->field == 'field_destination')) {
+        $resort_destination = explode('=>', $variables['output']);
+        $resort_destination_new = explode(',', $resort_destination[1]);
+        $resort_destination_rem = explode(')', $resort_destination[1]);
+        $variables['output'] = str_replace($resort_destination_rem[0], $resort_destination_new[0], $variables['output']);
+        $var = explode(',', $variables['output']);
+        $variables['output'] = $var[0];
+    }
+}
+function welk_custom_page_attachments_alter(array &$page) {
+	//print"divyanshu";exit;
+  // Attach the flot asset on every page.
+  $page['#attached']['library'][] = 'welk_custom/welk_custom.assests_session';
+}

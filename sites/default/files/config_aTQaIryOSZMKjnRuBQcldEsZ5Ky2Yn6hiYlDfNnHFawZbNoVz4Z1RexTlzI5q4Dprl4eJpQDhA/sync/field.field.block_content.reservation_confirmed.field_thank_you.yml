@@ -1,0 +1,19 @@
+uuid: 6a8aa4c4-e005-48a5-b216-3e8de6f384ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_thank_you
+id: block_content.reservation_confirmed.field_thank_you
+field_name: field_thank_you
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'Thank you'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,30 @@
+uuid: 4cbabdb3-830f-4ad6-a2ff-315e62572a67
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comments_for_blog
+    - field.field.block_content.comments_for_blog.field_blog_comment
+  module:
+    - webform
+id: block_content.comments_for_blog.default
+targetEntityType: block_content
+bundle: comments_for_blog
+mode: default
+content:
+  field_blog_comment:
+    weight: 26
+    settings:
+      default_data: true
+    third_party_settings: {  }
+    type: webform_entity_reference_select
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

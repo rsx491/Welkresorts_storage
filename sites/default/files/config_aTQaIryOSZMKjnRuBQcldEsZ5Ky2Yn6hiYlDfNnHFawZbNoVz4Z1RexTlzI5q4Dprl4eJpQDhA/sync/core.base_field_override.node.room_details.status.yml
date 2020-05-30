@@ -1,0 +1,22 @@
+uuid: 821f72e3-1f9c-4ecb-a482-34af33b4043e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.room_details
+id: node.room_details.status
+field_name: status
+entity_type: node
+bundle: room_details
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

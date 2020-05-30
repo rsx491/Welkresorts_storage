@@ -1,0 +1,24 @@
+uuid: 94dbbb44-b333-48cc-ab10-e1ba75678041
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.welk_logo_footer
+    - field.field.block_content.welk_logo_footer.field_image
+  module:
+    - image
+id: block_content.welk_logo_footer.default
+targetEntityType: block_content
+bundle: welk_logo_footer
+mode: default
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

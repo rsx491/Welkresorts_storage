@@ -1,0 +1,23 @@
+uuid: 6d64a28c-8141-4138-8f1a-f0824f6c2142
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attraction_distance
+    - paragraphs.paragraphs_type.local_area_attractions
+id: paragraph.local_area_attractions.field_attraction_distance
+field_name: field_attraction_distance
+entity_type: paragraph
+bundle: local_area_attractions
+label: 'Attraction distance'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

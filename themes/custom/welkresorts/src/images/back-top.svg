@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 57 (101010) - https://sketch.com -->
+    <title>89F614CA-A181-483A-B611-CEC6E6DD036A</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M12,0 C18.627417,-1.21743675e-15 24,5.372583 24,12 L24,12.1153851 C24,18.7428021 18.627417,24.1153851 12,24.1153851 C5.372583,24.1153851 8.11624501e-16,18.7428021 0,12.1153851 L0,12 C-8.11624501e-16,5.372583 5.372583,1.21743675e-15 12,0 Z" id="path-1"></path>
+    </defs>
+    <g id="Batch-2-Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Media-Landing-Page" transform="translate(-1414.000000, -4924.000000)">
+            <g id="Desktop-/-Pattern-/-Alt-Footer" transform="translate(0.000000, 4765.000000)">
+                <g id="BTT-2">
+                    <g transform="translate(1414.000000, 159.764423)">
+                        <g>
+                            <g id="1.-Shape-/-3.-Square-/-1.-Fill">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <g id="Solid"></g>
+                                <g id="fill-color" mask="url(#mask-2)" fill="#0097DB">
+                                    <rect id="Blue" x="0" y="0" width="24" height="24.1153851"></rect>
+                                </g>
+                            </g>
+                            <polygon id="Arrow-Right-Copy" fill="#FFFFFF" transform="translate(12.000000, 11.722756) rotate(-90.000000) translate(-12.000000, -11.722756) " points="15 11.7227565 9.99376344 16.411859 9.00695323 15.4559223 13.0549651 11.7227565 9 7.97426252 9.99376344 7.03365397"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

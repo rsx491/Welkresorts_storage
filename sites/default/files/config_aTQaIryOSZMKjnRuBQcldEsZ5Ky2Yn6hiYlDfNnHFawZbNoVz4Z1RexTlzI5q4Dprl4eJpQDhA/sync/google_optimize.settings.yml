@@ -1,0 +1,9 @@
+hide_page_enable: 0
+container_ids: GTM-5KHZKZX
+hide_page_timeout: '4000'
+hide_page_class_name: async-hide
+hide_page_pages: ''
+hide_page_roles:
+  anonymous: 0
+  authenticated: 0
+  administrator: 0

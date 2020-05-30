@@ -1,0 +1,42 @@
+uuid: 9a2d1e52-800f-4cf0-955a-bb72813fcf10
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_day
+field_name: field_day
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Sunday
+      label: Sunday
+    -
+      value: Monday
+      label: Monday
+    -
+      value: Tuesday
+      label: Tuesday
+    -
+      value: Wednesday
+      label: Wednesday
+    -
+      value: Thursday
+      label: Thursday
+    -
+      value: Friday
+      label: Friday
+    -
+      value: Saturday
+      label: Saturday
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

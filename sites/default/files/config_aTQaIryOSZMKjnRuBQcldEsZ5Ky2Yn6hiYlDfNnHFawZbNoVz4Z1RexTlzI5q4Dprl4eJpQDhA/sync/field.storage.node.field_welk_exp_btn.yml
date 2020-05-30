@@ -1,0 +1,19 @@
+uuid: fd2c05f7-f756-4502-9525-b0ef9e59c319
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_welk_exp_btn
+field_name: field_welk_exp_btn
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

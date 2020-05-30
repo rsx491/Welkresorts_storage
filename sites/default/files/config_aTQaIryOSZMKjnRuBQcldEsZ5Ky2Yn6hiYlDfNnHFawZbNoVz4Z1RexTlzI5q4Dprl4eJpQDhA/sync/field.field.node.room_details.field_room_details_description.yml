@@ -1,0 +1,21 @@
+uuid: cd59005e-608c-437e-84bd-ebb6f2150494
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_room_details_description
+    - node.type.room_details
+  module:
+    - text
+id: node.room_details.field_room_details_description
+field_name: field_room_details_description
+entity_type: node
+bundle: room_details
+label: 'Room Details Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,19 @@
+uuid: 7f6d0468-3a3e-48b0-9ba8-d75e13a99443
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - link
+id: block_content.field_hyp3r_source_data_base
+field_name: field_hyp3r_source_data_base
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

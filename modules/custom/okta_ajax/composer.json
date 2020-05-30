@@ -1,0 +1,11 @@
+{
+  "name": "drupal/okta_ajax",
+  "description": "Okta Ajax Authentication",
+  "type": "drupal-module",
+  "require": {
+    "microsoft/azure-storage-table": "*",
+    "dakkusingh/oktasdk": "1.2.12",
+    "okta/sdk": "^1.2",
+    "nesbot/carbon": "2.24.0"
+  }
+}

@@ -1,0 +1,151 @@
+uuid: a460534a-333c-4e36-b17b-d385ab26e5ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.field.block_content.booking_section_content.body
+    - field.field.block_content.booking_section_content.field_cancel_popup_description
+    - field.field.block_content.booking_section_content.field_cancellation_policy
+    - field.field.block_content.booking_section_content.field_deposit_policy
+    - field.field.block_content.booking_section_content.field_footer_link
+    - field.field.block_content.booking_section_content.field_header_logo_image
+    - field.field.block_content.booking_section_content.field_header_sign_in_link
+    - field.field.block_content.booking_section_content.field_rate_heading
+    - field.field.block_content.booking_section_content.field_rate_overview
+    - field.field.block_content.booking_section_content.field_resort_fee
+    - field.field.block_content.booking_section_content.field_resort_fee_deal_packages
+    - field.field.block_content.booking_section_content.field_resort_fee_standard_rates
+    - field.field.block_content.booking_section_content.field_tripadvisor_logo
+    - image.style.thumbnail
+  module:
+    - field_group
+    - image
+    - imce
+    - link
+    - text
+third_party_settings:
+  field_group:
+    group_rate_page:
+      children:
+        - field_rate_heading
+        - field_resort_fee_standard_rates
+        - field_resort_fee_deal_packages
+        - field_resort_fee
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Rate Page'
+      region: content
+    group_reservation_cancellation_p:
+      children:
+        - field_cancel_popup_description
+      parent_name: ''
+      weight: 6
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: false
+      label: 'Reservation Cancellation Pop Up Section'
+      region: content
+id: block_content.booking_section_content.default
+targetEntityType: block_content
+bundle: booking_section_content
+mode: default
+content:
+  field_cancel_popup_description:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_footer_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_header_logo_image:
+    weight: 1
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_header_sign_in_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_rate_heading:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_resort_fee:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_resort_fee_deal_packages:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_resort_fee_standard_rates:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_tripadvisor_logo:
+    weight: 2
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_cancellation_policy: true
+  field_deposit_policy: true
+  field_rate_overview: true

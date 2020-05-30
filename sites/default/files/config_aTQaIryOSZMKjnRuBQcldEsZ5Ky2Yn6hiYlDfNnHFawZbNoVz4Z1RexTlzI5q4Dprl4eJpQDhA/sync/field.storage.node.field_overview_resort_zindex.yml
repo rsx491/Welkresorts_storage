@@ -1,0 +1,20 @@
+uuid: fb51e84b-b0e4-4b9f-b234-7ef0c5bf40b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_overview_resort_zindex
+field_name: field_overview_resort_zindex
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

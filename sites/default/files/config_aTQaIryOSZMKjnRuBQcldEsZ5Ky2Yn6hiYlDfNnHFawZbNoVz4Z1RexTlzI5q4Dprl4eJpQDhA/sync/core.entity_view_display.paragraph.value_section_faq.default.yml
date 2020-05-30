@@ -1,0 +1,31 @@
+uuid: c9ae978f-b641-4bc7-9358-4d74b42954e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.value_section_faq.field_value_answer
+    - field.field.paragraph.value_section_faq.field_value_question
+    - paragraphs.paragraphs_type.value_section_faq
+  module:
+    - text
+id: paragraph.value_section_faq.default
+targetEntityType: paragraph
+bundle: value_section_faq
+mode: default
+content:
+  field_value_answer:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_value_question:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,19 @@
+uuid: 7d0b87e6-d2ca-43d6-a92a-7b62c17a55c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - text
+id: block_content.field_subscription_section_descr
+field_name: field_subscription_section_descr
+entity_type: block_content
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

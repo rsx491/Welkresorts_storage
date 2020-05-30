@@ -1,0 +1,14 @@
+vocabulary: favorite_locations
+terms:
+  'United States':
+    California:
+      - Lake Tahoe
+      - Palm Springs
+      - San Diego
+    Colorado:
+      - Breckenride
+    Missouri:
+      - Branson
+  'Mexico':
+    'Baja California Sur':
+      - Cabo San Lucas

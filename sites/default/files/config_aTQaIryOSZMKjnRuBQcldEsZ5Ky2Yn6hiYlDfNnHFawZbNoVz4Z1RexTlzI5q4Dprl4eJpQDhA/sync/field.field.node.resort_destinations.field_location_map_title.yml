@@ -1,0 +1,19 @@
+uuid: 403e3188-e6c0-49f2-9cba-692fffe53d35
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_map_title
+    - node.type.resort_destinations
+id: node.resort_destinations.field_location_map_title
+field_name: field_location_map_title
+entity_type: node
+bundle: resort_destinations
+label: 'Location Map -Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

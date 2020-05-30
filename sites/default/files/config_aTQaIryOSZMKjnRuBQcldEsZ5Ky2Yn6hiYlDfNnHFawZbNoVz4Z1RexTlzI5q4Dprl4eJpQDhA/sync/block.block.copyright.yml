@@ -1,0 +1,25 @@
+uuid: 1ec76b73-09b4-4bb8-90af-f113fcefd061
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:b9034975-ca72-4b38-a443-03b35ce91e2f'
+  module:
+    - block_content
+  theme:
+    - welkresorts
+id: copyright
+theme: welkresorts
+region: Footer_copyright
+weight: 0
+provider: null
+plugin: 'block_content:b9034975-ca72-4b38-a443-03b35ce91e2f'
+settings:
+  id: 'block_content:b9034975-ca72-4b38-a443-03b35ce91e2f'
+  label: Copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

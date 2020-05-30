@@ -1,0 +1,31 @@
+uuid: 5d74b0ce-54cc-41be-8f6b-70d6af2facbe
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2380c2a5-e13f-4f7e-afe6-1ec277c6566e'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: pagetopdetails
+theme: welkresorts
+region: Page_top
+weight: 0
+provider: null
+plugin: 'block_content:2380c2a5-e13f-4f7e-afe6-1ec277c6566e'
+settings:
+  id: 'block_content:2380c2a5-e13f-4f7e-afe6-1ec277c6566e'
+  label: 'Page top details'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

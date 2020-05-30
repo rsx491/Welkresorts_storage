@@ -1,0 +1,369 @@
+{#
+ /**
+  * Display booking search results
+ **/
+#}
+
+{%  set base_url = url('<front>')  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Welk Resorts Booking - Reservation Confirmed</title>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/jquery.datepick.css">
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/main.css" />
+</head>
+<body>
+   <div class="main-wrapper">	
+	  <!-- header start-->
+	  <header>
+	 <!--{% if _context[""]["#items"]['booking_details_data'].itenary_ID is not empty %}-->
+		 <div class="container p-0">
+			<div class="row booking-header align-items-center">
+			   <div class="order-xl-1 order-lg-1 order-md-1 order-sm-1 order-1 col-xl-6 col-lg-5 col-md-6 col-sm-6 col-5">
+				  <div class="row align-items-center">
+					 <div class="col-lg-4 col-xl-3 col-12 nopadding">
+						<img src="{{file_url(_context[""]["#items"]['header_block_val']['bookingLogo'] )}}" alt="Welk Logo" class="img-fluid">
+					 </div>
+					 
+					 <div class="col-lg-8 col-xl-9 col-12">
+						<h6 class="header-location p-0 m-0">{{ _context[""]["#items"]['header_query_val']['h1_resortname'] | raw }}</h6>
+						<p class="p-0 m-0 d-none d-lg-block d-xl-block header-info ">{{ _context[""]["#items"]['header_query_val']['h1_address'] | raw }}</p>
+					 </div>
+					 
+				  </div>
+			   </div>
+			   <div class="order-xl-2 order-lg-2 order-md-3 order-sm-3 order-3 col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 ta-rating">
+				  <div class="row">
+					 <div class="col-lg-12 col-xl-12 col-6">
+						<p class="p-0 m-0 header-info ">TripAdvisor Ratings</p>
+					 </div>
+					<div class="col-lg-12 col-xl-12 col-6">
+						<img src="{{ file_url(_context[""]['#items']['header_query_val']['resort_tripadvisor_image']) }}" alt="ta-logo">
+					   
+					</div>
+				  </div>
+			   </div>
+			   <div
+				  class="nopadding order-xl-3 order-lg-3 order-md-2 order-sm-2 order-2 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-7">
+				  <ul class="list-inline clearfix header-contact">
+					 <li class="list-inline-item">
+						<a href="#" class="d-none d-sm-block d-md-block d-lg-block d-xl-block">{{ _context[""]["#items"]['header_query_val']['h1_contact'] }}</a>
+						<a href="#" class="d-block d-sm-none callIn">CALL</a>
+					 </li>
+					 
+							
+					 <li class="list-inline-item float-right signIn"><a href="{{ _context[""]["#items"]['header_block_val']['headerLink'] }}" title="{{ _context[""]["#items"]['header_title'] }}">{{ _context[""]["#items"]['header_block_val']['headerTitle'] }}</a></li>
+					 
+				  </ul>
+				  <div class="best-rates best-rates-header align-items-center" data-toggle="tooltip" data-placement="bottom">
+						Best Rate Guaranteed         
+						<span class="info-icon"></span>  
+				  </div>				  
+				  <div id="bestRateGuaranted">{{ drupal_region('best_rates_guaranteed') }}</div>  				
+			   </div>
+			</div>
+		 </div>
+	  </header>
+	  <!--/ header end -->
+	  <div class="content-wrapper">
+		 <!-- page-header -->
+		 <div class="booking-page-header">
+			<div class="container">
+			   <div class="row pl-0">
+				  <span class="get-away-text">{{ _context[""]["#items"]['reservation_title'] }}</span>
+			   </div>
+			</div>
+		 </div>
+		 <!--/page-header -->
+		 <!--change room & promo code-->
+		 <div class="container confirm-stay reservation">
+			<div class="row">
+			   <div class="col-lg-8 col-12">
+				  <!--thank you confirmation -->
+				  <div>
+				
+					{% if _context[""]["#items"]["isUserloggedIn"] %}
+						<div class="alert alert-success" role="alert">
+							<h3>{{ _context[""]["#items"]['thank_you'] }}</h3>
+							
+						</div>
+					{% else %}
+						<div class="alert alert-success" role="alert">
+							<h3>{{ _context[""]["#items"]['thank_you'] }}</h3>
+							<h5>{{ _context[""]["#items"]['user_signup_note'] }}</h5>
+						</div>
+					{% endif %}					
+					 <div class="thanks-msg">
+					 	<p>
+						{{ _context[""]["#items"]["guest"].guest_first_name }}, thank you for choosing the Welk Resorts {{ _context[""]["#items"]['header_query_val']['h1_resortname'] | raw }} for your upcoming visit to {{ _context[""]["#items"]['header_query_val']['h1_resortname'] | raw }},
+						CA.
+						<br />
+						{{ _context[""]["#items"]['thank_you_description']|raw }}
+					 </p>
+					 </div>
+				  </div>
+				  <!--thank you confirmation -->
+				  <!--confirmation blue box-->
+				{% for each_room_details in _context[""]["#items"]["room_details"] %}
+					<div class="stay-play">
+						<div class="content-wrapper">										
+							<div class="d-flex justify-content-between align-items-center">
+								<div>
+								   <h4 class="pd-0 md-0">Confirmation # {{ each_room_details.room_CID }} </h4>
+								</div>
+								
+								{% if _context[""]["#items"]["isUserloggedIn"]  %}
+									
+									<div>
+										<a class="btn btn-primary medium" href="{{ base_url }}/okta/profile?id={{ each_room_details.room_CID }}">Manage Reservation</a>		
+									 </div>
+								 {% else %}
+									 <div>
+									{{ drupal_region('Okta_login') }}
+										
+									 </div>
+								 {% endif %}
+							</div>	
+						</div>
+					</div>
+				{% endfor %}
+				  <!--confirmation blue box-->
+				  <!--guest details -->
+				
+					<div class="row guest-details">
+						<div class="col-12 col-lg-6 col-xl-6">
+							<span class="text-uppercase d-block">Guest</span><br />
+							<p class="p-0 m-0"><strong>{{ _context[""]["#items"]["guest"].guest_first_name }} {{ _context[""]["#items"]["guest"].guest_last_name }}</strong></p>							
+							<p>{{ _context[""]["#items"]["guest"].guest_email }}<br />
+							   {{ _context[""]["#items"]["guest"].guest_phone_no }}
+							</p>
+						</div>
+						<div class="col-12 col-lg-6 col-xl-6">
+							<span class="text-uppercase d-block">Payment</span><br />
+							<ul class="list-inline clearfix">
+							   <li class="list-inline-item"><img src="{{ base_url }}themes/custom/welkresorts/dest/images/credit-card-visa-dark.svg" /></li>
+							   <li class="list-inline-item">{{ _context[""]["#items"]["guest"]["payment"].card_type }}</li>
+							</ul>
+							<p>•••• •••• •••• {{ _context[""]["#items"]["guest"]["payment"].card_no }}<br />
+							   Exp. {{ _context[""]["#items"]["guest"]["payment"].card_exp }}<br />
+							   <br />
+							   </p>
+							 <p>Total Charged Today:</P>
+							  <p class="small"> <strong>{{ _context[""]["#items"]["guest"]["payment"].total_charge }}</strong></p>
+						</div>
+						
+					</div>
+				
+				  <!--guest details -->
+				  <!--upgrade room -->
+				  <div class="update-room-details">
+					<h3>Upgrade Your Room</h3>
+					<hr />	
+				{% set start_date = [] %}
+					{% set end_date = [] %}
+					{% for offerdata_key,offerdata_value in _context[""]['#items']['offerdata'] %}
+						{% if offerdata_value['IsModifable'] == 1 %}
+							{% for b,f in _context[""]['#items']['offerupgrade'].roomStays %}						
+								{% for c,d in f.roomTypes %}
+									{% set booking_type = 'upgrade' %}
+									{% set Diff_booked_and_upgraded_amounttotal = 0 %}
+									{% set Diff_booked_and_upgraded_amtBeforeTax = 0 %}
+									{% set Diff_booked_and_upgraded_totalTax = 0 %}
+									{% for rate_key,rate_value in d.nightlyRates %}
+										{% if  rate_value.ratePlanCode == booked_room.rate_plan_code %}
+											{% set Diff_booked_and_upgraded_amounttotal = Diff_booked_and_upgraded_amounttotal + (rate_value.amtTotal - booked_room.room_total) %}
+											{% set Diff_booked_and_upgraded_amtBeforeTax = Diff_booked_and_upgraded_amtBeforeTax + (rate_value.amtBeforeTax - booked_room.room_total_before_tax) %}
+											{% set Diff_booked_and_upgraded_totalTax = Diff_booked_and_upgraded_totalTax + (rate_value.totalTax - booked_room.room_total_tax) %}																		
+										{% endif %}
+									{% endfor %}
+									{% if d.roomTypeCode == offerdata_value['UGRC'] %}												
+										{% if d.quantityRemaining > 5 %}
+											{% for avr in d.averageRates %}
+												{% if avr.ratePlanCode == offerdata_value['UGRPC'] %}												
+													{% set discountedrate =  avr.rate - offerdata_value['UGRR'] %}
+														{% if discountedrate is not empty and discountedrate > 0 %}
+															{{ drupal_view('upgrade_room', 'block_1',_context[""]["#items"]['tid'],d.roomTypeCode) }}
+															<div class="description">Upgrade now for only ${{ discountedrate }}</div>										
+															<a title="Upgrade" class="btn btn-primary small" href="{{ base_url }}/reservation/comparison?Rid={{ _context['']['#items']['booking_details_data'].itenary_ID }}&booked_room_CID={{ offerdata_value['RCID'] }}&urtc={{ d.roomTypeCode }}&urn={{ d.roomTypeName }}&urr={{ avr.rate }}&urduration={{ f.timeSpan.duration }}&SRC={{ offerdata_value['SRC'] }}&brpc={{ offerdata_value['UGRPC'] }}&rptype={{ offerdata_value['rpty'] }}&rpname={{ offerdata_value['rpna'] }}&hotelcode={{ _context['']['#items']['offerupgrade'].hotelCode }}&checkin={{ f.timeSpan.start }}&checkout={{ f.timeSpan.end }}&no_guest={{ _context['']['#items']['booking_details_data'].no_adult }}&upgrade_diff_rate={{ discountedrate }}&Diff_room_total_before_tax={{ Diff_booked_and_upgraded_amtBeforeTax }}&Diff_room_room_total_tax={{ Diff_booked_and_upgraded_totalTax }}&Diff_room_room_total={{ Diff_booked_and_upgraded_amounttotal }}&booking_type_data={{ booking_type }}">Upgrade</a>			
+														{% endif %}
+												{% endif %}
+											{% endfor %}
+										{% else %}
+											<a title="Upgrade" class="btn btn-primary small" href="#">Sold Out</a>
+										{% endif %}
+									{% endif %}
+								{% endfor %}
+							{% endfor %}
+						{% endif %}
+					{% endfor %}
+					
+					
+				  <!--upgrade room -->
+					{% if _context[""]["#items"]['reservation_other_details'].Guestbook == 0 %}
+						<h3>{{ _context[""]["#items"]['guest_title'] }}</h3>
+						<hr/>
+						<p>{{ _context[""]["#items"]['guest_description']|raw }}</p>
+						<p><a href="{{ _context[""]['#items']['guest_link'].0.url }}" class="change-room-link">{{ _context[""]["#items"]['guest_link'].title }}</a></p>
+						<br/>
+					{% endif %}
+				  <h3>{{ _context[""]["#items"]['amenities_activities_title'] }}</h3>
+				  <hr />
+				  <p>{{ _context[""]["#items"]['amenities_description'] }}</p>
+				  <p><a href="node/14" class="change-room-link">{{ _context[""]["#items"]['explore_amenities'] }}</a></p>
+				  <div class="row activity-section">
+						{% for amenities_id in _context[""]["#items"]['nodeID'].amenities %}
+							{{ drupal_view('amenities_accessibility_reservation_confirm', 'block_1', amenities_id.entity_id) }}
+						{% endfor %}
+				  </div>
+				  <h3>{{ _context[""]["#items"]['travel_inspiration_title'] }}</h3>
+				  <hr />
+					{% if _context[""]["#items"]['nodeID'].blog_details is not empty %}
+						<div class="destination-listing">
+							 <ul>
+								{% for blog_id in _context[""]["#items"]['nodeID'].blog_details %}
+								{{ drupal_view('reservation_confirmed_blog', 'block_1',blog_id.entity_id) }}
+								{% endfor %}
+							 </ul>
+							 <br />
+							 <a title="View All Posts" class="btn btn-primary small" href="{{ _context[""]['#items']['blog_link'].0.url }}">{{ _context[""]['#items']['blog_link'].title }}</a>					  
+						</div>
+					{% endif %}
+					</div>
+			   </div>
+				<div class="col-lg-4 col-xl-4 pr-0 reservation-block">
+					<h3 class="title">Your Reservation</h3>					
+					<div class="confirm-room-details">
+						<p class="mt-1"><strong>{{ _context[""]["#items"]['header_query_val']['h1_resortname'] | raw }}</strong></p>
+						 <span>
+							{{ _context[""]["#items"]["booking_details_data"].check_in }} to {{ _context[""]["#items"]["booking_details_data"].check_out }}<br />
+							{{ _context[""]["#items"]["booking_details_data"].no_room }}, {{ _context[""]["#items"]["booking_details_data"].no_adult }}<br />
+						 </span>
+					</div>
+					
+					{% for booking_data_key,booking_data_value in _context[""]["#items"]['booking_room_detail_data']%}
+						{% if booking_data_value|raw is not empty %}
+							{% set count = booking_data_key+1 %}
+							<div class="confirm-room-details">
+								<em>ROOM {{ count }}</em>
+								{% if booking_data_value|raw is not empty %}
+									{{ booking_data_value|raw }}
+								{% endif %}
+							</div>
+						{% endif %}
+					{% endfor %}
+					
+					{{ _context[""]["#items"]['extension_booking_room_detail_data']|raw }}
+				
+					<!-- modal for room-->
+					{% for value in _context[""]["#items"]['view_room_code_data'] %}
+						<div class="modal fade room-gallery" id="viewRooms{{value}}" tabindex="-1" role="dialog" aria-labelledby="bookingRoom"
+							 aria-hidden="true">
+							<div class="modal-dialog modal-lg " role="document">
+								<div class="modal-content ">
+									<div class="modal-header d-block container"> 
+										<button class="close" data-dismiss="modal" type="button"></button>
+									</div>
+									<div class="modal-body container">
+										{{drupal_view("reservation_room_details", "block_1",_context[""]["#items"].tid,value)}}
+									</div>
+									<div class="modal-footer container">
+									<button type="button" class="btn btn-secondary medium" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		 <!--END OF BODY CONTENT-->
+
+	  
+		
+		<!--{% else %}
+			<div Class="container">
+				<div class="row">
+					<p>Oops!!! Make a fresh reservation</p>
+				</div>
+			</div>
+		{% endif %}-->
+	</div>
+	<!-- Footer Start here -->
+	<footer class="footer-wrapper">
+			<div class="nav-categories">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-12 footer-logo col-lg-6 pl-0">
+						{{ drupal_region('Welk_logo_footer') }}
+						</div>
+						<div class="col-12 col-lg-6 top-footer-list">
+							<ul class="list-inline float-right">
+								<li class="list-inline-item"><a href="{{ _context[""]["'#items'"]['header_block_val']['footerLink']}}" title="Explore Resorts">{{ _context[""]["#items"]['header_block_val']['footerTitle']}}</a></li>
+								<li class="list-inline-item"><a href="tel:{{ _context[""]["'#items'"]['central_number']}}">{{ _context[""]["#items"]['header_block_val'] ['cNumber']}}</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		 <div class="divider"></div>
+		 <div class="copy-rights">
+			<div class="container">
+			   <div class="row">
+					<div class="col-12 col xl-3 col-lg-3 col-md-3 col-sm-3 pl-0">
+						{{ drupal_region('Footer_copyright') }}
+					</div>
+					<div class="col-12 col xl-9 col-lg-9 col-md-9 col-sm-9">
+						<ul class="footer-nav">
+							{% for terms in footer_menu_list %}
+								{% if terms.url.value %}
+									<li>
+										<a href="{{ terms.url.value }}" title="{{ terms.name.value }}">{{ terms.name.value }}</a>
+									</li>
+								{% else %}
+									<li>
+										<a href="{{ file_url(terms.file_link.value) }}" target="_blank" title="{{ terms.name.value }}">{{ terms.name.value }}</a>
+									</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+						<div class="back-top">Back to Top</div>
+					</div>
+			   </div>
+			</div>
+		 </div>
+		</footer>
+
+	<!-- Footer End Here -->
+	</div>
+  <script src="{{ theme_path }}/dest/js/lib/jquery-3.4.1.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/popper.min.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/bootstrap.min.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/owl.carousel.min.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/jquery.plugin.min.js"></script>
+         <script src="{{ theme_path }}/dest/js/lib/jquery.datepick.js"></script>
+         <script src="{{ theme_path }}/dest/js/custom.js"></script>
+<script>
+	jQuery(document).ready(function($) {
+
+		if (window.history && window.history.pushState) {
+			window.history.pushState('forward', null, './#forward');
+		}
+
+    });
+var base_url = {{ theme_path }};
+base_url + '/reservation/session/out';
+window.onpopstate = function(event) {
+    if(event){
+        window.location.href = base_url + '/reservation/session/out';
+        // Code to handle back button or prevent from navigation
+    }
+}
+
+</script>
+</body>
+
+</html>

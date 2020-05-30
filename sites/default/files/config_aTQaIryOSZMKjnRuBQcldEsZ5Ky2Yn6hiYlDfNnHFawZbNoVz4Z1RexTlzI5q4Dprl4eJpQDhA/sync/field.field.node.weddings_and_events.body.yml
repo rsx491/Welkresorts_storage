@@ -1,0 +1,22 @@
+uuid: 9d5d4c6d-9359-4e0a-9baa-b61079e688a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.weddings_and_events
+  module:
+    - text
+id: node.weddings_and_events.body
+field_name: body
+entity_type: node
+bundle: weddings_and_events
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

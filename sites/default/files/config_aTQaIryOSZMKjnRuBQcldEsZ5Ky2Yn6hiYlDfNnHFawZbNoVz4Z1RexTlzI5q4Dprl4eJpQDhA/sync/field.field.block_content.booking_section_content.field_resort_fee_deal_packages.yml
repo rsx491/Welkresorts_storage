@@ -1,0 +1,21 @@
+uuid: 827cdcb3-26b6-49a8-ad6f-e0f3447acee3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.field_resort_fee_deal_packages
+  module:
+    - text
+id: block_content.booking_section_content.field_resort_fee_deal_packages
+field_name: field_resort_fee_deal_packages
+entity_type: block_content
+bundle: booking_section_content
+label: 'Resort Fee Message - Deal & Packages'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

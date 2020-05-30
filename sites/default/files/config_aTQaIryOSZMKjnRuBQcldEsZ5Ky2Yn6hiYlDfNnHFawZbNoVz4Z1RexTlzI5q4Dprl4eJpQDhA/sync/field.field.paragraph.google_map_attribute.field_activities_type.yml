@@ -1,0 +1,19 @@
+uuid: 8f44e45d-16bc-4512-8fcb-e200d3f88d20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_activities_type
+    - paragraphs.paragraphs_type.google_map_attribute
+id: paragraph.google_map_attribute.field_activities_type
+field_name: field_activities_type
+entity_type: paragraph
+bundle: google_map_attribute
+label: 'Activities Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

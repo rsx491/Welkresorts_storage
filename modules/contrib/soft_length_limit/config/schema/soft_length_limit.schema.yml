@@ -1,0 +1,10 @@
+field.widget.third_party.soft_length_limit:
+  type: mapping
+  label: 'soft_length_limit settings'
+  mapping:
+    max_limit:
+      type: integer
+    minimum_limit:
+      type: integer
+    style_select:
+      type: boolean

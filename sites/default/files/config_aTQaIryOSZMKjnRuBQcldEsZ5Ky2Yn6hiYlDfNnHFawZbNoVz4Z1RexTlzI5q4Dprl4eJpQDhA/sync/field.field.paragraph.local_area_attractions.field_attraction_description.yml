@@ -1,0 +1,19 @@
+uuid: a845a745-9d74-480f-94b5-0698cf7709f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attraction_description
+    - paragraphs.paragraphs_type.local_area_attractions
+id: paragraph.local_area_attractions.field_attraction_description
+field_name: field_attraction_description
+entity_type: paragraph
+bundle: local_area_attractions
+label: 'Attraction description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,31 @@
+uuid: 59e2a8b9-2462-47a4-9526-359b6437ab6d
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:blog_hero_section:ec3ab23d-30b4-4975-8799-df3f0f254ac9'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: blogherosection
+theme: welkresorts
+region: Page_top
+weight: 0
+provider: null
+plugin: 'block_content:ec3ab23d-30b4-4975-8799-df3f0f254ac9'
+settings:
+  id: 'block_content:ec3ab23d-30b4-4975-8799-df3f0f254ac9'
+  label: 'Blog Hero section'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/*\r\n/blogs"
+    negate: false
+    context_mapping: {  }

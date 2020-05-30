@@ -1,0 +1,21 @@
+uuid: ef12e3fb-3a8b-4ecf-8968-69dcd790fca9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_travel
+    - node.type.local_area
+  module:
+    - text
+id: node.local_area.field_travel
+field_name: field_travel
+entity_type: node
+bundle: local_area
+label: 'Traveler Tips Header Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

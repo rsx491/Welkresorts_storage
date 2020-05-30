@@ -1,0 +1,23 @@
+uuid: cab93787-5611-44e3-b67e-0bd4681605ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_feed_homepage
+    - field.storage.block_content.field_enable_show_on_homepage
+id: block_content.social_feed_homepage.field_enable_show_on_homepage
+field_name: field_enable_show_on_homepage
+entity_type: block_content
+bundle: social_feed_homepage
+label: 'Enable/Show on Homepage'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

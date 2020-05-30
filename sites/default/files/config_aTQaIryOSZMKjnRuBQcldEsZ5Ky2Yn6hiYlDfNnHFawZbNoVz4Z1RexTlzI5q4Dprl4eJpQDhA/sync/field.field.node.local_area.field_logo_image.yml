@@ -1,0 +1,38 @@
+uuid: 82e4c1a2-120a-46d8-a2d9-97d4ce3ac31d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logo_image
+    - node.type.local_area
+  module:
+    - image
+id: node.local_area.field_logo_image
+field_name: field_logo_image
+entity_type: node
+bundle: local_area
+label: 'Logo Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

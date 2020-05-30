@@ -1,0 +1,19 @@
+uuid: 8d639686-0f0c-4d1d-b034-8754b69313fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_welkexperience_hyp3r_src
+field_name: field_welkexperience_hyp3r_src
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

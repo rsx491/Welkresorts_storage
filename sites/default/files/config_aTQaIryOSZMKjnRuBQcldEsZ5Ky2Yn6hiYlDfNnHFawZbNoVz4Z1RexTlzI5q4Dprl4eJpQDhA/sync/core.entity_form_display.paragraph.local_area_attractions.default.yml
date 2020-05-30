@@ -1,0 +1,65 @@
+uuid: 493b801f-df72-4452-adfd-4f475d9c792d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.local_area_attractions.field_attraction_description
+    - field.field.paragraph.local_area_attractions.field_attraction_distance
+    - field.field.paragraph.local_area_attractions.field_attraction_image
+    - field.field.paragraph.local_area_attractions.field_attraction_link
+    - field.field.paragraph.local_area_attractions.field_attraction_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.local_area_attractions
+  module:
+    - image
+    - imce
+    - link
+id: paragraph.local_area_attractions.default
+targetEntityType: paragraph
+bundle: local_area_attractions
+mode: default
+content:
+  field_attraction_description:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_attraction_distance:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_attraction_image:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_attraction_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_attraction_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

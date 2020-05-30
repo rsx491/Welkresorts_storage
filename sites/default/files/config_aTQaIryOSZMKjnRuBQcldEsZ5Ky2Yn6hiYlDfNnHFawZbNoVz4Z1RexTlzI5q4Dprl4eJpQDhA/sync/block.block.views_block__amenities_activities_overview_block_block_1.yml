@@ -1,0 +1,25 @@
+uuid: 384985a0-072e-47da-99fd-735a7a62613d
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.amenities_activities_overview_block
+  module:
+    - views
+  theme:
+    - welkresorts
+id: views_block__amenities_activities_overview_block_block_1
+theme: welkresorts
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:amenities_activities_overview_block-block_1'
+settings:
+  id: 'views_block:amenities_activities_overview_block-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

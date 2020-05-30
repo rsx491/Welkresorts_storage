@@ -1,0 +1,19 @@
+uuid: ca831134-dcf3-4d23-baa2-083fddf1b54b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_guest_title
+id: block_content.reservation_confirmed.field_guest_title
+field_name: field_guest_title
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'Guest Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

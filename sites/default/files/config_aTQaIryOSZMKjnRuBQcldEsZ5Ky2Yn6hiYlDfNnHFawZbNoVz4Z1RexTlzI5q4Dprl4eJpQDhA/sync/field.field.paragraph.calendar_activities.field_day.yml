@@ -1,0 +1,21 @@
+uuid: 45a0b96b-76d5-410f-a617-e59d82f1612c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_day
+    - paragraphs.paragraphs_type.calendar_activities
+  module:
+    - options
+id: paragraph.calendar_activities.field_day
+field_name: field_day
+entity_type: paragraph
+bundle: calendar_activities
+label: Day
+description: 'If nothing is selected, the activity will be considered as an "Everyday" activity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

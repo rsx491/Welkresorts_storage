@@ -1,0 +1,34 @@
+uuid: 461b8ace-2fb6-4e48-b2ea-8bbb66852735
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_section_od
+    - node.type.accomodation
+    - paragraphs.paragraphs_type.videobackground_banner_block
+  module:
+    - entity_reference_revisions
+id: node.accomodation.field_hero_section_od
+field_name: field_hero_section_od
+entity_type: node
+bundle: accomodation
+label: 'Hero Section'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      videobackground_banner_block: videobackground_banner_block
+    target_bundles_drag_drop:
+      videobackground_banner_block:
+        enabled: true
+        weight: 3
+      welk_experience:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

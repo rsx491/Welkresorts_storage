@@ -1,0 +1,27 @@
+uuid: b4b2b2b1-0364-4e0e-b6bf-863f4529ecf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_gallery
+    - node.type.resort_destinations
+  module:
+    - file
+id: node.resort_destinations.field_hero_gallery
+field_name: field_hero_gallery
+entity_type: node
+bundle: resort_destinations
+label: 'Hero Gallery'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg mp4'
+  max_filesize: '3 MB'
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

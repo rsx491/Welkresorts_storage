@@ -1,0 +1,23 @@
+uuid: 6e520a5a-f874-4796-9b9e-4ef1999b9535
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_inspire_video
+field_name: field_inspire_video
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,26 @@
+uuid: 225445c6-99cc-4802-8fb4-4e6ab91e20e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - okta_ajax
+    - system
+  theme:
+    - welkresorts
+id: oktamanagereservationpopup
+theme: welkresorts
+region: Okta_login
+weight: 0
+provider: null
+plugin: okta_ajax_manage_reservation_popup
+settings:
+  id: okta_ajax_manage_reservation_popup
+  label: 'Okta Manage reservation Popup '
+  provider: okta_ajax
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /reservation/details
+    negate: false
+    context_mapping: {  }

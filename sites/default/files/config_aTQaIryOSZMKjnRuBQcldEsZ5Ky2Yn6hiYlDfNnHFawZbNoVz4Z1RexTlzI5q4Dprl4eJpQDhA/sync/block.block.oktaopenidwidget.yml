@@ -1,0 +1,28 @@
+uuid: a0d217d3-4e31-4bac-a80e-3936cc4d4cfb
+langcode: en
+status: true
+dependencies:
+  module:
+    - okta_ajax
+    - system
+  theme:
+    - welkresorts
+_core:
+  default_config_hash: yq_AcObLgyLK5YQmnVwDetHAfQEUT_07vDY835n5nu4
+id: oktaopenidwidget
+theme: welkresorts
+region: content
+weight: 0
+provider: null
+plugin: okta_ajax_widget_block
+settings:
+  id: okta_ajax_widget_block
+  label: 'Okta OpenID Widget'
+  provider: okta_ajax
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /account
+    negate: false
+    context_mapping: {  }

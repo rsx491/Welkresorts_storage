@@ -1,0 +1,38 @@
+uuid: af8f0e9b-6090-4b06-b1cc-e3ef35817caa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_block_image
+    - node.type.amenities_activities
+  module:
+    - image
+id: node.amenities_activities.field_overview_block_image
+field_name: field_overview_block_image
+entity_type: node
+bundle: amenities_activities
+label: 'Overview Block Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: true
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

@@ -1,0 +1,94 @@
+uuid: c17472d5-3e7e-46f3-bf32-0503a93b4120
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.room_selection_offer_section
+    - field.storage.block_content.field_off
+    - paragraphs.paragraphs_type.room_offer_section
+  module:
+    - entity_reference_revisions
+id: block_content.room_selection_offer_section.field_off
+field_name: field_off
+entity_type: block_content
+bundle: room_selection_offer_section
+label: 'Offer Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      room_offer_section: room_offer_section
+    target_bundles_drag_drop:
+      activities:
+        weight: 23
+        enabled: false
+      additional_ammenities:
+        weight: 24
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 25
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 26
+        enabled: false
+      booking_offer_section:
+        weight: 27
+        enabled: false
+      calendar_activities:
+        weight: 28
+        enabled: false
+      featured_resort_activites:
+        weight: 29
+        enabled: false
+      google_map_attribute:
+        weight: 30
+        enabled: false
+      local_area_attractions:
+        weight: 31
+        enabled: false
+      local_area_traveler_tips:
+        weight: 32
+        enabled: false
+      resort_activities:
+        weight: 33
+        enabled: false
+      resort_offer_page_description:
+        weight: 34
+        enabled: false
+      room_bed_details:
+        weight: 35
+        enabled: false
+      room_bed_details_:
+        weight: 36
+        enabled: false
+      room_offer_section:
+        enabled: true
+        weight: 37
+      stay_and_play:
+        weight: 38
+        enabled: false
+      value_section_faq:
+        weight: 39
+        enabled: false
+      videobackground_banner_block:
+        weight: 40
+        enabled: false
+      welk_experience:
+        weight: 41
+        enabled: false
+      work_with_us_award_section:
+        weight: 42
+        enabled: false
+      work_with_us_benefits_section:
+        weight: 43
+        enabled: false
+      work_with_us_overview_items:
+        weight: 44
+        enabled: false
+field_type: entity_reference_revisions

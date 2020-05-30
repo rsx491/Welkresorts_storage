@@ -1,0 +1,29 @@
+uuid: e106201c-c71b-499a-917f-f492650e2b3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_destination
+    - node.type.room_details
+    - taxonomy.vocabulary.destinations
+id: node.room_details.field_destination
+field_name: field_destination
+entity_type: node
+bundle: room_details
+label: Destination
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      destinations: destinations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

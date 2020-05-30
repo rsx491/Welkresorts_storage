@@ -1,0 +1,49 @@
+div.soft-length-limit-tooltip.description {
+  display: inline-block;
+  font-style: italic;
+  position: relative;
+  margin-top: 1em;
+  z-index: 10;
+}
+
+.form-item div.soft-length-limit-tooltip.exceeded,
+.form-item div.soft-length-limit-tooltip.under-min {
+  color: #a44;
+}
+
+/* Min/Enhanced tooltip */
+.fieldset-wrapper .form-item .soft-length-limit-tooltip.min-style-tooltip,
+.field-type-text .form-item .soft-length-limit-tooltip.min-style-tooltip,
+.form-item.form-type-textfield .soft-length-limit-tooltip.min-style-tooltip,
+.form-item.form-type-textarea .soft-length-limit-tooltip.min-style-tooltip {
+  background-color: transparent;
+  background-image: url(../img/ico_socpub_confirm.png);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  left: auto !important;
+  padding: 0 0 0 20px;
+}
+
+.fieldset-wrapper .form-item .soft-length-limit-tooltip.min-style-tooltip,
+.field-type-text .form-item .soft-length-limit-tooltip.min-style-tooltip {
+  right: 10px;
+}
+
+.form-item.form-type-textfield .soft-length-limit-tooltip.min-style-tooltip {
+  margin-left: 5px;
+}
+
+.fieldset-wrapper .form-item .soft-length-limit-tooltip.min-style-tooltip.under-min,
+.form-item.form-type-textfield .soft-length-limit-tooltip.min-style-tooltip.under-min,
+.field-type-text .form-item .soft-length-limit-tooltip.min-style-tooltip.under-min,
+.form-item.form-type-textarea .soft-length-limit-tooltip.min-style-tooltip.under-min {
+  background-image: url(../img/ico_socpub_alert.png);
+}
+
+.fieldset-wrapper .form-item .soft-length-limit-tooltip.min-style-tooltip.exceeded,
+.form-item.form-type-textfield .soft-length-limit-tooltip.min-style-tooltip.exceeded,
+.field-type-text .form-item .soft-length-limit-tooltip.min-style-tooltip.exceeded,
+.form-item.form-type-textarea .soft-length-limit-tooltip.min-style-tooltip.exceeded {
+  background-image: url(../img/ico_socpub_alert.png);
+}

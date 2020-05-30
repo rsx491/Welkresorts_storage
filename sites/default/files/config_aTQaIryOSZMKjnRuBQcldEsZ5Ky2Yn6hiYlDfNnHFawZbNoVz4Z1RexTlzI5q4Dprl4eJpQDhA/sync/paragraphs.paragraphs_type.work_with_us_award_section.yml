@@ -1,0 +1,9 @@
+uuid: 3e37f1f7-7ae4-4535-8e20-4e89b32673a7
+langcode: en
+status: true
+dependencies: {  }
+id: work_with_us_award_section
+label: 'Work With Us Award Section'
+icon_uuid: null
+description: 'This Paragraph is for the Award Section of the Work with us page'
+behavior_plugins: {  }

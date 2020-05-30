@@ -1,0 +1,21 @@
+uuid: 54f7aac2-8896-4770-8cc6-462a9b66dcb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_catering_form_description
+    - node.type.weddings_and_events
+  module:
+    - text
+id: node.weddings_and_events.field_catering_form_description
+field_name: field_catering_form_description
+entity_type: node
+bundle: weddings_and_events
+label: 'Catering form description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

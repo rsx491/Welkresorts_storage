@@ -1,0 +1,19 @@
+uuid: e39f8d26-192a-427a-9e26-a20f6d27753e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inspire_title
+    - node.type.welk_experience
+id: node.welk_experience.field_inspire_title
+field_name: field_inspire_title
+entity_type: node
+bundle: welk_experience
+label: 'Inspire Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

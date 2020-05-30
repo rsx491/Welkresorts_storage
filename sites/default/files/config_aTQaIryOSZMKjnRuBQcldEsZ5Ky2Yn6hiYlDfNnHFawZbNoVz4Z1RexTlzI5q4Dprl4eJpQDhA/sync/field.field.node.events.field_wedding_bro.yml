@@ -1,0 +1,19 @@
+uuid: 4796d53f-bf88-4fc3-99e8-89121ee33276
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wedding_bro
+    - node.type.events
+id: node.events.field_wedding_bro
+field_name: field_wedding_bro
+entity_type: node
+bundle: events
+label: 'Meeting Brochure PDF'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

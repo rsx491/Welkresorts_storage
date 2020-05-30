@@ -1,0 +1,38 @@
+uuid: b6758eb8-e38c-4d67-a5b9-79f2268fbac3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.welk_logo_footer
+    - field.storage.block_content.field_image
+  module:
+    - image
+id: block_content.welk_logo_footer.field_image
+field_name: field_image
+entity_type: block_content
+bundle: welk_logo_footer
+label: Image
+description: 'Upload Welk logo at footer'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: 1MB
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 45ae72e0-214e-4c98-8a7c-9c72c0c9c94d
+    alt: 'WelkResort Footer Logo'
+    title: 'WelkResort logo'
+    width: 72
+    height: 42
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

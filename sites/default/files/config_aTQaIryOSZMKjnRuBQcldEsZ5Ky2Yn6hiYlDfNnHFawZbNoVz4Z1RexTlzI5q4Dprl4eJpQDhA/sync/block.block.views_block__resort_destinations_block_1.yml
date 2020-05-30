@@ -1,0 +1,30 @@
+uuid: bb716af1-987f-4132-b1c8-aa52b5eaf668
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.resort_destinations
+  module:
+    - system
+    - views
+  theme:
+    - welkresorts
+id: views_block__resort_destinations_block_1
+theme: welkresorts
+region: Welk_destination
+weight: -19
+provider: null
+plugin: 'views_block:resort_destinations-block_1'
+settings:
+  id: 'views_block:resort_destinations-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

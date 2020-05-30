@@ -1,0 +1,4 @@
+travelclick.assests_footer:
+  version: 2.x
+  js:
+    js/travelclick.js: {}

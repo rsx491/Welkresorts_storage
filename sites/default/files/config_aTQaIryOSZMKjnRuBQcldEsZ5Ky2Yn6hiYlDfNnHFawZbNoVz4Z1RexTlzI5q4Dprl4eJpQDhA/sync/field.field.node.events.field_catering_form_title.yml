@@ -1,0 +1,21 @@
+uuid: 4dea3693-50fa-43d0-8a08-faf93c0a8577
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_catering_form_title
+    - node.type.events
+  module:
+    - text
+id: node.events.field_catering_form_title
+field_name: field_catering_form_title
+entity_type: node
+bundle: events
+label: 'Catering form Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

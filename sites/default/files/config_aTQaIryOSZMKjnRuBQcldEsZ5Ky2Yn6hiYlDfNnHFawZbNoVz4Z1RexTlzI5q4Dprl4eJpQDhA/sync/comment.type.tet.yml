@@ -1,0 +1,8 @@
+uuid: b58a0889-a697-4c78-b916-e571948ed4b7
+langcode: en
+status: true
+dependencies: {  }
+id: tet
+label: 'test comment'
+target_entity_type_id: comment
+description: ''

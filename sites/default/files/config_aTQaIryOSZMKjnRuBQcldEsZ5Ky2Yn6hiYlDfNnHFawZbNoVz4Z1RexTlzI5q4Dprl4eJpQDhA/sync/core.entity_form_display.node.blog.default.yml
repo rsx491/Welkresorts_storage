@@ -1,0 +1,170 @@
+uuid: 24820e38-4a69-4c57-98c4-63945c19a489
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.blog.body
+    - field.field.node.blog.field_blog_order_number
+    - field.field.node.blog.field_blog_to_be_marked
+    - field.field.node.blog.field_category
+    - field.field.node.blog.field_destination_guide
+    - field.field.node.blog.field_hero_gallery
+    - field.field.node.blog.field_hero_section_blog
+    - field.field.node.blog.field_image
+    - field.field.node.blog.field_meta_tags
+    - field.field.node.blog.field_resort_blog_destination
+    - field.field.node.blog.field_resort_local_area
+    - field.field.node.blog.field_stay_play
+    - field.field.node.blog.field_subscription_section_descr
+    - field.field.node.blog.field_subscription_section_heade
+    - image.style.thumbnail
+    - node.type.blog
+  module:
+    - field_group
+    - image
+    - imce
+    - metatag
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_stay:
+      children:
+        - field_stay_play
+      parent_name: ''
+      weight: 9
+      format_type: accordion
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+      label: 'Stay & Play Section'
+      region: content
+    group_subscr:
+      children:
+        - field_subscription_section_heade
+        - field_subscription_section_descr
+      parent_name: ''
+      weight: 10
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: false
+        required_fields: true
+      label: 'Subscription section'
+      region: content
+id: node.blog.default
+targetEntityType: node
+bundle: blog
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 4
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_blog_order_number:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_blog_to_be_marked:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_category:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_image:
+    weight: 5
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_meta_tags:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_resort_local_area:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_stay_play:
+    type: entity_reference_paragraphs
+    weight: 9
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_subscription_section_descr:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_subscription_section_heade:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_destination_guide: true
+  field_hero_gallery: true
+  field_hero_section_blog: true
+  field_resort_blog_destination: true
+  promote: true
+  sticky: true
+  uid: true

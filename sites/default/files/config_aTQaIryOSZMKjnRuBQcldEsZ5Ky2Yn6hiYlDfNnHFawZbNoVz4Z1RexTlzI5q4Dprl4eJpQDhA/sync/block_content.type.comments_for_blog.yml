@@ -1,0 +1,8 @@
+uuid: 3ded85cb-0d93-460b-a794-a72c24445e46
+langcode: en
+status: true
+dependencies: {  }
+id: comments_for_blog
+label: 'Comments for blog'
+revision: 0
+description: 'Comments for blog page'

@@ -1,0 +1,29 @@
+uuid: 35c26109-9f70-40d8-b0d5-5f8f8f4aabf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_select_state
+    - node.type.resort_destinations
+    - taxonomy.vocabulary.state
+id: node.resort_destinations.field_select_state
+field_name: field_select_state
+entity_type: node
+bundle: resort_destinations
+label: 'Select state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      state: state
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

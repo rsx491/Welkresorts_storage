@@ -1,0 +1,23 @@
+uuid: 1966e368-9052-44bf-9f52-bee10843ad82
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_3d_gallery
+field_name: field_3d_gallery
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: true
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 6
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

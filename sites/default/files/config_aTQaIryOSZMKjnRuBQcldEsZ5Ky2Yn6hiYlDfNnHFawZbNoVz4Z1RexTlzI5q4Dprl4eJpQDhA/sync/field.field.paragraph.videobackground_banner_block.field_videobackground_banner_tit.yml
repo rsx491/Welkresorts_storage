@@ -1,0 +1,21 @@
+uuid: 5cfdb20a-7ed8-4c60-80be-9607c6c2c4a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_videobackground_banner_tit
+    - paragraphs.paragraphs_type.videobackground_banner_block
+_core:
+  default_config_hash: _LnwLlVxGQeHm_l98GtqNzUX35fXO-jnmyKlvQJnfHU
+id: paragraph.videobackground_banner_block.field_videobackground_banner_tit
+field_name: field_videobackground_banner_tit
+entity_type: paragraph
+bundle: videobackground_banner_block
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

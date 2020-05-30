@@ -1,0 +1,21 @@
+uuid: af362f67-5333-4b25-9a3a-3a12dfa95835
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hyp3r_social_feed_image_gallery
+    - field.storage.block_content.field_hyp3r_header_description
+  module:
+    - text
+id: block_content.hyp3r_social_feed_image_gallery.field_hyp3r_header_description
+field_name: field_hyp3r_header_description
+entity_type: block_content
+bundle: hyp3r_social_feed_image_gallery
+label: 'HYP3R Header Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

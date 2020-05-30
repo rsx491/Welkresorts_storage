@@ -1,0 +1,22 @@
+uuid: 0647a726-5cae-4833-a848-77d967ef5d59
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.catering_inquery_form
+    - field.field.block_content.catering_inquery_form.body
+  module:
+    - text
+id: block_content.catering_inquery_form.default
+targetEntityType: block_content
+bundle: catering_inquery_form
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,28 @@
+uuid: 1b5d4fdf-5f38-4194-be07-8de44b079b28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_select_resort
+    - node.type.resort_destinations
+    - node.type.weddings_and_events
+id: node.weddings_and_events.field_select_resort
+field_name: field_select_resort
+entity_type: node
+bundle: weddings_and_events
+label: 'Select Resort'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      resort_destinations: resort_destinations
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

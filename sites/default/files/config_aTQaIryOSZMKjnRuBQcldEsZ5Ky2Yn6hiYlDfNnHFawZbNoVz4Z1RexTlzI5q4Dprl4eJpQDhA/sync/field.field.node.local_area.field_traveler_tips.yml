@@ -1,0 +1,46 @@
+uuid: 1f445a61-6638-419b-af4d-568e85043483
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_traveler_tips
+    - node.type.local_area
+    - paragraphs.paragraphs_type.local_area_traveler_tips
+  module:
+    - entity_reference_revisions
+id: node.local_area.field_traveler_tips
+field_name: field_traveler_tips
+entity_type: node
+bundle: local_area
+label: 'Traveler Tips'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      local_area_traveler_tips: local_area_traveler_tips
+    target_bundles_drag_drop:
+      activities:
+        weight: 7
+        enabled: false
+      additional_ammenities:
+        weight: 8
+        enabled: false
+      local_area_attractions:
+        weight: 9
+        enabled: false
+      local_area_traveler_tips:
+        enabled: true
+        weight: 10
+      videobackground_banner_block:
+        weight: 11
+        enabled: false
+      welk_experience:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

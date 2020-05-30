@@ -1,0 +1,23 @@
+uuid: f9664406-359b-45b7-bc94-3578c01c1ed9
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - entity_reference_revisions
+    - paragraphs
+_core:
+  default_config_hash: 9q83BRswvVcCwr2UsW72KcUy8k4WvVI_3241pU-P-TY
+id: block_content.field_videobackground_block_cont
+field_name: field_videobackground_block_cont
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

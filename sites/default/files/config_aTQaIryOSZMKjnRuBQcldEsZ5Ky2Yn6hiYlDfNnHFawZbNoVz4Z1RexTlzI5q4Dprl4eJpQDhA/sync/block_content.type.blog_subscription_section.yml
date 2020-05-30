@@ -1,0 +1,8 @@
+uuid: a894a641-c65a-4ce1-b987-622c329fa6fe
+langcode: en
+status: true
+dependencies: {  }
+id: blog_subscription_section
+label: 'Blog Subscription Section'
+revision: 0
+description: 'This block is used for the Subscription section for Blog Pages'

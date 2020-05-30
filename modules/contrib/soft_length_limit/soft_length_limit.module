@@ -1,0 +1,191 @@
+<?php
+
+/**
+ * @file
+ * Soft Length Limit module.
+ */
+
+declare(strict_types = 1);
+
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\WidgetInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate\Row;
+
+/**
+ * Returns the widget settings that can be used for a soft_length widget.
+ *
+ * @return array
+ *   An array of settings and default values for each textfield type.
+ */
+function _soft_length_widget_settings(string $plugin_id): array {
+  $settings = [
+    'string_textfield' => [
+      'max_limit' => TRUE,
+      'minimum_limit' => TRUE,
+      'style_select' => TRUE,
+    ],
+    'string_textarea' => [
+      'max_limit' => TRUE,
+      'minimum_limit' => TRUE,
+      'style_select' => TRUE,
+    ],
+    'text_textfield' => [
+      'max_limit' => TRUE,
+      'minimum_limit' => TRUE,
+      'style_select' => TRUE,
+    ],
+    'text_textarea' => [
+      'max_limit' => TRUE,
+      'minimum_limit' => TRUE,
+      'style_select' => TRUE,
+    ],
+    'text_textarea_with_summary' => [
+      'max_limit' => TRUE,
+      'minimum_limit' => TRUE,
+      'style_select' => TRUE,
+    ],
+  ];
+
+  return $settings[$plugin_id] ?? [];
+}
+
+/**
+ * Implements hook_field_widget_third_party_settings_form().
+ */
+function soft_length_limit_field_widget_third_party_settings_form(WidgetInterface $plugin, FieldDefinitionInterface $field_definition, $form_mode, $form, FormStateInterface $form_state) {
+  $plugin_id = $plugin->getPluginId();
+  if (!$allowed_settings = _soft_length_widget_settings($plugin_id)) {
+    return NULL;
+  }
+
+  $element = [];
+  if ($allowed_settings['max_limit']) {
+    $element['max_limit'] = [
+      '#type' => 'number',
+      '#min' => 0,
+      '#title' => t('Soft length limit'),
+      '#default_value' => $plugin->getThirdPartySetting('soft_length_limit', 'max_limit'),
+      '#description' => t('If any value is given here, a counter will appear next to this field, informing the user of the chosen number of allowed characters. If the number is exceeded, a warning will be shown.'),
+      '#weight' => -3,
+    ];
+  }
+
+  if ($allowed_settings['minimum_limit']) {
+    $element['minimum_limit'] = [
+      '#type' => 'number',
+      '#min' => 0,
+      '#title' => t('Soft length minimum'),
+      '#default_value' => $plugin->getThirdPartySetting('soft_length_limit', 'minimum_limit'),
+      '#description' => t('If any value is given here, the minimum number recommended characters will be displayed as the editor enters text in this field.'),
+      '#weight' => -2,
+    ];
+  }
+
+  if ($allowed_settings['style_select']) {
+    $element['style_select'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Enable enhanced view'),
+      '#default_value' => $plugin->getThirdPartySetting('soft_length_limit', 'style_select'),
+      '#description' => t('Check this to enable an enhanced view of soft length states.'),
+      '#weight' => -1,
+    ];
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_widget_settings_summary_alter().
+ */
+function soft_length_limit_field_widget_settings_summary_alter(&$summary, $context) {
+  /* @var \Drupal\Core\Field\WidgetInterface $widget */
+  $widget = $context['widget'];
+  $plugin_id = $widget->getPluginId();
+
+  if (!$allowed_settings = _soft_length_widget_settings($plugin_id)) {
+    return NULL;
+  }
+
+  $max_limit = $allowed_settings['max_limit']
+    ? $widget->getThirdPartySetting('soft_length_limit', 'max_limit')
+    : FALSE;
+  $minimum_limit = $allowed_settings['minimum_limit']
+    ? $widget->getThirdPartySetting('soft_length_limit', 'minimum_limit')
+    : FALSE;
+  $style_select = $allowed_settings['minimum_limit']
+    ? $widget->getThirdPartySetting('soft_length_limit', 'style_select')
+    : FALSE;
+
+  if ($max_limit) {
+    $summary[] = t('Maximum recommended length: @count', ['@count' => $max_limit]);
+  }
+  if ($minimum_limit) {
+    $summary[] = t('Minimum recommended length: @count', ['@count' => $minimum_limit]);
+  }
+  if ($style_select) {
+    $summary[] = t('Style select: @style', ['@style' => $style_select ? 'Enabled' : 'Disabled']);
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function soft_length_limit_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $third_party_settings = $context['widget']->getThirdPartySettings();
+
+  if (empty($third_party_settings['soft_length_limit'])) {
+    return NULL;
+  }
+
+  $sll_config = $third_party_settings['soft_length_limit'];
+
+  if (isset($sll_config['max_limit'])) {
+    $element['value']['#attributes']['data-soft-length-limit'] = $sll_config['max_limit'];
+    $element['value']['#attributes']['class'][] = 'soft-length-limit';
+  }
+  if (isset($sll_config['minimum_limit'])) {
+    $element['value']['#attributes']['data-soft-length-minimum'] = $sll_config['minimum_limit'];
+  }
+  // Length style select.
+  if (isset($sll_config['style_select']) && $sll_config['style_select']) {
+    $element['value']['#attributes']['data-soft-length-style-select'] = (int) $sll_config['style_select'];
+  }
+
+  if (isset($element['#type']) && $element['#type'] === 'text_format') {
+    $element['#attributes'] = array_merge_recursive($element['#attributes'], $element['value']['#attributes']);
+  }
+
+  $element['#attached']['library'][] = 'soft_length_limit/soft_length_limit';
+}
+
+/**
+ * Implements hook_migrate_prepare_row().
+ */
+function soft_length_limit_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
+  // Add migrate support to migrate D7 settings into D8 fields.
+  $text_fields = [
+    'text_textarea',
+    'text_textfield',
+    'text_textarea_with_summary',
+    'text_long',
+  ];
+
+  if ($source->getPluginId() !== 'd7_field_instance_per_form_display' || !in_array($row->getSource()['type'], $text_fields)) {
+    return;
+  }
+
+  $widget_settings = $row->getSourceProperty('widget')['settings'];
+
+  if (!empty($widget_settings['soft_length_limit']) || !empty($widget_settings['soft_length_minimum'])) {
+    $constants = $row->getSourceProperty('constants');
+    $constants['third_party_settings']['soft_length_limit'] = [
+      'max_limit' => $widget_settings['soft_length_limit'],
+      'minimum_limit' => $widget_settings['soft_length_minimum'],
+      'style_select' => $widget_settings['soft_length_style_select'],
+    ];
+    $row->setSourceProperty('constants', $constants);
+  }
+}

@@ -1,0 +1,303 @@
+{#
+/**
+ * @file
+ * Default view template to display all the fields in a row.
+ *
+ * Available variables:
+ * - view: The view in use.
+ * - fields: A list of fields, each one contains:
+ *   - content: The output of the field.
+ *   - raw: The raw data for the field, if it exists. This is NOT output safe.
+ *   - class: The safe class ID to use.
+ *   - handler: The Views field handler controlling this field.
+ *   - inline: Whether or not the field should be inline.
+ *   - wrapper_element: An HTML element for a wrapper.
+ *   - wrapper_attributes: List of attributes for wrapper element.
+ *   - separator: An optional separator that may appear before a field.
+ *   - label: The field's label text.
+ *   - label_element: An HTML element for a label wrapper.
+ *   - label_attributes: List of attributes for label wrapper.
+ *   - label_suffix: Colon after the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ *   - has_label_colon: A boolean indicating whether to display a colon after
+ *     the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ * - row: The raw result from the query, with all data it fetched.
+ *
+ * @see template_preprocess_views_view_fields()
+ *
+ * @ingroup themeable
+ */
+#}
+         <li class="booking-view-list">          
+                  <div class="row roombooking">				        
+                     <!--image-->
+                     <div class="col-12 col-lg-3 col-xl-3 clearfix">
+                        <div class="image-view-block">
+						{{ fields.field_listing_page_image.content }}                           
+                           <div class="resort-type">{{ fields.field_listing_page_subtitle.content }}</div>
+                           <a href="#" class="v-details" data-toggle="modal" data-target="#{{ fields.nid.content|render|trim|striptags }}">View Details</a>
+                        </div>
+                     </div>
+                     <div class="col-12 col-lg-6 col-xl-6 list-view-block booking-view-block">
+                        <div class="title roomtitle"><a href="#">{{ fields.field_listing_page_title.content }}</a></div>
+                        <div class="description"> {{ fields.field_room_details_header.content }}</div>
+                        <div class="rooms">{{ fields.field_bed.content }}{{ fields.field_room_bed_details.content }}</div>
+                        <div class="rooms">{{ fields.field_room_features.content }}</div>
+						<div class="roomtypecode" style="display: none;">{{ fields.field_room_type_code.content|render|trim|striptags }}</div>
+                     </div>
+                      <div class="col-12 col-lg-3 col-xl-3 price-view-block">
+					  {% set id = fields.field_room_type_code.content|render|trim|striptags %}
+					  {% for key,val in almost_sold_out_status %}
+					    {% if key == id %}
+						   {% if val == 'yes' %}
+							<div class="status text-uppercase align-middle">Almost Sold Out</div>
+							{% else %}
+								{# no code #}
+							{% endif %}
+						{% endif %}
+						{% endfor %}				
+						
+						{% for key,val in room_rates %}						
+						{% if key == id %}
+                        <div>
+                           <span class="d-block">From</span>
+                           <span class="d-block listing-price">{{ val }}</span>
+                           <span class="d-block">{{ currency_code }} per night</span>
+                        </div>
+						{% endif %}
+						{% endfor %}						
+                        <a title="Select Room" class="btn btn-primary small selectroom" href="{{ url('<front>') }}select-rate">Select Room</a>									
+                      <div class="roomgif" style="display: none;">
+                        <img src="{{ theme_path }}/dest/images/ajax-loader.gif">
+                     </div>
+                     </div>					 
+                  </div>
+               </li>
+			   <div class="modal fade room-gallery" id="{{ fields.nid.content|render|trim|striptags }}" tabindex="-1" role="dialog" aria-labelledby="{{ fields.nid.content }}"
+         aria-hidden="true">
+         <div class="modal-dialog modal-lg " role="document">
+			   <div class="modal-content ">
+               <div class="modal-header d-block container">
+                  <h2 class="modal-title  text-center" id="exampleModalLongTitle">{{ fields.field_listing_page_title.content }}
+                  </h2>
+                 <button class="close" data-dismiss="modal" type="button"></button>
+               </div>
+               <div class="modal-body container">
+                  <!--tabs - photo & 3d tour -->
+                  <div>
+                     <!--tabs-->
+                     <div>
+                        <ul class="nav nav-pills justify-content-center">
+                           <li class="nav-item">
+                                 {% spaceless %}{% set gallery_id ='photoGallery' ~ fields.nid.content|render|trim|striptags %}{% endspaceless %}
+                                 {% spaceless %}{% set tour_id ='threeDTour' ~ fields.nid.content|render|trim|striptags %}{% endspaceless %}
+                                 {% spaceless %}{% set view_gallery_id ='viewGallerySection' ~ fields.nid.content|render|trim|striptags %}{% endspaceless %}
+                                 {% spaceless %}{% set view_tour_id ='threeDGallerySection' ~ fields.nid.content|render|trim|striptags %}{% endspaceless %}
+                              <a class="nav-link active" data-toggle="pill" href="#{{ gallery_id }}">Photo Gallery</a>
+							  
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" data-toggle="pill" href="#{{ tour_id }}">3d Tour</a>
+                           </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                           <div class="tab-pane active" id="{{ gallery_id }}">
+                              <img class="img-fluid" src="dest/images/overview-gallery-img01.jpg" title="" />
+                              <div class="modal-body carousel-styling">
+                                    <div id="{{ view_gallery_id }}" class="container carousel slide" data-ride="carousel">
+                                       <div class="carousel-inner">
+                                             {% set gnumber = 0 %}
+                                             {% for fkey, fpath in extensions %}
+                                             <div class='carousel-item'>
+                                                {% if 'mp4' in fkey %}
+                                                <div class="group">
+                                                   <video autoplay class="video--inline" id="pvid" loop muted playsinline>
+                                                         <source src="{{ fpath }}" type="video/mp4">
+                                                   </video>
+                                                   <div class="btn-wrapper">
+                                                         <div class="col btn sound_button">
+                                                            <button id="popupsound"></button>
+                                                         </div>
+                                                         <div class="col btn play_button">
+                                                            <button class="pauseplay" id="popuppauseplay"></button>
+                                                         </div>
+                                                   </div>
+                                                </div>
+                                                {% else %}
+                                                {% set total_count = extensions | length %}
+                                                <img src="{{ fpath }}" class="img-fluid" alt="Activity" />
+                                                {% for dkey, desc in description%}
+                                                {% if fkey == dkey %}
+                                                {% set gnumber = gnumber +1 %}
+                                                <figcaption class="figure-caption">{{ gnumber }}/{{ total_count }}-{{ desc }}
+                                                </figcaption>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endif %}
+                                             </div>
+                                             {% endfor %}
+                                       </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#{{ view_gallery_id }}" role="button" data-slide="prev">
+                                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                       <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#{{ view_gallery_id }}" role="button" data-slide="next">
+                                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                       <span class="sr-only">Next</span>
+                                    </a>
+                                 </div>
+                           </div>
+						    <!--tabs 3d tour -->
+                           <div class="tab-pane fade" id="{{ tour_id }}">
+                           {% spaceless %}{% set tour_flag = fields.field_3d_tour.content|render|trim|striptags %}{% endspaceless %}
+                           
+                           {% if tour_flag == 1 %}
+                           
+                           {% if tour_extensions is not empty %}
+                           <div class="modal-body carousel-styling">
+                                 <div id="{{ view_tour_id }}" class="container carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                          {% set tnumber = 0 %}
+                                          {% for fkey, fpath in tour_extensions %}
+                                             
+                                          <div class='carousel-item'>
+                                             {% if 'mp4' in fkey %}
+                                             <div class="group">
+                                                <video autoplay class="video--inline" id="pvid" loop muted playsinline>
+                                                      <source src="{{ fpath }}" type="video/mp4">
+                                                </video>
+                                                <div class="btn-wrapper">
+                                                      <div class="col btn sound_button">
+                                                         <button id="popupsound"></button>
+                                                      </div>
+                                                      <div class="col btn play_button">
+                                                         <button class="pauseplay" id="popuppauseplay"></button>
+                                                      </div>
+                                                </div>
+                                             </div>
+                                             {% else %}
+                                             {% set total_count_tour = tour_extensions | length %}
+                                             <img src="{{ fpath }}" class="img-fluid" alt="Activity" />
+                                             {% for dkey, desc in tour_description%}
+                                             {% if fkey == dkey %}
+                                             {% set tnumber = tnumber +1 %}
+                                             <figcaption class="figure-caption">{{ tnumber }}/{{ total_count_tour }}-{{ desc }}
+                                             </figcaption>
+                                             {% endif %}
+                                             {% endfor %}
+                                             {% endif %}
+                                          </div>
+                                          {% endfor %}
+                                    </div>
+                                 </div>
+                                 <a class="carousel-control-prev" href="#{{ view_tour_id }}" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                 </a>
+                                 <a class="carousel-control-next" href="#{{ view_tour_id }}" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                 </a>
+                              </div>
+                        {% endif %}
+                        {% endif %}
+						   </div>
+						   <!-- end tabs 3d tour -->
+                        </div>
+                     </div>
+                     <!--tabs-->
+                     <!--room description-->
+                     <div class="col-7-3-style">
+                        <div class="row roombooking">
+						         <div class="roomgif" style="display: none;">
+                                 <img src="{{ theme_path }}/dest/images/ajax-loader.gif">
+                              </div>
+                           <div class="col-12 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+                              <span class="experience">{{ fields.field_room_details_title.content }}</span>
+                              <span class="get-away-text">{{ fields.field_room_details_header.content }}</span>
+                              <span class="integer-ultrices main-content">{{ fields.field_room_details_description.content }}</span>
+                              <span class="view-more">
+                                 <a class="viewmore" href="#" title="View More"><span>View More</span>
+                                       <i class="arrow"><img src="{{ theme_path }}/dest/images/arrow-down-gray.jpg"  alt="" /></i>
+                                    </a>
+                              </span>
+                              <hr />
+                              <a href="{{ fields.field_room_details_floor_plan.content|render|striptags }}" class="download-view style-arrow" target="_blank">View Floor Plan PDF</a>
+							  
+                           </div>
+                           <div class="col-12 offset-md-1 col-md-4 offset-lg-1 col-lg-4 offset-xl-1 col-xl-4">
+                              <div class="list-view-block">
+                                 <div class="title roomtitle">{{ fields.field_listing_page_title.content }}</div>
+                                 <div class="rooms">{{ fields.field_bed.content }}{{ fields.field_room_bed_details.content }}</div>
+                                 <div class="rooms">{{ fields.field_room_features.content }}</div>
+								 <div class="roomtypecode" style="display: none;">{{ fields.field_room_type_code.content|render|trim|striptags }}</div>
+                              </div>
+                              <hr />
+							  
+                              <div class="price-view-block">
+							{% for key,val in almost_sold_out_status %}
+								{% if key == id %}
+									{% if val == 'yes' %}
+										<div class="status text-uppercase align-middle">Almost Sold Out</div>
+									{% else %}
+										{# no code #}
+									{% endif %}
+								{% endif %}
+							{% endfor %}	
+                                 <div>
+                                    <span class="d-block">From</span>
+									{% for key,val in room_rates %}
+						          {% if key == id %}
+                                    <span class="d-block listing-price">{{ val }}</span>
+									{% endif %}
+						         {% endfor %}
+                                    <span class="d-block">{{ currency_code }} per night {{ description }}</span>
+                                 </div>
+                                 <a title="Select Room" class="btn btn-primary medium selectroom" href="#">Select Room</a>
+                                 <hr />
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!--room description-->
+                     <!-- room ammenitites-->
+                     <div>
+					 {% spaceless %}{% set accordion_id ='accordion'~fields.nid.content|render|trim|striptags %}{% endspaceless %}
+					        
+                        <div class="amenities-features divider">
+                           <div class="d-flex heading-section">
+                              <span class="experience">{{ fields.field_feature_section_title.content }}</span>
+                              <span class="get-away-text">{{ fields.field_feature_section_header.content }}</span>
+                           </div>
+                           <div class="container">
+                              <div class="row">
+                                 <div class="col-12">
+                                    <div id="accordion" class="divider accordion">
+                                       {{ fields.field_faq.content }}
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- room ammenitites-->
+                  </div>
+                  <!--tabs - photo & 3d tour -->
+               </div>
+               <div class="modal-footer container roombooking">
+			       <div class="roomgif" style="display: none;">
+                                 <img src="{{ theme_path }}/dest/images/ajax-loader.gif">
+                              </div>
+					<div class="roomtypecode" style="display: none;">{{ fields.field_room_type_code.content|render|trim|striptags }}</div>
+                    <div class="title roomtitle" style="display: none;"><a href="#">{{ fields.field_listing_page_title.content }}</a></div>					
+                  <button type="button" class="btn btn-primary medium selectroom">Select Room</button>
+                  <button type="button" class="btn btn-secondary medium" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+			</div>
+      </div>

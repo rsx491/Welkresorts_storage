@@ -1,0 +1,29 @@
+uuid: e2965826-4da6-4e46-83c2-9b7ca7bdfbde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_videobackground_banner_vid
+    - paragraphs.paragraphs_type.videobackground_banner_block
+  module:
+    - file
+_core:
+  default_config_hash: nD_FBSZUoXF0ZAWW42tVNNT-o0qFnwdhEratHEKmbZw
+id: paragraph.videobackground_banner_block.field_videobackground_banner_vid
+field_name: field_videobackground_banner_vid
+entity_type: paragraph
+bundle: videobackground_banner_block
+label: 'Video File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: mp4
+  max_filesize: '5 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

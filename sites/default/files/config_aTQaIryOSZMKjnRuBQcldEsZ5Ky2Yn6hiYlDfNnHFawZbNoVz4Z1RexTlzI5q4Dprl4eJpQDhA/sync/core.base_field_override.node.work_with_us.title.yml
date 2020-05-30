@@ -1,0 +1,18 @@
+uuid: 738dffd3-745c-4c9c-aaa8-ead804d669e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.work_with_us
+id: node.work_with_us.title
+field_name: title
+entity_type: node
+bundle: work_with_us
+label: 'work with us'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

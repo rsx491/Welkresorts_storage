@@ -1,0 +1,23 @@
+uuid: ea57e049-3666-4ffd-ba01-3a2d3a5b4b40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_listing_order_for_front_pa
+    - node.type.resort_destinations
+  module:
+    - options
+id: node.resort_destinations.field_listing_order_for_front_pa
+field_name: field_listing_order_for_front_pa
+entity_type: node
+bundle: resort_destinations
+label: 'Listing order for front page block'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

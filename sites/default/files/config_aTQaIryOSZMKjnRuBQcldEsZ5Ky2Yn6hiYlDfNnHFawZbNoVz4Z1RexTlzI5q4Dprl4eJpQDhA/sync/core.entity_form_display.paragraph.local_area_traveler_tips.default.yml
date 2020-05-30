@@ -1,0 +1,48 @@
+uuid: e0037cef-eede-458d-9d56-6d95403bcece
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.local_area_traveler_tips.field_amenities_description
+    - field.field.paragraph.local_area_traveler_tips.field_amenities_name
+    - field.field.paragraph.local_area_traveler_tips.field_icon
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.local_area_traveler_tips
+  module:
+    - image
+    - imce
+    - text
+id: paragraph.local_area_traveler_tips.default
+targetEntityType: paragraph
+bundle: local_area_traveler_tips
+mode: default
+content:
+  field_amenities_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_amenities_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_icon:
+    weight: 2
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,21 @@
+uuid: 78628fb7-aaf5-4861-8f69-f4af11f6ea77
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu_resort_destinations
+    - field.storage.block_content.field_megamenu_des
+  module:
+    - text
+id: block_content.mega_menu_resort_destinations.field_megamenu_des
+field_name: field_megamenu_des
+entity_type: block_content
+bundle: mega_menu_resort_destinations
+label: 'Megamenu Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

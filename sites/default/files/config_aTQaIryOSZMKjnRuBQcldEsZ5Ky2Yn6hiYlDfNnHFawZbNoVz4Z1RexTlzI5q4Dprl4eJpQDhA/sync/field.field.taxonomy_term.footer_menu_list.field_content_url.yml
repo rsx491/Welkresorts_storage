@@ -1,0 +1,19 @@
+uuid: 4935566c-4b14-4a09-b670-c1d833e190be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_content_url
+    - taxonomy.vocabulary.footer_menu_list
+id: taxonomy_term.footer_menu_list.field_content_url
+field_name: field_content_url
+entity_type: taxonomy_term
+bundle: footer_menu_list
+label: 'Content URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

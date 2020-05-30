@@ -1,0 +1,21 @@
+uuid: 764e3fdd-0421-4ba3-b69e-51cf49a28483
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_offer_page_description
+    - paragraphs.paragraphs_type.resort_offer_page_description
+  module:
+    - text
+id: paragraph.resort_offer_page_description.field_offer_page_description
+field_name: field_offer_page_description
+entity_type: paragraph
+bundle: resort_offer_page_description
+label: 'Offer page - Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

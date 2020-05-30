@@ -1,0 +1,27 @@
+uuid: 82c0dfcc-73da-4589-87e0-7326f8a5ab7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_upload_file
+    - taxonomy.vocabulary.footer_menu_list
+  module:
+    - file
+id: taxonomy_term.footer_menu_list.field_upload_file
+field_name: field_upload_file
+entity_type: taxonomy_term
+bundle: footer_menu_list
+label: 'Upload file'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

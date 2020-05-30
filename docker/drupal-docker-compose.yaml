@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  drupal:
+    build:
+        dockerfile: docker/baseimagedockerfile      
+    ports:
+      - 80:80
+      - "2200:22"
+    volumes:
+      - type: volume
+        source: db-data
+        target: /var/www/html
+
+volumes:
+  db_data:
+    

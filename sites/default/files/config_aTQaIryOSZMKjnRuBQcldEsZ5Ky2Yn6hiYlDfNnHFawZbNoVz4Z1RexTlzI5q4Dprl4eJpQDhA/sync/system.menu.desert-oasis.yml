@@ -1,0 +1,8 @@
+uuid: b7c2f85e-cd66-4d61-9df2-217da6b6a179
+langcode: en
+status: true
+dependencies: {  }
+id: desert-oasis
+label: 'Desert Oasis'
+description: 'This is the Menu for the Desert Oasis Resort'
+locked: false

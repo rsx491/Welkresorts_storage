@@ -1,0 +1,40 @@
+uuid: 2baf5c96-ffc8-4011-862e-e74deb5f99ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_additional_ammenities
+    - node.type.amenities_activities
+    - paragraphs.paragraphs_type.additional_ammenities
+  module:
+    - entity_reference_revisions
+id: node.amenities_activities.field_additional_ammenities
+field_name: field_additional_ammenities
+entity_type: node
+bundle: amenities_activities
+label: 'Additional Ammenities'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      additional_ammenities: additional_ammenities
+    target_bundles_drag_drop:
+      additional_ammenities:
+        enabled: true
+        weight: 5
+      local_area_attractions:
+        weight: 6
+        enabled: false
+      videobackground_banner_block:
+        weight: 7
+        enabled: false
+      welk_experience:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

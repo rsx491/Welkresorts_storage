@@ -1,0 +1,21 @@
+uuid: 6e52bc35-ef47-49c6-a993-30d958cc8d28
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.field_deposit_policy
+  module:
+    - text
+id: block_content.booking_section_content.field_deposit_policy
+field_name: field_deposit_policy
+entity_type: block_content
+bundle: booking_section_content
+label: 'Deposit Policy'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

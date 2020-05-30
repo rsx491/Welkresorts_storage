@@ -1,0 +1,19 @@
+uuid: 24017ce6-2e22-454b-a3c8-3ae83034031b
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_stay_and_play_desc
+field_name: field_stay_and_play_desc
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

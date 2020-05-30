@@ -1,0 +1,22 @@
+uuid: b499050e-1ee0-4ee2-8007-82db27eaf26a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.room_selection_offer_section
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.room_selection_offer_section.body
+field_name: body
+entity_type: block_content
+bundle: room_selection_offer_section
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

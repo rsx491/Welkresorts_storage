@@ -1,0 +1,18 @@
+uuid: dfb49ec1-b758-454b-8b15-f74b35d58ab2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Accomodations
+type: accomodation
+description: 'Accomodations content type'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

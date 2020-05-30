@@ -1,0 +1,21 @@
+uuid: c01024a4-7892-4f43-9d1b-74df71f942f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wedding_and_event_descript
+    - node.type.weddings_and_events
+  module:
+    - text
+id: node.weddings_and_events.field_wedding_and_event_descript
+field_name: field_wedding_and_event_descript
+entity_type: node
+bundle: weddings_and_events
+label: 'Wedding And Event Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

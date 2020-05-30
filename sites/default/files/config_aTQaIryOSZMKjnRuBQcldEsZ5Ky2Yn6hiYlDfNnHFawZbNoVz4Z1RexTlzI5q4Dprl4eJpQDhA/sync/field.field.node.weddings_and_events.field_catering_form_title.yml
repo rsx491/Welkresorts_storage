@@ -1,0 +1,21 @@
+uuid: c181e1de-4f04-4913-b83e-841317b1739d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_catering_form_title
+    - node.type.weddings_and_events
+  module:
+    - text
+id: node.weddings_and_events.field_catering_form_title
+field_name: field_catering_form_title
+entity_type: node
+bundle: weddings_and_events
+label: 'Catering form Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

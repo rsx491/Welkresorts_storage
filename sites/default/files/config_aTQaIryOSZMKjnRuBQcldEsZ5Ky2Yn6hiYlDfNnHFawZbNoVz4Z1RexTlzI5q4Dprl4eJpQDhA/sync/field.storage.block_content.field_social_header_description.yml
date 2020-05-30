@@ -1,0 +1,19 @@
+uuid: 27d1b67b-1cde-40c8-a906-f584b6e59e53
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - text
+id: block_content.field_social_header_description
+field_name: field_social_header_description
+entity_type: block_content
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

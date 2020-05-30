@@ -1,0 +1,21 @@
+uuid: 5f3e5cff-6668-4103-b98b-4e25e41b7303
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.field_resort_fee_standard_rates
+  module:
+    - text
+id: block_content.booking_section_content.field_resort_fee_standard_rates
+field_name: field_resort_fee_standard_rates
+entity_type: block_content
+bundle: booking_section_content
+label: 'Resort Fee Message - Standard Rates'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

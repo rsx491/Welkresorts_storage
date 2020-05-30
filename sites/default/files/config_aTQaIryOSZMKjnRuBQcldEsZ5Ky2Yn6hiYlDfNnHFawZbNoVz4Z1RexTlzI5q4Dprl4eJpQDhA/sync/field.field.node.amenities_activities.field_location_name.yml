@@ -1,0 +1,29 @@
+uuid: bebb33cd-b475-440f-9d36-e5b47cbf5d9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_name
+    - node.type.amenities_activities
+    - taxonomy.vocabulary.location
+id: node.amenities_activities.field_location_name
+field_name: field_location_name
+entity_type: node
+bundle: amenities_activities
+label: 'Select City'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      location: location
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: c8f0ae58-1231-4c84-875c-80074f4c983e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amenity_title
+    - paragraphs.paragraphs_type.additional_ammenities
+id: paragraph.additional_ammenities.field_amenity_title
+field_name: field_amenity_title
+entity_type: paragraph
+bundle: additional_ammenities
+label: 'Amenity Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

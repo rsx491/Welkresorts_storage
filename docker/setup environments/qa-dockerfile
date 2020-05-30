@@ -1,0 +1,36 @@
+ARG Version
+
+FROM welkgroupdrupal.azurecr.io/welkresorts-base-image-repository:${Version}
+
+ARG QADBHostname
+ARG QADBName
+ARG QADBPassword
+ARG QADBUsername
+ARG DirPath
+
+WORKDIR $DirPath
+COPY Welkresorts_Master_Branch/. /var/www/html/
+
+WORKDIR /var/www/html
+RUN ls -lha
+WORKDIR modules
+WORKDIR contrib
+RUN ls -lha
+
+WORKDIR /var/www/html
+
+#change db host to use docker network
+RUN sed -i "s/host' => 'localhost/host' => '$QADBHostname/" /var/www/html/sites/default/settings.php
+RUN sed -i "s/database' => 'welk_sprint1/database' => '$QADBName/" /var/www/html/sites/default/settings.php
+RUN sed -i "s/username' => 'welk_development/username' => '$QADBUsername/" /var/www/html/sites/default/settings.php
+RUN sed -i "s/password' => 'Welk123!/password' => '$QADBPassword/" /var/www/html/sites/default/settings.php
+
+RUN grep '^upload_max_filesize' /usr/local/etc/php/php.ini
+
+RUN composer require drush/drush:9.7.1
+RUN drush config-set system.file path.temporary C:\\tmp -y
+RUN drush status
+RUN drush cim -y
+RUN drush cache-rebuild -y
+
+RUN update-rc.d apache2 defaults

@@ -1,0 +1,19 @@
+uuid: 97438eb7-faf4-453a-8fe2-f15c9999b6f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_calendar_activity_descript
+    - paragraphs.paragraphs_type.calendar_activities
+id: paragraph.calendar_activities.field_calendar_activity_descript
+field_name: field_calendar_activity_descript
+entity_type: paragraph
+bundle: calendar_activities
+label: 'Activity description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

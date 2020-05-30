@@ -1,0 +1,19 @@
+uuid: 0c02c721-fbaa-40e7-8b06-2be3814cfa4f
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_stay_and_play_vd
+field_name: field_stay_and_play_vd
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 7a09d389-7f06-4272-9c82-19519f1535e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.blog_subscription_section
+    - field.storage.block_content.field_subscription_section_heade
+id: block_content.blog_subscription_section.field_subscription_section_heade
+field_name: field_subscription_section_heade
+entity_type: block_content
+bundle: blog_subscription_section
+label: 'Subscription Section header'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

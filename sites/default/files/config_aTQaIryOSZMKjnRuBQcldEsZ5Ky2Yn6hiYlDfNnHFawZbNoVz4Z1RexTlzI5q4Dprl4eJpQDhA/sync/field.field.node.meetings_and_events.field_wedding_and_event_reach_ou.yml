@@ -1,0 +1,19 @@
+uuid: 9d899b7e-6879-4864-9d1e-58a9fd7f6bdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wedding_and_event_reach_ou
+    - node.type.meetings_and_events
+id: node.meetings_and_events.field_wedding_and_event_reach_ou
+field_name: field_wedding_and_event_reach_ou
+entity_type: node
+bundle: meetings_and_events
+label: 'Meeting And Event Reach Out'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

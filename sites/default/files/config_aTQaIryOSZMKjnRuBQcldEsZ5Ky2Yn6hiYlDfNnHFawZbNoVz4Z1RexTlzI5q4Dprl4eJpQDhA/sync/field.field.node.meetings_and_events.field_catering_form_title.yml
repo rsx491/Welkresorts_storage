@@ -1,0 +1,21 @@
+uuid: 31abadb6-050b-4fe1-b9c3-848415630a46
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_catering_form_title
+    - node.type.meetings_and_events
+  module:
+    - text
+id: node.meetings_and_events.field_catering_form_title
+field_name: field_catering_form_title
+entity_type: node
+bundle: meetings_and_events
+label: 'Catering form Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

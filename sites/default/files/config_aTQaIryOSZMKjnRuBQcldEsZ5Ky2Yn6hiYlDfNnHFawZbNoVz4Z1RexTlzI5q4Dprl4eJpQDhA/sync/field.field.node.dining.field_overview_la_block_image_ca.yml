@@ -1,0 +1,19 @@
+uuid: efba0687-a664-4fc8-bb91-f56b71602477
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_la_block_image_ca
+    - node.type.dining
+id: node.dining.field_overview_la_block_image_ca
+field_name: field_overview_la_block_image_ca
+entity_type: node
+bundle: dining
+label: 'Overview Block Image Caption'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

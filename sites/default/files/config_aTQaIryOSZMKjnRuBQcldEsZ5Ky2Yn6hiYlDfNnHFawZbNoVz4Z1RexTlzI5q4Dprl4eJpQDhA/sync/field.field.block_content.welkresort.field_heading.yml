@@ -1,0 +1,19 @@
+uuid: 55e68524-81dc-49e6-8378-02a28ed84afe
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.welkresort
+    - field.storage.block_content.field_heading
+id: block_content.welkresort.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: welkresort
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

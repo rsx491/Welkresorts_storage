@@ -1,0 +1,23 @@
+uuid: ec9545fc-3166-4e2a-a78b-711a37c5cd17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_offer_page_url
+    - paragraphs.paragraphs_type.resort_offer_page_description
+  module:
+    - link
+id: paragraph.resort_offer_page_description.field_offer_page_url
+field_name: field_offer_page_url
+entity_type: paragraph
+bundle: resort_offer_page_description
+label: 'Offer page - URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

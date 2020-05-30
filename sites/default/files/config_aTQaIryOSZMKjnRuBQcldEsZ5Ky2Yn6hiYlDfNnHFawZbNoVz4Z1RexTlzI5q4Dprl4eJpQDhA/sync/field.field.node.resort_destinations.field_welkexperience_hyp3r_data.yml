@@ -1,0 +1,19 @@
+uuid: c74e2a4f-de60-44a9-9120-6b1b8f112be0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_welkexperience_hyp3r_data
+    - node.type.resort_destinations
+id: node.resort_destinations.field_welkexperience_hyp3r_data
+field_name: field_welkexperience_hyp3r_data
+entity_type: node
+bundle: resort_destinations
+label: 'WelkExperience HYP3R Data Token'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

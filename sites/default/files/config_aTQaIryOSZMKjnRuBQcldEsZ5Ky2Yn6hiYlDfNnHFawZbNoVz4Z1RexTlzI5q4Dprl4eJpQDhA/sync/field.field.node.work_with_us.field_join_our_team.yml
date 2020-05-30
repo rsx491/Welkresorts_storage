@@ -1,0 +1,23 @@
+uuid: f25dcccf-15a3-45cc-a120-49145f493602
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_join_our_team
+    - node.type.work_with_us
+  module:
+    - link
+id: node.work_with_us.field_join_our_team
+field_name: field_join_our_team
+entity_type: node
+bundle: work_with_us
+label: 'join our team'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

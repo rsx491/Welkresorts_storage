@@ -1,0 +1,21 @@
+uuid: df3b18a9-91a2-4261-a0f4-319d211fb622
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_measurement_value
+field_name: field_measurement_value
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

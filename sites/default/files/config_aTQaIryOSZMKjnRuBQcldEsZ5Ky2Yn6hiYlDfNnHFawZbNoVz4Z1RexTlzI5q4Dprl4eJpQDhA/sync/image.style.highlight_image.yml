@@ -1,0 +1,15 @@
+uuid: eb0c9135-1dcf-460a-9bf3-af26cce30b04
+langcode: en
+status: true
+dependencies: {  }
+name: highlight_image
+label: 'Highlight Image'
+effects:
+  095fe4c8-d95b-4935-a3fc-ec1b922bb1bd:
+    uuid: 095fe4c8-d95b-4935-a3fc-ec1b922bb1bd
+    id: image_scale
+    weight: 1
+    data:
+      width: 95
+      height: 90
+      upscale: false

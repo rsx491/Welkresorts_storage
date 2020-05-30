@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Welk Resorts Booking - Select Room</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/owl.theme.default.min.css">    
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/lib/jquery.datepick.css">    
+    <link rel="stylesheet" href="{{ theme_path }}/dest/css/main.css" />
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <header>
+            <div class="container p-0">
+                <div class="row booking-header align-items-center">
+                    <div
+                        class="order-xl-1 order-lg-1 order-md-1 order-sm-1 order-1 col-xl-6 col-lg-5 col-md-6 col-sm-6 col-6">
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 col-xl-3 col-12 nopadding">
+                                <img src="{{ file_url(node.field_logo_image.entity.uri.value) }}"
+                                    alt="{{ node.field_logo_image.alt  }}" class="img-fluid">
+                            </div>
+                            <div class="col-lg-8 col-xl-9 col-12">
+                                <h6 class="header-location p-0 m-0">{{ node.field_logo_image.alt  }}</h6>
+                                <p class="p-0 m-0 d-none d-lg-block d-xl-block header-info ">
+                                    {{ address }}{{ session.travelclick.value1 }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="order-xl-2 order-lg-2 order-md-3 order-sm-3 order-3 col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12 ta-rating">
+                        <div class="row">
+                            <div class="col-lg-12 col-xl-12 col-6">
+                                <p class="p-0 m-0 header-info ">TripAdvisor Ratings</p>
+                            </div>
+                            <div class="col-lg-12 col-xl-12 col-6">
+                                <img src="{{ file_url(node.field_tripadvisor_image.entity.uri.value) }}" alt="ta-logo">
+
+                                <!-- Commented as Tripadvisor is not implemented and keeping an Image here-->
+
+                                <!-- <ul class="list-inline clearfix "> -->
+                                <!-- <li class="list-inline-item mr-0"><img src="dest/images/ta-logo.png" alt="ta-logo"></li> -->
+                                <!-- <li class="list-inline-item mr-0"><img src="dest/images/ta-rating-bubble-full.svg" -->
+                                <!-- alt="ta-logo"></li> -->
+                                <!-- <li class="list-inline-item mr-0"><img src="dest/images/ta-rating-bubble-full.svg" -->
+                                <!-- alt="ta-logo"></li> -->
+                                <!-- <li class="list-inline-item mr-0"><img src="dest/images/ta-rating-bubble-full.svg" -->
+                                <!-- alt="ta-logo"></li> -->
+                                <!-- <li class="list-inline-item mr-0"><img src="dest/images/ta-rating-bubble-half.svg" -->
+                                <!-- alt="ta-logo"></li> -->
+                                <!-- <li class="list-inline-item mr-0"><img src="dest/images/ta-rating-bubble-empty.svg" -->
+                                <!-- alt="ta-logo"></li> -->
+                                <!-- <li class="list-inline-item"><a href="#" class="p-0 m-0"><u>273 Reviews</u></a></li> -->
+                                <!-- </ul> -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="order-xl-3 order-lg-3 order-md-2 order-sm-2 order-2 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 nopadding">
+                        <ul class="list-inline clearfix header-contact">
+                            {% if node.field_contact_number.entity.field_contact_number.value  %}
+                            <li class="list-inline-item">
+                                <a href="#"
+                                    class="d-none d-sm-block d-md-block d-lg-block d-xl-block">{{ node.field_contact_number.entity.field_contact_number.value }}</a>
+                                {% endif %}
+                                <a href="#" class="d-block d-sm-none callIn">CALL</a>
+                            </li>
+                            {% set items = simplify_menu('bookin') %}
+                            {% if items  %}
+                            {% for menu_item in items.menu_tree %}
+                            <li><a href="{{ menu_item.url }}" class="active"
+                                    title="{{ menu_item.text }}">{{ menu_item.text }}</a></li>
+                            {% endfor %}
+                            {% endif %}
+
+                        </ul>
+                        <div class="best-rates-header align-items-center">Best Rate Guaranteed
+                            <span class="info-icon"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content-wrapper">
+            <!--booking dates-->
+            <div class="booking-div">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-lg-4 col-xl-4">
+                            <p class="text-uppercase">Check In - Check out</p>
+                            <p>08/09/2019 - 08/11/2019</p>
+                        </div>
+                        <div class="col-lg-4 col-xl-4 d-lg-none d-xl-block d-md-none d-lg-block d-sm-none d-none ">
+                            <p class="text-uppercase">Room & Guests</p>
+                            <p>1Room: 2 Adults</p>
+                        </div>
+                        <div class=" col-6 col-lg-4 col-xl-4">
+                            <a title="Update Search" class="btn btn-primary small" href="#">Update&nbsp;<em
+                                    class="d-lg-none d-xl-block d-md-none d-lg-block d-sm-none d-none">Search</em> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/booking dates-->
+            <!-- page-header -->
+            <div class="booking-page-header">
+                <div class="container">
+                    <div class="row pl-0">
+                        <span class="get-away-text">{{ node.field_title.value }}</span>
+                    </div>
+                </div>
+            </div>
+            <!--/page-header -->
+            <!-- page-sub-header -->
+            <div class="container">
+                <div class="row">
+                    <div class="stay-play booking-page-sub-header">
+                        <div class="col text-center">
+                            {% for item in node.field_offers %}
+                            <div class="content-wrapper">
+                                <h3>{{ item.entity.field_offer_title.value }}</h3>
+                                <p>
+                                    {{ item.entity.field_offer_description.value | raw }}
+                                </p>
+                                <span class="view-details">
+                                    <a href="{{ file_url(item.entity.field_view_details_link.entity.fileuri) }}"
+                                        title="View Details" class="style-arrow">View Details
+                                    </a>
+                                    <a class="style-arrow" href="{{ file_url(item.entity.field_more.entity.fileuri) }}"
+                                        title="More Details">More Offers
+                                    </a>
+                                </span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page-sub-header -->
+            <!--hotel listing-->
+            <div class="container">
+                <ul>
+                    <li class="booking-view-list">
+                        <div class="row">
+                            <!--image-->
+                            <div class="col-12 col-lg-3 col-xl-3 clearfix">
+                                <div class="image-view-block">
+                                    <img class="img-fluid d-block" src="dest/images/room-image-placeholder.jpg"
+                                        alt="Room">
+                                    <div class="resort-type">Most Popular</div>
+                                    <a href="#" class="v-details" data-toggle="modal" data-target="#bookingRoom">View
+                                        Details</a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-6 list-view-block booking-view-block">
+                                <div class="title"><a href="#">1 Bedroom Suite at Villas on the Green</a></div>
+                                <div class="description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                    in urna
+                                    in diam commodo scelerisque. Nam auctor vel neque eu faucibus.</div>
+                                <div class="rooms item">1 King Bed, 1 Sofa Bed</div>
+                                <div class="rooms size">580 Square Feet</div>
+                                <div class="rooms capacity">4 Guest Capacity</div>
+                            </div>
+                            <div class="col-12 col-lg-3 col-xl-3 price-view-block">
+                                <div class="status text-uppercase align-middle">Almost Sold Out</div>
+                                <div>
+                                    <span class="d-block">From</span>
+                                    <span class="d-block listing-price"> &#36;310 <sup>.50</sup></span>
+                                    <span class="d-block">USD per night</span>
+                                </div>
+                                <a title="Select Room" class="btn btn-primary small" href="#">Select Room</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="booking-view-list">
+                        <div class="row">
+                            <!--image-->
+                            <div class="col-12 col-lg-3 col-xl-3 clearfix">
+                                <div class="image-view-block">
+                                    <img class="img-fluid d-block" src="dest/images/room-image-placeholder.jpg"
+                                        alt="Room">
+                                    <div class="resort-type">Most Popular</div>
+                                    <a href="#" class="v-details" data-toggle="modal" data-target="#bookingRoom">View
+                                        Details</a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-6 col-xl-3 list-view-block booking-view-block">
+                                <div class="title"><a href="#">1 Bedroom Suite at Villas on the Green</a></div>
+                                <div class="description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                    in urna
+                                    in diam commodo scelerisque. Nam auctor vel neque eu faucibus.</div>
+                                <div class="rooms item">1 King Bed, 1 Sofa Bed</div>
+                                <div class="rooms size">580 Square Feet</div>
+                                <div class="rooms capacity">4 Guest Capacity</div>
+                            </div>
+                            <div class="col-12 col-lg-3 price-view-block">
+                                <div class="status text-uppercase align-middle">Almost Sold Out</div>
+                                <div>
+                                    <span class="d-block">From</span>
+                                    <span class="d-block listing-price"> &#36;310 <sup>.50</sup></span>
+                                    <span class="d-block">USD per night</span>
+                                </div>
+                                <a title="Select Room" class="btn btn-primary small" href="#">Select Room</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--/hotel listing-->
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="bookingRoom" tabindex="-1" role="dialog" aria-labelledby="bookingRoom"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg " role="document">
+                <div class="modal-content ">
+                    <div class="modal-header d-block container">
+                        <h2 class="modal-title  text-center" id="exampleModalLongTitle">1 Bedroom Suite at Villas on the
+                            Green
+                        </h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body container">
+                        <!--tabs - photo & 3d tour -->
+                        <div>
+                            <!--tabs-->
+                            <div>
+                                <ul class="nav nav-pills justify-content-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="pill" href="#photoGallery">Photo
+                                            Gallery</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="pill" href="#3dtour">3d Tour</a>
+                                    </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane container active" id="photoGallery">
+                                        <img class="img-fluid" src="dest/images/overview-gallery-img01.jpg" title="" />
+                                    </div>
+                                    <div class="tab-pane container fade" id="3dtour">3d Tour</div>
+                                </div>
+                            </div>
+                            <!--tabs-->
+                            <!--room description-->
+                            <div class="col-7-3-style">
+                                <div class="row">
+                                    <div class="col-12 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+                                        <span class="experience">Lorem Ipsum</span>
+                                        <span class="get-away-text">A Comfortable Escape</span>
+                                        <span class="integer-ultrices">Integer ultrices eu magna id placerat. In sed
+                                            diam eget
+                                            dolor
+                                            bibendum gravida. Vivamus elementum nibh eu sapien consequat,
+                                            a posuere enim pretium. Cras eu ornare lectus. Maecenas ac mi
+                                            ultrices, sodales arcu eget, congue ipsum. Etiam suscipit
+                                            purus ligula, ultrices commodo urna elementum sed. Duis varius
+                                            sit amet orci et vulputate. Cras et augue sit amet turpis
+                                            lobortis interdum. Etiam eget magna nec velit sodales
+                                            vehicula. Suspendisse vel aliquam purus, sed fringilla erat.
+                                            Nullam quis ullamcorper eros, ut molestie orci.</span>
+                                        <span class="view-more">
+                                            <a href="#" title="View More">View More
+                                                <i class="arrow"><img src="dest/images/arrow-down-gray.jpg"
+                                                        alt="" /></i></a>
+                                        </span>
+                                        <hr />
+                                        <a href="#" class="download-view style-arrow">View Floor Plan PDF</a>
+                                    </div>
+                                    <div class="col-12 offset-md-1 col-md-4 offset-lg-1 col-lg-4 offset-xl-1 col-xl-4">
+                                        <div class="list-view-block">
+                                            <div class="title">Highlights</div>
+                                            <div class="rooms item">1 King Bed, 1 Sofa Bed</div>
+                                            <div class="rooms size">580 Square Feet</div>
+                                            <div class="rooms capacity">4 Guest Capacity</div>
+                                        </div>
+                                        <hr />
+                                        <div class="price-view-block">
+                                            <div class="status text-uppercase align-middle">Almost Sold Out</div>
+                                            <div>
+                                                <span class="d-block">From</span>
+                                                <span class="d-block listing-price"> &#36;310 <sup>.50</sup></span>
+                                                <span class="d-block">USD per night</span>
+                                            </div>
+                                            <a title="Select Room" class="btn btn-primary small" href="#">Select
+                                                Room</a>
+                                            <hr />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--room description-->
+                            <!-- room ammenitites-->
+                            <div>
+                                <div class="amenities-features divider">
+                                    <div class="d-flex heading-section">
+                                        <span class="experience">THE WELK EXPERIENCE</span>
+                                        <span class="get-away-text">Amenities & Accessibility Features</span>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div id="accordion" class="divider">
+                                                    <div class="card">
+                                                        <div class="card-header active" id="headingOne">
+                                                            <h5 class="mb-0">
+                                                                <button class="btn btn-link" data-toggle="collapse"
+                                                                    data-target="#collapseOne">
+                                                                    <div class="field--item">BedRoom</div>
+                                                                </button>
+                                                            </h5>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse show"
+                                                            aria-labelledby="headingOne" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                <div class="d-flex justify-content-between">
+                                                                    <ul>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                        <li>Lorem ipsum dolor sit amet, consectetur
+                                                                            adipiscing elit.
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h5 class="mb-0">
+                                                                <button class="btn btn-link collapsed"
+                                                                    data-toggle="collapse" data-target="#collapseTwo"
+                                                                    aria-expanded="false" aria-controls="collapseTwo">
+                                                                    <div class="field--item"> Kitchens</div>
+                                                                </button>
+                                                            </h5>
+                                                        </div>
+                                                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                                life accusamus
+                                                                terry richardson ad squid. 3 wolf moon officia aute.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h5 class="mb-0">
+                                                                <button class="btn btn-link collapsed"
+                                                                    data-toggle="collapse" data-target="#collapseThree"
+                                                                    aria-expanded="false" aria-controls="collapseThree">
+                                                                    <div class="field--item"> Bathroom</div>
+                                                                </button>
+                                                            </h5>
+                                                        </div>
+                                                        <div id="collapseThree" class="collapse"
+                                                            data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                                life accusamus
+                                                                terry richardson ad squid. 3 wolf moon officia aute.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h5 class="mb-0">
+                                                                <button class="btn btn-link collapsed"
+                                                                    data-toggle="collapse" data-target="#collapseThree"
+                                                                    aria-expanded="false" aria-controls="collapseFour">
+                                                                    <div class="field--item"> Accessibility Features
+                                                                    </div>
+                                                                </button>
+                                                            </h5>
+                                                        </div>
+                                                        <div id="collapseFour" class="collapse"
+                                                            data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                                life accusamus
+                                                                terry richardson ad squid. 3 wolf moon officia aute.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- room ammenitites-->
+                        </div>
+                        <!--tabs - photo & 3d tour -->
+                    </div>
+                    <div class="modal-footer container">
+                        <button type="button" class="btn btn-primary medium">Select Room</button>
+                        <button type="button" class="btn btn-secondary medium" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <footer class="footer-wrapper booking-flow-footer">
+            <div class="container">
+                <div class="row align-items-center">
+                    {% if page.Welk_logo_footer %}
+                    <div class="col-12 footer-logo col-lg-6 pl-0">
+                        {{ page.Welk_logo_footer }}
+                    </div>
+                    {% endif %}
+                    <div class="col-12 col-lg-6 top-footer-list">
+                        <ul class="list-inline float-right">
+                            <li class="list-inline-item"><a href="{{ node.field_footer_link.0.url }}"
+                                    title="Explore Resorts">{{ node.field_footer_link.0.title }}</a></li>
+                            <li class="list-inline-item"><a
+                                    href="tel:{{ node.field_contact_number.entity.field_contact_number.value }}">{{ node.field_contact_number.entity.field_contact_number.value }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="copy-rights">
+                <div class="container">
+                    <div class="row">
+                        {% if page.Footer_copyright %}
+                        <div class="col-12 col xl-3 col-lg-3 col-md-3 col-sm-3">
+                            {{ page.Footer_copyright }}
+                        </div>
+                        {% endif %}
+                        <div class="col-12 col xl-9 col-lg-9 col-md-9 col-sm-9 nopadding">
+							<div class="region region-footer">
+								<ul class="footer-nav">
+									{% for terms in footer_menu_list %}
+										{% if terms.url.value %}
+											<li>
+												<a href="{{ terms.url.value }}" title="{{ terms.name.value }}">{{ terms.name.value }}</a>
+											</li>
+										{% else %}
+											<li>
+												<a href="{{ file_url(terms.file_link.value) }}" target="_blank" title="{{ terms.name.value }}">{{ terms.name.value }}</a>
+											</li>
+										{% endif %}
+									{% endfor %}
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+     <script src="{{ theme_path }}/dest/js/lib/jquery-3.4.1.js"></script>
+    <script src="{{ theme_path }}/dest/js/lib/popper.min.js"></script>
+    <script src="{{ theme_path }}/dest/js/lib/bootstrap.min.js"></script>
+    <script src="{{ theme_path }}/dest/js/lib/owl.carousel.min.js"></script>
+    <script src="{{ theme_path }}/dest/js/lib/jquery.plugin.min.js"></script>
+    <script src="{{ theme_path }}/dest/js/lib/jquery.datepick.js"></script>
+    <script src="{{ theme_path }}/dest/js/custom.js"></script>
+</body>
+</html>

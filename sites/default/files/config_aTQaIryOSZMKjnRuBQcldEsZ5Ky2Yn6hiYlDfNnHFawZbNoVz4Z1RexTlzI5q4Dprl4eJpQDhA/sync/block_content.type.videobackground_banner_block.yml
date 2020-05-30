@@ -1,0 +1,10 @@
+uuid: cd5e92f8-5cba-43be-b31e-9a9e9a622376
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: BgU8OPiRyHDmXJwLozNerCoWsp2D-HolZITrHJm63pM
+id: videobackground_banner_block
+label: 'videobackground banner block'
+revision: 0
+description: 'video background banner block'

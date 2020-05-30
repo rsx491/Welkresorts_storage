@@ -1,0 +1,38 @@
+schemas:
+  bootstrap: 8000
+  welkresorts: 8000
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: ''
+  url: 'http://localhost:8081/sprint1/themes/custom/welkresorts/favicon.ico'
+  use_default: true
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: themes/custom/welkresorts/images/welk-logo-horizontal.svg
+  url: ''
+  use_default: false
+table_responsive: '-1'
+region_wells:
+  Primary_menu: ''
+  Secondary_menu: ''
+  banner: ''
+  book_your_stay: ''
+  navigation: ''
+  navigation_collapsible: ''
+  header: ''
+  highlighted: ''
+  help: ''
+  content: ''
+  footer: ''
+cdn_provider: ''
+cdn_theme: ''
+cdn_cache_ttl_versions: 0
+cdn_cache_ttl_themes: 0
+cdn_cache_ttl_assets: 0
+cdn_cache_ttl_library: 0
+reset_http_request_cache: ''
+table: ''

@@ -1,0 +1,29 @@
+uuid: b80094b4-3b96-4924-b6d7-990301a0cdb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_resort_blog_destination
+    - node.type.blog
+    - taxonomy.vocabulary.destinations
+id: node.blog.field_resort_blog_destination
+field_name: field_resort_blog_destination
+entity_type: node
+bundle: blog
+label: 'Resort Blog Destination'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      destinations: destinations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: c046d9fb-9f07-41b0-90c1-ce7d9a2d7c04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_area_resort_zindex
+    - node.type.local_area
+id: node.local_area.field_local_area_resort_zindex
+field_name: field_local_area_resort_zindex
+entity_type: node
+bundle: local_area
+label: 'Local Area Resort - Zindex'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

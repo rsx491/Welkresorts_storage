@@ -1,0 +1,8 @@
+uuid: c3c9b527-3f3d-416a-8798-b93ed9c5d2d8
+langcode: en
+status: true
+dependencies: {  }
+name: 'Activity Legends'
+vid: activity_legends
+description: ''
+weight: 0

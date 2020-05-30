@@ -1,0 +1,38 @@
+uuid: fe1473cc-5f09-4d4f-8171-2a4dc046e5a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu_resort_destinations
+    - field.storage.block_content.field_megamenu
+  module:
+    - image
+id: block_content.mega_menu_resort_destinations.field_megamenu
+field_name: field_megamenu
+entity_type: block_content
+bundle: mega_menu_resort_destinations
+label: 'Featured Destination'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

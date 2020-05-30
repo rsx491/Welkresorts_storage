@@ -1,0 +1,25 @@
+uuid: 12a6fcdf-0c6b-4ffe-a7dc-ac7e8c76551a
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:hyp3r_social_feed_image_gallery:6c855ef3-2dfd-4fe0-9826-48c417cf84ba'
+  module:
+    - block_content
+  theme:
+    - welkresorts
+id: welksocial
+theme: welkresorts
+region: Social_feed
+weight: 0
+provider: null
+plugin: 'block_content:6c855ef3-2dfd-4fe0-9826-48c417cf84ba'
+settings:
+  id: 'block_content:6c855ef3-2dfd-4fe0-9826-48c417cf84ba'
+  label: 'WELK SOCIAL'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

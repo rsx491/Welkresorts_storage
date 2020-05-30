@@ -1,0 +1,37 @@
+uuid: 4ced16b7-50d1-4466-a248-0dd39d05eb4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_area_attractions
+    - node.type.local_area
+    - paragraphs.paragraphs_type.local_area_attractions
+  module:
+    - entity_reference_revisions
+id: node.local_area.field_local_area_attractions
+field_name: field_local_area_attractions
+entity_type: node
+bundle: local_area
+label: 'Local Area Attractions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      local_area_attractions: local_area_attractions
+    target_bundles_drag_drop:
+      local_area_attractions:
+        enabled: true
+        weight: 4
+      videobackground_banner_block:
+        weight: 5
+        enabled: false
+      welk_experience:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

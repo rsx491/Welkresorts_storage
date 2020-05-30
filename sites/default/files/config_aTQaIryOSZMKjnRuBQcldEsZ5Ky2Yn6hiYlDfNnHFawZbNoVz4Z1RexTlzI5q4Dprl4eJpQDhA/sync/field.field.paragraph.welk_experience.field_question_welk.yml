@@ -1,0 +1,19 @@
+uuid: 661fe228-b0f1-43d5-b413-22a75de3d087
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_question_welk
+    - paragraphs.paragraphs_type.welk_experience
+id: paragraph.welk_experience.field_question_welk
+field_name: field_question_welk
+entity_type: paragraph
+bundle: welk_experience
+label: Question
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

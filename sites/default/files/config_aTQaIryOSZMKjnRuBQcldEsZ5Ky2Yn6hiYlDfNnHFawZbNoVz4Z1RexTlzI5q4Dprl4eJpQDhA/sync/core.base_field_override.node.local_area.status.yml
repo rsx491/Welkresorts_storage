@@ -1,0 +1,22 @@
+uuid: 3e9f8650-08c0-4a67-82bf-1efe1c9b3f1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.local_area
+id: node.local_area.status
+field_name: status
+entity_type: node
+bundle: local_area
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

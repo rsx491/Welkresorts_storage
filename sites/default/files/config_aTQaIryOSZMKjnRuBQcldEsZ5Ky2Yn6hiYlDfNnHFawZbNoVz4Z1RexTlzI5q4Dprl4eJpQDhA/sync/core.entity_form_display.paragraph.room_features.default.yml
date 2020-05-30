@@ -1,0 +1,47 @@
+uuid: 17b73b0b-48b9-4f60-b431-0282de67dcdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.room_features.field_features_icon
+    - field.field.paragraph.room_features.field_measurement_
+    - field.field.paragraph.room_features.field_measurement_value
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.room_features
+  module:
+    - image
+    - imce
+id: paragraph.room_features.default
+targetEntityType: paragraph
+bundle: room_features
+mode: default
+content:
+  field_features_icon:
+    weight: 2
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_measurement_:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_measurement_value:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

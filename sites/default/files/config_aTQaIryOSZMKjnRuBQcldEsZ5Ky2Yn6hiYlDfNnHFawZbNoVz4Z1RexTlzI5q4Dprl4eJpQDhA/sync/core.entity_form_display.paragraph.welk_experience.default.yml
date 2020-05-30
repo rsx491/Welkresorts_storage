@@ -1,0 +1,32 @@
+uuid: 661e186d-d3a8-474e-bbf6-7b8f3a709e1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.welk_experience.field_answer_welk
+    - field.field.paragraph.welk_experience.field_question_welk
+    - paragraphs.paragraphs_type.welk_experience
+id: paragraph.welk_experience.default
+targetEntityType: paragraph
+bundle: welk_experience
+mode: default
+content:
+  field_answer_welk:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_question_welk:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

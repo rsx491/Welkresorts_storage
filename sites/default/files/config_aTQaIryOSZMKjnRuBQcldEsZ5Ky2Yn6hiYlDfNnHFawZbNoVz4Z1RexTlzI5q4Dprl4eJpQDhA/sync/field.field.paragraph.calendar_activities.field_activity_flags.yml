@@ -1,0 +1,29 @@
+uuid: ae5a6064-97e8-416f-8667-24c6942cd073
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_activity_flags
+    - paragraphs.paragraphs_type.calendar_activities
+    - taxonomy.vocabulary.activity_legends
+id: paragraph.calendar_activities.field_activity_flags
+field_name: field_activity_flags
+entity_type: paragraph
+bundle: calendar_activities
+label: 'Activity Flags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      activity_legends: activity_legends
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

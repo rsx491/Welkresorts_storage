@@ -1,0 +1,22 @@
+uuid: eee95894-ce88-4de0-9c2c-5ec09a9d549b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.work_with_us
+  module:
+    - text
+id: node.work_with_us.body
+field_name: body
+entity_type: node
+bundle: work_with_us
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

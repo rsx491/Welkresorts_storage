@@ -1,0 +1,19 @@
+uuid: 6c9d3a84-15ba-44a6-8831-eebc3b532a0a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_activity_description_fr
+field_name: field_activity_description_fr
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,20 @@
+uuid: 52c06579-74e1-4c80-b531-6204dac1a48c
+langcode: en
+status: true
+dependencies:
+  module:
+    - we_megamenu
+  theme:
+    - welkresorts
+id: primarymenu
+theme: welkresorts
+region: Primary_menu
+weight: 0
+provider: null
+plugin: 'we_megamenu_block:primary-menu'
+settings:
+  id: 'we_megamenu_block:primary-menu'
+  label: 'Primary Menu'
+  provider: we_megamenu
+  label_display: '0'
+visibility: {  }

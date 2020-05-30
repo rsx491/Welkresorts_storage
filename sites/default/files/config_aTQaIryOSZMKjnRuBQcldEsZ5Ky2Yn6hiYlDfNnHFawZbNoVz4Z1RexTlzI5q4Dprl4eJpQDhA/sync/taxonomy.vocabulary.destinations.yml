@@ -1,0 +1,8 @@
+uuid: a5fe262c-1249-4a5c-87d7-1c90e31b9b64
+langcode: en
+status: true
+dependencies: {  }
+name: Destinations
+vid: destinations
+description: 'List of Resorts'
+weight: 0

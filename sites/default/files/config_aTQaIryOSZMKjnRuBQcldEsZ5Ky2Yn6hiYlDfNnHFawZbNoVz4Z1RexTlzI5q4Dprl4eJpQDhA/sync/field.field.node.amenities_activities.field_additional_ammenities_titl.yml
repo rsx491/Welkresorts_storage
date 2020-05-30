@@ -1,0 +1,19 @@
+uuid: aa7b17f1-c685-4b09-98d6-9473e8995f4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_additional_ammenities_titl
+    - node.type.amenities_activities
+id: node.amenities_activities.field_additional_ammenities_titl
+field_name: field_additional_ammenities_titl
+entity_type: node
+bundle: amenities_activities
+label: 'Additional Ammenities Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

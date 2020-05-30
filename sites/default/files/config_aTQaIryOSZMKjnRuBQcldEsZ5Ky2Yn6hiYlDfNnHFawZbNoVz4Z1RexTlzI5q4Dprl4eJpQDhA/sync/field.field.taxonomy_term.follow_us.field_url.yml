@@ -1,0 +1,23 @@
+uuid: 288d4ced-7f84-48e2-9de8-9a4b56de35f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_url
+    - taxonomy.vocabulary.follow_us
+  module:
+    - link
+id: taxonomy_term.follow_us.field_url
+field_name: field_url
+entity_type: taxonomy_term
+bundle: follow_us
+label: URL
+description: 'Link to the social network'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

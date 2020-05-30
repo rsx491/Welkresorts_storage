@@ -1,0 +1,19 @@
+uuid: afa0718a-2e4f-4c20-8f36-ea3242745453
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.tet
+    - field.storage.comment.field_email
+id: comment.tet.field_email
+field_name: field_email
+entity_type: comment
+bundle: tet
+label: Emails
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

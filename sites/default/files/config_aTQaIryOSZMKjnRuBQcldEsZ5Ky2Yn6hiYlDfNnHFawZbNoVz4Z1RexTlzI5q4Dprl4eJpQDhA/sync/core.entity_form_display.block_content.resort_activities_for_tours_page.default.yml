@@ -1,0 +1,53 @@
+uuid: f32b8762-3b4f-4f90-9045-b9955777ebe8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.resort_activities_for_tours_page
+    - field.field.block_content.resort_activities_for_tours_page.field_featured_actv
+    - field.field.block_content.resort_activities_for_tours_page.field_su
+    - field.field.block_content.resort_activities_for_tours_page.field_title
+  module:
+    - paragraphs
+id: block_content.resort_activities_for_tours_page.default
+targetEntityType: block_content
+bundle: resort_activities_for_tours_page
+mode: default
+content:
+  field_featured_actv:
+    type: entity_reference_paragraphs
+    weight: 28
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_su:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_title:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

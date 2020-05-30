@@ -1,0 +1,46 @@
+uuid: fdba17cd-78b5-4c77-826f-267e3f97f9dc
+langcode: en
+status: true
+dependencies: {  }
+id: content_manager
+label: 'Content Manager'
+weight: 4
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'administer menu'
+  - 'administer nodes'
+  - 'create accomodation content'
+  - 'create amenities_activities content'
+  - 'create blog content'
+  - 'create local_area content'
+  - 'create media_landing_page content'
+  - 'create offers content'
+  - 'create resort_destinations content'
+  - 'create room_details content'
+  - 'create tours content'
+  - 'create weddings_and_events content'
+  - 'delete own accomodation content'
+  - 'delete own amenities_activities content'
+  - 'delete own blog content'
+  - 'delete own local_area content'
+  - 'delete own media_landing_page content'
+  - 'delete own offers content'
+  - 'delete own resort_destinations content'
+  - 'delete own room_details content'
+  - 'delete own tours content'
+  - 'delete own weddings_and_events content'
+  - 'edit own accomodation content'
+  - 'edit own amenities_activities content'
+  - 'edit own blog content'
+  - 'edit own local_area content'
+  - 'edit own media_landing_page content'
+  - 'edit own offers content'
+  - 'edit own resort_destinations content'
+  - 'edit own room_details content'
+  - 'edit own tours content'
+  - 'edit own weddings_and_events content'
+  - 'view own unpublished content'
+  - 'view the administration theme'

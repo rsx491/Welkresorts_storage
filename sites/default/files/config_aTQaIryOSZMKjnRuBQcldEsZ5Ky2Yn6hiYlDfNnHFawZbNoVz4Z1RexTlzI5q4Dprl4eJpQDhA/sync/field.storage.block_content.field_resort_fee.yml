@@ -1,0 +1,21 @@
+uuid: f9714b94-16d5-40e4-9271-365cadb09ff6
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_resort_fee
+field_name: field_resort_fee
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

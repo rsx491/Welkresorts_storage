@@ -1,0 +1,20 @@
+uuid: d5a804ad-f5d1-430a-875a-ea0fa59e654f
+langcode: en
+status: true
+dependencies:
+  module:
+    - we_megamenu
+  theme:
+    - welkresorts
+id: resortprimarymenu
+theme: welkresorts
+region: Resort_Primary_menu
+weight: 0
+provider: null
+plugin: 'we_megamenu_block:resort-primary-menu'
+settings:
+  id: 'we_megamenu_block:resort-primary-menu'
+  label: 'Resort Primary Menu'
+  provider: we_megamenu
+  label_display: '0'
+visibility: {  }

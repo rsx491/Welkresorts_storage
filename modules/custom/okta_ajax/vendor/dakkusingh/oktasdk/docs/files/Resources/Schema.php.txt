@@ -1,0 +1,50 @@
+<?php
+
+namespace Okta\Resources;
+
+/**
+ * Implementation of the Okta Schemas resource, accessible via
+ * $oktaClient->schema
+ *
+ * http://developer.okta.com/docs/api/resources/schemas.html
+ */
+class Schema extends Base
+{
+
+    /**
+     * Fetches the default schema for a User
+     *
+     * @return object User Schema
+     */
+    public function getUser() {
+
+        $request = $this->request->get('meta/schemas/user/default');
+
+        return $request->send();
+
+    }
+
+    /**
+     * Adds, updates or removes one or more custom user profile properties to
+     * the user schema or updates a permission for a user profile base property.
+     *
+     * Properties must be explicitly set to null to be removed from schema,
+     * otherwise the POST will be interpreted as a partial update.
+     *
+     * @param array $definitions Array of subschema properties with one or more
+     *                           custom profile properties
+     *
+     * @return obeject           User Schema
+     */
+    public function userProperty($definitions) {
+
+        $request = $this->request->post('meta/schemas/user/default');
+
+        $request->data(['definitions' => $definitions]);
+
+        return $request->send();
+
+    }
+
+}
+

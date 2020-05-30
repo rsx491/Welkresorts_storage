@@ -1,0 +1,18 @@
+uuid: 0495043d-9603-4b78-afc3-cadb40757e85
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Room Details'
+type: room_details
+description: 'Add each room details'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

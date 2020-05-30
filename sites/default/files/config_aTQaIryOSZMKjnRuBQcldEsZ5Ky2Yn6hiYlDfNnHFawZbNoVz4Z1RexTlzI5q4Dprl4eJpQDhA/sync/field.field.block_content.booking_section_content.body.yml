@@ -1,0 +1,22 @@
+uuid: 13c8eeb3-cf98-45a9-9961-92dccab93183
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.booking_section_content.body
+field_name: body
+entity_type: block_content
+bundle: booking_section_content
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

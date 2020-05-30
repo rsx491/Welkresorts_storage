@@ -1,0 +1,55 @@
+uuid: ff6ef2c2-845c-41c3-b676-ae9556df6067
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_offer_page_description
+    - node.type.offers
+    - paragraphs.paragraphs_type.resort_offer_page_description
+  module:
+    - entity_reference_revisions
+id: node.offers.field_offer_page_description
+field_name: field_offer_page_description
+entity_type: node
+bundle: offers
+label: 'Offer page - Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      resort_offer_page_description: resort_offer_page_description
+    target_bundles_drag_drop:
+      activities:
+        weight: 10
+        enabled: false
+      additional_ammenities:
+        weight: 11
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 12
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 13
+        enabled: false
+      local_area_attractions:
+        weight: 14
+        enabled: false
+      local_area_traveler_tips:
+        weight: 15
+        enabled: false
+      resort_offer_page_description:
+        enabled: true
+        weight: 16
+      videobackground_banner_block:
+        weight: 17
+        enabled: false
+      welk_experience:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,7 @@
+welk_custom.cookies:
+  path: '/cookies/result'
+  defaults:
+    _controller: '\Drupal\welk_custom\Controller\welkcustomcontroller::cookiesval'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'

@@ -1,0 +1,25 @@
+uuid: 729ab891-6005-450f-a15a-95cad51175f4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:central_contact_number:57c2185f-05a0-48af-8317-15d4dd61ca5b'
+  module:
+    - block_content
+  theme:
+    - welkresorts
+id: centralcontactnumber
+theme: welkresorts
+region: Central_contact_number
+weight: 0
+provider: null
+plugin: 'block_content:57c2185f-05a0-48af-8317-15d4dd61ca5b'
+settings:
+  id: 'block_content:57c2185f-05a0-48af-8317-15d4dd61ca5b'
+  label: 'Central contact number'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

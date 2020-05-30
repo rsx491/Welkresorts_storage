@@ -1,0 +1,8 @@
+uuid: ec4ba8f9-0509-43cf-a80f-d552989fa346
+langcode: en
+status: true
+dependencies: {  }
+id: welk-experience-menu
+label: 'Welk Experience Menu'
+description: 'This is the menu in the Welk Experience Page'
+locked: false

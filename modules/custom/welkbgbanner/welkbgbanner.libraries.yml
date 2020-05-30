@@ -1,0 +1,4 @@
+welkbgbanner.assests_footer:
+  version: 2.x
+  js:
+    js/welkbgbanner.js: {}

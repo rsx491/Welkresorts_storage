@@ -1,0 +1,8 @@
+uuid: 6c32efdb-1a36-4ab3-853e-9b58e908fa5e
+langcode: en
+status: true
+dependencies: {  }
+name: State
+vid: state
+description: 'State names used for URL alias'
+weight: 0

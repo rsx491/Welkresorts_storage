@@ -1,0 +1,19 @@
+uuid: 30259d09-4973-4bbb-ac2f-f5be525dcbb7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_overview_la_block_descript
+field_name: field_overview_la_block_descript
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 9b56f250-5995-4aea-8556-7855626974a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_view_details_url
+    - node.type.tours
+  module:
+    - link
+id: node.tours.field_view_details_url
+field_name: field_view_details_url
+entity_type: node
+bundle: tours
+label: 'View Details URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

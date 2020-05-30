@@ -1,0 +1,8 @@
+uuid: e75b2fee-2cfb-435d-a720-6f10430c4ec7
+langcode: en
+status: true
+dependencies: {  }
+id: social_feed_homepage
+label: 'Social Feed Image Gallery'
+revision: 0
+description: 'This block is used for the Social Feed Image block in the Homepage'

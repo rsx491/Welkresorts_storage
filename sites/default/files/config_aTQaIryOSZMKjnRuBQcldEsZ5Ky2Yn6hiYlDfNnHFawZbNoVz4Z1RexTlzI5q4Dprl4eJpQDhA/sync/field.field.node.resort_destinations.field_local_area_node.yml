@@ -1,0 +1,30 @@
+uuid: b6b29352-b0c9-46ae-8ab5-926d727496bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_area_node
+    - node.type.local_area
+    - node.type.resort_destinations
+  module:
+    - entity_reference_revisions
+id: node.resort_destinations.field_local_area_node
+field_name: field_local_area_node
+entity_type: node
+bundle: resort_destinations
+label: 'Local Area Node'
+description: 'Node reference to the Local area content for the same resort.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      local_area: local_area
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

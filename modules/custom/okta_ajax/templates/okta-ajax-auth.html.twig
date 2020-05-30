@@ -1,0 +1,342 @@
+{#
+ /**
+  * Create Okta authentication widget and handle response
+ **/
+#}
+<style>
+  #okta_ajax_widget {
+    width: 800px;
+    z-index: 10;
+  }
+  #okta_ajax_widget > div {
+    width: 80%; margin-left:10%; margin-right:10%;
+  }
+  div.floaters { margin: 0px; }
+  div.floaters div { margin: 0px; }
+
+  div.login_form {
+    clear: both;
+  }
+
+  #okta_ajax_social {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    z-index: 500;
+    background:rgba(255,255,255,0.5);
+  }
+  #okta_ajax_social > div.social_wrapper {
+    background: white;
+    width: 70%;
+    height: 70%;
+    margin: 15%;
+  }
+  #okta_ajax_social > iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+</style>
+
+<div id="okta_ajax_social" style="display:none;">
+  <div class="social_wrapper">
+      <div>
+        <h4>Login/Register with <span id="okta_ajax_social_name">Facebook</span></h4>
+        <button onClick="document.getElementById('okta_ajax_social').style.display='none';return false;">Cancel</button>
+      </div>
+      <iframe id="okta_ajax_social_iframe" src="about:blank">
+
+      </iframe>
+  </div>
+</div>
+
+<div id="okta_ajax_widget" style="display:none;">
+    <div id="okta_ajax_tabs">
+      <button onClick="oktaShowLogin();return false;">Account Sign In</button>
+      <button onClick="oktaShowRegister(); return false;">Create Account</button>
+    </div>
+    <div id="okta_ajax_form"><form>
+      <h3>Sign In to Your Welk Resorts Accounts</h3>
+      <div> <i>Facebook/Google currently unavailable</i><br>
+        <button style="background-color: blue; color: white;" onClick="openSocial('facebook'); return false;">
+        Facebook
+        </button>
+        <button style="background-color: red; color: white;" onClick="return false;">Google</button>
+      </div>
+      <div style="width: 100%;" class="floaters">
+        <div style="width:100px; float:left;"><hr></div>
+        <div style="width:100px; float:left;"><b>OR</b></div>
+      </div>
+
+      <div class="login_form" style="width:800px;"><form>
+        <div><p>Email Address</p><input type="text" id="okta_ajax_username"></div>
+        <div><p>Password</p><input type="password" id="okta_ajax_password"></div>
+        <div ><div style="float:right;"><button style='background-color:blue;color:white;' onClick="okta_forgot_password(); return false;">Forgot Password?</button></div></div>
+        <div>
+          <button value="Submit" onclick="okta_process_login(); return false;" style="background-color:blue;color:white;">Submit</button>
+        </div>
+    
+        </form>
+      </div>
+    </div> <!--end login form -->
+
+
+    <div id="okta_ajax_register" style="display:none;"><form>
+      <h3>Create Your Welk Resorts Accounts</h3>
+      <div> <i>Facebook/Google currently unavailable</i>
+        <button style="background-color: blue; color: white;" onClick="return false;">Facebook</button>
+        <button style="background-color: red; color: white;" onClick="return false;">Google</button>
+      </div>
+      <div style="width: 100%;" class="floaters">
+        <div style="width:100px; float:left;"><hr></div>
+        <div style="width:100px; float:left;"><b>OR</b></div>
+      </div>
+
+      <div class="login_form" style="width:600px; clear: both;"><form>
+        <div style="text-align:center;"><p>* Indicates Required Information</p></div>
+        <div><p>* First Name</p><input type="text" id="okta_register_firstname"></div>
+        <div><p>* Last Name</p><input type="text" id="okta_register_lastname"></div>
+        <div><p>* Email </p><input type="text" id="okta_register_username"></div>
+        <div><p>Password minimum 8 characters, 1 lower case, 1 upper case, 1 number, and must not contain any part of your email</p></div>
+        <div><p>* Password</p><input type="password" id="okta_register_password"></div>
+        <div><p>* Re-Type Password</p><input type="password" id="okta_register_password2"></div>
+        <div style="width:100%;"><div style="float:right;"><a onClick="okta_forgot_password(); return false;">Forgot Password?</a></div></div>
+        <div>
+          <button value="Submit" onclick="okta_process_register(); return false;" style="background-color:blue;color:white;">Submit</button>
+        </div>
+    
+        </form>
+      </div>
+    </div>
+   <div id="okta_ajax_loading" style="display:none;"><h3>Loading</h3></div>
+</div>
+<div id="okta_ajax_loggedin" style="display:none;">
+<h3>You are logged in</h3>
+<p>Session Details:<br><pre id="okta_ajax_textarea" style="width:550px;min-height:100px;overflow:scroll;"></pre><br>
+
+<div class='user_details'></div>
+<div class='updateOrg'><form id='updateOrgForm'><h4>Update User details</h4><p>Street Addres</p><input id='updateOktaStreetAddress'><br><p>Primary Phone</p><input id='updateOktaPrimaryPhone'><br><br><button id='updateOrgButton' onClick='updateOktaOrg(); return false;'>Update</button></form></div>
+   
+
+<button value="Clear Local Session" onclick="okta_clear_session(); return false;">Clear Local Session</button></p>
+</div>
+
+<script>
+
+var hashkeys = {};
+
+var socials = {
+};
+var socialWindow = null;
+
+function openSocial( sName ) {
+  if( typeof(socials[sName])=="undefined"){
+    alert("Unsupported login method"); return;
+  }
+  //can't open facebook in iframe
+  //document.getElementById('okta_ajax_social_iframe').src=socials[sName];
+  //document.getElementById('okta_ajax_social').style.display='block';
+  socialWindow = window.open(socials[sName],'popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+}
+
+function oktaShowLogin() {
+  document.getElementById('okta_ajax_form').style.display='block';
+  document.getElementById('okta_ajax_register').style.display='none';
+}
+function oktaShowRegister() {
+  document.getElementById('okta_ajax_form').style.display='none';
+  document.getElementById('okta_ajax_register').style.display='block';
+}
+
+function okta_forgot_password() {
+  var user = document.getElementById('okta_ajax_username').value;
+  if(!user){ alert("You must enter a valid email for your username in order to request a password reset"); return false; }
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+   if ( this.readyState==4 && this.status==200) {
+    alert("Password request sent, please check your email");
+   }
+  }
+  xhttp.open('POST', document.URL.split('/').slice(0, -1).join('/')+"/okta/reset_password", true);
+  var data = new FormData(); data.append('username', user);
+  xhttp.send(data);
+}
+
+function okta_process_register(){
+  document.getElementById('okta_ajax_register').style.display='none';
+  document.getElementById('okta_ajax_loading').style.display='block';
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+   if ( this.readyState==4 && this.status==200) {
+     var resp = this.responseText;
+     var respO = JSON.parse(resp);
+     if(respO  ) {
+       window.sessionStorage.setItem('okta_session', this.responseText);
+       document.getElementById('okta_ajax_textarea').innerHTML = JSON.stringify(JSON.parse(this.responseText),undefined,4);
+       okta_show_logged();
+       document.getElementById('okta_ajax_register').style.display='block';
+       document.getElementById('okta_ajax_loading').style.display='none';
+     } else {
+        var err = 'No user registration data returned';
+        if( respO && respO['data'] && respO['data']['error'] ) { err = respO['data']['error']; }
+        alert("Error registering: "+err);
+        document.getElementById('okta_ajax_register').style.display='block';
+        document.getElementById('okta_ajax_loading').style.display='none';
+     }
+   } else if( this.readyState==4) {
+      alert("Invalid response from registration api: ["+this.status+"]");
+      document.getElementById('okta_ajax_register').style.display='block';
+       document.getElementById('okta_ajax_loading').style.display='none';
+   }
+  };
+  xhttp.open('POST', document.URL.split('/').slice(0, -1).join('/')+"/okta/register", true);
+  var data = new FormData(); 
+  data.append("username",document.getElementById('okta_register_username').value);
+  data.append("password",document.getElementById('okta_register_password').value);
+  data.append("first",document.getElementById('okta_register_firstname').value);
+  data.append("last",document.getElementById('okta_register_lastname').value);
+  xhttp.send(data);
+}
+
+function okta_process_login() {
+  document.getElementById('okta_ajax_form').style.display='none';
+  document.getElementById('okta_ajax_loading').style.display='block';
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+   if ( this.readyState==4 && this.status==200) {
+     var resp = this.responseText;
+     var respO = JSON.parse(resp);
+     if(respO   ) {
+       window.sessionStorage.setItem('okta_session', this.responseText);
+       document.getElementById('okta_ajax_textarea').innerHTML = JSON.stringify(JSON.parse(this.responseText),undefined,4);
+       okta_show_logged();
+       document.getElementById('okta_ajax_form').style.display='block';
+       document.getElementById('okta_ajax_loading').style.display='none';
+     } else {
+        var err = 'No login session returned';
+        if( respO && respO['data'] && respO['data']['error'] ) { err = respO['data']['error']; }
+        alert("Error logging in: "+err);
+        document.getElementById('okta_ajax_form').style.display='block';
+        document.getElementById('okta_ajax_loading').style.display='none';
+     }
+   } else if( this.readyState==4) {
+      alert("Invalid response from login api: ["+this.status+"]");
+      document.getElementById('okta_ajax_form').style.display='block';
+       document.getElementById('okta_ajax_loading').style.display='none';
+   }
+  };
+  xhttp.open('POST', document.URL.split('/').slice(0, -1).join('/')+"/okta/login", true);
+  var data = new FormData();
+  data.append("username",document.getElementById('okta_ajax_username').value);
+  data.append("password",document.getElementById('okta_ajax_password').value);
+  xhttp.send(data);
+}
+
+function okta_clear_session() {
+   window.sessionStorage.removeItem('okta_session');
+   okta_show_form();
+}
+
+function okta_show_logged() {
+ document.getElementById('okta_ajax_widget').style.display='none';
+ document.getElementById('okta_ajax_loggedin').style.display='block';
+}
+function okta_show_form() {
+  document.getElementById('okta_ajax_widget').style.display='block'; 
+  document.getElementById('okta_ajax_loggedin').style.display='none';
+}
+
+function getOktaUserFromToken(){
+  var token = window.sessionStorage.getItem('okta_token');
+  var xhttp = new XMLHttpRequest();
+  var url = location.origin+'/integration/Welkresorts/okta/update_profile';
+  xhttp.open("POST",url,true);
+  xhttp.onreadystatechange=function(){
+    if(xhttp.readyState==4&&xhttp.status==200) {
+      var user = JSON.parse(xhttp.response);
+      window.sessionStorage.setItem('okta_session', xhttp.response);
+      if(user && user['profile'] && user['profile']['primaryPhone'] ) { document.getElementById('updateOktaPrimaryPhone').value=user['profile']['primaryPhone']; }
+      if(user && user['profile'] && user['profile']['streetAddress'] ) { document.getElementById('updateOktaStreetAddress').value=user['profile']['streetAddress']; }
+      document.querySelector('#okta_ajax_loggedin div.user_details').innerHTML = "<h4>User Details</h4><pre style='width:500px;height:300px;overflow:scroll;'>"+JSON.stringify(JSON.parse(xhttp.response),undefined,4)+"</pre>";
+      document.querySelector('#okta_ajax_loggedin').style.display='block';
+      document.querySelector('#okta_ajax_widget').style.display='none';
+     }
+  };
+  var data = new FormData(); data.append("token",token);
+  xhttp.send(data);
+}
+
+
+function bindEvent(element, eventName, eventHandler) {
+            if (element.addEventListener){
+                element.addEventListener(eventName, eventHandler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, eventHandler);
+            }
+        }
+
+document.addEventListener('DOMContentLoaded', function(){
+
+var okta_s = window.sessionStorage.getItem('okta_session');
+var okta_t = window.sessionStorage.getItem('okta_token');
+
+//check url hash for callback info or errors
+if(location.hash && location.hash.length>1) {
+  let keyvals = location.hash.substring(1).split('&');
+  for(var i=0;i<keyvals.length;i++){
+	let vals = keyvals[i].split('=');
+	hashkeys[vals[0]] = vals[1];
+  }
+  if(hashkeys['error'] && hashkeys['error_description'] ) {
+	  alert("Login Error ["+hashkeys['error']+"] - "+hashkeys['error_description']);
+  }
+  if(hashkeys['id_token']){
+    if(  window.opener) {
+      //token is returned after OAuth login, we are in iframe so send message to parent
+      hashkeys['msg_type']='oauth_iframe';
+      hashkeys['return_url']=window.location.href;
+      window.opener.postMessage(JSON.stringify(hashkeys), '*');
+      document.body.innerHTML='<h4>Logged in. Please wait while we load your details..</h4>';
+      return;
+    } else {
+    window.sessionStorage.setItem('okta_token', hashkeys['id_token']);
+    alert("Get a token from OAuth login, loading connected user profile..");
+    getOktaUserFromToken();
+    }
+  }
+}
+//listen to messages from child windows for oauth
+bindEvent(window, 'message', function (e) {
+  var o = JSON.parse(e.data);
+  console.log("Window received message: ", e.data, o);
+  if(o && o['msg_type'] && o['msg_type']=='oauth_iframe' && o['id_token' ]) {
+    window.receivedHashKeys = o;
+    window.sessionStorage.setItem('okta_token', o['id_token']);
+    alert("Got a token from OAuth login, loading connected user profile..");
+    getOktaUserFromToken();
+  }
+  if(socialWindow){ socialWindow.close(); }
+});
+
+if(okta_s) {
+  okta_show_logged();
+  var ses = JSON.parse(okta_s);
+  if(!ses){ 
+    alert("There was an error parsing cached session information into an object"); 
+  } else {
+    document.getElementById('okta_ajax_textarea').innerHTML=JSON.stringify(JSON.parse(okta_s),undefined,4);
+  }
+} else if(okta_t) {
+  okta_show_logged();
+  alert("Detected OAuth Session, loading user details.. ");
+  getOktaUserFromToken();
+  } else {
+  okta_show_form();
+}
+
+
+
+}, false); //finish content loaded
+
+
+</script>

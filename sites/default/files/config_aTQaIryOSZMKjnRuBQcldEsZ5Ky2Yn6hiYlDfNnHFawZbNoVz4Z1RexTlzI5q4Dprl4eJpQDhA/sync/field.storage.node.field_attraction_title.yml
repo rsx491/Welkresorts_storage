@@ -1,0 +1,21 @@
+uuid: f655894f-0350-45d0-93b7-bd90cda93afc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_attraction_title
+field_name: field_attraction_title
+entity_type: node
+type: string
+settings:
+  max_length: 60
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

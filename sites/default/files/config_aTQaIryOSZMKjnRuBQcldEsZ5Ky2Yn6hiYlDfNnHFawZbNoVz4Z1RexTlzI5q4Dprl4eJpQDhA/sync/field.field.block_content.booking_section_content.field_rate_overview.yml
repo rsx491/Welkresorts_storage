@@ -1,0 +1,21 @@
+uuid: 55c8f8e0-2909-463c-b348-b9408e598267
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.field_rate_overview
+  module:
+    - text
+id: block_content.booking_section_content.field_rate_overview
+field_name: field_rate_overview
+entity_type: block_content
+bundle: booking_section_content
+label: 'Rate Overview'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

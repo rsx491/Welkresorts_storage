@@ -1,0 +1,5 @@
+okta_ajax.settings:
+  title: 'Okta Ajax Settings'
+  description: 'Manage settings for Okta API.'
+  parent: system.admin_config_system
+  route_name: okta_ajax.settings

@@ -1,0 +1,35 @@
+uuid: ab310685-0fb2-4281-a5e0-da0cbdd9642a
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.tet
+    - field.field.comment.tet.comment_body
+    - field.field.comment.tet.field_email
+  module:
+    - text
+id: comment.tet.default
+targetEntityType: comment
+bundle: tet
+mode: default
+content:
+  comment_body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_email:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

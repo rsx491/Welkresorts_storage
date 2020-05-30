@@ -1,0 +1,19 @@
+uuid: 773814e9-37d3-4180-905d-e48559afb060
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_la_block_image_ca
+    - node.type.local_area
+id: node.local_area.field_overview_la_block_image_ca
+field_name: field_overview_la_block_image_ca
+entity_type: node
+bundle: local_area
+label: 'Overview Block Image Caption'
+description: 'Image Caption to display in the block on the overview page'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

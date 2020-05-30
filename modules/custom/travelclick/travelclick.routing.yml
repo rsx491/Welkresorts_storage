@@ -1,0 +1,95 @@
+travelclick.select_rate:
+  path: '/select-rate'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::selectRate'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+    
+travelclick.myreservation_details:
+  path: '/reservation/details'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::reservationdetails'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+    
+travelclick.room_select:
+  path: '/reservation/booking'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::selectroom'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+  
+travelclick.rate_detail:
+  path: '/rate-detail'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::rateDetail'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+
+travelclick.reservation_comparison_details:
+  path: '/reservation/comparison'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::reservationcomparison'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+    
+travelclick.deal_package:
+  path: '/deal-package'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::dealPackage' 
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+
+travelclick.rate_redirect:
+  path: '/rate-redirect'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::rateRedirect'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+
+travelclick.package_redirect:
+  path: '/package-redirect'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::packageRedirect'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+    
+travelclick.room_redirect:
+  path: '/room-redirect'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::roomredirect'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+
+travelclick.booking_form:
+  path: '/reservation/confirm-stay'
+  defaults:
+    _form: '\Drupal\travelclick\Form\BookingForm'
+  methods: [GET, POST]
+  requirements:
+    _access: 'TRUE'
+    
+travelclick.calendar_page:
+  path: '/calendar/hotelcode'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::calendar'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+    
+travelclick.reservation_session_out:
+  path: '/reservation/session/out'
+  defaults:
+    _controller: '\Drupal\travelclick\Controller\TravelclickBookingController::reservationSessionOut'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'

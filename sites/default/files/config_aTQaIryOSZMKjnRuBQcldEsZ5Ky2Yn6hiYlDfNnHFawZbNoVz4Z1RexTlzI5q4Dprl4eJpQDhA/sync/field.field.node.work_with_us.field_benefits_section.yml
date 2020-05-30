@@ -1,0 +1,55 @@
+uuid: 7a09985c-5ea6-40a1-b488-326822247022
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_benefits_section
+    - node.type.work_with_us
+    - paragraphs.paragraphs_type.work_with_us_benefits_section
+  module:
+    - entity_reference_revisions
+id: node.work_with_us.field_benefits_section
+field_name: field_benefits_section
+entity_type: node
+bundle: work_with_us
+label: 'Benefits Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      work_with_us_benefits_section: work_with_us_benefits_section
+    target_bundles_drag_drop:
+      activities:
+        weight: 10
+        enabled: false
+      additional_ammenities:
+        weight: 11
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 12
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 13
+        enabled: false
+      local_area_attractions:
+        weight: 14
+        enabled: false
+      local_area_traveler_tips:
+        weight: 15
+        enabled: false
+      videobackground_banner_block:
+        weight: 16
+        enabled: false
+      welk_experience:
+        weight: 17
+        enabled: false
+      work_with_us_benefits_section:
+        enabled: true
+        weight: 18
+field_type: entity_reference_revisions

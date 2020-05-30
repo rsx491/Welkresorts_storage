@@ -1,0 +1,9 @@
+uuid: 0a35d461-29ce-4a42-bb99-2fe0faf65264
+langcode: en
+status: true
+dependencies: {  }
+id: room_bed_details_
+label: 'Room Bed Details   '
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

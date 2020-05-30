@@ -1,0 +1,23 @@
+uuid: caff80d4-6c16-419a-83cd-ef2923367d11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_welkexperience_hyp3r_src
+    - node.type.resort_destinations
+  module:
+    - link
+id: node.resort_destinations.field_welkexperience_hyp3r_src
+field_name: field_welkexperience_hyp3r_src
+entity_type: node
+bundle: resort_destinations
+label: 'WelkExperience HYP3R Source Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

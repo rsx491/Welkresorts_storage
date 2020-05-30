@@ -1,0 +1,9 @@
+okta_api_key: 00Btn6pySOrS38s9mGYxmGq7Ls40Xv4g_Cw4_ce8Wn
+default_group_id: 00gmzalufkRo0PVLY0h7
+organisation_url: 'Welk Resorts (External)'
+okta_domain: welkexternal
+preview_domain: true
+debug_response: false
+debug_exception: false
+_core:
+  default_config_hash: P3XxsbDJIsdp-_UKFStifFstpavj80R1bCxdis1mjlk

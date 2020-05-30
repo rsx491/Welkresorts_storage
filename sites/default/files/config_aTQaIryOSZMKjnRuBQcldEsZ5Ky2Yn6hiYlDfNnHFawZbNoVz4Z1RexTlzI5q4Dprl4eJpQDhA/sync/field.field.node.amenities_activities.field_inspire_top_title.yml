@@ -1,0 +1,19 @@
+uuid: 45d9dbf0-ddab-479b-9f0d-e0ef97fead4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inspire_top_title
+    - node.type.amenities_activities
+id: node.amenities_activities.field_inspire_top_title
+field_name: field_inspire_top_title
+entity_type: node
+bundle: amenities_activities
+label: 'Inspire top title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

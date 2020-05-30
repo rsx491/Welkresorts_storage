@@ -1,0 +1,19 @@
+uuid: 84a169cb-8a15-498a-80f9-b1f1675ee3eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - text
+id: block_content.field_megamenu_des
+field_name: field_megamenu_des
+entity_type: block_content
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

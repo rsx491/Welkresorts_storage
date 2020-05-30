@@ -1,0 +1,21 @@
+uuid: a9d3750c-d0b5-424f-8648-3a537e68c7e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.privacy_policy
+  module:
+    - metatag
+id: node.privacy_policy.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: privacy_policy
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

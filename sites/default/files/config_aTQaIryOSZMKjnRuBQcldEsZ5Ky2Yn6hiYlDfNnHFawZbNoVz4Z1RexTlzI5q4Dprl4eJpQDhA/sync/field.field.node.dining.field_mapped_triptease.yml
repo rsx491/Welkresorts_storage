@@ -1,0 +1,21 @@
+uuid: fd2ac300-08b5-4543-bcdc-0328de83fcd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mapped_triptease
+    - node.type.dining
+  module:
+    - options
+id: node.dining.field_mapped_triptease
+field_name: field_mapped_triptease
+entity_type: node
+bundle: dining
+label: 'Mapped Triptease with Hotel Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

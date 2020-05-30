@@ -1,0 +1,19 @@
+uuid: b5c835e2-aeb4-4a99-bde2-2df786e53500
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_calendar_activity_descript
+field_name: field_calendar_activity_descript
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

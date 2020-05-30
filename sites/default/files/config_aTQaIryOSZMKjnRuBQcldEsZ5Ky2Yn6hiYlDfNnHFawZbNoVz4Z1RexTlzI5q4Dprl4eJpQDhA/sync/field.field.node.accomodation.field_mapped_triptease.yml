@@ -1,0 +1,21 @@
+uuid: c283f3c5-1ad6-40ba-99de-8e242a5e702b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mapped_triptease
+    - node.type.accomodation
+  module:
+    - options
+id: node.accomodation.field_mapped_triptease
+field_name: field_mapped_triptease
+entity_type: node
+bundle: accomodation
+label: 'Mapped Triptease with Hotel Name'
+description: 'Choose hotel name for getting triptease popup'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

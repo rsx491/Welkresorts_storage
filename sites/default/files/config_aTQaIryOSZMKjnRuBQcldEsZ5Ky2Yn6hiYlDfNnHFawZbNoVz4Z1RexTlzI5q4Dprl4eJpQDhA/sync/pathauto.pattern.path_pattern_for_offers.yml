@@ -1,0 +1,22 @@
+uuid: 8a86c2b7-ce2c-4854-9518-96400eb6fb0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: path_pattern_for_offers
+label: 'Path pattern for Offers'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/[node:field_select_resort]/offers'
+selection_criteria:
+  e4ca703e-ff6d-4463-9115-e748e3dbcb11:
+    id: node_type
+    bundles:
+      offers: offers
+    negate: false
+    context_mapping:
+      node: node
+    uuid: e4ca703e-ff6d-4463-9115-e748e3dbcb11
+selection_logic: and
+weight: -5
+relationships: {  }

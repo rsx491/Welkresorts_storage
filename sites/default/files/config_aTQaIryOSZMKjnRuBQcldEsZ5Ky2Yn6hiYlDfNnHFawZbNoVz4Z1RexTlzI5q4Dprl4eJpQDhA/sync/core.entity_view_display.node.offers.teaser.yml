@@ -1,0 +1,36 @@
+uuid: 3e7f355f-9f83-4623-b01c-95342607d392
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.offers.body
+    - node.type.offers
+  module:
+    - text
+    - user
+id: node.offers.teaser
+targetEntityType: node
+bundle: offers
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_contact_number: true
+  field_destination: true
+  field_hero_gallery: true
+  field_hero_section_off: true
+  field_logo_image: true
+  field_offer_page_description: true

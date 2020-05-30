@@ -1,0 +1,29 @@
+uuid: 5bcca8e2-b806-4596-8b60-3c2b4e75a0f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_destination
+    - node.type.meetings_and_events
+    - taxonomy.vocabulary.destinations
+id: node.meetings_and_events.field_destination
+field_name: field_destination
+entity_type: node
+bundle: meetings_and_events
+label: Destination
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      destinations: destinations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

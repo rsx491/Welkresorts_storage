@@ -1,0 +1,7 @@
+uuid: f22ebcc9-69dd-44fd-9dd1-a2c63a22ebec
+langcode: en
+status: false
+dependencies: {  }
+formId: node_accomodation_form
+captchaType: default
+label: null

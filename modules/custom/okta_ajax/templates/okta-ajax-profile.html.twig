@@ -1,0 +1,766 @@
+{#
+ /**
+  * My Account page for user
+  * display and manage user profile, email subscriptions and credentials
+ **/
+#}
+
+
+
+<div class="page-heading">
+  <div class="container">
+    <div class="inner-wrapper">
+    {# {{ kint(okta_config.room) }} #}
+          <h2>{{ okta_config.profile_title }}{{ okta_config.room }}</h2>
+          <p id="user_welcome_message">Loading user details</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- tab menu -->
+<div class="myaccount tab-components" style="display:none;">
+    <div class="container">
+        <div class="inner-wrapper">
+            <ul class="d-flex" style="display:flex;">
+                <li><a class="active tab-button" href="#" title="Account Sign In" data-target="account-overview-component">Account Overview</a></li>
+                <li><a href="#" class="tab-button" title="Create Account" data-target="manage-profile-component">Manage Profile</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="account-overview-component tab-component" style="display:none;">
+    <div class="container">
+        <h2>{{ okta_config.overview_header }}</h2>
+        <p>{{ okta_config.overview_subtext }}</p>
+    </div>
+    <div class="inner-wrapper default-style guest-information" style="padding: 10px 30px;">
+        <div class="row header" style="padding:10px 30px;"><h3 >{{ okta_config.overview_guest_header }}</h3></div>
+        <div class="row">
+        <div class="col-4">
+            <p>
+            <b><span data-account="name"></span></b><br>
+            <span data-account="email"></span><br>
+            <span data-account="primaryPhone"></span>
+            </p>
+        </div>
+        <div class="col-4">
+            <p>
+            <b>Welk Member since <span data-account="member-since"></span></b><br>
+            Guestbook: <b><span data-account="guestbook-enrolled">Enrolled</span></b> <a>Learn More</a><br>
+            Email subscription status: <b><span data-account="email-subscription-status"></span></b>
+            </p>
+        </div>
+        <div class="col-4">
+            <div class="btn-group">
+                            <a href="#" data-target="manage-profile-component" class="btn btn-primary large btn-manage-profile tab-button">Manage Profile</a>
+                        </div>
+        </div>
+        </div>
+    </div>
+    <br>
+    <div class="inner-wrapper default-style">
+        <div class="guest-reservation-datails">
+                    <div class="container">
+                        <h3>Reservations</h3>
+                        <div class="filter default-style">
+                            <div class="row">
+                                <div class="col-12 col-lg-12 col-xl-12">
+                                    <div class="form-group required">
+                                        <label>Filter Reservations</label>
+                                        <select>
+                                            <option value="1">Active</option>
+                                            <option value="2">De-active</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-wrapper">
+                            <div class="row heading-section">
+                                <div class="col-lg-3 col-xl-3 pl-0">
+                                    <div class="name">Resorts</div>
+                                </div>
+                                <div class="col-lg-6 col-xl-6">
+                                    <div class="date">Dates &amp; Guests</div>
+                                </div>
+                            </div>
+                            <div class="guest-details">
+                            {% if okta_config.room is not empty %}
+                            {% for roomDetail in okta_config.room %}
+                                <div class="row">
+                                    <div class="col-lg-3 col-xl-3">
+                                        <div class="address">
+                                            <span>{{ roomDetail.resortName }}</span><br>
+                                            {{ roomDetail.resort_address|raw }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-xl-6">
+                                        <div class="date-time">
+                                            {{ roomDetail.check_in_date|format_date('custom', 'D M, d Y') }} to {{ roomDetail.check_out_date|format_date('custom', 'D M, d Y') }}<br>
+                                            {{ roomDetail.no_rooms }} Rooms, {{ roomDetail.adults }} Adults</div>
+                                        <div class="room-details">
+                                            <div class="wrapper">
+                                                <div class="room-name">{{ roomDetail.room_type_name }}</div>
+                                                <div class="d-flex">
+                                                    <div class='flex-item'>
+                                                        <div class="name">{{ roomDetail.rate_plan_name }}</div>
+                                                    </div>
+                                                    <div class='flex-item'>
+                                                        <div class="value">${{ roomDetail.room_total }}<span>{{ roomDetail.currency }}</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex details">
+                                                    <div class='flex-item'>
+                                                        <div class="name">Details: <a title="Change Room" data-toggle="modal" data-target="#viewRooms{{ roomDetail.room_booking_no }}" class="change-room-link" href="#">Room</a> | Rate</div>
+                                                    </div>
+                                                    <div class='flex-item'>
+                                                        <div class="value">For {{ roomDetail.total_duration }} nights</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row confirmation">
+                                    <div class="col-lg-6 col-xl-6">
+                                        <p class="confirmation-no d-none d-lg-block">Confirmation
+                                            Number:<span>{{ roomDetail.room_booking_no }}</span></p>
+                                    </div>
+                                    <div class="col-lg-6 col-xl-6">
+                                        <div class="btn-wrapper">
+                                            <a href="#" class="change-resrv btn btn-primary medium {{ roomDetail.button_display }}" bookingid="{{ roomDetail.room_booking_no }}" clicked="clicked">Change Reservation</a>
+                                            <a href="#" class="cancel-resrv btn btn-secondary medium {{ roomDetail.button_display }}" bookingid="{{ roomDetail.room_booking_no }}" hotelCode="{{ roomDetail.hoteCode }}" data-target="#cancel-reservation-form" data-toggle="modal">Cancel Reservation</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                No data available.
+                                {% endif %}
+                            </div>
+                            <div class="modal default-style" id="cancel-reservation-form">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button class="close" data-dismiss="modal" type="button"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="heading-style-block">
+                                                <h2>Cancel Reservation</h2>
+                                                <p data-account="cancel-desc"></p>
+                                            </div>
+                                            {{ {'#type': 'webform', '#webform': 'cancel_reservation'} }}
+                                            <a class="btn btn-secondary medium" data-dismiss="modal">Close</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {# start roomdetail modal popup #}
+                            {% for value in okta_config.room %}
+                            <div class="modal fade room-gallery" id="viewRooms{{ value.room_booking_no }}" tabindex="-1" role="dialog" aria-labelledby="bookingRoom"
+							 aria-hidden="true">
+                                <div class="modal-dialog modal-lg " role="document">
+                                    <div class="modal-content ">
+                                        <div class="modal-header d-block container"> 
+                                            <button class="close" data-dismiss="modal" type="button"></button>
+                                        </div>
+                                        <div class="modal-body container">
+                                            {% set roomcode = value.room_type_code %}
+                                            {% set term_id = value.destination_term_id %}
+                                            {{ drupal_view("reservation_room_details", "block_1",term_id,roomcode) }}
+                                        </div>
+                                        <div class="modal-footer container">
+                                        <button type="button" class="btn btn-secondary medium" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+						    </div>
+                            {% endfor %}
+                            {# end roomdetail modal popup #}
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+
+<div class="manage-profile-component tab-component" style="display:none;">
+    <div class="container">
+        <h2>{{ okta_config.manage_header }}</h2>
+        <p>{{ okta_config.manage_subtext }}</p>
+    </div>
+    <div class="inner-wrapper default-style">
+        <div class="row">
+            <div class="col-4">
+                <h3> {{ okta_config.manage_guest_header }} </h3>
+            </div>
+            <div class="col-4" id="guest_information_span">
+                <p>
+                <span data-account="name" style="font-weight:bold;"></span><br>
+                <span data-account="email"></span><br>
+                <span data-account="primaryPhone"></span><br>
+                <br>
+                <span data-account="streetAddress"></span><br>
+                <span data-account="city"></span>, <span data-account="state"></span> <span data-account="zipCode"></span><br>
+                <span data-account="countryCode"></span><br>
+                </p>
+            </div>
+            
+            <div class="col-4">
+                <div class="btn-group">
+                    <a href="#" data-target="manage-profile-component" class="btn btn-primary large btn-manage-profile" 
+                        onClick="document.getElementById('guest_information_edit').style.display='block';">
+                        Edit Guest Info</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <h3> {{ okta_config.manage_signin_header }}</h3>
+            </div>
+            <div class="col-4">
+                <p>
+                
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="btn-group">
+                    <a href="#" data-target="manage-profile-component" class="btn btn-primary large btn-manage-profile" onClick="document.getElementById('okta_change_password').style.display='block';">Change Password</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                <h3> {{ okta_config.manage_email_header }} </h3>
+            </div>
+            <div class="col-4">
+                <p>
+                <b>Subscription Status</b><br>
+                <span data-account="email-subscription-status"></span><br>
+                <br>
+                <b>Favorite Locations</b><br>
+                <ul style="list-style-type: disc;" id="favorite_location_list">
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <div class="btn-group">
+                    <a href="#" data-target="manage-profile-component" class="btn btn-primary large btn-manage-profile" onClick="document.getElementById('email_pref_modal').style.display='block';">Update Preferences</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="okta_modals" >
+	
+    <div id="guest_information_edit" class="modal">
+        <div class="modal-content">
+                <form id="guest_information_form">
+                <div class="row" style="text-align:center;">
+                    <h3 style="margin:auto;">Update Guest Information</h3><br><p style="width:100%;margin:auto;">Lorem Ipsum sit amet..</p></div>
+                <div class="row">* <b>INDICATES REQUIRES INFORMATION</b></div>
+                <div class="row">
+                    <div class="col-6">
+                    <label>* First Name</label><br>
+                    <input type="text" name="firstName" placeholder="First Name" data-account="firstName">
+                    </div>
+
+                    <div class="col-6">
+                    <label> * Last Name</label><br>
+                    <input type="text" name="lastName" placeholder="Last Name" data-account="lastName">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-6">
+                    <label>* Email</label><br>
+                    <input type="text" name="email" readyonly=true placeholder="EMail" data-account="email">
+                    </div>
+
+                    <div class="col-6">
+                    <label>* Phone</label><br>
+                    <input type="text" name="primaryPhone" placeholder="Primary Phone" data-account="primaryPhone">
+                    </div>
+                </div>
+
+                <div class="row col-6">
+                    <label>* Country / Region</label><br>
+                    <select name="countryCode"><option value="US">USA</option></select>
+                </div>
+            
+                <div class="row col-12"><label>* Address</label><br>
+                    <input type="text" style="width:100%;" name="streetAddress" placeholder="Street Address" data-account="streetAddress">
+                </div>
+
+                <div class="row col-12"><label>* City</label><br>
+                    <input type="text" style="width:100%;" name="city" placeholder="city" data-account="city">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>* State</label><br>
+                        <input type="text" name="state" placeholder="state" data-account="state">
+                    </div>
+                    <div class="col-6">
+                        <label>* Zip / Postal Code</label><br>
+                        <input type="text" name="zipCode" placeholder="zip" data-account="zipCode">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <a class="btn btn-primary large" onClick="return oktaUpdateProfile();document.getElementById('guest_information_edit').style.display='none';">
+                    Update
+                    </a>
+                    <a class="btn large" style="border: 2px solid black;" onClick="document.getElementById('guest_information_edit').style.display='none';">
+                    Cancel
+                    </a>
+                
+                </div>
+                </form>
+                
+            </div>
+    </div>
+
+    <div id="okta_change_password" class="modal">
+        <div class="modal-content">
+            <div class="row" style="text-align:center;">
+                    <h3 style="margin:auto;">Change Password</h3>
+                    <br><p style="width:100%;margin:auto;">Lorem Ipsum sit amet..</p>
+            </div>
+            <form id="okta_change_password_form">
+            <div class="row">* <b>INDICATES REQUIRES INFORMATION</b></div>
+
+            <div class="row col-6"><label>* Current Password</label></div>
+            <div class="row col-6"><input name="current_password" type="password"><br>
+            <div style="float:right;"><a onclick="oktaRequestPassword(); return false;">Forgot Password?</a></div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label>* New Password</label><br>
+                    <input type="password" name="new_password">
+                </div>
+
+                <div class="col-6">
+                    <label>* Repeat Password</label><br>
+                    <input type="password" name="confirm_password">
+                </div>
+            </div>
+
+            </form>
+            <div class="row">
+                <a class="btn btn-primary large" onClick="return oktaChangePassword();">
+                Update
+                </a>
+                <a class="btn large" style="border: 2px solid black;" onClick="document.getElementById('okta_change_password').style.display='none';">
+                Cancel
+                </a>
+            
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="email_pref_modal" class="modal">
+        <div class="modal-content">
+            <div class="row" style="text-align:center;">
+                    <h3 style="margin:auto;">Email Preferences</h3>
+                    <br><p style="width:100%;margin:auto;">Lorem Ipsum sit amet..</p>
+            </div>
+            <form id="email_pref_form">
+            <div class="row col-12"><h4>Subscribe to Email from Welk Resorts</div>
+            <hr>
+
+            <div class="row col-12" id="email_pref_fav_locations">
+                <div class="row col-12"><b>Favorite Locations</b></div>
+            </div>
+
+
+            <hr>
+            <div class="row">
+                <input type="checkbox" style="width:auto;margin-right:15px;" id="email_pref_opt_in"> Yes, opt me in to receive emails about <b>Welk exclusive offers, insider tips, and more.</b>
+            </div>
+            </form>
+            <div class="row">
+                <a class="btn btn-primary large" onClick="oktaUpdateEmailPrefs(); return false;">
+                Save Changes
+                </a>
+                <a class="btn large" style="border: 2px solid black;" onClick="loadEmailPreferencesIntoPage(window.profileEmailPreferences);document.getElementById('email_pref_modal').style.display='none';">
+                Cancel
+                </a>
+            
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+window.oktaDomain = 'https://{{ okta_config.domain }}.oktapreview.com';
+window.oktaAccountPath = '{{ okta_config.account_path }}';
+window.oktaProfilePath = '{{ okta_config.profile_path }}';
+window.oktaIsLogged = {% if okt_config.is_logged %}'{{ okta_config.is_logged }}'{% else %} false {% endif %};
+
+
+
+window.hashkeys = {};
+
+function oktaUpdateEmailPrefs(){
+    if(window.requestingPassword){ return false; }
+    window.requestingPassword=true;
+
+    var data = {
+        token: window.sessionStorage.getItem("okta_session").trim().replace(/^"(.+)"$/, '$1'),
+        opt_in : document.getElementById('email_pref_opt_in').checked 
+    };
+    let boxes = document.querySelectorAll('input[data-tid]');
+    var prefs = window.profileEmailPreferences;
+    prefs.opt_in = data.opt_in;
+
+    for(var i=0;i<boxes.length;i++){
+        var boxName = boxes[i].attributes['data-tid'].value;
+        boxNameDashes = boxName.replace(/ /g,'_');
+        data[boxNameDashes] = boxes[i].checked?'true':'';
+        let prefID = prefs.locations.findIndex(function(o){ return (o.name==boxName); });
+        if(prefID != -1){ prefs.locations[prefID].val = boxes[i].checked?true:false; }
+    }
+    var headers = {};
+    headers['Content-Type'] = 'application/x-www-form-urlencoded';
+    oktaSelfApi('update_email_pref', data, headers, function(response){
+        window.requestingPassword=false;
+        window.profileEmailPreferences = prefs;
+        loadEmailPreferencesIntoPage(prefs);
+        document.getElementById('email_pref_modal').style.display='none';
+    });
+    
+}
+
+function oktaRequestPassword(){
+    if(window.requestingPassword){ return false; }
+    window.requestingPassword=true;
+    let user = JSON.parse(window.sessionStorage.getItem("okta_user")); 
+    if(!user){ alert("Error reading in user profile"); window.requestingPassword=false; return false; }
+    let email = user.profile.login;
+    oktaSelfApi('reset_password',{username:email},{},function(response){
+        res = {};
+        if( /The website encountered an unexpected/.test(response.responseText) ) {
+            res = {'error': response.responseText };
+        } else {
+            res = JSON.parse(response.responseText);
+        }
+        console.log("reset response",res);
+        if(res.error){
+            alert("Problem when requesting password reset: "+res.error);
+        } else {
+            alert("A password request has been sent to your email");
+        }
+        window.requestingPassword=false;
+    });
+}
+
+function oktaChangePassword(){
+    if(window.requestingPassword){ return false; }
+    let cur_pwd = document.querySelector('#okta_change_password input[name="current_password"]').value;
+    let new_pwd = document.querySelector('#okta_change_password input[name="new_password"]').value;
+    let confirm_pwd = document.querySelector('#okta_change_password input[name="confirm_password"]').value;
+    if(!cur_pwd){ alert("Must enter current password"); return false; }
+    if(!new_pwd || new_pwd.length < 4){ alert("Must enter a new password"); return false; }
+    if(new_pwd != confirm_pwd) { alert("New password and repeate password must match"); }
+    document.querySelector('#okta_change_password .btn-primary').innerText="Please wait";
+    window.requestingPassword=true;
+    oktaSelfApi("change_password",{
+        token:window.sessionStorage.getItem("okta_session").trim().replace(/^"(.+)"$/, '$1'),
+        current_password: cur_pwd,
+        new_password: new_pwd
+        },{},function(response){
+            console.log("Password change response: ", response.responseText);
+            var res = {};
+            if( /The website encountered an unexpected/.test(response.responseText) ) {
+                res = {'error': response.responseText };
+            } else {
+                res = JSON.parse(response.responseText);
+            }
+            if(res.error){
+                alert("Error updating: "+res.error);
+            } else {
+                alert("Password updated");
+            }
+            document.querySelector('#okta_change_password .btn-primary').innerText="Update";
+            window.requestingPassword=false;
+    });
+}
+
+function oktaUpdateProfile(){
+    if(window.requestingPassword){ return false; }
+    document.querySelector('#guest_information_edit .btn-primary').innerText="Please wait";
+    window.requestingPassword=true;
+    let inputs = document.querySelectorAll('#guest_information_form input,select');
+    var data = {};
+    var missingFields = [];
+    for(var i=0;i<inputs.length;i++){
+        if(inputs[i].attributes['data-account']){
+            if( !inputs[i].value || inputs[i].value == "") {
+                missingFields.push( inputs[i].attributes['data-account'].value );
+            } else {
+                data[ inputs[i].attributes['data-account'].value ] = inputs[i].value;
+            }
+        }
+    }
+    if(missingFields.length>0){
+        alert("All required fields must be filled in. Missing: "+missingFields.join(', ') );
+        document.querySelector('#guest_information_edit .btn-primary').innerText="Update";
+        window.requestingPassword=false;
+        return;
+    }
+    data['token'] = window.sessionStorage.getItem("okta_session").trim().replace(/^"(.+)"$/, '$1');
+    oktaSelfApi("update_profile",data,{},function(response){
+        let res = JSON.parse(response.responseText);
+        console.log(res);
+        if(res.error){
+            alert("Problem when updating: "+res.error);
+        } else {
+            alert("Updated!");
+            loadUserIntoPage(res);
+        }
+        window.requestingPassword=false;
+        document.querySelector('#guest_information_edit .btn-primary').innerText="Update";
+    });
+}
+
+function loadUserIntoPage( user ) {
+    window.profileUser = user;
+    let prof = user.profile;
+    let elList = document.querySelectorAll('*[data-account]');
+    for(var i=0;i<elList.length;i++){
+        var tag = elList[i].getAttribute("data-account");
+        var newVal = null;
+        if( typeof(prof[tag]) != "undefined" ) {
+            newVal = prof[tag];
+        } else {
+            var newVal = null;
+            switch(tag) {
+                case "name":
+                    newVal = prof.firstName + " " + prof.lastName;
+                    break;
+                case "member-since":
+                    var d = new Date(user.created);
+                    newVal = d.toDateString();
+                    break;
+                case "cancel-desc":
+                    newVal = user.cancel_desc;
+                    break;  
+                default:
+                    console.log("Tag not supported: "+tag);
+            }
+            
+        }
+        if(newVal){
+            if(elList[i].tagName=='INPUT') {
+                elList[i].value = newVal;
+            } else {
+                elList[i].innerText = newVal;
+            }
+        }
+    }
+    if(user.email_preferences) {
+        loadEmailPreferencesIntoPage(user.email_preferences);
+    }
+}
+
+function loadEmailPreferencesIntoPage( email_preferences) {
+        window.profileEmailPreferences = email_preferences;
+        if(email_preferences.opt_in){
+            document.getElementById('email_pref_opt_in').value=true;
+            document.getElementById('email_pref_opt_in').checked="checked";
+
+        }
+        let opt_status = document.querySelectorAll('*[data-account="email-subscription-status"]');
+        for(var o=0;o<opt_status.length;o++){
+            opt_status[o].innerText = email_preferences.opt_in ? 'Enrolled' : 'Not Active';
+        }
+        let loc_all = email_preferences.locations;
+        var loc_tree = parseLocationTree(loc_all, '0', 0);
+        if(!loc_tree) loc_tree = [];
+        var fav_locations = [];
+        document.getElementById('email_pref_fav_locations').innerHTML = "<div class='row col-12'><b>Favorite Locations</b></div>";
+        document.getElementById('favorite_location_list').innerHTML='';
+        for(var i=0;i<loc_tree.length;i++){
+            var dTop = document.createElement('div');
+            dTop.className="row col-4";
+            dTop.style.alignContent='flex-start';
+            dTop.innerHTML="<div class='row col-12'><h3>"+loc_tree[i].name+"</h3></div>";
+            for(var region=0;region<loc_tree[i].children.length;region++){
+                var pRegion=document.createElement('div');
+                pRegion.className="row col-12";
+                pRegion.innerHTML = "<div class='row col-12' style='padding-left:15px;'><h4'>"+loc_tree[i].children[region].name+"</h4></div>";
+                var ulRegion = document.createElement('div');
+                ulRegion.className="row col-12";
+                ulRegion.style.paddingLeft="30px";
+                for(var iLoc=0;iLoc<loc_tree[i].children[region].children.length;iLoc++){
+                    let loc = loc_tree[i].children[region].children[iLoc];
+                    if(loc.val){
+                        fav_locations.push(loc.name);
+                        var fav = document.createElement('li');
+                        fav.innerText = loc.name;
+                        document.getElementById('favorite_location_list').appendChild(fav);
+                    }
+                    let li = document.createElement('div');
+                    li.className="row col-12";
+                    li.innerHTML="<input type='checkbox' style='width:auto; margin-right:10px;' data-tid='"+loc.name+"' "+(loc.val?"value=1 checked='checked'":"")+"> <label style='text-transform:none;width:auto;'>"+loc.name+"</label>";
+                    ulRegion.appendChild(li);
+                }
+                pRegion.appendChild(ulRegion);
+                dTop.appendChild(pRegion);
+            }
+            document.getElementById('email_pref_fav_locations').appendChild(dTop);
+        }
+}
+
+function parseLocationTree(loc_tree, parent_id, depth) {
+    var tree = [];
+    for(var i=0;i<loc_tree.length;i++){
+        if(loc_tree[i].parent != parent_id) continue;
+        let node = { name:loc_tree[i].name, tid :loc_tree[i].tid, val:loc_tree[i].val, depth : depth };
+        node.children = parseLocationTree(loc_tree,node.tid, (depth+1) );
+        tree.push(node); 
+    }
+    if(tree) {
+        tree.sort(function(a,b){
+            if(a.name=='United States') return -1;
+            return a.name.localeCompare(b.name);
+        });
+    }
+    return (tree.length>0 ? tree : null );
+}
+
+//document.addEventListener('DOMContentLoaded', function(){
+function initOkta(){
+    var okta_s = false ;//window.sessionStorage.getItem('okta_session');
+
+
+    //check url hash for callback info or errors
+    if(location.hash && location.hash.length>1) {
+        let keyvals = location.hash.substring(1).split('&');
+        for(var i=0;i<keyvals.length;i++){
+            let vals = keyvals[i].split('=');
+            hashkeys[vals[0]] = vals[1];
+        }
+    } 
+
+    let tabButtons = document.querySelectorAll('a.tab-button')
+    for(var i=0;i<tabButtons.length;i++){
+        tabButtons[i].addEventListener('click',function(o){    
+            if(o.target && o.target.attributes['data-target'] ){
+                let t = o.target.attributes['data-target'];
+                console.log(t);
+                if(document.querySelector('div.'+t.value) ){
+                    let allTabs = document.querySelectorAll('div.tab-component');
+                    for(var i2=0; i2<allTabs.length; i2++){
+                        allTabs[i2].style.display="none";
+                    }
+                    document.querySelector('div.'+t.value).style.display="block";
+                    if(document.querySelector('a.tab-button.active') ){
+                        document.querySelector('a.tab-button.active').classList.remove("active");
+                        var newActives = document.querySelectorAll('a.tab-button[data-target="'+t+'"]');
+                        for(var linkI=0;linkI<newActives.length;linkI++){
+                            newActives[linkI].classList.add("active");
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+
+    //call getToken to check whether user is signed in
+    oktaSelfApi('get_token',{},{}, function(res) {
+        console.log("token", res);
+        if(res && res.responseText && res.responseText.length > 5 ) {
+            var tokenO = res.responseText.trim().replace(/^"(.+)"$/, '$1');
+            console.log("get token returned: ", tokenO );
+            //load details
+            window.sessionStorage.setItem('okta_session', res.responseText.trim().replace(/^"(.+)"$/, '$1') );
+            var headers = {};
+            headers['Content-Type'] = 'application/x-www-form-urlencoded';
+            oktaSelfApi('get_profile',{token:tokenO},headers, function(res) {
+                console.log("profile response", res); 
+                var resO = JSON.parse(res.responseText);
+                console.log(resO);
+                if(!resO || !resO['status'] || resO['error'] ){
+                    //alert("Error finding user session: "+(resO['error']?resO['error']:'') );
+                    alert("Please login again");
+                    window.sessionStorage.removeItem('okta_user'); window.sessionStorage.removeItem('okta_session');
+                    oktaSelfApi('logout',{},{},function(){
+                        document.location.href=document.URL.substr(0,document.URL.lastIndexOf('/'))+"/account";
+                    });
+                    return;
+                }
+                console.log("Getting user profile from introspect id");
+                window.sessionStorage.setItem("okta_user", JSON.stringify(resO) );
+                let prof = resO.profile;
+                document.getElementById("user_welcome_message").innerText = prof.firstName+", welcome back";
+                document.querySelector('div.myaccount').style.display="block";
+                document.querySelector('div.account-overview-component').style.display="block";
+                loadUserIntoPage(resO);
+                
+            });
+        } else {
+            window.sessionStorage.removeItem('okta_state'); window.sessionStorage.removeItem('okta_session');
+            window.location.href = oktaAccountPath;
+            return; 
+        }
+    });
+
+
+
+} //finish init okta
+
+//timeout to make sure the attached library gets processed first
+setTimeout(initOkta,2000);
+/** Script for Modification booking section */
+$('.confirmation').each(function(){
+    // JS code on click button change reservation
+    $(this).find('.change-resrv').on('click',function(event){ 
+        event.preventDefault();
+        var bookId = $(this).attr('bookingid');
+        var flag = $(this).attr('clicked');
+        var path=drupalSettings.path.baseUrl;
+        var baseurl = window.location.origin;
+        var base_path= baseurl+path;
+        //alert(bookId);return false;
+        $.ajax({
+            url : 'change-reservation',
+			data:{"flag":flag},
+			type: 'GET',
+            success: function(data){
+                //alert(data);
+                window.location=base_path;
+            },
+        });
+    });
+    // JS code on click button cancel reservation
+    $(this).find('.cancel-resrv').on('click',function(event){ 
+        event.preventDefault();
+        var bookId = $(this).attr('bookingid');
+        var hCode = $(this).attr('hotelCode');
+        //alert(bookId);return false;
+        $.ajax({
+            url : 'cancel-reservation',
+			data:{"bookId":bookId,"hotelCode":hCode},
+			type: 'GET',
+            success: function(data){
+                //alert(data);
+                //window.location=base_path+'select-rate';
+            },
+        });
+    });
+})
+
+</script>

@@ -1,0 +1,48 @@
+uuid: 67008ce8-8fae-4c5f-9df8-17c5c4c6afff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.work_with_us_benefits_section.field_benefits_description
+    - field.field.paragraph.work_with_us_benefits_section.field_benefits_name
+    - field.field.paragraph.work_with_us_benefits_section.field_icon_work
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.work_with_us_benefits_section
+  module:
+    - image
+    - imce
+    - text
+id: paragraph.work_with_us_benefits_section.default
+targetEntityType: paragraph
+bundle: work_with_us_benefits_section
+mode: default
+content:
+  field_benefits_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_benefits_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_icon_work:
+    weight: 2
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+hidden:
+  created: true
+  status: true

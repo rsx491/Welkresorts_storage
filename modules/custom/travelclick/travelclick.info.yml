@@ -1,0 +1,8 @@
+name: 'TravelClick Integration'
+description: 'Functions to access the travelclick api'
+type: module
+core: 8.x
+version: 8.x
+pacakge: Welkgroup
+dependencies:
+  - block

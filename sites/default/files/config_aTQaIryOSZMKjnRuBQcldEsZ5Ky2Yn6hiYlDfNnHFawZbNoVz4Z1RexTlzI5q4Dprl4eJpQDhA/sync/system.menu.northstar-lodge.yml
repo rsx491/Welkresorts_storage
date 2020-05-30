@@ -1,0 +1,8 @@
+uuid: 073604e1-9566-4888-b3e6-5af4789c2d67
+langcode: en
+status: true
+dependencies: {  }
+id: northstar-lodge
+label: 'Northstar Lodge'
+description: 'This is the Menu for the Northstar Lodge Resort'
+locked: false

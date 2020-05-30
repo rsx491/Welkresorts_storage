@@ -1,0 +1,19 @@
+uuid: 171819d0-34f2-4953-b3b4-16c24c8f16b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_block_subtitle
+    - node.type.amenities_activities
+id: node.amenities_activities.field_overview_block_subtitle
+field_name: field_overview_block_subtitle
+entity_type: node
+bundle: amenities_activities
+label: 'Overview Block Subtitle'
+description: 'Subtitle to display in the block on overview page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

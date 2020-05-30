@@ -1,0 +1,82 @@
+uuid: eb2beea8-a4dd-495d-9d72-85a465848315
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tours_activities
+    - node.type.tours
+    - paragraphs.paragraphs_type.resort_activities
+  module:
+    - entity_reference_revisions
+id: node.tours.field_tours_activities
+field_name: field_tours_activities
+entity_type: node
+bundle: tours
+label: 'Tours Activities'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      resort_activities: resort_activities
+    target_bundles_drag_drop:
+      activities:
+        weight: 19
+        enabled: false
+      additional_ammenities:
+        weight: 20
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 21
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 22
+        enabled: false
+      booking_offer_section:
+        weight: 23
+        enabled: false
+      calendar_activities:
+        weight: 24
+        enabled: false
+      local_area_attractions:
+        weight: 25
+        enabled: false
+      local_area_traveler_tips:
+        weight: 26
+        enabled: false
+      resort_activities:
+        enabled: true
+        weight: 27
+      resort_offer_page_description:
+        weight: 28
+        enabled: false
+      room_bed_details_:
+        weight: 29
+        enabled: false
+      stay_and_play:
+        weight: 30
+        enabled: false
+      value_section_faq:
+        weight: 31
+        enabled: false
+      videobackground_banner_block:
+        weight: 32
+        enabled: false
+      welk_experience:
+        weight: 33
+        enabled: false
+      work_with_us_award_section:
+        weight: 34
+        enabled: false
+      work_with_us_benefits_section:
+        weight: 35
+        enabled: false
+      work_with_us_overview_items:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions

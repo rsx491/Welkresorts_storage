@@ -1,0 +1,19 @@
+uuid: 95302749-2d3e-4343-966c-530bc3f8a41b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highlight_description
+    - node.type.amenities_activities
+id: node.amenities_activities.field_highlight_description
+field_name: field_highlight_description
+entity_type: node
+bundle: amenities_activities
+label: 'Highlight description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

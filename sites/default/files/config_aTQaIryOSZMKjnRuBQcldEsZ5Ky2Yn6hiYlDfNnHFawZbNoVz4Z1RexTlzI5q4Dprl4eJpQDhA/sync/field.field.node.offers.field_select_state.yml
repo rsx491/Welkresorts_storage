@@ -1,0 +1,29 @@
+uuid: b59ecd05-8a92-4329-a06a-f1cf8aa50642
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_select_state
+    - node.type.offers
+    - taxonomy.vocabulary.state
+id: node.offers.field_select_state
+field_name: field_select_state
+entity_type: node
+bundle: offers
+label: 'Select state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      state: state
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

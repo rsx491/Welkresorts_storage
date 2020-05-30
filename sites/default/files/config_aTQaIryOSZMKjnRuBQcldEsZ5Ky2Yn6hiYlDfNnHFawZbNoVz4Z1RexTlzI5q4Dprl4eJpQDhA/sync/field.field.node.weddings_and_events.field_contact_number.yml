@@ -1,0 +1,29 @@
+uuid: d6985a75-d98a-4228-809f-f3e02c1cda58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_number
+    - node.type.weddings_and_events
+    - taxonomy.vocabulary.resort_contact_number
+id: node.weddings_and_events.field_contact_number
+field_name: field_contact_number
+entity_type: node
+bundle: weddings_and_events
+label: 'Contact Number'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      resort_contact_number: resort_contact_number
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

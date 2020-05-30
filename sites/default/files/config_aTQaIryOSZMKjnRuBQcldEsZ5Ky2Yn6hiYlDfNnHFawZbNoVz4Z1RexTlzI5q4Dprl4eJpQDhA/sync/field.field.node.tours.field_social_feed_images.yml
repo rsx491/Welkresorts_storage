@@ -1,0 +1,38 @@
+uuid: f2b14971-cb56-44fb-af7f-e84d31fc58f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_feed_images
+    - node.type.tours
+  module:
+    - image
+id: node.tours.field_social_feed_images
+field_name: field_social_feed_images
+entity_type: node
+bundle: tours
+label: 'Social Feed Images'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

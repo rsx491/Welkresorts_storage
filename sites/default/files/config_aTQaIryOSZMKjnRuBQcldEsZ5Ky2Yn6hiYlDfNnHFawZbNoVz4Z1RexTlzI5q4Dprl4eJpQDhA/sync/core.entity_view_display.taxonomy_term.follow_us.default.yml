@@ -1,0 +1,44 @@
+uuid: 7ee52580-a3a1-4a4f-a8ed-6abd028e21d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.follow_us.field_class
+    - field.field.taxonomy_term.follow_us.field_url
+    - taxonomy.vocabulary.follow_us
+  module:
+    - link
+    - text
+id: taxonomy_term.follow_us.default
+targetEntityType: taxonomy_term
+bundle: follow_us
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_class:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_url:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

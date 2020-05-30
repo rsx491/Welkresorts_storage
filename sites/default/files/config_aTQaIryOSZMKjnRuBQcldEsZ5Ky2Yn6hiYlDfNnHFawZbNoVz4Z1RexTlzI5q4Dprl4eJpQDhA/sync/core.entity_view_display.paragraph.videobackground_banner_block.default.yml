@@ -1,0 +1,98 @@
+uuid: 1d8617a3-d0e3-498d-acad-1ba9999f3e9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.videobackground_banner_block.field_banner_image
+    - field.field.paragraph.videobackground_banner_block.field_caption
+    - field.field.paragraph.videobackground_banner_block.field_media_type
+    - field.field.paragraph.videobackground_banner_block.field_sound
+    - field.field.paragraph.videobackground_banner_block.field_videobackground_banner_con
+    - field.field.paragraph.videobackground_banner_block.field_videobackground_banner_tit
+    - field.field.paragraph.videobackground_banner_block.field_videobackground_banner_vid
+    - field.field.paragraph.videobackground_banner_block.field_view_location
+    - paragraphs.paragraphs_type.videobackground_banner_block
+  module:
+    - file
+    - image
+    - options
+    - text
+_core:
+  default_config_hash: PA_olvaz62RKfqFk_Cp-aYXTolwT-sPrjpBIyJff5LQ
+id: paragraph.videobackground_banner_block.default
+targetEntityType: paragraph
+bundle: videobackground_banner_block
+mode: default
+content:
+  field_banner_image:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_caption:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media_type:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_sound:
+    weight: 8
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_videobackground_banner_con:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_videobackground_banner_tit:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_videobackground_banner_vid:
+    weight: 1
+    label: hidden
+    settings:
+      muted: false
+      width: 640
+      height: 480
+      controls: true
+      autoplay: false
+      loop: false
+      multiple_file_display_type: tags
+    third_party_settings: {  }
+    type: file_video
+    region: content
+  field_view_location:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,55 @@
+uuid: 2ab2d9a6-acb6-41e1-89a9-8fb6e9118e8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_highlight_section_wex
+    - node.type.welk_experience
+    - paragraphs.paragraphs_type.amenities_and_activities_highlig
+  module:
+    - entity_reference_revisions
+id: node.welk_experience.field_highlight_section_wex
+field_name: field_highlight_section_wex
+entity_type: node
+bundle: welk_experience
+label: 'Highlight Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      amenities_and_activities_highlig: amenities_and_activities_highlig
+    target_bundles_drag_drop:
+      activities:
+        weight: 10
+        enabled: false
+      additional_ammenities:
+        weight: 11
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 12
+        enabled: false
+      amenities_and_activities_highlig:
+        enabled: true
+        weight: 13
+      local_area_attractions:
+        weight: 14
+        enabled: false
+      local_area_traveler_tips:
+        weight: 15
+        enabled: false
+      videobackground_banner_block:
+        weight: 16
+        enabled: false
+      welk_experience:
+        weight: 17
+        enabled: false
+      work_with_us_benefits_section:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

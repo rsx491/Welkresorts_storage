@@ -1,0 +1,21 @@
+uuid: 15da7085-9de5-43ee-8118-47ab8d588bb8
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_reservation_title
+field_name: field_reservation_title
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

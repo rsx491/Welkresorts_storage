@@ -1,0 +1,37 @@
+uuid: 3d5dd0ae-08aa-4d16-919b-bcd4424156d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.terms_of_use.body
+    - field.field.node.terms_of_use.field_meta_tags
+    - node.type.terms_of_use
+  module:
+    - metatag
+    - text
+    - user
+id: node.terms_of_use.default
+targetEntityType: node
+bundle: terms_of_use
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_meta_tags:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

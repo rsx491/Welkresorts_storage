@@ -1,0 +1,22 @@
+uuid: d95c8c09-4570-4bb7-b996-bb1c7fc8e3b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.local_area
+  module:
+    - text
+id: node.local_area.body
+field_name: body
+entity_type: node
+bundle: local_area
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

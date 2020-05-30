@@ -1,0 +1,21 @@
+uuid: 1a6ab106-90bd-4518-9791-98704764e583
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_thank_you_description
+  module:
+    - text
+id: block_content.reservation_confirmed.field_thank_you_description
+field_name: field_thank_you_description
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'Thank you description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: fcc537d5-0ef7-4f26-aa44-d28bc8fd7d90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_area_map_header
+    - node.type.dining
+  module:
+    - text
+id: node.dining.field_local_area_map_header
+field_name: field_local_area_map_header
+entity_type: node
+bundle: dining
+label: 'Local Area Map - Header'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

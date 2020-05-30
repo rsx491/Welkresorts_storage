@@ -1,0 +1,50 @@
+uuid: 8d18a8a0-7d03-492a-a26f-a28d877cc5b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.google_map_attribute.field_activities_type
+    - field.field.paragraph.google_map_attribute.field_resort_latitude
+    - field.field.paragraph.google_map_attribute.field_resort_longitude
+    - field.field.paragraph.google_map_attribute.field_resort_name
+    - paragraphs.paragraphs_type.google_map_attribute
+id: paragraph.google_map_attribute.default
+targetEntityType: paragraph
+bundle: google_map_attribute
+mode: default
+content:
+  field_activities_type:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_resort_latitude:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_resort_longitude:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_resort_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

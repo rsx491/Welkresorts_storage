@@ -1,0 +1,39 @@
+uuid: 2872be72-80e8-4b6d-9e68-55fadd105ee9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.work_with_us_award_section.field_award_description
+    - field.field.paragraph.work_with_us_award_section.field_award_icon
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.work_with_us_award_section
+  module:
+    - image
+    - imce
+    - text
+id: paragraph.work_with_us_award_section.default
+targetEntityType: paragraph
+bundle: work_with_us_award_section
+mode: default
+content:
+  field_award_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_award_icon:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+hidden:
+  created: true
+  status: true

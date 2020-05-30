@@ -1,0 +1,9 @@
+uuid: 379a3a2a-0473-4b05-b9e3-50e9c1f73173
+langcode: en
+status: true
+dependencies: {  }
+id: local_area_attractions
+label: 'Local Area Attractions'
+icon_uuid: null
+description: 'Local area attractions'
+behavior_plugins: {  }

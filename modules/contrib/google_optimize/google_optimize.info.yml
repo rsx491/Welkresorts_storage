@@ -1,0 +1,14 @@
+name: Google Optimize
+description: Adds the Google Optimize functionality
+package: Statistics
+configure: google_optimize.settings
+dependencies:
+  - google_analytics:google_analytics
+type: module
+# core: 8.x
+
+# Information added by Drupal.org packaging script on 2019-05-02
+version: '8.x-1.3'
+core: '8.x'
+project: 'google_optimize'
+datestamp: 1556808794

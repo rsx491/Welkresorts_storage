@@ -1,0 +1,22 @@
+uuid: fc38edc5-1bc1-41e3-8bbe-1e6ba3398208
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_feed_homepage
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.social_feed_homepage.body
+field_name: body
+entity_type: block_content
+bundle: social_feed_homepage
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

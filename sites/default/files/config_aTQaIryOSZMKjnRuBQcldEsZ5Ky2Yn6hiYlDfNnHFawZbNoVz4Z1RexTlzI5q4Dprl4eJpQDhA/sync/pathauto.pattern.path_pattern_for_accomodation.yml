@@ -1,0 +1,22 @@
+uuid: 61262fb0-6f28-451f-9a05-4e6fc2a6f660
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: path_pattern_for_accomodation
+label: 'Path pattern for Accomodation'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/[node:field_select_resort]/accomodations'
+selection_criteria:
+  570579a1-a2b2-41a7-b16c-90ee30f00fde:
+    id: node_type
+    bundles:
+      accomodation: accomodation
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 570579a1-a2b2-41a7-b16c-90ee30f00fde
+selection_logic: and
+weight: -5
+relationships: {  }

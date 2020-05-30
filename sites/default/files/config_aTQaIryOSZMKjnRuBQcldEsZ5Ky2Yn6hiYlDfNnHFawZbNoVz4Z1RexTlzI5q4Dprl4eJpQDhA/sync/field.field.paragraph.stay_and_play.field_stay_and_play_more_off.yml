@@ -1,0 +1,23 @@
+uuid: 1823df7b-83b6-4821-9a87-6133037ed688
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_stay_and_play_more_off
+    - paragraphs.paragraphs_type.stay_and_play
+  module:
+    - link
+id: paragraph.stay_and_play.field_stay_and_play_more_off
+field_name: field_stay_and_play_more_off
+entity_type: paragraph
+bundle: stay_and_play
+label: 'Stay and Play - more offers'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

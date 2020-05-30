@@ -1,0 +1,76 @@
+uuid: 8020eb82-7231-49c2-90c8-c9ffa8cc0642
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_additional_ammenities
+    - node.type.welk_experience
+    - paragraphs.paragraphs_type.additional_ammenities
+  module:
+    - entity_reference_revisions
+id: node.welk_experience.field_additional_ammenities
+field_name: field_additional_ammenities
+entity_type: node
+bundle: welk_experience
+label: 'Insider tips items'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      additional_ammenities: additional_ammenities
+    target_bundles_drag_drop:
+      activities:
+        weight: 17
+        enabled: false
+      additional_ammenities:
+        enabled: true
+        weight: 18
+      amenities_accessibility_room_fea:
+        weight: 19
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 20
+        enabled: false
+      calendar_activities:
+        weight: 21
+        enabled: false
+      local_area_attractions:
+        weight: 22
+        enabled: false
+      local_area_traveler_tips:
+        weight: 23
+        enabled: false
+      resort_offer_page_description:
+        weight: 24
+        enabled: false
+      room_bed_details:
+        weight: 25
+        enabled: false
+      room_bed_details_:
+        weight: 26
+        enabled: false
+      value_section_faq:
+        weight: 27
+        enabled: false
+      videobackground_banner_block:
+        weight: 28
+        enabled: false
+      welk_experience:
+        weight: 29
+        enabled: false
+      work_with_us_award_section:
+        weight: 30
+        enabled: false
+      work_with_us_benefits_section:
+        weight: 31
+        enabled: false
+      work_with_us_overview_items:
+        weight: 32
+        enabled: false
+field_type: entity_reference_revisions

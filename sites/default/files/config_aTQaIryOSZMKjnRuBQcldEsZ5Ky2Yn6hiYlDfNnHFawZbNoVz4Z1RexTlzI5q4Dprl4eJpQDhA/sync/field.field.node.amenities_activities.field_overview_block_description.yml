@@ -1,0 +1,21 @@
+uuid: 64b7fba7-027d-42e4-b6ed-de4f74209f43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_block_description
+    - node.type.amenities_activities
+  module:
+    - text
+id: node.amenities_activities.field_overview_block_description
+field_name: field_overview_block_description
+entity_type: node
+bundle: amenities_activities
+label: 'Overview Block Description'
+description: 'Description to display in the block on overview page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

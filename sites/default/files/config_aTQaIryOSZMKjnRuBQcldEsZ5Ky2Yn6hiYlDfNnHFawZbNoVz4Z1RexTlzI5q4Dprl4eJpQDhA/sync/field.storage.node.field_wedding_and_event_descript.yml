@@ -1,0 +1,19 @@
+uuid: 9672ae9a-01a6-43f3-81d0-7ab543e7d3eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_wedding_and_event_descript
+field_name: field_wedding_and_event_descript
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

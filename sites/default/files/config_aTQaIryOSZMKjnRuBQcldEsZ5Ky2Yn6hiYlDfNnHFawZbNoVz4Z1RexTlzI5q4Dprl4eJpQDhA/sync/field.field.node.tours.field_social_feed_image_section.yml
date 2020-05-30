@@ -1,0 +1,21 @@
+uuid: 8e329d93-b7b6-4c9f-b1d5-56a89a46219c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_feed_image_section
+    - node.type.tours
+  module:
+    - text
+id: node.tours.field_social_feed_image_section
+field_name: field_social_feed_image_section
+entity_type: node
+bundle: tours
+label: 'Social Feed Image section Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

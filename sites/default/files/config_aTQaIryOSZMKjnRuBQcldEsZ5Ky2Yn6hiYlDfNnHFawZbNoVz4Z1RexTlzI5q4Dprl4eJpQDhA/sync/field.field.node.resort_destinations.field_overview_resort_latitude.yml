@@ -1,0 +1,19 @@
+uuid: 02501830-8e65-40fc-a5f5-6bb20f338ebf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_resort_latitude
+    - node.type.resort_destinations
+id: node.resort_destinations.field_overview_resort_latitude
+field_name: field_overview_resort_latitude
+entity_type: node
+bundle: resort_destinations
+label: 'Overview - Resort Latitude'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

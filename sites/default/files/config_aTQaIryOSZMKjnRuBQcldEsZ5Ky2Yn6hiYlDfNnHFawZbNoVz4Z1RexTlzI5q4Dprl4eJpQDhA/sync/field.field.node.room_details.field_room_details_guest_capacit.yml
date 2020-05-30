@@ -1,0 +1,23 @@
+uuid: b444b0f7-2090-4a2c-9238-d4d9d51ffdec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_room_details_guest_capacit
+    - node.type.room_details
+  module:
+    - options
+id: node.room_details.field_room_details_guest_capacit
+field_name: field_room_details_guest_capacit
+entity_type: node
+bundle: room_details
+label: 'Room Details Guest Capacity'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

@@ -1,0 +1,19 @@
+uuid: 43252702-2313-424a-8986-8085623404dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view_location
+    - paragraphs.paragraphs_type.videobackground_banner_block
+id: paragraph.videobackground_banner_block.field_view_location
+field_name: field_view_location
+entity_type: paragraph
+bundle: videobackground_banner_block
+label: 'Button text'
+description: 'Button Text'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

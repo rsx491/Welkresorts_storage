@@ -1,0 +1,23 @@
+uuid: 066c14ce-3d8f-4c77-b159-7801fb466dab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view_details_link
+    - paragraphs.paragraphs_type.booking_offer_section
+  module:
+    - link
+id: paragraph.booking_offer_section.field_view_details_link
+field_name: field_view_details_link
+entity_type: paragraph
+bundle: booking_offer_section
+label: 'View Details Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

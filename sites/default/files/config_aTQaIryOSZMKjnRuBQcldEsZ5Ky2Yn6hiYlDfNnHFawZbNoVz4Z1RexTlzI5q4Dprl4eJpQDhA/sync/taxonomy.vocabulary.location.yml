@@ -1,0 +1,8 @@
+uuid: ea157ca2-01c4-4203-965f-482106e17338
+langcode: en
+status: true
+dependencies: {  }
+name: City
+vid: location
+description: 'City names used  for URL alias'
+weight: 0

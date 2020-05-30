@@ -1,0 +1,8 @@
+uuid: a64f2391-24d5-412a-8771-eecdaaed166a
+langcode: en
+status: true
+dependencies: {  }
+id: hyp3r_social_feed_image_gallery
+label: 'HYP3R Social Feed Image Gallery'
+revision: 0
+description: 'This Block type is used for the HYP3R Social Feed Image Gallery'

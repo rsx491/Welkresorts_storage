@@ -1,0 +1,21 @@
+uuid: 5e68f140-f710-431c-825d-3f0b10fac3e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_compact_summary_for_front_
+    - node.type.resort_destinations
+  module:
+    - text
+id: node.resort_destinations.field_compact_summary_for_front_
+field_name: field_compact_summary_for_front_
+entity_type: node
+bundle: resort_destinations
+label: 'Compact summary for front page block'
+description: 'This text will be displayed on the front page block.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

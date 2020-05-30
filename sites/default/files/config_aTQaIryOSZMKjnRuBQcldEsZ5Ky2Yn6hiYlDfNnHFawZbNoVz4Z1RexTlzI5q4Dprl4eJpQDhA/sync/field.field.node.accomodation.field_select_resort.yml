@@ -1,0 +1,28 @@
+uuid: 7fcee578-6ed7-4ee7-b0fb-ad8b77d71f24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_select_resort
+    - node.type.accomodation
+    - node.type.resort_destinations
+id: node.accomodation.field_select_resort
+field_name: field_select_resort
+entity_type: node
+bundle: accomodation
+label: 'Select Resort'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      resort_destinations: resort_destinations
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

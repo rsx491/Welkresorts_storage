@@ -1,0 +1,25 @@
+uuid: 0ecb190a-463b-4918-b9bc-d24e1f87e8ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.activity_legends.field_legend_icon
+    - taxonomy.vocabulary.activity_legends
+  module:
+    - image
+id: taxonomy_term.activity_legends.default
+targetEntityType: taxonomy_term
+bundle: activity_legends
+mode: default
+content:
+  field_legend_icon:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  description: true

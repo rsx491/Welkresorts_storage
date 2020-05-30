@@ -1,0 +1,45 @@
+uuid: 2521ea2f-81cc-48d7-b168-3f41199298f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_mapped_triptease
+field_name: field_mapped_triptease
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '99939'
+      label: 'Welk Resorts San Diego'
+    -
+      value: '99943'
+      label: 'Welk Resorts Northstar Lodge'
+    -
+      value: '99945'
+      label: 'Welk Resorts Cabo San Lucas'
+    -
+      value: '99947'
+      label: 'Welk Resorts Palm Springs'
+    -
+      value: '99948'
+      label: 'Welk Resorts Timber Ridge Lodges'
+    -
+      value: '99952'
+      label: 'Welk Resorts Branson Hotel'
+    -
+      value: '100072'
+      label: 'One Village Place by Welk Resorts'
+    -
+      value: '109440'
+      label: 'Welk Resorts Breckenridge, The Ranahan'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

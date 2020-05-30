@@ -1,0 +1,21 @@
+uuid: c6e3c8d6-a1df-46ad-ad8d-af64ec9c0fbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_local_area_resort_latitude
+field_name: field_local_area_resort_latitude
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

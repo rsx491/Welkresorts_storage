@@ -1,0 +1,19 @@
+uuid: be7f74b3-9905-4bc9-8f6b-3e4a89b409ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_value_section_title
+    - node.type.work_with_us
+id: node.work_with_us.field_value_section_title
+field_name: field_value_section_title
+entity_type: node
+bundle: work_with_us
+label: 'Value Section - Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

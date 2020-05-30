@@ -1,0 +1,11 @@
+name: 'OKTA API'
+description: 'Integrates Okta API with Drupal'
+type: module
+# core: 8.x
+configure: okta_api.settings
+
+# Information added by Drupal.org packaging script on 2018-09-18
+version: '8.x-3.0-alpha4'
+core: '8.x'
+project: 'okta_api'
+datestamp: 1537276088

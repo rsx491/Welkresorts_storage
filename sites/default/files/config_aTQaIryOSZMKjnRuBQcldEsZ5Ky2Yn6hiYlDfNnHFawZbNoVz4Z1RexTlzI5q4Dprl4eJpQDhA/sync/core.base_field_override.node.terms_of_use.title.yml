@@ -1,0 +1,18 @@
+uuid: eb337d39-3232-4b23-a79b-2ebd26e815a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.terms_of_use
+id: node.terms_of_use.title
+field_name: title
+entity_type: node
+bundle: terms_of_use
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

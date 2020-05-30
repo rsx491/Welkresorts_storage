@@ -1,0 +1,21 @@
+uuid: 790fd705-3104-451e-ac32-6f97146f9dfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wedding_and_event_header
+    - node.type.events
+  module:
+    - text
+id: node.events.field_wedding_and_event_header
+field_name: field_wedding_and_event_header
+entity_type: node
+bundle: events
+label: 'Meeting And Event Header'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

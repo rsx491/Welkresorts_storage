@@ -1,0 +1,19 @@
+uuid: 144918ea-d00e-40c9-ba6a-655a398c28ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_feature_section_title
+    - node.type.room_details
+id: node.room_details.field_feature_section_title
+field_name: field_feature_section_title
+entity_type: node
+bundle: room_details
+label: 'feature section Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

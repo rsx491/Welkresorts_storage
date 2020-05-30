@@ -1,0 +1,303 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Travelclick module.
+ */
+/**
+* Implementation of hook_install().
+*/
+function travelclick_install() {
+// Use schema API to create database table.
+	drupal_install_schema('guest_details');
+	drupal_install_schema('itinerary_details');
+	drupal_install_schema('room_booking_details');
+	drupal_install_schema('rate_details_per_night');
+}
+
+
+
+/**
+* Implementation of hook_uninstall().
+*/
+function travelclick_uninstall() {
+// Remove tables.
+	drupal_uninstall_schema('guest_details');
+	drupal_uninstall_schema('itinerary_details');
+	drupal_uninstall_schema('room_booking_details');
+	drupal_uninstall_schema('rate_details_per_night');
+}
+ 
+/**
+ * Implements hook_schema().
+ */
+function travelclick_schema() {
+  $schema['guest_details'] = array(
+    'description' => 'The table for storing guest details while booking.',
+    'fields' => array(
+      'email_id' => array(
+        'description' => 'The primary identifier of the guest',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+        'not null' => TRUE,
+      ),
+      'user_type' => array(
+        'description' => 'Type of User doing the booking',
+        'type' => 'varchar_ascii',
+        'length' => 255,
+      ),
+      'first_name' => array(
+        'description' => 'First Nmae of the User',
+        'type' => 'varchar_ascii',
+        'length' => 255,
+      ),
+      'last_name' => array(
+        'description' => 'Last Nmae of the User',
+        'type' => 'varchar_ascii',
+        'length' => 255,
+      ),
+      'subscription' => array(
+        'description' => 'Subscription Flag',
+        'type' => 'int',
+        'size' => 'tiny',
+		'default' => 0,
+      ),
+    ),
+    'primary key' => array('email_id'),
+  );
+
+  $schema['itinerary_details'] = array(
+    'description' => 'Itinerary Details of the booking',
+    'fields' => array(
+      'itinerary_id' => array(
+        'description' => 'The primary key to store the Itinerary Details',
+        'type' => 'int',
+		'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'email_id' => array(
+        'description' => 'Email id of the user',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+      'check_in_date' => array(
+        'description' => 'Check In date of the booking',
+		'type' => 'int',
+		'size' => 'big',
+		'not null' => TRUE,
+
+      ),
+	  'check_out_date' => array(
+        'description' => 'Check out date of the booking',
+		'type' => 'int',
+		'size' => 'big',
+		'not null' => TRUE,
+      ),
+	  'hotel_code' => array(
+        'description' => 'hotel code of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'adults' => array(
+        'description' => 'adults chosen during the booking',
+        'type' => 'int',
+		'size' => 'medium',
+      ),
+	  'rooms' => array(
+        'description' => 'rooms chosen during the booking',
+        'type' => 'int',
+		'size' => 'medium',
+      ),
+	  'duration' => array(
+        'description' => 'duration for booking',
+        'type' => 'int',
+		'size' => 'medium',
+      ),
+	  'currency' => array(
+        'description' => 'currency for booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'total_resort_fee' => array(
+        'description' => 'Total Resort fee during the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'total_tax' => array(
+        'description' => 'Total Tax during the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'total_amount_before_tax' => array(
+       'description' => 'Total Amount Before Tax during the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'total_amount' => array(
+        'description' => 'Total Amount during the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'total_amount_paid' => array(
+        'description' => 'Total Amount Paid during the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'status' => array(
+        'description' => 'status of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'guestbook_flag' => array(
+        'description' => 'Guestbook flag status during the booking',
+        'type' => 'int',
+		'size' => 'tiny',
+        'default' => 0,
+      ),
+	  'tnc_flag' => array(
+        'description' => 'tnc flag status during the booking',
+        'type' => 'int',
+		'size' => 'tiny',
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('itinerary_id'),
+
+  );
+  
+  $schema['room_booking_details'] = array(
+    'description' => 'The table for storing booking details.',
+    'fields' => array(
+      'room_booking_id' => array(
+        'description' => 'The primary identifier of the Room Booking',
+        'type' => 'int',
+		'size' => 'big',
+		'not null' => TRUE,
+      ),
+      'itinerary_id' => array(
+        'description' => 'Itinerary Id of the room booking',
+        'type' => 'int',
+		'size' => 'big',
+      ),
+      'room_type_code' => array(
+        'description' => 'Room Type Code of the booking',
+        'type' => 'int',
+		'size' => 'big',
+      ),
+      'rate_plan_code' => array(
+        'description' => 'Rate Plan Code of the booking',
+        'type' => 'int',
+		'size' => 'big',
+      ),
+	  'room_type_name' => array(
+        'description' => 'Room Type Name  of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+      'rate_plan_type' => array(
+        'description' => 'Rate Plan Type of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'rate_plan_name' => array(
+        'description' => 'Rate Plan Name  of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'status' => array(
+        'description' => 'status of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'room_total_resort_fee' => array(
+        'description' => 'Room Total resort fee of the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'savings' => array(
+        'description' => 'Saving amount of the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'room_total_tax' => array(
+        'description' => 'Room Total Tax of the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'room_total_before_tax' => array(
+        'description' => 'Room Total Before Tax of the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'room_total' => array(
+        'description' => 'Room Total of the booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+	  'rate_overview' => array(
+        'description' => 'Room Total of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'deposit_policy' => array(
+        'description' => 'Room Total of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'cancellation_policy' => array(
+        'description' => 'Room Total of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'rate_per_day' => array(
+        'description' => 'Room Total of the booking',
+        'type' => 'varchar_ascii',
+		'length' => 255,
+      ),
+	  'room_cancel_deadline' => array(
+        'description' => 'Room Total of the booking',
+		'type' => 'int',
+		'size' => 'big',
+		'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('room_booking_id'),
+  );
+  $schema['rate_details_per_night'] = array(
+    'description' => 'The table for storing rate details as per night.',
+    'fields' => array(
+	  'rate_id' => array(
+        'description' => 'The primary identifier of the Room Booking for rate of each day',
+        'type' => 'int',
+		'size' => 'big',
+		'not null' => TRUE,
+      ),
+      'room_booking_id' => array(
+        'description' => 'The primary identifier of the Room Booking',
+        'type' => 'int',
+		'size' => 'big',
+		'not null' => TRUE,
+      ),
+	  'rate_plan_code' => array(
+        'description' => 'The primary identifier of the Room Booking',
+        'type' => 'int',
+		'size' => 'big',
+		'not null' => TRUE,
+      ),
+      'rate_per_night' => array(
+        'description' => 'Rate for each day of the room booking',
+        'type' => 'float',
+		'size' => 'big',
+      ),
+      'date_as_per_day' => array(
+        'description' => 'Date as per each day of the booking',
+		'type' => 'int',
+		'size' => 'big',
+		'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('rate_id'),
+  );
+  return $schema;
+  
+}

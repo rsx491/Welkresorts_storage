@@ -1,0 +1,23 @@
+uuid: a0f6d875-20b9-4cb6-8007-4bf2afbb6d30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_activity_book
+    - paragraphs.paragraphs_type.activities
+  module:
+    - link
+id: paragraph.activities.field_activity_book
+field_name: field_activity_book
+entity_type: paragraph
+bundle: activities
+label: 'Activity Book'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

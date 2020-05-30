@@ -1,0 +1,42 @@
+uuid: 1b5f7a31-b9a7-4153-8b2d-51a1a50b5560
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.blog_subscription_section
+    - field.field.block_content.blog_subscription_section.body
+    - field.field.block_content.blog_subscription_section.field_subscription_section_descr
+    - field.field.block_content.blog_subscription_section.field_subscription_section_heade
+  module:
+    - text
+id: block_content.blog_subscription_section.default
+targetEntityType: block_content
+bundle: blog_subscription_section
+mode: default
+content:
+  field_subscription_section_descr:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_subscription_section_heade:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true

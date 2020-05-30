@@ -1,0 +1,9 @@
+uuid: 69862177-e4c9-4bf0-9993-710f6498409b
+langcode: en
+status: true
+dependencies: {  }
+id: room_features
+label: 'Room Features'
+icon_uuid: null
+description: 'This Paragraph is  Used for the Room features of the Room Details Page'
+behavior_plugins: {  }

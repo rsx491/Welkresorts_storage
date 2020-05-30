@@ -1,0 +1,40 @@
+uuid: 337ed9c8-c477-4b0e-baab-fdec5944448a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.accomodation.body
+    - node.type.accomodation
+  module:
+    - text
+    - user
+id: node.accomodation.teaser
+targetEntityType: node
+bundle: accomodation
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_accomodation_description: true
+  field_contact_number: true
+  field_destination: true
+  field_hero_section_od: true
+  field_logo_image: true
+  field_overview_ac_block_descript: true
+  field_overview_ac_block_image: true
+  field_overview_ac_block_image_ca: true
+  field_overview_ac_block_subtitle: true
+  field_overview_ac_block_title: true

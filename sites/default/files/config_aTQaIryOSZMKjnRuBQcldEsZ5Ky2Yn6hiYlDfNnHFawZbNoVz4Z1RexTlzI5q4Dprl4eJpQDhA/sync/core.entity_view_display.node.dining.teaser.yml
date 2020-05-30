@@ -1,0 +1,66 @@
+uuid: 11d75bcf-c4b2-49e3-9b30-e2fe37a98d8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.dining.body
+    - node.type.dining
+  module:
+    - text
+    - user
+id: node.dining.teaser
+targetEntityType: node
+bundle: dining
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_attraction_subtitle: true
+  field_attraction_title: true
+  field_blog_block_description: true
+  field_blog_block_sub_title: true
+  field_blog_block_title: true
+  field_contact_number: true
+  field_destination: true
+  field_hero_gallery: true
+  field_hero_section_di: true
+  field_highlighted_image: true
+  field_local_area_attractions: true
+  field_local_area_description: true
+  field_local_area_destination: true
+  field_local_area_google_map_api: true
+  field_local_area_map_description: true
+  field_local_area_map_header: true
+  field_local_area_map_latitude: true
+  field_local_area_map_longitude: true
+  field_local_area_map_name: true
+  field_local_area_map_title: true
+  field_local_area_resort_latitude: true
+  field_local_area_resort_longitud: true
+  field_local_area_resort_map: true
+  field_local_area_resort_name: true
+  field_local_area_resort_zindex: true
+  field_location_name: true
+  field_logo_image: true
+  field_mapped_triptease: true
+  field_meta_tags: true
+  field_overview_ac_block_subtitle: true
+  field_overview_la_block_descript: true
+  field_overview_la_block_image: true
+  field_overview_la_block_image_ca: true
+  field_overview_la_block_title: true
+  field_travel: true
+  field_traveler_tips: true

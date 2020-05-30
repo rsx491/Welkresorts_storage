@@ -1,0 +1,19 @@
+uuid: 565557cb-ff98-43d7-9dac-1b52d5c9bd16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_activity_title
+    - paragraphs.paragraphs_type.activities
+id: paragraph.activities.field_activity_title
+field_name: field_activity_title
+entity_type: paragraph
+bundle: activities
+label: 'Activity Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

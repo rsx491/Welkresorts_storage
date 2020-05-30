@@ -1,0 +1,33 @@
+uuid: f1ac7686-58a7-45cf-9e1a-c80b443e50c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu_resort_destinations
+    - field.field.block_content.mega_menu_resort_destinations.field_megamenu
+    - field.field.block_content.mega_menu_resort_destinations.field_megamenu_des
+  module:
+    - image
+    - text
+id: block_content.mega_menu_resort_destinations.default
+targetEntityType: block_content
+bundle: mega_menu_resort_destinations
+mode: default
+content:
+  field_megamenu:
+    weight: 0
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_megamenu_des:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

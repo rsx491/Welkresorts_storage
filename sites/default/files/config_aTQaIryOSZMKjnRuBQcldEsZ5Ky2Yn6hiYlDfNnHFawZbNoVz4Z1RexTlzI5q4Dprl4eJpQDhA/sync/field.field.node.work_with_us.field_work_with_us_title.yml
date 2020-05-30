@@ -1,0 +1,19 @@
+uuid: bdd46153-a060-4aee-aee9-7ce01948f024
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_with_us_title
+    - node.type.work_with_us
+id: node.work_with_us.field_work_with_us_title
+field_name: field_work_with_us_title
+entity_type: node
+bundle: work_with_us
+label: 'work with us - Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

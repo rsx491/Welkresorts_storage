@@ -1,0 +1,9 @@
+uuid: ffa1335d-29f6-4858-8070-fb855d2e47b4
+langcode: en
+status: true
+dependencies: {  }
+id: work_with_us_overview_items
+label: 'Work with us - overview items'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

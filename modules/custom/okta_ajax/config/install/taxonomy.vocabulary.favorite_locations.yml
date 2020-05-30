@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - okta_ajax
+name: Favorite Locations
+vid: favorite_locations
+description: 'Favorite Locations for User Preferences'
+hierarchy: 0
+weight: 0

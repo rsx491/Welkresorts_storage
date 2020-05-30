@@ -1,0 +1,8 @@
+uuid: 7f944056-ea5d-4f49-a6ae-4d2eac7511c3
+langcode: en
+status: true
+dependencies: {  }
+id: room_selection_offer_section
+label: 'Room selection offer section'
+revision: 0
+description: 'This block is used for the room selection offer section'

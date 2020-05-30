@@ -1,0 +1,23 @@
+uuid: e5730071-6364-45c7-807f-c4df96ac87be
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hyp3r_social_feed_image_gallery
+    - field.storage.block_content.field_hyp3r_source_link
+  module:
+    - link
+id: block_content.hyp3r_social_feed_image_gallery.field_hyp3r_source_link
+field_name: field_hyp3r_source_link
+entity_type: block_content
+bundle: hyp3r_social_feed_image_gallery
+label: 'HYP3R Source Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

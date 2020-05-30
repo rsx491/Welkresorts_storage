@@ -1,0 +1,30 @@
+uuid: 55614b5b-587f-468e-a1bd-dbcd83da5aef
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_number_of_bedrooms
+field_name: field_number_of_bedrooms
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: '1 Bedroom'
+    -
+      value: '2'
+      label: '2 Bedroom'
+    -
+      value: '3'
+      label: '3 Bedroom'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

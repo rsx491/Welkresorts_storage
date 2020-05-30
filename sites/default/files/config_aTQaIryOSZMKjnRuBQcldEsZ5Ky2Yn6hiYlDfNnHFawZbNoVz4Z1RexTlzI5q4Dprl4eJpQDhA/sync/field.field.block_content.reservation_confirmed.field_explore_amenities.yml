@@ -1,0 +1,19 @@
+uuid: 8fd42d92-f830-4e0d-8388-86c49ddab739
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_explore_amenities
+id: block_content.reservation_confirmed.field_explore_amenities
+field_name: field_explore_amenities
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'Explore amenities'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

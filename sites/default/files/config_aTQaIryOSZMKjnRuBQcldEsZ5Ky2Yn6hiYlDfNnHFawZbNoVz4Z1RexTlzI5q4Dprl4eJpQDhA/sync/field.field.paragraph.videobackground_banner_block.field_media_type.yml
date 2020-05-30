@@ -1,0 +1,23 @@
+uuid: d6dc9947-5c87-49f5-9d69-e64029d8800d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_type
+    - paragraphs.paragraphs_type.videobackground_banner_block
+  module:
+    - options
+id: paragraph.videobackground_banner_block.field_media_type
+field_name: field_media_type
+entity_type: paragraph
+bundle: videobackground_banner_block
+label: 'Media type'
+description: 'Choose any one.'
+required: true
+translatable: false
+default_value:
+  -
+    value: image_file
+default_value_callback: ''
+settings: {  }
+field_type: list_string

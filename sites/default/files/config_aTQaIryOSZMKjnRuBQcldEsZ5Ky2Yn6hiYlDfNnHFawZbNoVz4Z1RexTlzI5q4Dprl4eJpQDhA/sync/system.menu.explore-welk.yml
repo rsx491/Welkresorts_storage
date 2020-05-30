@@ -1,0 +1,8 @@
+uuid: 73c1154c-fae0-4279-add6-266d8ad86e8e
+langcode: en
+status: true
+dependencies: {  }
+id: explore-welk
+label: 'Explore Welk'
+description: 'Footer menu for explore welk'
+locked: false

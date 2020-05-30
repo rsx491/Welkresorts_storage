@@ -1,0 +1,29 @@
+uuid: 548b63ea-bb28-47d7-88a6-f0dfda65fc36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.welk_experience.field_answer_welk
+    - field.field.paragraph.welk_experience.field_question_welk
+    - paragraphs.paragraphs_type.welk_experience
+id: paragraph.welk_experience.default
+targetEntityType: paragraph
+bundle: welk_experience
+mode: default
+content:
+  field_answer_welk:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_question_welk:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,27 @@
+uuid: de1b15e7-0c3c-4e31-a29d-10f1ba7d0bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_gallery
+    - node.type.welk_experience
+  module:
+    - file
+id: node.welk_experience.field_hero_gallery
+field_name: field_hero_gallery
+entity_type: node
+bundle: welk_experience
+label: 'Hero Gallery'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg mp4'
+  max_filesize: '3 MB'
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

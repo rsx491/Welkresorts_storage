@@ -1,0 +1,9 @@
+uuid: ecd12716-e99f-428e-8ec9-0e872b82a4f2
+langcode: en
+status: true
+dependencies: {  }
+id: stay_and_play
+label: 'Stay and Play'
+icon_uuid: null
+description: 'Stay & Play section'
+behavior_plugins: {  }

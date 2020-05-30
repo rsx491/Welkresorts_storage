@@ -1,0 +1,29 @@
+okta_ajax:
+  version: 8.x
+  js:
+    js/okta-ajax.js: {}
+  css:
+    component:
+
+okta_page:
+  version: 8.x
+  css:
+    layout:
+      css/main.css: {}
+  dependencies:
+    - core/jquery     
+
+okta_widget:
+  version: 8.x
+  js:
+    js/okta-ajax.js: {}
+    //global.oktacdn.com/okta-signin-widget/3.1.0/js/okta-sign-in.min.js: {}
+  css:
+    layout:
+      css/okta-ajax.css: {}
+    component:
+      //global.oktacdn.com/okta-signin-widget/3.1.0/css/okta-sign-in.min.css: {}
+  dependencies:
+    - core/jquery
+
+

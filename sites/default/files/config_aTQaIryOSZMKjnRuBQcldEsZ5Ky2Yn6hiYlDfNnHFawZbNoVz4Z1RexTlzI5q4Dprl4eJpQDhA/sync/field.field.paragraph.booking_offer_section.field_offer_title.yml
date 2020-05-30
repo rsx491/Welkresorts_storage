@@ -1,0 +1,19 @@
+uuid: f8c1ae68-d973-4f52-b845-2f62a20313a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_offer_title
+    - paragraphs.paragraphs_type.booking_offer_section
+id: paragraph.booking_offer_section.field_offer_title
+field_name: field_offer_title
+entity_type: paragraph
+bundle: booking_offer_section
+label: 'Offer title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,30 @@
+uuid: 50973016-4f80-4bd0-a062-a039733ced8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.select_room_view
+  module:
+    - system
+    - views
+  theme:
+    - welkresorts
+id: views_block__select_room_view_block_1
+theme: welkresorts
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:select_room_view-block_1'
+settings:
+  id: 'views_block:select_room_view-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /test/1
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,42 @@
+uuid: cbfd1831-7fbe-4bba-8584-e23e8b94fbd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.room_features.field_features_icon
+    - field.field.paragraph.room_features.field_measurement_
+    - field.field.paragraph.room_features.field_measurement_value
+    - paragraphs.paragraphs_type.room_features
+  module:
+    - image
+id: paragraph.room_features.default
+targetEntityType: paragraph
+bundle: room_features
+mode: default
+content:
+  field_features_icon:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_measurement_:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_measurement_value:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

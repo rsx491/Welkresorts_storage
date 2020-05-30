@@ -1,0 +1,33 @@
+uuid: 05b48896-a4d7-4d23-b781-bec3c4ce3085
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.local_area_blog_block
+  module:
+    - node
+    - views
+  theme:
+    - welkresorts
+id: views_block__local_area_blog_block_block_1
+theme: welkresorts
+region: blog
+weight: 0
+provider: null
+plugin: 'views_block:local_area_blog_block-block_1'
+settings:
+  id: 'views_block:local_area_blog_block-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      local_area: local_area
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

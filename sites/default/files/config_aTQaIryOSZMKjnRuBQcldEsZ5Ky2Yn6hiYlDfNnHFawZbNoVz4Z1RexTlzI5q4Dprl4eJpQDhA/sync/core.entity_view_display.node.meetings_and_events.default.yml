@@ -1,0 +1,218 @@
+uuid: 7fa6133a-5108-475c-bf9e-50d03374f1be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.meetings_and_events.body
+    - field.field.node.meetings_and_events.field_catering_form_description
+    - field.field.node.meetings_and_events.field_catering_form_title
+    - field.field.node.meetings_and_events.field_catering_inquery_form
+    - field.field.node.meetings_and_events.field_contact_number
+    - field.field.node.meetings_and_events.field_destination
+    - field.field.node.meetings_and_events.field_hero_gallery
+    - field.field.node.meetings_and_events.field_hero_section_me
+    - field.field.node.meetings_and_events.field_location_name
+    - field.field.node.meetings_and_events.field_logo_image
+    - field.field.node.meetings_and_events.field_mapped_triptease
+    - field.field.node.meetings_and_events.field_meta_tags
+    - field.field.node.meetings_and_events.field_select_resort
+    - field.field.node.meetings_and_events.field_select_state
+    - field.field.node.meetings_and_events.field_wedding_and_event_brochure
+    - field.field.node.meetings_and_events.field_wedding_and_event_descript
+    - field.field.node.meetings_and_events.field_wedding_and_event_header
+    - field.field.node.meetings_and_events.field_wedding_and_event_help_pla
+    - field.field.node.meetings_and_events.field_wedding_and_event_reach_ou
+    - field.field.node.meetings_and_events.field_wedding_and_event_title
+    - field.field.node.meetings_and_events.field_wedding_bro
+    - field.field.node.meetings_and_events.field_weding_resort_destination
+    - node.type.meetings_and_events
+  module:
+    - entity_reference_revisions
+    - file
+    - image
+    - metatag
+    - options
+    - text
+    - user
+    - webform
+id: node.meetings_and_events.default
+targetEntityType: node
+bundle: meetings_and_events
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_catering_form_description:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_catering_form_title:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_catering_inquery_form:
+    weight: 4
+    label: above
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: content
+  field_contact_number:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_destination:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_hero_gallery:
+    weight: 7
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_hero_section_me:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_location_name:
+    weight: 10
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_logo_image:
+    weight: 9
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_mapped_triptease:
+    weight: 19
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_meta_tags:
+    weight: 20
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_select_resort:
+    weight: 22
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_select_state:
+    weight: 21
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_wedding_and_event_brochure:
+    weight: 11
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_wedding_and_event_descript:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_wedding_and_event_header:
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_wedding_and_event_help_pla:
+    weight: 14
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_wedding_and_event_reach_ou:
+    weight: 15
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_wedding_and_event_title:
+    weight: 16
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_wedding_bro:
+    weight: 17
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_weding_resort_destination:
+    weight: 18
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

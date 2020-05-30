@@ -1,0 +1,19 @@
+uuid: f301f127-a0c1-4e03-9ade-48e790790fcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_map_google_map_ap
+    - node.type.resort_destinations
+id: node.resort_destinations.field_location_map_google_map_ap
+field_name: field_location_map_google_map_ap
+entity_type: node
+bundle: resort_destinations
+label: 'Location map - google map api key'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

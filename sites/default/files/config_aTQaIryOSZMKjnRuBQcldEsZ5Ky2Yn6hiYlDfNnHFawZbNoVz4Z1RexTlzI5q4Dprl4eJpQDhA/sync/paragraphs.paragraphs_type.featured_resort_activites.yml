@@ -1,0 +1,9 @@
+uuid: 494d7441-343b-4999-bfea-cacf7d42e4cf
+langcode: en
+status: true
+dependencies: {  }
+id: featured_resort_activites
+label: 'Featured resort activites'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

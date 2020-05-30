@@ -1,0 +1,8 @@
+uuid: 4a54a7df-0b28-4554-b03b-215ab561f320
+langcode: en
+status: true
+dependencies: {  }
+id: the-ranahan
+label: 'The Ranahan'
+description: 'This is the Menu for the The Ranahan Resort'
+locked: false

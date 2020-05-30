@@ -1,0 +1,19 @@
+uuid: 760adc03-e87a-41a8-aa8e-df92411c043c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_stay
+    - node.type.resort_destinations
+id: node.resort_destinations.field_stay
+field_name: field_stay
+entity_type: node
+bundle: resort_destinations
+label: 'Stay and Play - Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

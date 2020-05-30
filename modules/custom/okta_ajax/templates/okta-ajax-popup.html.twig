@@ -1,0 +1,48 @@
+<div class="btn-group">
+    <a href="#"  class="btn btn-primary large btn-open-login" onClick="openLoginWindow(); return false;">Sign In</a>
+</div>
+
+<script type="text/javascript">
+window.oktaAccountPath = '{{ okta_config.account_path }}';
+let acctURL = window.oktaAccountPath;
+var socialWindow = null;
+
+function bindEvent(element, eventName, eventHandler) {
+            if (element.addEventListener){
+                element.addEventListener(eventName, eventHandler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, eventHandler);
+            }
+        }
+
+//listen to messages from child windows for oauth
+bindEvent(window, 'message', function (e) {
+  var o = JSON.parse(e.data);
+  console.log("Window received message: ", e.data, o);
+  if(o && o['msg_type'] && o['msg_type']=='id_token' && o['id_token' ]) {
+    window.receivedHashKeys = o;
+    window.sessionStorage.setItem('okta_session', o['id_token']);
+    updateLoginButton();
+    document.querySelector('a.btn-open-login').innerText = 'Sign Out';
+    window.postMessage(JSON.stringify({msg_type:'logged_in'}) );
+  }
+  if(socialWindow){ socialWindow.close(); }
+});
+
+function openLoginWindow(){
+    if(socialWindow && socialWindow.opener) return;
+    if(window.sessionStorage.getItem('okta_session') ) {
+        //already signed in, now sign out
+        window.sessionStorage.removeItem("okta_session");
+        window.sessionStorage.removeItem("okta_user");
+        window.sessionStorage.removeItem("okta_state");
+        oktaSelfApi('logout',{},{},function(){
+          document.querySelector('a.btn-open-login').innerText('Sign In');
+        });
+        updateLoginButton();
+        
+        return;
+    }
+    socialWindow = window.open(acctURL,'popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+}
+</script>

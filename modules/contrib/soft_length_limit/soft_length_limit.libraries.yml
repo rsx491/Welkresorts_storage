@@ -1,0 +1,10 @@
+soft_length_limit:
+  js:
+    js/soft_length_limit.js: {}
+    js/jquery.textchange.min.js: {}
+  css:
+    component:
+      css/soft_length_limit.css: {}
+  dependencies:
+  - core/jquery
+  - core/jquery.once

@@ -1,0 +1,22 @@
+uuid: 00b70db0-0c92-4cef-8954-e62cb90b6a65
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: path_pattern_for_weddings_and_events
+label: 'Path pattern for Weddings and Events'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/[node:field_select_resort]/weddings'
+selection_criteria:
+  2b364d2b-b0e9-4127-92c0-d737916be6c3:
+    id: node_type
+    bundles:
+      weddings_and_events: weddings_and_events
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 2b364d2b-b0e9-4127-92c0-d737916be6c3
+selection_logic: and
+weight: -5
+relationships: {  }

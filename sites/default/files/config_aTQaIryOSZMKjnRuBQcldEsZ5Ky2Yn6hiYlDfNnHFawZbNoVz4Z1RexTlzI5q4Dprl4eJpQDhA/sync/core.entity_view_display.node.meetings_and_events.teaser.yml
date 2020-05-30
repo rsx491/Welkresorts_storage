@@ -1,0 +1,48 @@
+uuid: 9d32b381-35f8-414e-be9e-37728d0f8286
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.meetings_and_events.body
+    - node.type.meetings_and_events
+  module:
+    - text
+    - user
+id: node.meetings_and_events.teaser
+targetEntityType: node
+bundle: meetings_and_events
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_catering_form_description: true
+  field_catering_form_title: true
+  field_catering_inquery_form: true
+  field_contact_number: true
+  field_destination: true
+  field_hero_gallery: true
+  field_hero_section_me: true
+  field_location_name: true
+  field_logo_image: true
+  field_meta_tags: true
+  field_wedding_and_event_brochure: true
+  field_wedding_and_event_descript: true
+  field_wedding_and_event_header: true
+  field_wedding_and_event_help_pla: true
+  field_wedding_and_event_reach_ou: true
+  field_wedding_and_event_title: true
+  field_wedding_bro: true
+  field_weding_resort_destination: true

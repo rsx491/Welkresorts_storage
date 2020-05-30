@@ -1,0 +1,37 @@
+uuid: 7d915105-63a6-435a-84d3-199287d6c973
+langcode: en
+status: false
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - welkresorts
+id: leaveacomment
+theme: welkresorts
+region: Page_top
+weight: -22
+provider: null
+plugin: 'block_content:184903c1-98f8-4894-a803-7ada24abcf11'
+settings:
+  id: 'block_content:184903c1-98f8-4894-a803-7ada24abcf11'
+  label: 'Leave a Comment'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/blogs\r\n/basic"
+    negate: false
+    context_mapping: {  }
+  node_type:
+    id: node_type
+    bundles:
+      blog: blog
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

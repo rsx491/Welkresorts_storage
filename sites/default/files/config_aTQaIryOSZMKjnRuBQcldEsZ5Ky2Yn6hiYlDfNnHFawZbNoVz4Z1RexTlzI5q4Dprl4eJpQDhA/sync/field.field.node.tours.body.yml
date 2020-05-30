@@ -1,0 +1,22 @@
+uuid: d8c51d9d-ff39-4822-a7f3-31f00e983256
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.tours
+  module:
+    - text
+id: node.tours.body
+field_name: body
+entity_type: node
+bundle: tours
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

@@ -1,0 +1,21 @@
+uuid: d9bbcc31-c1dc-48c0-8db0-dd53a9c17964
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+id: node.field_welk_exp_faq
+field_name: field_welk_exp_faq
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 6
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

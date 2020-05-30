@@ -1,0 +1,23 @@
+uuid: bc007896-349f-43c8-b0e0-88d125e1ab34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attraction_link
+    - paragraphs.paragraphs_type.local_area_attractions
+  module:
+    - link
+id: paragraph.local_area_attractions.field_attraction_link
+field_name: field_attraction_link
+entity_type: paragraph
+bundle: local_area_attractions
+label: 'Attraction Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

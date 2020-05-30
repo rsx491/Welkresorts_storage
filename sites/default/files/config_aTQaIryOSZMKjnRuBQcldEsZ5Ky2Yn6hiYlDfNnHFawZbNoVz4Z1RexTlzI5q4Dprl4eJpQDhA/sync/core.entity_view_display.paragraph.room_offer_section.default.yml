@@ -1,0 +1,31 @@
+uuid: e07a879e-29e9-4903-b0f2-249672c7f261
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.room_offer_section.field_offer_description_room
+    - field.field.paragraph.room_offer_section.field_offer_title_room
+    - paragraphs.paragraphs_type.room_offer_section
+  module:
+    - text
+id: paragraph.room_offer_section.default
+targetEntityType: paragraph
+bundle: room_offer_section
+mode: default
+content:
+  field_offer_description_room:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_offer_title_room:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

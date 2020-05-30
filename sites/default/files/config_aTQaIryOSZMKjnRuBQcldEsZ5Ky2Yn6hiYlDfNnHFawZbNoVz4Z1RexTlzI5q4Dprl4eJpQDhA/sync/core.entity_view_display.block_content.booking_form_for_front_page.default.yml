@@ -1,0 +1,23 @@
+uuid: e334da16-ec36-4036-9438-4cc57a05d7fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_form_for_front_page
+    - field.field.block_content.booking_form_for_front_page.field_booking_form
+  module:
+    - webform
+id: block_content.booking_form_for_front_page.default
+targetEntityType: block_content
+bundle: booking_form_for_front_page
+mode: default
+content:
+  field_booking_form:
+    weight: 1
+    label: above
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: content
+hidden: {  }

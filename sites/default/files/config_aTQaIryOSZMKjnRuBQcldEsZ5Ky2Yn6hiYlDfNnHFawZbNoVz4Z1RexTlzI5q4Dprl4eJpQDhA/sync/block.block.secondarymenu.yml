@@ -1,0 +1,25 @@
+uuid: cb6405e7-0d7d-4cdd-b2f2-b7946a9e9c7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.secondary-menu
+  module:
+    - system
+  theme:
+    - welkresorts
+id: secondarymenu
+theme: welkresorts
+region: Secondary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:secondary-menu'
+settings:
+  id: 'system_menu_block:secondary-menu'
+  label: 'Secondary menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

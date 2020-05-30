@@ -1,0 +1,31 @@
+uuid: b9d46b03-38c3-4376-90ff-f55bd5fcffa9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.amenities_accessibility_room_fea.field_answer
+    - field.field.paragraph.amenities_accessibility_room_fea.field_question
+    - paragraphs.paragraphs_type.amenities_accessibility_room_fea
+  module:
+    - text
+id: paragraph.amenities_accessibility_room_fea.default
+targetEntityType: paragraph
+bundle: amenities_accessibility_room_fea
+mode: default
+content:
+  field_answer:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_question:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,79 @@
+uuid: 5a7a5305-32df-4cdf-b2e3-b6371d1dc502
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_section_blog
+    - node.type.blog
+    - paragraphs.paragraphs_type.videobackground_banner_block
+  module:
+    - entity_reference_revisions
+id: node.blog.field_hero_section_blog
+field_name: field_hero_section_blog
+entity_type: node
+bundle: blog
+label: 'Hero Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      videobackground_banner_block: videobackground_banner_block
+    target_bundles_drag_drop:
+      activities:
+        weight: 18
+        enabled: false
+      additional_ammenities:
+        weight: 19
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 20
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 21
+        enabled: false
+      booking_offer_section:
+        weight: 22
+        enabled: false
+      calendar_activities:
+        weight: 23
+        enabled: false
+      local_area_attractions:
+        weight: 24
+        enabled: false
+      local_area_traveler_tips:
+        weight: 25
+        enabled: false
+      resort_offer_page_description:
+        weight: 26
+        enabled: false
+      room_bed_details_:
+        weight: 27
+        enabled: false
+      stay_and_play:
+        weight: 28
+        enabled: false
+      value_section_faq:
+        weight: 29
+        enabled: false
+      videobackground_banner_block:
+        enabled: true
+        weight: 30
+      welk_experience:
+        weight: 31
+        enabled: false
+      work_with_us_award_section:
+        weight: 32
+        enabled: false
+      work_with_us_benefits_section:
+        weight: 33
+        enabled: false
+      work_with_us_overview_items:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

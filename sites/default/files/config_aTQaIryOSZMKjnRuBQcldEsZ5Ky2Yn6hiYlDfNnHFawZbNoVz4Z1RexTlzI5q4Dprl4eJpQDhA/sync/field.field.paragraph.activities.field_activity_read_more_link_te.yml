@@ -1,0 +1,19 @@
+uuid: 66bb6719-c39d-406c-b2e5-a9d398d0a2b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_activity_read_more_link_te
+    - paragraphs.paragraphs_type.activities
+id: paragraph.activities.field_activity_read_more_link_te
+field_name: field_activity_read_more_link_te
+entity_type: paragraph
+bundle: activities
+label: 'Activity Read more Link Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

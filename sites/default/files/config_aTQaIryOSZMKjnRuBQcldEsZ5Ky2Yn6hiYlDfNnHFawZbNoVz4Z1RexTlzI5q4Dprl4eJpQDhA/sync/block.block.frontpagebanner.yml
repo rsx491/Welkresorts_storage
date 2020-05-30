@@ -1,0 +1,31 @@
+uuid: ea8f8644-8294-4c74-bbdc-263e406fdd9f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:videobackground_banner_block:0839a5c2-50ff-48c8-ab89-a81cf6a79b65'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: frontpagebanner
+theme: welkresorts
+region: content
+weight: -5
+provider: null
+plugin: 'block_content:0839a5c2-50ff-48c8-ab89-a81cf6a79b65'
+settings:
+  id: 'block_content:0839a5c2-50ff-48c8-ab89-a81cf6a79b65'
+  label: 'Front Page Banner'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,21 @@
+uuid: ae7eb141-5f08-4ac5-83f4-5fdbf497204a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_award_description
+    - paragraphs.paragraphs_type.work_with_us_award_section
+  module:
+    - text
+id: paragraph.work_with_us_award_section.field_award_description
+field_name: field_award_description
+entity_type: paragraph
+bundle: work_with_us_award_section
+label: 'Award Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

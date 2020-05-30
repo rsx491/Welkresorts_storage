@@ -1,0 +1,111 @@
+okta_ajax.settings:
+  path: '/admin/config/okta_ajax/settings'
+  defaults:
+    _form: 'Drupal\okta_ajax\Form\SettingsForm'
+    _title: 'Configure Okta Ajax Settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
+okta_ajax.auth_button:
+  path: '/account/switch'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::returnSwitchButton'
+    _title: 'Sign In'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.json_api:
+  path: '/okta/login'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::returnProcessLogin'
+    _title: 'Okta Login'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.register:
+  path: '/okta/register'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::returnRegister'
+    _title: 'Okta Registration'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.reset_password:
+  path: '/okta/reset_password'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::returnRequestPassword'
+    _title: 'Okta Passoword Reset'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.change_password:
+  path: '/okta/change_password'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::returnPasswordChange'
+    _title: 'Okta Change Password'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.introspect:
+  path: '/okta/introspect'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::returnIntrospect'
+    _title: 'Okta Introspect'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.logout:
+  path: '/okta/logout'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::returnLogout'
+    _title: 'Okta Logout'
+  methods: [POST, GET]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.get_profile:
+  path: '/okta/get_profile'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::getProfileWithToken'
+    _title: 'Okta Profile With Token'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.get_token:
+  path: '/okta/get_token'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::getToken'
+    _title: 'Okta Token Check'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.update_profile:
+  path: '/okta/update_profile'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::updateProfile'
+    _title: 'Okta Update Profile'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.update_email_pref:
+  path: '/okta/update_email_pref'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::returnUpdateEmailPreferences'
+    _title: 'Okta Update Email Preferences'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.change_reservation:
+  path: '/change-reservation'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::changeReservation'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+okta_ajax.cancel_reservation:
+  path: '/cancel-reservation'
+  defaults:
+    _controller: 'Drupal\okta_ajax\Controller\OktaLoginController::cancelReservation'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'

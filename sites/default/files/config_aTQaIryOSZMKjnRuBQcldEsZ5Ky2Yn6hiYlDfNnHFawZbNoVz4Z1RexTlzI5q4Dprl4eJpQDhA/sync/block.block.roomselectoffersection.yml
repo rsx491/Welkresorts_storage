@@ -1,0 +1,31 @@
+uuid: 94a4d87a-88a8-4e68-9931-a43223ed156b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:room_selection_offer_section:57f402a2-bee0-40a8-aa7f-41655e64715c'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: roomselectoffersection
+theme: welkresorts
+region: Room_offer
+weight: 0
+provider: null
+plugin: 'block_content:57f402a2-bee0-40a8-aa7f-41655e64715c'
+settings:
+  id: 'block_content:57f402a2-bee0-40a8-aa7f-41655e64715c'
+  label: 'Room select Offer Section'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /reservation/booking
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,31 @@
+uuid: 3c0fcd09-e504-48ca-9dc6-9fc4768d8f4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.room_bed_details_.field_room_details_bed_text
+    - field.field.paragraph.room_bed_details_.field_room_details_bed_value
+    - paragraphs.paragraphs_type.room_bed_details_
+id: paragraph.room_bed_details_.default
+targetEntityType: paragraph
+bundle: room_bed_details_
+mode: default
+content:
+  field_room_details_bed_text:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_room_details_bed_value:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+hidden:
+  created: true
+  status: true

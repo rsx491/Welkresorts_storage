@@ -1,0 +1,19 @@
+roletheme:
+  anonymous:
+    id: welkresorts
+    weight: -10
+  authenticated:
+    id: welkresorts
+    weight: -9
+  administrator:
+    id: seven
+    weight: -8
+  content_manager:
+    id: seven
+    weight: -7
+  content_editor:
+    id: seven
+    weight: -6
+  content_author:
+    id: seven
+    weight: -5

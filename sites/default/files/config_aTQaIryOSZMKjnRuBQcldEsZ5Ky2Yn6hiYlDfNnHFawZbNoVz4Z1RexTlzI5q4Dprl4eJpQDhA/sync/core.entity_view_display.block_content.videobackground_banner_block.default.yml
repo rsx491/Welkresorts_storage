@@ -1,0 +1,26 @@
+uuid: 7cfa7d39-737b-433f-b23d-eb804800ed0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.videobackground_banner_block
+    - field.field.block_content.videobackground_banner_block.field_videobackground_block_cont
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: CqxqdjlISFPH4xHSjWPDHWwJfw3GecECguTcNkrJ0UI
+id: block_content.videobackground_banner_block.default
+targetEntityType: block_content
+bundle: videobackground_banner_block
+mode: default
+content:
+  field_videobackground_block_cont:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

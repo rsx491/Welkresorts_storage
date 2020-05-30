@@ -1,0 +1,8 @@
+uuid: 5049413a-0ab5-4001-b294-e5b5e2fcaed5
+langcode: en
+status: true
+dependencies: {  }
+id: the-lodges-at-timber-ridge
+label: 'The Lodges at Timber Ridge'
+description: 'This is the Menu for the The Lodges at Timber Ridge Resort'
+locked: false

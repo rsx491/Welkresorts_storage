@@ -1,0 +1,28 @@
+uuid: 5f053437-e5dc-42a3-804b-fbd5bae60f79
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - welkresorts
+id: resortactivitiesblock
+theme: welkresorts
+region: Page_top
+weight: 0
+provider: null
+plugin: 'block_content:231757a2-c5fc-46c5-88f1-211bb3cd8e3b'
+settings:
+  id: 'block_content:231757a2-c5fc-46c5-88f1-211bb3cd8e3b'
+  label: 'Resort Activities block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/29
+    negate: false
+    context_mapping: {  }

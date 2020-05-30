@@ -1,0 +1,23 @@
+uuid: 51d2ec51-8cb6-43b9-be16-a9e8c5e23c47
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hyp3r_social_feed_image_gallery
+    - field.storage.block_content.field_hyp3r_source_data_base
+  module:
+    - link
+id: block_content.hyp3r_social_feed_image_gallery.field_hyp3r_source_data_base
+field_name: field_hyp3r_source_data_base
+entity_type: block_content
+bundle: hyp3r_social_feed_image_gallery
+label: 'HYP3R Source data-base-url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

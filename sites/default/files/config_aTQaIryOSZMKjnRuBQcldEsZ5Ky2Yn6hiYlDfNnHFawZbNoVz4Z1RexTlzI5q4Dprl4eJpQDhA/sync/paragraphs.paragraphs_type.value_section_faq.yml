@@ -1,0 +1,9 @@
+uuid: d5eb257d-4da2-4049-a7cf-1d75df46f1ff
+langcode: en
+status: true
+dependencies: {  }
+id: value_section_faq
+label: 'Value Section - FAQ'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

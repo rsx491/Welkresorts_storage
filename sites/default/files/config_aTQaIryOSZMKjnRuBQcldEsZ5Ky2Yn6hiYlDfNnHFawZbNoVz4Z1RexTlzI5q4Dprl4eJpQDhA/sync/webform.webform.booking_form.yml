@@ -1,0 +1,179 @@
+uuid: d0474e28-cc33-4665-bddf-e61b8a51534c
+langcode: en
+status: open
+dependencies:
+  module:
+    - travelclick
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: booking_form
+title: 'Booking Form'
+description: ''
+category: ''
+elements: "destinations:\n  '#type': webform_term_select\n  '#title': Destinations\n  '#title_display': invisible\n  '#description_display': invisible\n  '#wrapper_attributes':\n    class:\n      - 'dropdown menu-block'\n  '#attributes':\n    class:\n      - custom-select\n  '#vocabulary': destinations\n  '#breadcrumb_delimiter': ''\n  '#tree_delimiter': ' '\nresort_destinations:\n  '#type': textfield\n  '#title': Destinations\n  '#title_display': invisible\n  '#description_display': invisible\n  '#autocomplete': 'off'\n  '#attributes':\n    class:\n      - 'btn dropdown-toggle'\ndropdown_destinations:\n  '#type': processed_text\n  '#text': \"<div class=\\\"dropdown-menu popup\\\">\\r\\n<div class=\\\"discover-resort\\\">\\r\\n<div class=\\\"container\\\">\\r\\n<div class=\\\"row\\\">\\r\\n<div class=\\\"col-12 col-lg-6\\\">\\r\\n<div class=\\\"country-name\\\">United States</div>\\r\\n\\r\\n<div class=\\\"state-wrapper\\\">\\r\\n<div class=\\\"state-name\\\">California</div>\\r\\n\\r\\n<div class=\\\"wrapper\\\">\\r\\n<div class=\\\"resort-name\\\" href=\\\"8\\\">Lake Tahoe, <span>One Village Place</span></div>\\r\\n\\r\\n<div class=\\\"resort-name\\\" href=\\\"9\\\">Lake Tahoe, <span>Northstar Lodge</span></div>\\r\\n\\r\\n<div class=\\\"resort-name\\\" href=\\\"10\\\">Palm Springs, <span>Desert Oasis</span></div>\\r\\n</div>\\r\\n</div>\\r\\n\\r\\n<div class=\\\"state-wrapper\\\">\\r\\n<div class=\\\"state-name\\\">Colorado</div>\\r\\n\\r\\n<div class=\\\"wrapper\\\">\\r\\n<div class=\\\"resort-name\\\" href=\\\"11\\\">Breckenridge, <span>The Ranahan</span></div>\\r\\n</div>\\r\\n</div>\\r\\n\\r\\n<div class=\\\"state-wrapper\\\">\\r\\n<div class=\\\"state-name\\\">Colorado</div>\\r\\n\\r\\n<div class=\\\"wrapper\\\">\\r\\n<div class=\\\"resort-name\\\" href=\\\"12\\\">Branson, <span>Branson Hotel</span></div>\\r\\n</div>\\r\\n</div>\\r\\n</div>\\r\\n\\r\\n<div class=\\\"col-12 col-lg-6\\\">\\r\\n<div class=\\\"country-name\\\">Mexico</div>\\r\\n\\r\\n<div class=\\\"state-wrapper\\\">\\r\\n<div class=\\\"state-name\\\">Baja California Sur</div>\\r\\n\\r\\n<div class=\\\"wrapper\\\">\\r\\n<div class=\\\"resort-name\\\" href=\\\"7\\\">Cabo San Lucas, <span>Sirena del Mar</span></div>\\r\\n</div>\\r\\n</div>\\r\\n</div>\\r\\n</div>\\r\\n</div>\\r\\n</div>\\r\\n</div>\\r\\n\"\n  '#format': full_html\ncheck_in_check_out:\n  '#type': textfield\n  '#title': 'Check in / Check out'\n  '#title_display': invisible\n  '#description_display': invisible\n  '#format_items': comma\nrooms_guests:\n  '#type': textfield\n  '#title': 'Rooms & Guests'\n  '#title_display': invisible\n  '#description_display': invisible\n  '#autocomplete': 'off'\n  '#attributes':\n    class:\n      - edit-rooms-guests\nrooms_guests_dropdown:\n  '#type': processed_text\n  '#text': \"<div class=\\\"dropdown-menu rooms\\\">\\r\\n<div class=\\\"d-flex\\\">\\r\\n<div class=\\\"col\\\">\\r\\n<div class=\\\"rooms-guests total-rooms\\\">\\r\\n<div class=\\\"content-wrapper\\\">\\r\\n<div class=\\\"label\\\">Number of Rooms</div>\\r\\n\\r\\n<div class=\\\"counter\\\"><button class=\\\"minus\\\" type=\\\"button\\\"></button><input class=\\\"rooms\\\" type=\\\"text\\\" value=\\\"1\\\" /><button class=\\\"add\\\" type=\\\"button\\\"></button></div>\\r\\n</div>\\r\\n</div>\\r\\n\\r\\n<div class=\\\"rooms-guests guest show\\\">\\r\\n<div class=\\\"title\\\">Room 1</div>\\r\\n\\r\\n<div class=\\\"content-wrapper\\\">\\r\\n<div class=\\\"label\\\">Guests</div>\\r\\n\\r\\n<div class=\\\"counter\\\"><button class=\\\"minus\\\" type=\\\"button\\\"></button><input class=\\\"guests\\\" type=\\\"text\\\" value=\\\"2\\\" /><button class=\\\"add\\\" type=\\\"button\\\"></button></div>\\r\\n</div>\\r\\n</div>\\r\\n\\r\\n<div class=\\\"rooms-guests guest hide\\\">\\r\\n<div class=\\\"title\\\">Room 2</div>\\r\\n\\r\\n<div class=\\\"content-wrapper\\\">\\r\\n<div class=\\\"label\\\">Guests</div>\\r\\n\\r\\n<div class=\\\"counter\\\"><button class=\\\"minus\\\" type=\\\"button\\\"></button><input class=\\\"guests\\\" type=\\\"text\\\" value=\\\"2\\\" /><button class=\\\"add\\\" type=\\\"button\\\"></button></div>\\r\\n</div>\\r\\n</div>\\r\\n\\r\\n<div class=\\\"rooms-guests guest hide\\\">\\r\\n<div class=\\\"title\\\">Room 3</div>\\r\\n\\r\\n<div class=\\\"content-wrapper\\\">\\r\\n<div class=\\\"label\\\">Guests</div>\\r\\n\\r\\n<div class=\\\"counter\\\"><button class=\\\"minus\\\" type=\\\"button\\\"></button><input class=\\\"guests\\\" type=\\\"text\\\" value=\\\"2\\\" /><button class=\\\"add\\\" type=\\\"button\\\"></button></div>\\r\\n</div>\\r\\n</div>\\r\\n\\r\\n<div class=\\\"rooms-guests guest hide\\\">\\r\\n<div class=\\\"title\\\">Room 4</div>\\r\\n\\r\\n<div class=\\\"content-wrapper\\\">\\r\\n<div class=\\\"label\\\">Guests</div>\\r\\n\\r\\n<div class=\\\"counter\\\"><button class=\\\"minus\\\" type=\\\"button\\\"></button><input class=\\\"guests\\\" type=\\\"text\\\" value=\\\"2\\\" /><button class=\\\"add\\\" type=\\\"button\\\"></button></div>\\r\\n</div>\\r\\n</div>\\r\\n\\r\\n<div class=\\\"rooms-guests guest hide\\\">\\r\\n<div class=\\\"title\\\">Room 5</div>\\r\\n\\r\\n<div class=\\\"content-wrapper\\\">\\r\\n<div class=\\\"label\\\">Guests</div>\\r\\n\\r\\n<div class=\\\"counter\\\"><button class=\\\"minus\\\" type=\\\"button\\\"></button><input class=\\\"guests\\\" type=\\\"text\\\" value=\\\"2\\\" /><button class=\\\"add\\\" type=\\\"button\\\"></button></div>\\r\\n</div>\\r\\n</div>\\r\\n\\r\\n<div class=\\\"rooms-guests guest hide\\\">\\r\\n<div class=\\\"title\\\">Room 6</div>\\r\\n\\r\\n<div class=\\\"content-wrapper\\\">\\r\\n<div class=\\\"label\\\">Guests</div>\\r\\n\\r\\n<div class=\\\"counter\\\"><button class=\\\"minus\\\" type=\\\"button\\\"></button><input class=\\\"guests\\\" type=\\\"text\\\" value=\\\"2\\\" /><button class=\\\"add\\\" type=\\\"button\\\"></button></div>\\r\\n</div>\\r\\n</div>\\r\\n</div>\\r\\n</div>\\r\\n</div>\\r\\n\"\n  '#format': full_html\nrooms:\n  '#type': textfield\n  '#title': Rooms\n  '#title_display': invisible\n  '#description_display': invisible\n  '#wrapper_attributes':\n    class:\n      - content-wrapper\n  '#attributes':\n    class:\n      - rooms\nguests:\n  '#type': textfield\n  '#title': Guests\n  '#title_display': invisible\n  '#description_display': invisible\n  '#autocomplete': 'off'\nbest_rate:\n  '#type': webform_markup\n  '#markup': '<div class=\"best-rates\">Best Rate Guaranteed</div>'\npromo_code:\n  '#type': textfield\n  '#title': 'PROMO CODE'\n  '#placeholder': 'Add Promo Code'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Check Availability'\n  '#submit__attributes':\n    class:\n      - 'btn btn-large'"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: false
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: url
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: /reservation/booking
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  booking_form:
+    id: travelclick
+    label: 'Booking form'
+    handler_id: booking_form
+    status: true
+    conditions: {  }
+    weight: 0
+    settings: {  }

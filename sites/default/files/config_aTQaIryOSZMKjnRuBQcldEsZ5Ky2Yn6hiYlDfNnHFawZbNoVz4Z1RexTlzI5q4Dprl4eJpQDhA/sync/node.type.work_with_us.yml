@@ -1,0 +1,18 @@
+uuid: 12afeb54-ab3b-4cb1-8864-e6fe7a416cf0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Work with Us'
+type: work_with_us
+description: 'This Content Type is for Work with us pages '
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,33 @@
+uuid: 102423d6-cd1e-4a4c-8196-e588df782bca
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.room_selection_offer_section
+    - field.field.block_content.room_selection_offer_section.body
+    - field.field.block_content.room_selection_offer_section.field_off
+  module:
+    - entity_reference_revisions
+    - text
+id: block_content.room_selection_offer_section.default
+targetEntityType: block_content
+bundle: room_selection_offer_section
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_off:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

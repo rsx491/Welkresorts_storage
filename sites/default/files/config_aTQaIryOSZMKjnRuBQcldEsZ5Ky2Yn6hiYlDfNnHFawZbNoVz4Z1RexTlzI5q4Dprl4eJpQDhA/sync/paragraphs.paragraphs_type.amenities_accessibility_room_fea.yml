@@ -1,0 +1,9 @@
+uuid: b0790761-a87d-42c1-964c-eefd165929c6
+langcode: en
+status: true
+dependencies: {  }
+id: amenities_accessibility_room_fea
+label: 'Amenities & Accessibility - Room Feature Section'
+icon_uuid: null
+description: 'This is based on Amenities and Accessibility of room details.'
+behavior_plugins: {  }

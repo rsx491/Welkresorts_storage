@@ -1,0 +1,21 @@
+uuid: 7aaf4409-dd3b-4f4e-9a92-7dbe0a1e0398
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.weddings_and_events
+  module:
+    - metatag
+id: node.weddings_and_events.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: weddings_and_events
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

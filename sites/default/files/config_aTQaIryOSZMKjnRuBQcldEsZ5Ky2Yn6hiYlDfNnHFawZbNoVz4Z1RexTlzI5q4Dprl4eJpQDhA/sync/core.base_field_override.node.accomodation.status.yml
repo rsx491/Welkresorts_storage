@@ -1,0 +1,22 @@
+uuid: 5143ec1c-5c69-468b-8c72-d018091271fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.accomodation
+id: node.accomodation.status
+field_name: status
+entity_type: node
+bundle: accomodation
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

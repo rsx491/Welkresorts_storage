@@ -1,0 +1,19 @@
+uuid: cada3954-eb31-45c9-b4f4-7dee904692a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_title
+    - node.type.work_with_us
+id: node.work_with_us.field_sub_title
+field_name: field_sub_title
+entity_type: node
+bundle: work_with_us
+label: 'Sub title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

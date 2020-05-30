@@ -1,0 +1,19 @@
+uuid: a2c8bd2f-71c4-4054-ac8a-32f98cf936d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_title
+    - paragraphs.paragraphs_type.amenities_and_activities_highlig
+id: paragraph.amenities_and_activities_highlig.field_image_title
+field_name: field_image_title
+entity_type: paragraph
+bundle: amenities_and_activities_highlig
+label: 'Image Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

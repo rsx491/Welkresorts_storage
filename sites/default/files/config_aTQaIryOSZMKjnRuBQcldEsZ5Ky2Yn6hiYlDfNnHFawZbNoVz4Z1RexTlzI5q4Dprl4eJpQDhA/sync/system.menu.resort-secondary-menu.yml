@@ -1,0 +1,8 @@
+uuid: df901214-359a-4468-9aa9-aa1a5b851369
+langcode: en
+status: true
+dependencies: {  }
+id: resort-secondary-menu
+label: 'Resort Secondary Menu'
+description: 'This is the menu in the top right corner of the resort pages'
+locked: false

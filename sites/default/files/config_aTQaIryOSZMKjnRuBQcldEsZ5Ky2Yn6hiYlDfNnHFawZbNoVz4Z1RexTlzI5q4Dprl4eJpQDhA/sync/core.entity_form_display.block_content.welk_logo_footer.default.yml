@@ -1,0 +1,35 @@
+uuid: 1b450bba-4420-4f96-aabb-938dd4fb9827
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.welk_logo_footer
+    - field.field.block_content.welk_logo_footer.field_image
+    - image.style.thumbnail
+  module:
+    - image
+    - imce
+id: block_content.welk_logo_footer.default
+targetEntityType: block_content
+bundle: welk_logo_footer
+mode: default
+content:
+  field_image:
+    weight: 1
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

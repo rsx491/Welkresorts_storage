@@ -1,0 +1,23 @@
+uuid: eac30233-d992-4727-971a-a3e874d6c09d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_guest_link
+  module:
+    - link
+id: block_content.reservation_confirmed.field_guest_link
+field_name: field_guest_link
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'Guest Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

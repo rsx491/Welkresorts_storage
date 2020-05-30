@@ -1,0 +1,19 @@
+uuid: e76ad32f-3995-4e4d-97dd-a8f3d04df3a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_work_with_us_header
+field_name: field_work_with_us_header
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

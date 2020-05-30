@@ -1,0 +1,19 @@
+uuid: 72a267e1-fc7f-4830-ac69-a8ec10699a4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_la_block_title
+    - node.type.dining
+id: node.dining.field_overview_la_block_title
+field_name: field_overview_la_block_title
+entity_type: node
+bundle: dining
+label: 'Overview Block Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

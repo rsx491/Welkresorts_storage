@@ -1,0 +1,21 @@
+uuid: 6ee4a38d-4ea4-4c12-a942-431a99d087cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.amenities_activities
+  module:
+    - metatag
+id: node.amenities_activities.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: amenities_activities
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

@@ -1,0 +1,27 @@
+uuid: c30b6540-b87e-4bd6-8c9f-b9ff336c2829
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_calendar_brochure
+    - node.type.amenities_activities
+  module:
+    - file
+id: node.amenities_activities.field_calendar_brochure
+field_name: field_calendar_brochure
+entity_type: node
+bundle: amenities_activities
+label: 'Calendar brochure'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: calendar-brochure
+  file_extensions: pdf
+  max_filesize: '5 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

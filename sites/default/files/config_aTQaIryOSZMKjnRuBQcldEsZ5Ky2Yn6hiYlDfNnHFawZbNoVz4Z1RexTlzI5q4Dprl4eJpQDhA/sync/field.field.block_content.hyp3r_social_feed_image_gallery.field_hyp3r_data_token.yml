@@ -1,0 +1,19 @@
+uuid: d5e61d9b-b484-4967-b2d6-eb75c4d0007a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hyp3r_social_feed_image_gallery
+    - field.storage.block_content.field_hyp3r_data_token
+id: block_content.hyp3r_social_feed_image_gallery.field_hyp3r_data_token
+field_name: field_hyp3r_data_token
+entity_type: block_content
+bundle: hyp3r_social_feed_image_gallery
+label: 'HYP3R Data Token'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

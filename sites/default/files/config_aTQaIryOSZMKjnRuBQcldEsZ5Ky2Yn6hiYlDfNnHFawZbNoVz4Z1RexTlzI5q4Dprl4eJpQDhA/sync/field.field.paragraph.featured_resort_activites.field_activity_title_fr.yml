@@ -1,0 +1,19 @@
+uuid: 95e23a00-34d0-433e-bdb9-deb2a0e74441
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_activity_title_fr
+    - paragraphs.paragraphs_type.featured_resort_activites
+id: paragraph.featured_resort_activites.field_activity_title_fr
+field_name: field_activity_title_fr
+entity_type: paragraph
+bundle: featured_resort_activites
+label: 'Activity Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

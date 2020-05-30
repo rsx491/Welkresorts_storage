@@ -1,0 +1,55 @@
+uuid: 4ef7109a-172c-4bad-9383-8997dc637706
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.work_with_us.body
+    - node.type.work_with_us
+  module:
+    - text
+    - user
+id: node.work_with_us.teaser
+targetEntityType: node
+bundle: work_with_us
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_award_section: true
+  field_awards_and_recognition_de: true
+  field_benefits_description: true
+  field_benefits_section: true
+  field_description: true
+  field_hero_gallery: true
+  field_hero_section_wws: true
+  field_image: true
+  field_join_our_team: true
+  field_sub_title: true
+  field_title: true
+  field_value_section_description: true
+  field_value_section_faq: true
+  field_value_section_header: true
+  field_value_section_image: true
+  field_value_section_title: true
+  field_view_openings_url: true
+  field_work_with_us_comment: true
+  field_work_with_us_comment_autho: true
+  field_work_with_us_description: true
+  field_work_with_us_header: true
+  field_work_with_us_items: true
+  field_work_with_us_overview_desc: true
+  field_work_with_us_title: true
+  field_work_with_us_video: true

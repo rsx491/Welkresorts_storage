@@ -1,0 +1,29 @@
+uuid: 7a1354a3-bc44-465a-b29b-b3615e9c8fb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_select_state
+    - node.type.dining
+    - taxonomy.vocabulary.state
+id: node.dining.field_select_state
+field_name: field_select_state
+entity_type: node
+bundle: dining
+label: 'Select state'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      state: state
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

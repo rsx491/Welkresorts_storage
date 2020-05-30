@@ -1,0 +1,23 @@
+uuid: b8fad4b0-0367-4bde-988e-8ba191e0cd63
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: sdpSykXuB9jReoUlfhRttnSHT1dMg8ZO0JWPk9COmU0
+id: paragraph.field_videobackground_banner_tit
+field_name: field_videobackground_banner_tit
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

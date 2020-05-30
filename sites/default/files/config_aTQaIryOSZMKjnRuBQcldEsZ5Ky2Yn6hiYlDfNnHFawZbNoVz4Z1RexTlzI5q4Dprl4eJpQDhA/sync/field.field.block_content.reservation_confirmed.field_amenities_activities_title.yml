@@ -1,0 +1,19 @@
+uuid: dbcecfb9-d239-4a21-b1be-613a487d6228
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_amenities_activities_title
+id: block_content.reservation_confirmed.field_amenities_activities_title
+field_name: field_amenities_activities_title
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'Amenities & activities - Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

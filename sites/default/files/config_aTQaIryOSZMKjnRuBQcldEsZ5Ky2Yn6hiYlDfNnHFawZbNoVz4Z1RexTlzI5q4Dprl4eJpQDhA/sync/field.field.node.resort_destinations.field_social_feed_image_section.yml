@@ -1,0 +1,21 @@
+uuid: b042f098-25a0-4ff8-a210-7c5a1cdf74aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_feed_image_section
+    - node.type.resort_destinations
+  module:
+    - text
+id: node.resort_destinations.field_social_feed_image_section
+field_name: field_social_feed_image_section
+entity_type: node
+bundle: resort_destinations
+label: 'Social Feed Image section Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

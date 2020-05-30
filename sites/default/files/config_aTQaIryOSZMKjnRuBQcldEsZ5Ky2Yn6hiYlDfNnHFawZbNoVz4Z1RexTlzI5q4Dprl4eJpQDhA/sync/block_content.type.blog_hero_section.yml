@@ -1,0 +1,8 @@
+uuid: 24663985-da69-40d0-9525-6d4d39c3ddbe
+langcode: en
+status: true
+dependencies: {  }
+id: blog_hero_section
+label: 'Blog Hero Section'
+revision: 0
+description: 'Hero section for blog landing and blog detail page'

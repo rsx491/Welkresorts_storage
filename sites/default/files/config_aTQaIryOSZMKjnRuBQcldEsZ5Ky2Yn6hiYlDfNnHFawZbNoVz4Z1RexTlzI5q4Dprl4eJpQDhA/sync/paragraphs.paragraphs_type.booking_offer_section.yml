@@ -1,0 +1,9 @@
+uuid: aa37daf1-6e72-4d86-97d2-892e5dc20148
+langcode: en
+status: true
+dependencies: {  }
+id: booking_offer_section
+label: 'Booking Offer Section'
+icon_uuid: null
+description: 'This is the Paragraph Used for the Offer section of the Booking Pages'
+behavior_plugins: {  }

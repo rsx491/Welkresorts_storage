@@ -1,0 +1,31 @@
+uuid: aa7e0450-e8ac-4d4e-a821-fa1c8baed089
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:blog_subscription_section:d16618a1-bf5c-456e-99f6-9b76cdcbb296'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: blogsubscriptionsection
+theme: welkresorts
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:d16618a1-bf5c-456e-99f6-9b76cdcbb296'
+settings:
+  id: 'block_content:d16618a1-bf5c-456e-99f6-9b76cdcbb296'
+  label: 'Blog Subscription section'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /blogs
+    negate: false
+    context_mapping: {  }

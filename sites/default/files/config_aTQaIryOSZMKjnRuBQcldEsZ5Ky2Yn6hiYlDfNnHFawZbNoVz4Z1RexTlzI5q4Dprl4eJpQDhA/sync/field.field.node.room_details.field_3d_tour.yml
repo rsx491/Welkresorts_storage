@@ -1,0 +1,23 @@
+uuid: 1e77b83c-5fa1-4ed3-8002-3335beda1e72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_3d_tour
+    - node.type.room_details
+id: node.room_details.field_3d_tour
+field_name: field_3d_tour
+entity_type: node
+bundle: room_details
+label: '3D Tour'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

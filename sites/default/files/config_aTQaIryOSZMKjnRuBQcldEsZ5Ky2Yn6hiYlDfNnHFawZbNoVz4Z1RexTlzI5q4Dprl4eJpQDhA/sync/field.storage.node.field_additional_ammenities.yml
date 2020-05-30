@@ -1,0 +1,21 @@
+uuid: 51916ebf-2bbd-4527-a4a7-78f6805a9b5b
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+id: node.field_additional_ammenities
+field_name: field_additional_ammenities
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 6
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

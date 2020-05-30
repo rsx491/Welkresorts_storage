@@ -1,0 +1,58 @@
+uuid: 13919781-072e-40b9-a953-e9efd9c79463
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_award_section
+    - node.type.work_with_us
+    - paragraphs.paragraphs_type.work_with_us_award_section
+  module:
+    - entity_reference_revisions
+id: node.work_with_us.field_award_section
+field_name: field_award_section
+entity_type: node
+bundle: work_with_us
+label: 'Award Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      work_with_us_award_section: work_with_us_award_section
+    target_bundles_drag_drop:
+      activities:
+        weight: 11
+        enabled: false
+      additional_ammenities:
+        weight: 12
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 13
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 14
+        enabled: false
+      local_area_attractions:
+        weight: 15
+        enabled: false
+      local_area_traveler_tips:
+        weight: 16
+        enabled: false
+      videobackground_banner_block:
+        weight: 17
+        enabled: false
+      welk_experience:
+        weight: 18
+        enabled: false
+      work_with_us_award_section:
+        enabled: true
+        weight: 19
+      work_with_us_benefits_section:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions

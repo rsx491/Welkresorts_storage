@@ -1,0 +1,19 @@
+uuid: 8a0911e7-a563-43b9-bdac-39b88d52c136
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_welkexperience_description
+field_name: field_welkexperience_description
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

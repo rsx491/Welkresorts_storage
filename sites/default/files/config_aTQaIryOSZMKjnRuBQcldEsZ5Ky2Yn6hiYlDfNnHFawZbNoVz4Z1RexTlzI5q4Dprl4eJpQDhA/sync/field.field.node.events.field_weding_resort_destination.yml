@@ -1,0 +1,29 @@
+uuid: 14651244-a7c8-4560-b85a-6f46a41e6f1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weding_resort_destination
+    - node.type.events
+    - taxonomy.vocabulary.destinations
+id: node.events.field_weding_resort_destination
+field_name: field_weding_resort_destination
+entity_type: node
+bundle: events
+label: 'Meeting And Event Resort Destination'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      destinations: destinations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

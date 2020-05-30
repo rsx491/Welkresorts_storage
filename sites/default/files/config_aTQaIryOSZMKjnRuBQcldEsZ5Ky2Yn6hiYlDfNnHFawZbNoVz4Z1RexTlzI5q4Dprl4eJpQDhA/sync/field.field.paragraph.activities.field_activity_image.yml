@@ -1,0 +1,38 @@
+uuid: ad42f890-cc2c-4c95-abd2-f3a565ec8bd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_activity_image
+    - paragraphs.paragraphs_type.activities
+  module:
+    - image
+id: paragraph.activities.field_activity_image
+field_name: field_activity_image
+entity_type: paragraph
+bundle: activities
+label: 'Activity Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

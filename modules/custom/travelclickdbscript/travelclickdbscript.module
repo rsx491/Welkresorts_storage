@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ * set theme for booking
+ */
+use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Form\FormStateInterface;
+
+function travelclickdbscript_theme() {
+  return [
+    'room_details_booking' => [
+      //'variables' => [ 'what' => 'ok' ],
+    ],
+    
+  ];
+}

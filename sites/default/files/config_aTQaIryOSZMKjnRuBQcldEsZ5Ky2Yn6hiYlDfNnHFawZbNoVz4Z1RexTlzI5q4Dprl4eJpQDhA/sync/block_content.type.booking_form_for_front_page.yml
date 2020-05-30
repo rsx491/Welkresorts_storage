@@ -1,0 +1,8 @@
+uuid: 695e6133-118d-4238-b3e9-2df5c04de362
+langcode: en
+status: true
+dependencies: {  }
+id: booking_form_for_front_page
+label: 'Booking Form for Front Page'
+revision: 0
+description: 'Resort booking form for front page.'

@@ -1,0 +1,19 @@
+uuid: 2ecc602a-30e0-4699-8a11-901d121a697e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_additional_ammenities_desc
+    - node.type.amenities_activities
+id: node.amenities_activities.field_additional_ammenities_desc
+field_name: field_additional_ammenities_desc
+entity_type: node
+bundle: amenities_activities
+label: 'Additional Ammenities description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

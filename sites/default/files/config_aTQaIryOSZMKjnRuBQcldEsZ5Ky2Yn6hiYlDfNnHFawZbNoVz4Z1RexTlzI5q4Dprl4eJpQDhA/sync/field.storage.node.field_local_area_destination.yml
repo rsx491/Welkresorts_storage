@@ -1,0 +1,20 @@
+uuid: b4d27db4-d0a4-41dc-ace8-396a05f4303d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_local_area_destination
+field_name: field_local_area_destination
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

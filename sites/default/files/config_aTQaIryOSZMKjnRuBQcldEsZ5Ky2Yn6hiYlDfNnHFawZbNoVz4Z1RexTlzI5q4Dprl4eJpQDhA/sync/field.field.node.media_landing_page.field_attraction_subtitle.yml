@@ -1,0 +1,19 @@
+uuid: 70632f94-d096-4533-9de1-a559a839ed3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attraction_subtitle
+    - node.type.media_landing_page
+id: node.media_landing_page.field_attraction_subtitle
+field_name: field_attraction_subtitle
+entity_type: node
+bundle: media_landing_page
+label: 'Attraction Subtitle'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

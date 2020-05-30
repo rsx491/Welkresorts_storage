@@ -1,0 +1,8 @@
+uuid: a0064cfb-c46e-43b4-87c1-07b891d84444
+langcode: en
+status: true
+dependencies: {  }
+id: welk-resorts-san-diego
+label: 'Welk Resorts San Diego'
+description: 'This is the Menu for the Welk Resorts San Diego Resort'
+locked: false

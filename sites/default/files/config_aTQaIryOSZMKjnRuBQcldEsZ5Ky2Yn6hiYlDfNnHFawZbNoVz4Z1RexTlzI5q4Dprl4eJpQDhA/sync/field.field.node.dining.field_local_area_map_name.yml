@@ -1,0 +1,19 @@
+uuid: 80725937-bc50-4cbd-9ddf-8dfc19f17b5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_area_map_name
+    - node.type.dining
+id: node.dining.field_local_area_map_name
+field_name: field_local_area_map_name
+entity_type: node
+bundle: dining
+label: 'Local Area Map - name‎'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

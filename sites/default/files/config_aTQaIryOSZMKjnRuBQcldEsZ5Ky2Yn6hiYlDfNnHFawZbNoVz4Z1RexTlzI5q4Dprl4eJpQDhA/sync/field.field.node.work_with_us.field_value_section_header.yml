@@ -1,0 +1,21 @@
+uuid: 6861a99f-72e8-4218-99fb-14fdf033d002
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_value_section_header
+    - node.type.work_with_us
+  module:
+    - text
+id: node.work_with_us.field_value_section_header
+field_name: field_value_section_header
+entity_type: node
+bundle: work_with_us
+label: 'Value Section - Header'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

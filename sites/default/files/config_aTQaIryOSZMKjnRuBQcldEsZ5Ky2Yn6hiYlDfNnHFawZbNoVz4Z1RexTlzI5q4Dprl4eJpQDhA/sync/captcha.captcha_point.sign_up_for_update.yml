@@ -1,0 +1,7 @@
+uuid: 2f20727e-5148-47a7-845c-1060c3d79088
+langcode: en
+status: false
+dependencies: {  }
+formId: sign_up_for_update
+captchaType: recaptcha/reCAPTCHA
+label: sign_up_for_update

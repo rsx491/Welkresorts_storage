@@ -1,0 +1,4 @@
+/vendor/
+examples
+phpunit.xml
+.phpunit.result.cache

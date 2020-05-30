@@ -1,0 +1,55 @@
+uuid: fa685b0e-fa9c-4f80-b0d9-8717c3631ed2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.room_details.body
+    - node.type.room_details
+  module:
+    - text
+    - user
+id: node.room_details.teaser
+targetEntityType: node
+bundle: room_details
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_3d_gallery: true
+  field_3d_tour: true
+  field_accomodation_node: true
+  field_contact_number: true
+  field_destination: true
+  field_faq: true
+  field_feature_section_header: true
+  field_feature_section_title: true
+  field_hero_gallery: true
+  field_hero_section_rd: true
+  field_listing_page_image: true
+  field_listing_page_subtitle: true
+  field_listing_page_title: true
+  field_logo_image: true
+  field_number_of_bedrooms: true
+  field_room_bed_details: true
+  field_room_detail_bed: true
+  field_room_detail_capacity_text: true
+  field_room_details_description: true
+  field_room_details_floor_plan: true
+  field_room_details_guest_capacit: true
+  field_room_details_header: true
+  field_room_details_measurement_t: true
+  field_room_details_measurement_v: true
+  field_room_details_title: true

@@ -1,0 +1,23 @@
+uuid: 97a6199e-b581-483d-b3e4-132b4f7f390b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_resort_zindex
+    - node.type.resort_destinations
+id: node.resort_destinations.field_overview_resort_zindex
+field_name: field_overview_resort_zindex
+entity_type: node
+bundle: resort_destinations
+label: 'Overview - Resort Zindex'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

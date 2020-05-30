@@ -1,0 +1,1124 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+define('THEME_PATH', base_path() . drupal_get_path('theme', 'welkresorts'));
+
+use Drupal\paragraphs\Entity\Paragraph; 
+use Drupal\field\Entity\FieldConfig;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Entity\File;
+use Drupal\views\Views;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\Core\Database\Statement;
+use Drupal\node\Entity\Node;
+
+
+function welkresorts_preprocess_menu(&$variables){
+	
+	$variables['#cache']['max-age']= 0;
+	\Drupal::service('page_cache_kill_switch')->trigger();
+}
+function welkresorts_preprocess_block(&$variables){
+	
+	$variables['#cache']['max-age']= 0;
+     \Drupal::service('page_cache_kill_switch')->trigger();
+}
+
+function welkresorts_preprocess_views_view_unformatted(&$variables){
+	$variables['output']="testhj";
+	$view = $variables["view"];
+	$id = $view->id();
+  	if ( $id == "select_room_view" || $id == "upgrade_room" || $id == "reservation_room_details") {
+		
+		$node = $variables['node'];
+	    $query = \Drupal::request()->query->all();
+		$room = 1; //substr($roomguest[0], 0,1); //only do one room for testing purposes so we dont have to use multi-room api
+		$guest = 2;
+		$tagetID =$session_details['tid_val'];
+		$hotelCode = 99939;
+		//$bookingController = new TravelclickBookingController();
+		//$booking = searchAvailability($hotelCode,'2019-10-24','2019-10-26',$room,$guest);
+		$json  = json_encode($booking);
+        $array = json_decode($json, true);
+		$variables['output']=array();
+		$variables['output']=array(425039=>"35", 425042=>"37", 425040=>"43");
+	}
+	
+	
+}
+function welkresorts_preprocess_views_view_fields(&$variables) {
+
+	$view = $variables["view"];
+	$id = $view->id();
+  
+	if ( $id == "select_room_view" || $id == "upgrade_room" || $id == "reservation_room_details") {
+		
+		$variables['node_id'] = $variables['fields']['nid']->content;
+		$nid=strip_tags($variables['node_id']);
+		$node_id=trim($nid);
+		    $extensions = [];
+			$tour_extensions = [];
+			$defaultfilePath = NULL;
+			$node =  Node::load($node_id);
+			
+			$values = $node->get('field_hero_gallery')->getValue();
+			$variables['image_id'] = $values;
+			//print'<pre>';print_r($values);exit;
+			$tourGallaries = $node->get('field_3d_gallery')->getValue();
+			//$paragraph_field = $node->get("field_hero_section_rd")->getValue();
+			// Get URL
+			$node_val = $node->get("field_accomodation_node")->getValue();
+			
+			$variables['node_url'] = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node_id);
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file->get('filename')->value; //here to get the file name
+					//$desc = $value['description'];
+					$fUri = $file->getFileUri();
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+					$variables['extensions'] = $extensions;
+				    $variables['description'] = $desc;
+				}
+			}
+			if(!empty($tourGallaries)) {
+				$no = 1;
+				$vno = 1;
+				$tour_desc = [];
+				foreach($tourGallaries as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file->get('filename')->value; //here to get the file name
+					//$desc = $value['description'];
+					$fUri = $file->getFileUri();
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$tour_extensions[$ext.$vno] = $fPath;
+						$tour_desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$tour_extensions[$ext.$no] = $fPath;
+						$tour_desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				$variables['tour_extensions'] = $tour_extensions;
+				$variables['tour_description'] = $tour_desc;
+			}
+
+	    $query = \Drupal::request()->query->all();
+		//$room = 1; //substr($roomguest[0], 0,1); //only do one room for testing purposes so we dont have to use multi-room api
+		//$guest = 2;
+		$session_details= sessiondetails();
+		$room =  substr($session_details->get('room'), 0,1); 
+		//$guest = substr($session_details->get('guests'), 0,1);
+		$guest_details=$session_details->get('guests');
+		$guest=trim(str_replace('Guests', '', $guest_details));
+		$checkindate = date('Y-m-d', strtotime($session_details->get('checkin_date')));
+		$checkoutdate = date('Y-m-d', strtotime($session_details->get('checkout_date')));
+		$tagetID =$session_details->get('tid_val');
+		$hotelCode = $session_details->get('hotel_code');
+		$discountcode=$session_details->get('promo_code');
+	if((isset($room) && isset($guest) && isset($checkindate) && isset($checkoutdate) && isset($tagetID) && isset($hotelCode)) || (isset($discountcode)) ){
+		$booking = searchAvailability($hotelCode,$checkindate,$checkoutdate,$room,$guest);
+		$json  = json_encode($booking);
+        $booking_array = json_decode($json, true);
+		$roomTypes=$booking_array['roomStays'][0]['roomTypes'];
+		$final_rate=array();
+		$room_code=array();
+		$almost_sold_out=array();
+		$currency_code=$booking_array['currencyCode'];
+	foreach($roomTypes as $roomTypeskey =>$roomTypesvalue){//8 rooms 
+		$amt_rate=array();
+		foreach($roomTypes[$roomTypeskey]['nightlyRates'] as $nightlyRateskey =>$nightlyRatesvalue){//32 rounds
+			foreach($roomTypes[$roomTypeskey]['nightlyRates'][$nightlyRateskey] as $key =>$val){//7 rounds
+				if($key=="amtTotal"){
+					array_push($amt_rate,$val);
+				}
+					
+			}
+		}
+		$min_rate_detail=min($amt_rate);
+		$min_rate =sprintf("%.2f", $min_rate_detail);
+	    array_push($final_rate,$min_rate);
+	}
+	foreach($roomTypes as $roomTypeskey =>$roomTypesvalue){
+        // $room_code=array();		
+	   foreach($roomTypes[$roomTypeskey] as $hotelcode =>$hotelcodevalue){
+		   if($hotelcode=="roomTypeCode"){
+			   
+				array_push($room_code,$hotelcodevalue);
+				
+			}
+			if($hotelcode=="roomTypeCode"){
+			   
+				array_push($room_code,$hotelcodevalue);
+				
+			}
+			if($hotelcode=="quantityRemaining"){
+			   if($hotelcodevalue<= 5){
+				array_push($almost_sold_out,'yes');
+			   }
+			   else{
+				   array_push($almost_sold_out,'no');
+			   }
+				
+			}
+	   }
+	}
+	$room_code=array_unique($room_code,SORT_NUMERIC);
+	$room_code_new = array_values($room_code);
+	$room_rates=array_combine($room_code_new,$final_rate);
+	$almost_sold_out_status=array_combine($room_code_new,$almost_sold_out);
+	$variables['room_rates']=array();
+	//$variables['output']=array(425039=>"35", 425042=>"37", 425040=>"43");
+	$variables['room_rates']=$room_rates;
+	$variables['almost_sold_out_status']=$almost_sold_out_status;
+	$variables['currency_code']=$currency_code;
+	}
+ }	
+}
+
+    function sessiondetails(){
+
+		$session_val = \Drupal::request()->getSession();
+
+		$tid =db_select('taxonomy_term_field_data', 'f')
+										->fields('f', array('tid'))
+										->condition('vid', 'destinations')
+										->condition('name', $session_val->get('booking_destination'))
+										->execute()
+										->fetchField();
+		$hotel_code = db_select('taxonomy_term__field_resort_id', 'f')
+												->fields('f', array('field_resort_id_value'))
+												->condition('bundle', 'destinations')
+												->condition('entity_id', $tid)
+												->execute()
+												->fetchField();	
+		$guest_details = [
+							'guest_first_name'=>'Steve',
+							'guest_last_name'=>'Stevenson',
+							'guest_email'=>'steve.stevenson@gmail.com',
+							'guest_phone_no'=>'619.111-1111',
+							'payment'=>[
+											'card_type'=>'visa',
+											'card_no'=>'8066',
+											'card_exp'=>'12/2022',
+											'total_charge'=>'$200.00 USD'
+										]
+						];
+		$booking_details = [
+					'resort_name'=>'Sirena Del Mar',
+					'check_in'=>'2019-11-25',
+					'check_out'=>'2019-11-27',
+					'no_room'=>'2',
+					'no_adult'=>'4',
+					'no_child'=>'3',
+					
+					'room_details'=>[
+										[
+											'room_count'=>'1',
+											'room_name'=>'One Bedroom Suite at Villas on the Green',
+											'rate_plan_type'=>'Advance Purchase Rate',
+											'total_amout'=>'200.00',
+											'currency'=>'USD',
+											'currency_code'=>'$',
+											'total_duration'=>'2',
+											'rate_details_data'=>[
+																[
+																	'heading'=>'rate overview',
+																	'description'=>'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
+																],
+																[
+																	'heading'=>'Deposit Policy',
+																	'description'=>'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
+																],
+																[
+																	'heading'=>'Cancellation Policy',
+																	'description'=>'this is for test'
+																]		
+															],
+											'rate_details_plan'=>[
+																	'no_room'=>'1',
+																	'no_night'=>'2',
+																	'date_rate'=>[
+																					[
+																					'date'=>'2019-11-25',
+																					'amount'=>'299.00'
+																					],
+																					[
+																					'date'=>'2019-11-26',
+																					'amount'=>'299.00'
+																					],
+																					[
+																					'date'=>'2019-11-27',
+																					'amount'=>'299.00'
+																					],
+																				],
+																	'resort_fee_per_rate_plan'=>'198.00',
+																	'resort_total_amount'=>'993.37'
+																	
+																],
+										],
+										[
+											'room_count'=>'2',
+											'room_name'=>'Two Bedroom Villa at Resort Villas',
+											'rate_plan_type'=>'Advance Purchase Rate',
+											'total_amout'=>'953.00',
+											'currency'=>'USD',
+											'currency_code'=>'$',
+											'total_duration'=>'2',
+											'rate_details_data'=>[
+																[
+																	'heading'=>'rate overview',
+																	'description'=>'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
+																],
+																[
+																	'heading'=>'Deposit Policy',
+																	'description'=>'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
+																],
+																[
+																	'heading'=>'Cancellation Policy',
+																	'description'=>'this is for test demo'
+																]		
+															],
+											'rate_details_plan'=>[
+																	'no_room'=>'1',
+																	'no_night'=>'3',
+																	'date_rate'=>[
+																					[
+																					'date'=>'2019-11-25',
+																					'amount'=>'299.00'
+																					],
+																					[
+																					'date'=>'2019-11-26',
+																					'amount'=>'299.00'
+																					],
+																					[
+																					'date'=>'2019-11-27',
+																					'amount'=>'299.00'
+																					],
+																				],
+																	'resort_fee_per_rate_plan'=>'194.00',
+																	'resort_total_amount'=>'993.37'
+																	
+																],
+										]
+									],
+					'resort_fee'=>[
+									'resort_fee_heading'=>'resort free',
+									'resort_fee_desciption'=>'this is demo',
+									'resort_amout'=>'64.80'	
+								],
+					'Taxes_amount'=>'68.82',
+					'booking_total_amount'=>'993.87',
+					'total_due_amount'=>'200'
+				];
+		$other_details = [
+							'is_user_logged_in'	=>'0',
+							'Reservation_ID'	=>'455863096',
+							'Guestbook'         =>'0'
+						];
+		$room_code_rate_code = [
+					[
+						'roomcode' => 425039,	
+						'roomrate'=> 249
+					],
+					[
+						'roomcode' => 425041,
+						'roomrate'=> 310
+					],
+					[
+						'roomcode' => 425043,
+						'roomrate'=> 180
+					]
+				];
+
+		$session_val->set('tid_val', $tid);	
+		$session_val->set('hotel_code', $hotel_code);
+		$session_val->set('reservationID', $Reservation_ID);
+		$session_val->set('guestdetails', $guest_details);
+		$session_val->set('room_code_rate_code', $room_code_rate_code);
+		$session_val->set('other_details', $other_details);
+		$session_val->set('booking_details', $booking_details);
+		
+
+		$session_set_value = array('booking_destination' => $session_val->get('booking_destination'), 'booking_rooms_guests' => $session_val->get('booking_rooms_guests'), 'booking_dates' => $session_val->get('booking_dates'),'checkin_date' => $session_val->get('checkin_date'),'checkout_date' => $session_val->get('checkout_date'),'room' => $session_val->get('room'),'guests' => $session_val->get('guests'),'tid_val' => $session_val->get('tid_val'),'hotel_code' => $session_val->get('hotel_code'));
+
+		return $session_val;
+	}
+ function getToken() {
+	$token;
+	$api_base = 'https://api-staging.travelclick.com/';
+		
+
+		//TODO:: pull in api key + secret from an admin configuratio screen
+		$client_id = '17xx9bj83kywdndja00f4j9zb0iy5md346t1';
+		$secret = 's2aoyrwoxn32dkd7v6k43drwn7b46jkc';
+		$auth_basic = 'Basic MTd4eDliajgza3l3ZG5kamEwMGY0ajl6YjBpeTVtZDM0NnQxOnMyYW95cndveG4zMmRrZDd2Nms0M2Ryd243YjQ2amtj';
+		
+  
+		$response = \Drupal::httpClient()->post($api_base.'swagger-ui/auth', [
+			'verify' => true,
+			'timeout' => 10000,
+			'headers' => [
+				'authorization' => $auth_basic,
+				'content-type' => 'application/json',
+				'referer'	=> 'https://api-staging.travelclick.com/swagger-ui/?urls.primaryName=Staging%20-%20Shop%20V1',
+				'origin'	=> 'https://api-staging.travelclick.com'
+			]
+		])->getBody()->getContents();
+
+		$res = json_decode($response);
+		//dpm($res);
+		if( $res && is_object($res) && isset($res->access_token) ) {
+			$token = $res->access_token;
+			return $res->access_token;
+		} else {
+			throw new Exception("Unable to receive token: ".$response);
+		}
+  	}
+	function searchAvailability( $hotelCode, $dateIn, $dateOut, $rooms, $adults) {
+			$api_base = 'https://api-staging.travelclick.com/';
+			$url = $api_base.'shop/v1/hotel/'.$hotelCode.'/avail';
+			$query = array(
+				'dateIn' => $dateIn,
+				'dateOut' => $dateOut,
+				'rooms' => $rooms,
+				'adults' => $adults,
+				'isAvailableOnly' => 'true',
+				'isAltHotelsReq' => 'false'
+				 );
+			//if( !is_null($optionals) && !empty($optionals) ) {
+				//foreach( $optionals as $k=>$v ) {
+				//	$query[$k] = $v;
+				//}
+			//}
+
+			$token = getToken();
+
+				try {
+					$response = \Drupal::httpClient()->get( $url , [
+						'query' => $query,
+						'timeout' =>10000,
+						'headers' => [
+							'authorization' => 'Bearer '.$token,
+							'accept'	=> 'application/json',
+						],
+					]);
+						// This is the Part I don't understand.
+					if ($response->getStatusCode() == 200) {
+						$data = $response->getBody()->getContents();
+						if (empty($data)) {
+							return FALSE;
+						}
+					}
+					elseif($response->getStatusCode() == 403) {
+						$data = $response->getBody()->getContents();
+						if (empty($data)) {
+							return FALSE;
+						}
+					}
+					elseif($response->getStatusCode() == 500) {
+						$data = $response->getBody()->getContents();
+						if (empty($data)) {
+							return FALSE;
+						}
+					}
+					else{
+						$data = "Something went wrong!!!";
+					}
+				}
+				catch (RequestException $e) {
+					watchdog_exception('travelclick', $e);
+				}
+
+			return json_decode($data);
+
+  	}
+
+
+function welkresorts_preprocess_page(&$variables){
+  $variables['theme_path'] = THEME_PATH;
+	$variables['logopath'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+	$variables['base_path'] = base_path();
+	// Central contact numbner
+	$block = \Drupal\block\Entity\Block::load('centralcontactnumber');
+	$uuid = $block->getPlugin()->getDerivativeId();
+	$block_content = \Drupal::service('entity.repository')->loadEntityByUuid('block_content', $uuid);
+	if ($block_content) {
+		$field_value = $block_content->field_c->value;
+		$variables['central_number'] = $field_value;
+	}
+	// Content type Resort Destinations
+	//if(isset($variables['node']) && $variables['node'] instanceof NodeInterface) {
+	if(isset($variables['node'])) { // For Resort destinations
+		if($variables['node']->getType() == 'resort_destinations'){
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file ? $file->get('filename')->value : '';
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}
+		elseif($variables['node']->getType() == 'accomodation'){ // For Accommodation
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_od")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file ? $file->get('filename')->value : '';
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}elseif($variables['node']->getType() == 'amenities_activities'){ // For Amenities and Activities
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_aa")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file ? $file->get('filename')->value : '';
+					$fUri = $file ? $file->getFileUri() : '';
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				// echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}
+		elseif($variables['node']->getType() == 'local_area'){ // For content type Local Area
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_la")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fName = $file ? $file->get('filename')->value : '';
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}
+		elseif($variables['node']->getType() == 'dining')
+		{ // For content type Dining
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_di")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file->get('filename')->value; //here to get the file name
+					//$desc = $value['description'];
+					$fUri = $file->getFileUri();
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}
+		elseif($variables['node']->getType() == 'room_details'){ // For content type Room details
+			$extensions = [];
+			$tour_extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$tourGallaries = $node->get('field_3d_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_rd")->getValue();
+			// Get URL
+			$node_val = $node->get("field_accomodation_node")->getValue();
+			$node_id = $node_val[0]['target_id'];
+			$variables['node_url'] = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$node_id);
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file ? $file->get('filename')->value : '';
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($tourGallaries)) {
+				$no = 1;
+				$vno = 1;
+				$tour_desc = [];
+				foreach($tourGallaries as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file ? $file->get('filename')->value : '';
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$tour_extensions[$ext.$vno] = $fPath;
+						$tour_desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$tour_extensions[$ext.$no] = $fPath;
+						$tour_desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				// echo '<pre>';print_r($tour_extensions);die;
+				$variables['tour_extensions'] = $tour_extensions;
+				$variables['tour_description'] = $tour_desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}elseif($variables['node']->getType() == 'weddings_and_events'){ // For content type Weddings and Events
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_we")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fName = $file ? $file->get('filename')->value : '';
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}
+		    elseif($variables['node']->getType() == 'meetings_and_events')
+		{ // For content type Meetings and Events
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_me")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file->get('filename')->value; //here to get the file name
+					//$desc = $value['description'];
+					$fUri = $file->getFileUri();
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}
+		elseif($variables['node']->getType() == 'events')
+		{ // For content type Events
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_ev")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					$fName = $file->get('filename')->value; //here to get the file name
+					//$desc = $value['description'];
+					$fUri = $file->getFileUri();
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}
+		elseif($variables['node']->getType() == 'offers'){ // For content type Offers
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_off")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fName = $file ? $file->get('filename')->value : '';
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}elseif($variables['node']->getType() == 'welk_experience'){ // For content type Welk Experience
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_wex")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fName = $file ? $file->get('filename')->value : '';
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}elseif($variables['node']->getType() == 'work_with_us'){ // For content type Work with us
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_wws")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fName = $file ? $file->get('filename')->value : '';
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}elseif($variables['node']->getType() == 'tours'){ // For content type Tours
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$paragraph_field = $node->get("field_hero_section_tr")->getValue();
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}elseif($variables['node']->getType() == 'media_landing_page'){ // For content type Work with us
+			$extensions = [];
+			$defaultfilePath = NULL;
+			$node = $variables['node'];
+			$values = $node->get('field_hero_gallery')->getValue();
+			$paragraph_field = $node->get("field_hero_section_mlp")->getValue();
+			if(!empty($values)) {
+				$no = 1;
+				$vno = 1;
+				$desc = [];
+				foreach($values as $value){
+					$targetId = $value['target_id'];
+					$file = \Drupal\file\Entity\File::load($targetId);
+					//$fName = $file->get('filename')->value; //here to get the file name
+					//$fUri = $file->getFileUri();
+					$fName = $file ? $file->get('filename')->value : '';
+					$fUri = $file ? $file->getFileUri() : '';
+					$fPath = file_create_url($fUri);
+					$ext = strtolower(end(explode(".",$fName)));
+					if($ext == 'mp4'){
+						$extensions[$ext.$vno] = $fPath;
+						$desc[$ext] = $value['description'];
+						$vno++;
+					}else {
+						$extensions[$ext.$no] = $fPath;
+						$desc[$ext.$no] = $value['description'];
+						$no++;
+					}
+				}
+				//echo '<pre>';print_r($extensions);die;
+				$variables['extensions'] = $extensions;
+				$variables['description'] = $desc;
+			}
+			if(!empty($paragraph_field)){
+				$paragraph = Paragraph::load($paragraph_field[0]['target_id']);
+				//$uri = $paragraph->get('field_banner_image')->getValue();
+				$image_uuid = $paragraph->get('field_banner_image')->getSetting('default_image')['uuid'];
+				$image = Drupal::service('entity.repository')->loadEntityByUuid('file', $image_uuid); // get default image
+				$image_uri = $image->getFileUri();
+				$defaultfilePath = file_create_url($image_uri);
+				$variables['defaultfilePath'] = $image_uri;
+			}
+		}
+	}
+	
+	// Should be injected.
+	$termStorage = \Drupal::entityManager()->getStorage('taxonomy_term');
+	// "footer_menu_list" is the name of taxonomy in below example
+
+	// Load all footer_menu_list taxonomy term.
+	$terms = $termStorage->loadTree('footer_menu_list', 0, NULL, TRUE);
+
+	foreach ($terms as $term) { 
+		$file = File::load($term->field_upload_file->target_id);
+		$url = $file->uri;
+		$term_data[] = array(
+			'name' => $term->name,
+			'url' => $term->field_content_url,
+			'file_link' => $url
+		);
+	}
+	$variables['footer_menu_list'] = $term_data;
+}
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function welkresorts_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__' . $node->bundle();
+  }
+}
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ */
+function welkresorts_preprocess_node( &$variables ) {
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+*/
+function welkresorts_form_views_exposed_form_alter (array &$form, FormStateInterface $form_state, $form_id){
+  switch($form['#id'])
+  {
+	  case 'views-exposed-form-blog-block-1':
+	  $form['field_category']['#options']['All'] =t('All');
+         break;
+  }
+}

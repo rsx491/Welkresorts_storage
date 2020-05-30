@@ -1,0 +1,118 @@
+uuid: 20097257-e1b5-49b8-9b4b-24c3ac6efc87
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.field.block_content.booking_section_content.body
+    - field.field.block_content.booking_section_content.field_cancel_popup_description
+    - field.field.block_content.booking_section_content.field_cancellation_policy
+    - field.field.block_content.booking_section_content.field_deposit_policy
+    - field.field.block_content.booking_section_content.field_footer_link
+    - field.field.block_content.booking_section_content.field_header_logo_image
+    - field.field.block_content.booking_section_content.field_header_sign_in_link
+    - field.field.block_content.booking_section_content.field_rate_heading
+    - field.field.block_content.booking_section_content.field_rate_overview
+    - field.field.block_content.booking_section_content.field_resort_fee
+    - field.field.block_content.booking_section_content.field_resort_fee_deal_packages
+    - field.field.block_content.booking_section_content.field_resort_fee_standard_rates
+    - field.field.block_content.booking_section_content.field_tripadvisor_logo
+  module:
+    - image
+    - link
+    - text
+id: block_content.booking_section_content.default
+targetEntityType: block_content
+bundle: booking_section_content
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_cancel_popup_description:
+    weight: 9
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_footer_link:
+    weight: 3
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_header_logo_image:
+    weight: 1
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_header_sign_in_link:
+    weight: 4
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_rate_heading:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_resort_fee:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_resort_fee_deal_packages:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_resort_fee_standard_rates:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_tripadvisor_logo:
+    weight: 2
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  field_cancellation_policy: true
+  field_deposit_policy: true
+  field_rate_overview: true

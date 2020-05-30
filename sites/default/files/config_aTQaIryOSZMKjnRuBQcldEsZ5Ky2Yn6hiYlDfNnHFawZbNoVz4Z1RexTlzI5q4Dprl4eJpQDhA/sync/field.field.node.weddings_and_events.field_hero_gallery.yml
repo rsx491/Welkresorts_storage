@@ -1,0 +1,27 @@
+uuid: bb16ef9f-bb5a-4829-848d-2048633303db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_gallery
+    - node.type.weddings_and_events
+  module:
+    - file
+id: node.weddings_and_events.field_hero_gallery
+field_name: field_hero_gallery
+entity_type: node
+bundle: weddings_and_events
+label: 'Hero Gallery'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg mp4'
+  max_filesize: '3 MB'
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

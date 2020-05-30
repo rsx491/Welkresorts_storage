@@ -1,0 +1,27 @@
+uuid: 21cf2d5e-c57d-40dc-83f8-1acae376bf21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_gallery
+    - node.type.blog
+  module:
+    - file
+id: node.blog.field_hero_gallery
+field_name: field_hero_gallery
+entity_type: node
+bundle: blog
+label: 'Hero Gallery'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg mp4'
+  max_filesize: '3 MB'
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

@@ -1,0 +1,85 @@
+uuid: 0f3dc36c-9156-4040-a10a-43060f1fca1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.activities.field_activity_book
+    - field.field.paragraph.activities.field_activity_description
+    - field.field.paragraph.activities.field_activity_image
+    - field.field.paragraph.activities.field_activity_image_caption
+    - field.field.paragraph.activities.field_activity_read_more_link_te
+    - field.field.paragraph.activities.field_activity_subtitle
+    - field.field.paragraph.activities.field_activity_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.activities
+  module:
+    - image
+    - imce
+    - link
+    - text
+id: paragraph.activities.default
+targetEntityType: paragraph
+bundle: activities
+mode: default
+content:
+  field_activity_book:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_activity_description:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_activity_image:
+    weight: 2
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_activity_image_caption:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_activity_read_more_link_te:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_activity_subtitle:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_activity_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

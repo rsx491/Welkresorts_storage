@@ -1,0 +1,21 @@
+uuid: e587777f-d0be-4fb3-b27e-b2d6a3722b8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_value_answer
+    - paragraphs.paragraphs_type.value_section_faq
+  module:
+    - text
+id: paragraph.value_section_faq.field_value_answer
+field_name: field_value_answer
+entity_type: paragraph
+bundle: value_section_faq
+label: 'Value Answer'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

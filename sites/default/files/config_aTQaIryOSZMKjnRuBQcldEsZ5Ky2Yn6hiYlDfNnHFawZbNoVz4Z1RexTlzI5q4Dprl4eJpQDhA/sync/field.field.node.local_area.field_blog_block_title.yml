@@ -1,0 +1,19 @@
+uuid: bc78ceb2-bbf2-4e14-90c8-2e198609f5ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_block_title
+    - node.type.local_area
+id: node.local_area.field_blog_block_title
+field_name: field_blog_block_title
+entity_type: node
+bundle: local_area
+label: 'Blog block title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

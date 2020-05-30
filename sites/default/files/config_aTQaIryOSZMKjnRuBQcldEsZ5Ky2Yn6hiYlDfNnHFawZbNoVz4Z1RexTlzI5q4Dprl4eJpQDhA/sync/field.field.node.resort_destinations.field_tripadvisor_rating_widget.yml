@@ -1,0 +1,21 @@
+uuid: 6aedba5e-9eb9-4302-a383-0ac0d256c955
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tripadvisor_rating_widget
+    - node.type.resort_destinations
+  module:
+    - text
+id: node.resort_destinations.field_tripadvisor_rating_widget
+field_name: field_tripadvisor_rating_widget
+entity_type: node
+bundle: resort_destinations
+label: 'Tripadvisor - rating -widget'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

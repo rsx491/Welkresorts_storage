@@ -1,0 +1,23 @@
+{#
+ /**
+  * Create Sign In / Out button that changes based on current status
+ **/
+#}
+
+<div class="row">
+    <div class="col">
+        <div class="utility-nav text-right">
+                    <a class="nav-link" href="">Tours</a>
+                        <a class="nav-link" href="">Owner</a>
+                        <a class="nav-link" id="user_signin_menu_button" href="/integration/Welkresorts/account/switch">Sign In</a>
+        </div>
+    </div>
+</div>
+					
+  
+
+<script type="text/javascript">
+    if(window.sessionStorage.getItem('okta_session') ) {
+        document.getElementById("user_signin_menu_button").innerHTML = 'Log Out'.
+    }
+</script>

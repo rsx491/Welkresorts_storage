@@ -1,0 +1,8 @@
+uuid: f7b1a12d-2d2d-4ab0-a73e-a3bad0e6778a
+langcode: en
+status: true
+dependencies: {  }
+id: reservation_confirmed
+label: 'Reservation Confirmed'
+revision: 0
+description: 'This block related with title,thank you message,description and other details.'

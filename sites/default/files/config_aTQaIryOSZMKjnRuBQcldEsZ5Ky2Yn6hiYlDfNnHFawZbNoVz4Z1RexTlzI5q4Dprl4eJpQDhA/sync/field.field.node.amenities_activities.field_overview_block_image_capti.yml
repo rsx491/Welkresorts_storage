@@ -1,0 +1,19 @@
+uuid: f28725a5-34f5-45cd-8510-849c3166d68a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_overview_block_image_capti
+    - node.type.amenities_activities
+id: node.amenities_activities.field_overview_block_image_capti
+field_name: field_overview_block_image_capti
+entity_type: node
+bundle: amenities_activities
+label: 'Overview Block Image Caption'
+description: 'Caption for the image to be displayed in the block on overview page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

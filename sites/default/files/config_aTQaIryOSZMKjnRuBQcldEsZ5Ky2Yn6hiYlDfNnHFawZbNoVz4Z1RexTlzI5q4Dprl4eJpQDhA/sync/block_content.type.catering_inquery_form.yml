@@ -1,0 +1,8 @@
+uuid: 62b3827c-8736-4d22-a298-191ee619f3b5
+langcode: en
+status: true
+dependencies: {  }
+id: catering_inquery_form
+label: 'Catering Inquery Form'
+revision: 0
+description: 'This form is about inquery of catering'

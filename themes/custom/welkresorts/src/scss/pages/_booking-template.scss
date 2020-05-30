@@ -1,0 +1,1349 @@
+/* Batch 2 - Sprint 4 */
+/*Booking Select Room Page */
+header {
+  .booking-header {
+    .col-5 {
+      p {
+        @include breakpoint(mobileonly) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.booking-div {
+  background-color: $gray-darken-2-color;
+  padding: 26px 0;
+
+  p {
+    color: $white-color;
+    letter-spacing: 2px;
+    padding: 0;
+    margin: 0;
+    @include font-stage-Montserrat(400, 13px, 20px);
+  }
+
+  .pl-0,
+  .px-0 {
+    @include breakpoint(mobileonly) {
+      padding-left: 15px !important;
+    }
+  }
+
+  .date {
+    @include breakpoint(mobileonly) {
+      font-size: 12px;
+    }
+  }
+}
+
+.booking-page-header {
+  background-color: $gray-lighten-2-color;
+  margin: 80px auto 56px;
+  width: 100%;
+  padding: 46px 0;
+
+  @include breakpoint(mobileonly) {
+    margin: 0;
+  }
+
+  span {
+    color: $gray-darken-1-color;
+    @include font-stage-Playfair-Display(bold, 28px, 36px);
+  }
+
+  .pl-0 {
+    @include breakpoint(mobileonly) {
+      padding-left: 15px !important;
+    }
+  }
+}
+
+.booking-page-header {
+  span {
+    @include breakpoint(mobileonly) {
+      @include font-stage-Playfair-Display(bold, 24px, 32px);
+    }
+  }
+}
+
+.booking-view-list {
+  margin: 0 0 60px;
+
+  .list-view-block {
+    padding: 0 15px;
+  }
+
+  .description {
+    * {
+      color: $gray-darken-color;
+      @include font-stage-Open-Sans(400, 14px, 20px);
+      letter-spacing: 0.1px;
+      padding: 0 0 16px;
+    }
+  }
+
+  .roomtitle {
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.booking-view-block {
+  .title {
+    padding: 0 0 8px;
+
+    a {
+      &:link {
+        color: $gray-darken-1-color;
+        @include font-stage-Playfair-Display(bold, 21px, 28px);
+      }
+    }
+  }
+
+  .description {
+    p {
+      color: $gray-darken-color;
+      @include font-stage-Open-Sans(400, 14px, 20px);
+      letter-spacing: 0.1px;
+      padding: 0 0 16px;
+    }
+
+    &.upgrade {
+      @include font-stage-Open-Sans(400, 14px, 20px);
+      letter-spacing: 0.1px;
+    }
+  }
+}
+
+.roombooking {
+  .rooms {
+    padding-left: 0;
+
+    .description-block,
+    img {
+      display: inline-block;
+      padding-left: 5px;
+
+      div {
+        display: inline;
+      }
+    }
+  }
+}
+
+.change-room .title {
+  @extend .booking-view-block;
+}
+
+.price-view-block {
+  .status {
+    color: $blue-lighten-color;
+    @include font-stage-Montserrat(500, 13px, 24px);
+    letter-spacing: 1.5px;
+    margin: 8px 0;
+  }
+
+  span {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 12px, 20px);
+    letter-spacing: 0.09px;
+  }
+
+  .listing-price {
+    color: #0f2522;
+    @include font-stage-Open-Sans(700, 28px, 38px);
+  }
+
+  .btn {
+    margin: 24px 0 0;
+    width: 70%;
+
+    @include breakpoint(mobileonly) {
+      height: 40px;
+      width: 50%;
+    }
+  }
+
+  .roomgif {
+    position: relative;
+    left: 80px;
+    width: 16px;
+  }
+}
+
+#standardRates .listing-currency {
+  @extend .price-view-block;
+}
+
+.v-details {
+  color: $gray-darken-color;
+  @include font-stage-Open-Sans(400, 14px, 20px);
+  letter-spacing: 0.1px;
+  position: absolute;
+  right: 0;
+  bottom: -20px;
+  text-decoration: underline;
+}
+
+.image-view-block {
+  position: relative;
+}
+
+.resort-type {
+  position: absolute;
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: $white-color;
+  @include font-stage-Open-Sans(400, 13px, 17px);
+  text-align: center;
+  padding: 10px;
+  top: 3%;
+  left: 3%;
+}
+
+.top-footer-list {
+  li {
+    @include breakpoint(mobileonly) {
+      display: block;
+    }
+
+    a {
+      color: $white-color;
+      @include font-stage-Montserrat(500, 14px, 24px);
+      letter-spacing: 1.5px;
+      margin: 56px 44px 56px 0;
+
+      @include breakpoint(mobileonly) {
+        margin: 20px 0;
+      }
+    }
+
+    &:last-child {
+      a {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+/*modal - booking room overlay */
+#bookingRoom,
+.select-room-gallery,
+#changeRoom,
+#changeRoom1,
+#dealRoomModal,
+#cancelReservation,
+.room-gallery {
+  padding-top: 50px;
+
+  .modal-lg {
+    max-width: 1240px;
+  }
+
+  .modal-content {
+    @include breakpoint(mobileonly) {
+      padding: 30px 15px;
+    }
+  }
+
+  h2.modal-title {
+    font-size: 46px;
+    line-height: 52px;
+    margin-bottom: 42px;
+
+    @include breakpoint(mobileonly) {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+
+  .close {
+    right: -10px;
+    top: -29px;
+
+    span {
+      display: none;
+    }
+  }
+
+  .modal-footer {
+    border-top: none;
+
+    .btn {
+      padding-left: 33px;
+      padding-right: 33px;
+
+      &.btn-secondary {
+        margin-left: 20px;
+
+        &:hover {
+          color: $white-color;
+        }
+      }
+    }
+  }
+}
+
+#cancelReservation h2.modal-title {
+  margin-bottom: 17px;
+
+  @include breakpoint(mobileonly) {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 36px;
+  }
+}
+
+#bookingRoom {
+  .nav-link {
+    color: $gray-darken-color;
+    @include font-stage-Montserrat(500, 14px, 16px);
+    letter-spacing: 1.7px;
+    margin: 0 30px;
+
+    &.active {
+      background-color: transparent;
+      color: $gray-darken-1-color;
+      border-bottom: 2px solid $blue-lighten-color;
+      border-radius: 0;
+    }
+  }
+
+  .nav {
+    margin-bottom: 58px;
+  }
+
+  .col-7-3-style {
+    padding: 69px 120px;
+  }
+
+  .list-view-block {
+    padding: 0;
+  }
+
+  .download-view {
+    border: none;
+    margin: 0;
+    padding: 0 30px 0 0;
+  }
+}
+
+#cancelReservation {
+  .default-style select {
+    width: 100%;
+  }
+
+  .modal-body {
+    padding: 51px 0 32px;
+
+    @include breakpoint(mobileonly) {
+      padding: 2em 0;
+    }
+  }
+
+  .modal-content {
+    padding: 104px 31.5px 124px;
+
+    @include breakpoint(mobileonly) {
+      padding: 2em;
+    }
+  }
+}
+
+.booking-flow-footer {
+  .footer-logo {
+    @include breakpoint(mobileonly) {
+      text-align: center;
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+  }
+
+  .top-footer-list {
+    ul {
+      @include breakpoint(mobileonly) {
+        float: none !important;
+      }
+
+      li {
+        @include breakpoint(mobileonly) {
+          display: block;
+          text-align: center;
+        }
+
+        a {
+          @include breakpoint(mobileonly) {
+            margin: 0 0 1em 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*Booking Select Room Page */
+
+.change-room {
+  margin: 54px auto 45px;
+
+  span {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 14px, 20px);
+    letter-spacing: 0.1px;
+    margin-bottom: 8px;
+  }
+
+  .list-view-block {
+    @include breakpoint(mobileonly) {
+      padding-right: 15px;
+      padding-bottom: 0;
+    }
+
+    .title {
+      @include breakpoint(mobileonly) {
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.change-room-link {
+  @extend .change-room;
+  margin: 0;
+  text-decoration: underline;
+
+  .form-group {
+    margin-top: 1.75em;
+  }
+}
+
+.change-room .change-room .default-style select,
+.confirm-stay .default-style select,
+#cancelReservation .default-style select {
+  height: 56px !important;
+}
+
+.room-rates-deals {
+  .nav {
+    margin: 0 0 64px;
+  }
+
+  .nav-link {
+    background-color: $gray-lighten-2-color;
+    border-radius: 0;
+    padding: 32px 0;
+    color: $gray-darken-1-color;
+    @include font-stage-Montserrat(500, 15px, 16px);
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+
+    @include breakpoint(mobileonly) {
+      @include font-stage-Montserrat(600, 13px, 16px);
+      padding: 16px 22px;
+    }
+
+    span {
+      color: $gray-darken-color;
+      @include font-stage-Open-Sans(400, 14px, 20px);
+      letter-spacing: 0.1px;
+
+      &.d-block {
+        @include breakpoint(mobileonly) {
+          display: none !important;
+        }
+      }
+    }
+
+    &.active,
+    &.active span {
+      background-color: $blue-lighten-color;
+      border-radius: 0;
+      color: $white-color;
+    }
+  }
+}
+
+.tab-headline {
+  color: $blue-lighten-color;
+  @include font-stage-Montserrat(500, 13px, 14px);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+#standardRates,
+#changeRoom {
+  h4 {
+    margin-bottom: 8px;
+  }
+
+  ul {
+    margin: 0 0 0 30px;
+    height: 72px;
+    max-height: 72px;
+
+    li {
+      color: $gray-darken-color;
+      @include font-stage-Open-Sans(400, 14px, 20px);
+      letter-spacing: 0.1px;
+      list-style: disc;
+      padding: 0 0 0 15px;
+    }
+  }
+
+  .cash-reward {
+    color: #636363;
+    @include font-stage-Montserrat(500, 13px, 14px);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .rate-details {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 14px, 20px);
+    letter-spacing: 0.1px;
+    text-decoration: underline;
+  }
+
+  .btn {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  .standardRates-listing {
+    margin: 0 0 64px;
+
+    p {
+      @include font-stage-Open-Sans(400, 14px, 20px);
+      min-height: 90px;
+    }
+
+    .listing-price {
+      @include font-stage-Open-Sans(700, 28px, 32px);
+    }
+
+    .listing-currency {
+      @include font-stage-Open-Sans(400, 12px, 20px);
+      color: $gray-darken-color;
+    }
+
+    hr {
+      margin: 24px 0;
+    }
+
+    #planloader {
+      display: inline-block;
+    }
+  }
+}
+
+#changeRoom ul li {
+  font-size: 16px;
+  letter-spacing: 0.1px;
+  line-height: 20px;
+  list-style: disc;
+  padding: 0 0 0 15px;
+
+  p {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 16px, 24px);
+    letter-spacing: 0.1px;
+  }
+}
+
+.price-table-breakdown td,
+.confirm-stay .table td,
+.oReservation .table td,
+.nReservation .table td {
+  color: $gray-darken-color;
+  @include font-stage-Open-Sans(400, 16px, 24px);
+  letter-spacing: 0.1px;
+  text-align: right;
+
+  @include breakpoint(mobileonly) {
+    font-size: 14px;
+  }
+}
+
+.price-table-breakdown th {
+  border-top: none;
+  color: $gray-darken-color;
+  @include font-stage-Open-Sans(400, 16px, 24px);
+  letter-spacing: 0.1px;
+  text-align: right;
+}
+
+/* confirm your stay */
+
+.confirm-stay {
+  margin-top: 50px;
+  margin-bottom: 72px;
+
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+  }
+
+  .col-lg-4 {
+    @include breakpoint(mobileonly) {
+      order: 1;
+    }
+  }
+
+  .col-lg-8 {
+    @include breakpoint(mobileonly) {
+      order: 2;
+    }
+  }
+  .address-block {
+    h3 {
+      border-bottom: 1px solid $gray-lighten-1-color;
+      margin: 0 0 30px;
+      padding: 0 0 15px;
+    }
+    .form-group {
+      margin: 0 0 30px;
+    }
+    .form-item-site-address-locality,
+    .form-item-billing-address-locality {
+      width: 100%;
+    }
+    .form-item-site-address-administrative-area,
+    .form-item-site-address-postal-code,
+    .form-item-billing-address-administrative-area,
+    .form-item-billing-address-postal-code {
+      width: 49%;
+      display: inline-block;
+    }
+    .form-item-site-address-postal-code,
+    .form-item-billing-address-postal-code {
+      float: right;
+    }
+  }
+  .billing-block,
+  .guest-block {
+    @extend .address-block;
+  }
+  .guest-block {
+    #block-oktapopupbutton {
+      .btn-group {
+        width: 100%;
+        .btn-open-login {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .billing-block {
+    .form-check {
+      padding: 0;
+      legend {
+        @include font-stage-Open-Sans(600, 18px, 24px);
+      }
+    }
+  }
+}
+
+.confirm-stay-grey {
+  background-color: $gray-lighten-2-color;
+  padding: 4em;
+
+  label {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 14px, 20px);
+    letter-spacing: 0.1px;
+  }
+}
+
+.confirm-room-details {
+  padding-bottom: 20px;
+  border-bottom: 1px solid $gray-lighten-1-color;
+  margin-bottom: 20px;
+
+  span,
+  label {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 14px, 20px);
+    letter-spacing: 0.1px;
+    &.small {
+      font-size: 12px;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    color: $gray-darken-color;
+  }
+
+  em {
+    opacity: 0.7;
+    color: $gray-darken-color;
+    @include font-stage-Montserrat(500, 13px, 16px);
+    letter-spacing: 1.5px;
+  }
+  p {
+    margin-bottom: 8px;
+  }
+}
+
+.confirm-stay .table tr:first-child > td,
+.oReservation .table tr:first-child > td,
+.nReservation .table tr:first-child > td {
+  border-top: none;
+}
+
+.confirm-stay .table tr:last-child > td,
+.oReservation .table tr:last-child > td,
+.nReservation .table tr:last-child > td,
+#changeRoom .table tr:last-child > td {
+  border-bottom: 1px solid #dee2e6;
+}
+
+/*Reservation*/
+.reservation {
+  .alert-success {
+    border: 1px solid #00af84;
+    background-color: rgba(212, 237, 218, 0.5);
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    padding: 0;
+    margin: 0 0 32px;
+    h3 {
+      padding: 17px 23px;
+      margin: 0;
+    }
+  }
+
+  .thanks-msg {
+    p {
+      margin: 0 0 20px;
+    }
+  }
+
+  .stay-play {
+    margin: 35px auto 56px;
+
+    @include breakpoint(mobileonly) {
+      margin: 30px auto 50px;
+      padding: 0;
+    }
+
+    .content-wrapper {
+      padding: 24px;
+
+      h4 {
+        color: $white-color;
+        @include font-stage-Montserrat(500, 15px, 16px);
+        letter-spacing: 1.7px;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      .d-flex {
+        @include breakpoint(mobileonly) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
+  .btn {
+    padding-left: 29px;
+    padding-right: 29px;
+  }
+
+  .list-view-block {
+    padding: 0 15px 30px;
+  }
+
+  .booking-view-block span {
+    color: $blue-darken-color;
+    @include font-stage-Montserrat(500, 13px, 16px);
+    letter-spacing: 1.63px;
+  }
+  .reservation-block {
+    h3 {
+      &.title {
+        border-bottom: 1px solid $gray-lighten-1-color;
+        padding: 0 0 17px;
+        margin: 0 0 22px;
+      }
+    }
+  }
+  .room-gallery {
+    h2 {
+      text-align: center;
+      margin: 0 0 35px;
+    }
+    .rooms {
+      padding: 0 0 20px 32px;
+    }
+    .modal-content {
+      .modal-header {
+        h2 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.guest-details {
+  margin-bottom: 56px;
+
+  span {
+    color: $gray-darken-1-color;
+    @include font-stage-Montserrat(600, 15px, 16px);
+    letter-spacing: 1.7px;
+  }
+  p {
+    &.p-0 {
+      padding: 0 0 8px !important;
+    }
+  }
+}
+.update-room-details {
+  hr {
+    margin: 8px 0 45px;
+  }
+}
+
+.upgrade-room,
+.activity-section {
+  margin: 45px 0;
+}
+
+.activity-section {
+  .views-element-container {
+    .view-content {
+      display: block;
+
+      .views-row {
+        margin: 0 0 25px;
+        width: 48%;
+        display: inline-block;
+        .views-field-field-activity-title {
+          padding: 0 0 15px;
+        }
+        .views-field-field-activity-description {
+          p,
+          ul li {
+            font-size: 14px;
+          }
+          ul {
+            list-style-type: disc;
+            margin: 0 30px 20px;
+            li {
+              color: $gray-darken-color;
+            }
+          }
+        }
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      .views-field-field-activity-title {
+        .field-content {
+          @extend h4;
+        }
+      }
+
+      .views-field-field-activity-book {
+        a {
+          @extend .btn-primary;
+          padding: 8px 30px;
+          margin: 10px 0;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+        }
+      }
+    }
+  }
+}
+
+.reservation .booking-view-block .btn,
+.activity-section .btn,
+.destination-listing .btn {
+  max-width: 28%;
+}
+
+.destination-listing {
+  li {
+    margin-bottom: 20px;
+  }
+
+  span {
+    opacity: 0.7;
+    color: $blue-darken-color;
+    @include font-stage-Montserrat(500, 14px, 18px);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+
+    &.field-content {
+      opacity: 1;
+      letter-spacing: normal;
+
+      a {
+        @extend h4;
+        color: $gray-darken-1-color;
+        text-decoration: underline;
+        padding: 0 0 15px;
+      }
+    }
+  }
+
+  p {
+    color: $gray-darken-color;
+    @include font-stage-Open-Sans(400, 14px, 20px);
+    letter-spacing: 0.1px;
+  }
+}
+
+/* Header */
+
+.booking-header {
+  margin: 2em auto;
+
+  @include breakpoint(mobileonly) {
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .img-fluid {
+    @include breakpoint(mobileonly) {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+.booking-page-sub-header {
+  margin: 0 0 79px;
+  width: 100%;
+
+  @include breakpoint(mobileonly) {
+    margin: 40px 15px;
+  }
+}
+
+.image-view-block {
+  @include breakpoint(mobileonly) {
+    margin-bottom: 35px;
+  }
+}
+
+.header-location {
+  color: $gray-darken-1-color;
+  @include font-stage-Open-Sans(700, 16px, 24px);
+
+  @include breakpoint(mobileonly) {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.header-info {
+  color: $gray-darken-1-color;
+  @include font-stage-Open-Sans(400, 14px, 20px);
+
+  @include breakpoint(mobileonly) {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.best-rates-header {
+  display: flex;
+  justify-content: flex-end;
+  background: url(../images/best-rate-check.svg) 88px center no-repeat;
+  padding-left: 30px;
+  color: $gray-darken-1-color;
+  @include font-stage-Open-Sans(400, 14px, 20px);
+  margin-top: 2em;
+
+  @include breakpoint(mobileonly) {
+    font-size: 12px;
+    letter-spacing: 0.09px;
+    line-height: 16px;
+    background-position: 12px center;
+  }
+}
+
+.ta-rating {
+  li a {
+    color: $gray-darken-2-color;
+    @include font-stage-Open-Sans(400, 13px, 16px);
+    letter-spacing: 0.09px;
+  }
+
+  @include breakpoint(mobileonly) {
+    border-top: 1px solid $gray-lighten-1-color;
+    margin-top: 0.5em;
+  }
+
+  .row {
+    @include breakpoint(mobileonly) {
+      -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+      align-items: center !important;
+    }
+  }
+
+  .col-6 {
+    @include breakpoint(mobileonly) {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  }
+}
+
+.signIn {
+  @include breakpoint(mobileonly) {
+    background: url(../images/user-icon.png) left center no-repeat;
+    padding-left: 18px;
+  }
+}
+
+.callIn {
+  @include breakpoint(mobileonly) {
+    background: url(../images/call_icon.svg) left center no-repeat;
+    padding-left: 18px;
+  }
+}
+
+.header-contact {
+  margin-top: -2em;
+  display: flex;
+  justify-content: flex-end;
+
+  li {
+    a {
+      color: $gray-darken-2-color;
+      @include font-stage-Montserrat(600, 12px, 23px);
+      letter-spacing: 1.5px;
+      margin-right: 40px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include breakpoint(mobileonly) {
+    margin-top: 0;
+  }
+}
+
+.select-fixed-div {
+  max-width: 350px;
+  background-color: $gray-darken-2-color;
+  bottom: 1em;
+  right: 1em;
+  left: auto;
+  padding: 2em;
+
+  p {
+    color: $white-color;
+    @include font-stage-Open-Sans(400, 14px, 20px);
+    letter-spacing: 0.1px;
+  }
+}
+
+.table-borderless {
+  tbody + tbody,
+  td,
+  th,
+  thead th {
+    border: 0;
+  }
+}
+
+.select-fixed-div {
+  table {
+    th,
+    td {
+      color: $white-color;
+      @include font-stage-Open-Sans(400, 14px, 20px);
+      letter-spacing: 0.1px;
+      padding: 0.1em;
+    }
+  }
+}
+
+/* reservation changed */
+.reservation-btn-div {
+  padding: 47px 0 41px;
+
+  .btn {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.oReservation {
+  background-color: $gray-lighten-2-color;
+  padding: 3em;
+
+  @include breakpoint(mobileonly) {
+    padding: 0;
+  }
+
+  h3 {
+    @include breakpoint(mobileonly) {
+      color: $white-color;
+      @include font-stage-Playfair-Display(bold, 24px, 32px);
+      margin-bottom: 24px;
+    }
+  }
+
+  p {
+    @include breakpoint(mobileonly) {
+      color: $white-color;
+      @include font-stage-Montserrat(500, 12px, 16px);
+      letter-spacing: 1.85px;
+    }
+  }
+
+  span {
+    @include breakpoint(mobileonly) {
+      color: $white-color;
+      @include font-stage-Open-Sans(400, 13px, 20px);
+      letter-spacing: 0.09px;
+    }
+  }
+}
+
+.noPadMobile {
+  @include breakpoint(mobileonly) {
+    padding: 0;
+  }
+}
+
+#oReservationMobile {
+  @include breakpoint(mobileonly) {
+    padding: 0 1em 2em;
+  }
+
+  .btn {
+    @include breakpoint(mobileonly) {
+      margin: 0 auto;
+    }
+  }
+
+  .table {
+    @include breakpoint(mobileonly) {
+      margin-bottom: 2em;
+    }
+  }
+
+  a {
+    @include breakpoint(mobileonly) {
+      color: $white-color;
+      @include font-stage-Montserrat(500, 12px, 16px);
+      letter-spacing: 1.5px;
+    }
+  }
+}
+
+.nReservation {
+  background-color: $white-color;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(238, 238, 238, 1);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(238, 238, 238, 1);
+  box-shadow: 0px 0px 10px 2px rgba(238, 238, 238, 1);
+  padding: 3em;
+}
+
+.reservePrice {
+  font-size: 12px !important;
+}
+
+//Booking Flow Theming
+.path-reservation,
+.path-reservation,
+.path-select-rate {
+  @extend %booking-flow;
+}
+
+.dealpackages {
+  margin: 0 0 58px;
+
+  .img-wrapper {
+    margin: 0 0 15px;
+
+    img {
+      width: 100%;
+      min-height: 200px;
+    }
+  }
+
+  .content-wrapper {
+    p {
+      @include font-stage-Open-Sans(400, 14px, 20px);
+      min-height: 100px;
+    }
+
+    .listing-price {
+      @include font-stage-Open-Sans(700, 28px, 32px);
+    }
+
+    .listing-currency {
+      @include font-stage-Open-Sans(400, 12px, 20px);
+      color: $gray-darken-color;
+    }
+
+    .btn {
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+
+    #dealloader {
+      display: inline-block;
+    }
+  }
+}
+
+.path-reservation .js-quickedit-main-content {
+  .upgrade-room {
+    .nopadding {
+      padding: 0 15px !important;
+
+      @include breakpoint(mobileonly) {
+        padding: 0 !important;
+      }
+    }
+
+    .image-view-block {
+      img {
+        @include breakpoint(mobileonly) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.room-gallery {
+  .modal-dialog {
+    @include breakpoint(mobileonly) {
+      margin: 0;
+    }
+  }
+
+  .modal-content {
+    padding: 65px;
+
+    @include breakpoint(mobileonly) {
+      padding: 0 15px;
+    }
+
+    .modal-header {
+      h2 {
+        margin-top: 38px;
+      }
+    }
+
+    .modal-body {
+      padding: 0;
+
+      .carousel {
+        padding: 0 0 65px;
+      }
+
+      .carousel-styling {
+        .carousel-control-prev {
+          left: 0;
+        }
+
+        .carousel-control-next {
+          right: 0;
+        }
+
+        .carousel-item {
+          .figure-caption {
+            color: $gray-darken-color;
+          }
+        }
+      }
+
+      .view-more {
+        padding: 0 0 28px;
+      }
+    }
+  }
+
+  .nav-item {
+    padding: 0 0 30px;
+
+    a {
+      @include font-stage-Montserrat(600, 14px, 16px);
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      padding: 0 0 5px;
+      color: $gray-darken-color;
+      margin-right: 102.5px;
+
+      @include breakpoint(mobileonly) {
+        margin-right: 52px;
+        @include font-stage-Montserrat(600, 13px, 16px);
+      }
+
+      &.active {
+        background: none;
+        color: $gray-darken-1-color;
+        border-bottom: 2px solid $blue-lighten-color;
+        border-radius: 0px;
+      }
+    }
+
+    &:last-child {
+      a {
+        margin: 0;
+      }
+    }
+  }
+
+  .col-7-3-style {
+    padding: 0;
+
+    .download-view {
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+  }
+
+  .price-view-block {
+    .listing-price {
+      font-weight: bold;
+    }
+  }
+
+  .amenities-features {
+    #accordion {
+      padding: 0 0 53px;
+    }
+
+    .card {
+      .field--name-field-value-question {
+        display: flex;
+      }
+    }
+  }
+}
+
+/*desktop */
+@media all and (min-width: 992px) {
+  .booking-div .btn {
+    width: 50%;
+    float: right;
+  }
+}

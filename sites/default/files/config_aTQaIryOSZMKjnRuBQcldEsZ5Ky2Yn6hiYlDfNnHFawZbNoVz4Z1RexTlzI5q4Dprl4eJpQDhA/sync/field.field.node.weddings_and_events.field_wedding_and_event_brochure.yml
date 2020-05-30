@@ -1,0 +1,27 @@
+uuid: b2a1db5f-98fa-462c-841c-2a0a3baf5031
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wedding_and_event_brochure
+    - node.type.weddings_and_events
+  module:
+    - file
+id: node.weddings_and_events.field_wedding_and_event_brochure
+field_name: field_wedding_and_event_brochure
+entity_type: node
+bundle: weddings_and_events
+label: 'Wedding And Event Brochure'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

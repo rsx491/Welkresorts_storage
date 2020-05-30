@@ -1,0 +1,8 @@
+travelclickdbscript.hotelcode_script:
+  path: '/hotel/update/{hotelcode}'
+  defaults:
+    _controller: '\Drupal\travelclickdbscript\Controller\TravelclickdbscriptBookingController::cmsupdate'
+    hotelcode: '123'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'

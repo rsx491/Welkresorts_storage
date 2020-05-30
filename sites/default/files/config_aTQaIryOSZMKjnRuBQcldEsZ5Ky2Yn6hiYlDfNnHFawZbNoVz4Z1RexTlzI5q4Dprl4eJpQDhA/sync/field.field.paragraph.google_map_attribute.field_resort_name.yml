@@ -1,0 +1,19 @@
+uuid: 8f3511ef-26a6-490e-832a-364017c21f13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_resort_name
+    - paragraphs.paragraphs_type.google_map_attribute
+id: paragraph.google_map_attribute.field_resort_name
+field_name: field_resort_name
+entity_type: paragraph
+bundle: google_map_attribute
+label: 'Resort Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,52 @@
+uuid: 50b17bff-388e-4a0b-9caf-92371d7b791b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.featured_resort_activites.field_activity_description_fr
+    - field.field.paragraph.featured_resort_activites.field_activity_image_fr
+    - field.field.paragraph.featured_resort_activites.field_activity_title_fr
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.featured_resort_activites
+  module:
+    - image
+    - imce
+    - soft_length_limit
+id: paragraph.featured_resort_activites.default
+targetEntityType: paragraph
+bundle: featured_resort_activites
+mode: default
+content:
+  field_activity_description_fr:
+    weight: 2
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings:
+      soft_length_limit:
+        max_limit: null
+        minimum_limit: null
+        style_select: false
+    type: string_textarea
+    region: content
+  field_activity_image_fr:
+    weight: 0
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_activity_title_fr:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,8 @@
+uuid: dfc64d3a-f58b-45dd-86bb-fa287e55b448
+langcode: en
+status: true
+dependencies: {  }
+id: resort_activities_for_tours_page
+label: 'Resort Activities for Tours page'
+revision: 0
+description: 'This block is used for displaying various resort activities on tours page'

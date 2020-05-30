@@ -1,0 +1,192 @@
+<?php
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_form_alter().
+ */
+function welkbgbanner_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+	if($form_id == 'block_content_videobackground_banner_block_edit_form'){ // Home Page
+		$form['#validate'][] = '_welkbgbanner_validate';
+	}elseif($form_id == 'block_content_blog_hero_section_edit_form'){ // Blog page
+		$form['#validate'][] = '_blogbanner_validate';
+	}elseif($form_id == 'node_resort_destinations_edit_form'){ // Resort Destination
+		$form['#validate'][] = '_overvierform_validate';
+	}elseif($form_id == 'node_accomodation_edit_form'){ // Accomodation
+		$form['#validate'][] = '_accomodation_validate';
+	}elseif($form_id == 'node_amenities_activities_edit_form'){ // Amenities and Activities
+		$form['#validate'][] = '_amenities_validate';
+	}elseif($form_id == 'node_local_area_edit_form'){ // Local Area
+		$form['#validate'][] = '_localarea_validate';
+	}elseif($form_id == 'node_offers_edit_form'){ // Offers
+		$form['#validate'][] = '_offers_validate';
+	}elseif($form_id == 'node_room_details_edit_form'){ // Room Details
+		$form['#validate'][] = '_roomdetails_validate';
+	}elseif($form_id == 'node_weddings_and_events_edit_form'){ // weddings and events Details
+		$form['#validate'][] = '_wedevents_validate';
+	}elseif($form_id == 'node_welk_experience_edit_form'){ // welk experience Details
+		$form['#validate'][] = '_welkexperience_validate';
+	}elseif($form_id == 'node_work_with_us_edit_form'){ // Work with us
+		$form['#validate'][] = '_workwithus_validate';
+	}elseif($form_id == 'node_work_with_us_edit_form'){ // Media landing page
+		$form['#validate'][] = '_medialandingpage_validate';
+	}
+}
+/**
+ * Validates submission values in the block_content_blog_hero_section_edit_form.
+ */
+function _blogbanner_validate(array &$form, FormStateInterface $form_state) {
+	$link = $form_state->getValue('field_hero_section_blog');
+  	$Imagefid = $form_state->getValue('field_hero_section_blog')[0]['subform']['field_banner_image']['0']['fids'];
+	$Vfid = $form_state->getValue('field_hero_section_blog')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	if(!empty($Imagefid) && !empty($Vfid)){
+		$form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	}
+}
+/**
+ * Validates submission values in the block_content_videobackground_banner_block_edit_form.
+ */
+function _welkbgbanner_validate(array &$form, FormStateInterface $form_state) {
+	$link = $form_state->getValue('field_videobackground_block_cont');
+  	$Imagefid = $form_state->getValue('field_videobackground_block_cont')[0]['subform']['field_banner_image']['0']['fids'];
+	$Vfid = $form_state->getValue('field_videobackground_block_cont')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	if(!empty($Imagefid) && !empty($Vfid)){
+		$form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	}
+}
+/**
+ * Validates submission values in the resort destination content type.
+ */
+function _overvierform_validate(array &$form, FormStateInterface $form_state) {
+  $bannerfid = $form_state->getValue('field_hero_section')[0]['subform']['field_banner_image']['0']['fids'];
+	$bannervfid = $form_state->getValue('field_hero_section')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	if(!empty($bannerfid) && !empty($bannervfid)){
+		$form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	}
+}
+/**
+ * Validates submission values in the Accomodation content type.
+ */
+function _accomodation_validate(array &$form, FormStateInterface $form_state) {
+  $bannerfid = $form_state->getValue('field_hero_section_od')[0]['subform']['field_banner_image']['0']['fids'];
+	$bannervfid = $form_state->getValue('field_hero_section_od')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	if(!empty($bannerfid) && !empty($bannervfid)){
+		$form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	}
+}
+/**
+ * Validates submission values in the Amenities and Activities content type.
+ */
+function _amenities_validate(array &$form, FormStateInterface $form_state) {
+  $bannerfid = $form_state->getValue('field_hero_section_aa')[0]['subform']['field_banner_image']['0']['fids'];
+	$bannervfid = $form_state->getValue('field_hero_section_aa')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	if(!empty($bannerfid) && !empty($bannervfid)){
+		$form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	}
+}
+/**
+ * Validates submission values in the Local Area content type.
+ */
+function _localarea_validate(array &$form, FormStateInterface $form_state) {
+  $bannerfid = $form_state->getValue('field_hero_section_la')[0]['subform']['field_banner_image']['0']['fids'];
+	$bannervfid = $form_state->getValue('field_hero_section_la')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	if(!empty($bannerfid) && !empty($bannervfid)){
+		$form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	}
+}
+/**
+ * Validates submission values in the Offers content type.
+ */
+function _offers_validate(array &$form, FormStateInterface $form_state) {
+	$bannerfid = $form_state->getValue('field_hero_section_off')[0]['subform']['field_banner_image']['0']['fids'];
+	  $bannervfid = $form_state->getValue('field_hero_section_off')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	  if(!empty($bannerfid) && !empty($bannervfid)){
+		  $form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	  }
+  }
+/**
+ * Validates submission values in the Room Details content type.
+ */
+function _roomdetails_validate(array &$form, FormStateInterface $form_state) {
+  $bannerfid = $form_state->getValue('field_hero_section_rd')[0]['subform']['field_banner_image']['0']['fids'];
+	$bannervfid = $form_state->getValue('field_hero_section_rd')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	if(!empty($bannerfid) && !empty($bannervfid)){
+		$form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	}
+}
+/**
+ * Validates submission values in the Wedding and Events content type.
+ */
+function _wedevents_validate(array &$form, FormStateInterface $form_state) {
+	$bannerfid = $form_state->getValue('field_hero_section_we')[0]['subform']['field_banner_image']['0']['fids'];
+	  $bannervfid = $form_state->getValue('field_hero_section_we')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	  if(!empty($bannerfid) && !empty($bannervfid)){
+		  $form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	  }
+  }
+  /**
+ * Validates submission values in the Work with us content type.
+ */
+function _workwithus_validate(array &$form, FormStateInterface $form_state) {
+	$bannerfid = $form_state->getValue('field_hero_section_wws')[0]['subform']['field_banner_image']['0']['fids'];
+	  $bannervfid = $form_state->getValue('field_hero_section_wws')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	  if(!empty($bannerfid) && !empty($bannervfid)){
+		  $form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	  }
+  }
+	/**
+ * Validates submission values in the Media landing page content type.
+ */
+function _medialandingpage_validate(array &$form, FormStateInterface $form_state) {
+	$bannerfid = $form_state->getValue('field_hero_section_mlp')[0]['subform']['field_banner_image']['0']['fids'];
+	  $bannervfid = $form_state->getValue('field_hero_section_mlp')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	  if(!empty($bannerfid) && !empty($bannervfid)){
+		  $form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	  }
+  }
+/**
+ * Validates submission values in the Welk Experience content type.
+ */
+function _welkexperience_validate(array &$form, FormStateInterface $form_state) {
+	$insdisc = $form_state->getValue('field_inspire_description')[0]['value'];
+	$bannerfid = $form_state->getValue('field_hero_section_wex')[0]['subform']['field_banner_image']['0']['fids'];
+	$bannervfid = $form_state->getValue('field_hero_section_wex')[0]['subform']['field_videobackground_banner_vid']['0']['fids'];
+	if(!empty($bannerfid) && !empty($bannervfid)){
+		$form_state->setErrorByName('field_videobackground_banner_vid', t('Both Video and image are uploaded. Please do upload only one.'));
+	}
+	if(!empty($insdisc)){
+		if(strlen($insdisc) > 500){
+			$form_state->setErrorByName('field_inspire_description', t('Inspire description is over 500 characters limit.'));
+		}
+	}
+}
+/**
+ * Implements hook_form_paragraphs_subform_alter()
+ */
+function welkbgbanner_form_paragraphs_subform_alter(array &$subform, FormStateInterface &$form_state, $delta) {
+  $paragraph = $form_state->get('paragraph');
+  $paragraph_type = $paragraph->getType();
+	// Block Type Videobackground
+  if($paragraph_type == 'videobackground_banner_block') {
+		$parents = $subform['#parents'];
+		$field_name = $parents[0];
+    	$parents_input_name = array_shift($parents);
+    	$parents_input_name .= '[' . implode('][', $parents) . ']';
+		$subform['field_banner_image']['#states'] = ['visible' => [[':input[name="' . $parents_input_name . '[field_media_type]"]' => [["value" => "image_file"]],]],];
+		$subform['field_videobackground_banner_vid']['#states'] = ['visible' => [[':input[name="' . $parents_input_name . '[field_media_type]"]' => [["value" => "video_file"]],]],];
+		$subform['field_sound']['#states'] = ['visible' => [[':input[name="' . $parents_input_name . '[field_media_type]"]' => [["value" => "video_file"]],]],];$subform['field_caption']['#states'] = ['visible' => [[':input[name="' . $parents_input_name . '[field_media_type]"]' => [["value" => "image_file"]],]],];
+		if($field_name == 'field_hero_section_blog' || $field_name == 'field_hero_section_tr'){ // Field name for Blog blog type
+			$subform['field_view_location']['#states'] = ['visible' => [[':input[name="' . $parents_input_name . '[field_media_type]"]' => [["value" => "NULL"]],]],]; // View location Button text hide for Blog hero section
+		} 
+  } 
+}
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function welkbgbanner_form_node_room_details_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+	$form['field_3d_gallery']['#states'] = [
+		'visible' => [
+		  [':input[name="field_3d_tour[value]"]' => ['checked' => TRUE]],
+		]
+	];
+}

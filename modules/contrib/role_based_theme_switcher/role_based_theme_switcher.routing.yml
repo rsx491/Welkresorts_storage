@@ -1,0 +1,7 @@
+role_based_theme_switcher.settings:
+  path: '/admin/structure/role_based_theme_switcher/settings'
+  defaults:
+    _form: '\Drupal\role_based_theme_switcher\Form\AdminSettingsForm'
+    _title: 'URL Setting'
+  requirements:
+    _permission: 'administer site configuration'

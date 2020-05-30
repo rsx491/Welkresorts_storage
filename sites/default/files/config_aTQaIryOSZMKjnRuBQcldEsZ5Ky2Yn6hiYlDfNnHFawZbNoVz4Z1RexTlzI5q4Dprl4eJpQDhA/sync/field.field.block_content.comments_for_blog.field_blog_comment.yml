@@ -1,0 +1,32 @@
+uuid: ca6bfbcc-59e6-4e54-a0f7-560c9b8f2614
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.comments_for_blog
+    - field.storage.block_content.field_blog_comment
+    - webform.webform.blog_comment
+  module:
+    - webform
+id: block_content.comments_for_blog.field_blog_comment
+field_name: field_blog_comment
+entity_type: block_content
+bundle: comments_for_blog
+label: blog_comment
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+    target_uuid: cd13abc2-617a-4ebb-ba0e-37084b8cde67
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

@@ -1,0 +1,21 @@
+uuid: 34fb3df5-bee2-4b9e-8358-c6d1c2fba428
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_stay_and_play_description
+    - node.type.resort_destinations
+  module:
+    - text
+id: node.resort_destinations.field_stay_and_play_description
+field_name: field_stay_and_play_description
+entity_type: node
+bundle: resort_destinations
+label: 'Stay and Play - Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

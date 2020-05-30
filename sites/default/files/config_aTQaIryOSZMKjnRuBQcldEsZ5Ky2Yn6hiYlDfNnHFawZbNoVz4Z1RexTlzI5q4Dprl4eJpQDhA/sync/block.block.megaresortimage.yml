@@ -1,0 +1,25 @@
+uuid: 80c67225-ac4e-4c42-ba32-b3d552eab20f
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:mega_menu_resort_destinations:13cd211e-6c89-45ce-bb62-e19e8b85a5f6'
+  module:
+    - block_content
+  theme:
+    - welkresorts
+id: megaresortimage
+theme: welkresorts
+region: Primary_menu
+weight: 0
+provider: null
+plugin: 'block_content:13cd211e-6c89-45ce-bb62-e19e8b85a5f6'
+settings:
+  id: 'block_content:13cd211e-6c89-45ce-bb62-e19e8b85a5f6'
+  label: 'Mega Resort Image'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

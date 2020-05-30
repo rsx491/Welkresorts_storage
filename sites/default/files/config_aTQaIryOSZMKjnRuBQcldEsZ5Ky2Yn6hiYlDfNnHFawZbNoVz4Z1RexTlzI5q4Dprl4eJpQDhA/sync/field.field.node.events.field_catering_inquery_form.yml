@@ -1,0 +1,32 @@
+uuid: 446a209c-80d2-47b8-96c7-a5713702eef4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_catering_inquery_form
+    - node.type.events
+    - webform.webform.catering_inquiry_form
+  module:
+    - webform
+id: node.events.field_catering_inquery_form
+field_name: field_catering_inquery_form
+entity_type: node
+bundle: events
+label: 'Catering Inquery Form'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+    target_uuid: b6d0efb4-5b0e-4acc-a96e-c223303db0e4
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

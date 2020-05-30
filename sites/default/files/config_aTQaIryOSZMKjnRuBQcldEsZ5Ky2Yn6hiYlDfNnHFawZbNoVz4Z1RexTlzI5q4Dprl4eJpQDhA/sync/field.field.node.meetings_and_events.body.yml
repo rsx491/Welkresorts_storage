@@ -1,0 +1,22 @@
+uuid: f17a428e-96f0-480a-b909-8acefee9ab93
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.meetings_and_events
+  module:
+    - text
+id: node.meetings_and_events.body
+field_name: body
+entity_type: node
+bundle: meetings_and_events
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

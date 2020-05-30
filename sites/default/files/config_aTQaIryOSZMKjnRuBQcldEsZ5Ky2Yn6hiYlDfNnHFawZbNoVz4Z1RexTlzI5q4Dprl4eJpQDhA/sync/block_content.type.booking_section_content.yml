@@ -1,0 +1,8 @@
+uuid: 6e24fdb8-ac9e-43d9-83ba-fd5ca065feb1
+langcode: en
+status: true
+dependencies: {  }
+id: booking_section_content
+label: 'Booking section Content'
+revision: 0
+description: 'This block type is used for managing the content of booking section '

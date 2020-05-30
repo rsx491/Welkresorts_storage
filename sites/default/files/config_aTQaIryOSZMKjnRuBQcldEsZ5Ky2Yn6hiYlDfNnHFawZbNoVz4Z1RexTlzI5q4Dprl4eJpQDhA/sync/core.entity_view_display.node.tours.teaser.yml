@@ -1,0 +1,53 @@
+uuid: d14300c6-e602-46d5-a27e-d01c9b28d5dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tours.body
+    - node.type.tours
+  module:
+    - text
+    - user
+id: node.tours.teaser
+targetEntityType: node
+bundle: tours
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_benefits_description: true
+  field_description: true
+  field_description_t: true
+  field_gallery: true
+  field_hero_gallery: true
+  field_hero_section_tr: true
+  field_highlight_section_t: true
+  field_image: true
+  field_inspire_description: true
+  field_inspire_sub_title: true
+  field_inspire_title: true
+  field_inspire_top_description: true
+  field_inspire_top_title: true
+  field_inspire_video: true
+  field_stay_play: true
+  field_sub_title: true
+  field_sub_title_t: true
+  field_title: true
+  field_to: true
+  field_tours_activities: true
+  field_tours_benefits_section: true
+  field_tours_items: true
+  field_view_details_url: true

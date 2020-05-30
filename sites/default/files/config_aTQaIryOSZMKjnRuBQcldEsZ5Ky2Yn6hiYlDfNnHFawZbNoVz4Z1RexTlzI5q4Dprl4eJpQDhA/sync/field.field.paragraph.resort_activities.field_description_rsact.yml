@@ -1,0 +1,21 @@
+uuid: 73db195f-7b20-4b5f-8f24-f85e79f894a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description_rsact
+    - paragraphs.paragraphs_type.resort_activities
+  module:
+    - text
+id: paragraph.resort_activities.field_description_rsact
+field_name: field_description_rsact
+entity_type: paragraph
+bundle: resort_activities
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

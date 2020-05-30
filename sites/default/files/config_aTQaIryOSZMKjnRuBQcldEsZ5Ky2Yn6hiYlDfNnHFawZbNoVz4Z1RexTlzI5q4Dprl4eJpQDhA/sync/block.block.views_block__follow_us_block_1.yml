@@ -1,0 +1,24 @@
+uuid: b57f120a-7f56-48c0-a70e-9b93d4bf205c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.follow_us
+  module:
+    - views
+  theme:
+    - welkresorts
+id: views_block__follow_us_block_1
+theme: welkresorts
+region: Footer_follow_us
+weight: 0
+provider: null
+plugin: 'views_block:follow_us-block_1'
+settings:
+  id: 'views_block:follow_us-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

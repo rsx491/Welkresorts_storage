@@ -1,0 +1,21 @@
+uuid: e7b850fa-88dc-4c56-a221-5b7c1a7501ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wedding_and_event_help_pla
+    - node.type.meetings_and_events
+  module:
+    - text
+id: node.meetings_and_events.field_wedding_and_event_help_pla
+field_name: field_wedding_and_event_help_pla
+entity_type: node
+bundle: meetings_and_events
+label: 'Meeting And Event Help Plan'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

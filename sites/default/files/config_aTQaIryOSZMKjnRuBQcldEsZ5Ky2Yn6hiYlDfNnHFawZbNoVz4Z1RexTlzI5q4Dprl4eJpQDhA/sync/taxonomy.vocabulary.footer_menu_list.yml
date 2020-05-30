@@ -1,0 +1,8 @@
+uuid: 2fd60050-6829-463e-afda-123f363dae42
+langcode: en
+status: true
+dependencies: {  }
+name: 'Footer menu list'
+vid: footer_menu_list
+description: 'Footer menu list'
+weight: 0

@@ -1,0 +1,21 @@
+uuid: 7031f750-f9fe-4d32-8144-766d19b43655
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_answer
+    - paragraphs.paragraphs_type.amenities_accessibility_room_fea
+  module:
+    - text
+id: paragraph.amenities_accessibility_room_fea.field_answer
+field_name: field_answer
+entity_type: paragraph
+bundle: amenities_accessibility_room_fea
+label: Answer
+description: 'Answer of feature section'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

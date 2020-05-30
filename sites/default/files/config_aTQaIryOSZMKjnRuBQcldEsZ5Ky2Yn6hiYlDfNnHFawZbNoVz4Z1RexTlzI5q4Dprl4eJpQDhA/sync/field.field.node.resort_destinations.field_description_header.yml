@@ -1,0 +1,21 @@
+uuid: 0108e31c-19ec-4125-bac2-36759f731f4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_header
+    - node.type.resort_destinations
+  module:
+    - text
+id: node.resort_destinations.field_description_header
+field_name: field_description_header
+entity_type: node
+bundle: resort_destinations
+label: 'Description - header'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

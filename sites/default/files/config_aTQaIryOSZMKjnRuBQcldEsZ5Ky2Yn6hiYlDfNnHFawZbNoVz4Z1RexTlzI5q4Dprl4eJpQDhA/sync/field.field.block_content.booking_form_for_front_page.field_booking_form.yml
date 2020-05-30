@@ -1,0 +1,32 @@
+uuid: 8611d8b8-3cd3-4ad0-a8bc-ffeada2c8779
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_form_for_front_page
+    - field.storage.block_content.field_booking_form
+    - webform.webform.booking_form
+  module:
+    - webform
+id: block_content.booking_form_for_front_page.field_booking_form
+field_name: field_booking_form
+entity_type: block_content
+bundle: booking_form_for_front_page
+label: booking_form
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+    target_uuid: d0474e28-cc33-4665-bddf-e61b8a51534c
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

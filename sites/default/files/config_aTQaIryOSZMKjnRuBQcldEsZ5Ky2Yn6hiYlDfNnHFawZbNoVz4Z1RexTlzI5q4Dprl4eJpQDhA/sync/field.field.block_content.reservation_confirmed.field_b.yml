@@ -1,0 +1,23 @@
+uuid: b4ceb97e-b938-4803-9bb4-7bf5ec858531
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_b
+  module:
+    - link
+id: block_content.reservation_confirmed.field_b
+field_name: field_b
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'Blog Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

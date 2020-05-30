@@ -1,0 +1,30 @@
+uuid: f4c183a6-62c6-44bb-9d55-7df1a32bdf60
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.local_area.body
+    - node.type.local_area
+  module:
+    - text
+    - user
+id: node.local_area.teaser
+targetEntityType: node
+bundle: local_area
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

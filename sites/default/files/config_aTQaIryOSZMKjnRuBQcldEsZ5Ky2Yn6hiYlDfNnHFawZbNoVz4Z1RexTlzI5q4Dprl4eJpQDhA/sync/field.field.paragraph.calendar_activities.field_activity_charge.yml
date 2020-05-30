@@ -1,0 +1,19 @@
+uuid: 8085b526-4282-404a-9d53-dcdd3b082479
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_activity_charge
+    - paragraphs.paragraphs_type.calendar_activities
+id: paragraph.calendar_activities.field_activity_charge
+field_name: field_activity_charge
+entity_type: paragraph
+bundle: calendar_activities
+label: 'Activity charge'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

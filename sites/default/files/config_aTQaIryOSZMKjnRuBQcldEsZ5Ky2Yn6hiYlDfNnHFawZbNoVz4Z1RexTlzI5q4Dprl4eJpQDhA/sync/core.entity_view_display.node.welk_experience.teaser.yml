@@ -1,0 +1,39 @@
+uuid: b50e92fc-8a0b-42b0-9f2b-44402ea70bc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.welk_experience.body
+    - node.type.welk_experience
+  module:
+    - text
+    - user
+id: node.welk_experience.teaser
+targetEntityType: node
+bundle: welk_experience
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_hero_gallery: true
+  field_hero_section_wex: true
+  field_highlight_section_wex: true
+  field_inspire_description: true
+  field_inspire_sub_title: true
+  field_inspire_title: true
+  field_inspire_top_description: true
+  field_inspire_top_title: true
+  field_inspire_video: true

@@ -1,0 +1,22 @@
+uuid: 273b3b76-9dcf-493b-86e4-6fc800e4d70a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.dining
+  module:
+    - text
+id: node.dining.body
+field_name: body
+entity_type: node
+bundle: dining
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

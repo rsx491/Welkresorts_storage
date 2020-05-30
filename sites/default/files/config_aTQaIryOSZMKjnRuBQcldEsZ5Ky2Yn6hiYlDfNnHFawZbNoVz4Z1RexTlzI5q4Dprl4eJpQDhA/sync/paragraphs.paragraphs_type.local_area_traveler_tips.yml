@@ -1,0 +1,9 @@
+uuid: 0f4c89fa-dcf4-4c2b-8b3d-f0c52e4b1972
+langcode: en
+status: true
+dependencies: {  }
+id: local_area_traveler_tips
+label: 'Local Area Traveler Tips'
+icon_uuid: null
+description: 'This is for the Traveler Tips section for the Local Area Content Type'
+behavior_plugins: {  }

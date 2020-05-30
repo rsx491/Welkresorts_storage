@@ -1,0 +1,21 @@
+uuid: a7f868e2-2e0e-4a87-8d78-cdcbc9be9c23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_area_description
+    - node.type.local_area
+  module:
+    - text
+id: node.local_area.field_local_area_description
+field_name: field_local_area_description
+entity_type: node
+bundle: local_area
+label: 'Local Area Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,8 @@
+uuid: f2e325df-8860-4e6b-b39d-8fb797a062e5
+langcode: en
+status: true
+dependencies: {  }
+id: resort-primary-menu
+label: 'Resort Primary Menu'
+description: 'This is the menu in the top left corner of the resort pages'
+locked: false

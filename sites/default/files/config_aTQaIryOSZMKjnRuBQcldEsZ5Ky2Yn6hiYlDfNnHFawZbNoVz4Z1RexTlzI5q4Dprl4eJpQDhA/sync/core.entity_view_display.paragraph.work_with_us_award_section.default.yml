@@ -1,0 +1,33 @@
+uuid: 3ac5dcf2-f0c0-407b-b5d5-413794b7fd3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.work_with_us_award_section.field_award_description
+    - field.field.paragraph.work_with_us_award_section.field_award_icon
+    - paragraphs.paragraphs_type.work_with_us_award_section
+  module:
+    - image
+    - text
+id: paragraph.work_with_us_award_section.default
+targetEntityType: paragraph
+bundle: work_with_us_award_section
+mode: default
+content:
+  field_award_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_award_icon:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

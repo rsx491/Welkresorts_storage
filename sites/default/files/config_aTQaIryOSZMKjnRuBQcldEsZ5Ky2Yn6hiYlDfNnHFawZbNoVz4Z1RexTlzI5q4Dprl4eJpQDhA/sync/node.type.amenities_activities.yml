@@ -1,0 +1,18 @@
+uuid: 886bf3d0-7140-4ce6-8b48-a3ebef7632d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Amenities & Activities'
+type: amenities_activities
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

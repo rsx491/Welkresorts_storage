@@ -1,0 +1,21 @@
+uuid: 17171f8e-6ca5-4b81-b835-df633cc0a34d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_with_us_description
+    - node.type.work_with_us
+  module:
+    - text
+id: node.work_with_us.field_work_with_us_description
+field_name: field_work_with_us_description
+entity_type: node
+bundle: work_with_us
+label: 'Work with us - Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

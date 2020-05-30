@@ -1,0 +1,22 @@
+uuid: b1103e84-a5b6-415c-8f30-fac68d53c8f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: path_pattern_for_dining
+label: 'Path pattern for Dining'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/dining'
+selection_criteria:
+  0fee711c-5fbf-4f4a-a123-fb630de6ac91:
+    id: node_type
+    bundles:
+      dining: dining
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 0fee711c-5fbf-4f4a-a123-fb630de6ac91
+selection_logic: and
+weight: -5
+relationships: {  }

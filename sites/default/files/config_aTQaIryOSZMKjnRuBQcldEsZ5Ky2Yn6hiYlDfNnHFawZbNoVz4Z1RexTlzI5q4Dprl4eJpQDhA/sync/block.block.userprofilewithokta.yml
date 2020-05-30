@@ -1,0 +1,28 @@
+uuid: 6674f122-8093-45cd-9c0e-fd965eee8b91
+langcode: en
+status: true
+dependencies:
+  module:
+    - okta_ajax
+    - system
+  theme:
+    - welkresorts
+_core:
+  default_config_hash: X0kX-pqNzPnnd87zxZ8JdzWqRxRfkbBC-bFgjX3w0lQ
+id: userprofilewithokta
+theme: welkresorts
+region: content
+weight: 0
+provider: null
+plugin: okta_ajax_profile_block
+settings:
+  id: okta_ajax_profile_block
+  label: 'User Profile with Okta'
+  provider: okta_ajax
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /profile
+    negate: false
+    context_mapping: {  }

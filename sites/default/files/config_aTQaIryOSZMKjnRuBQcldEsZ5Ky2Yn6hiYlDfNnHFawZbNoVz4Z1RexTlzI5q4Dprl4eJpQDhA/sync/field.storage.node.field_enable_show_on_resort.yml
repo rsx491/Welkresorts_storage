@@ -1,0 +1,18 @@
+uuid: 16fb89f6-d000-4732-9491-c63da4a38d17
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_enable_show_on_resort
+field_name: field_enable_show_on_resort
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

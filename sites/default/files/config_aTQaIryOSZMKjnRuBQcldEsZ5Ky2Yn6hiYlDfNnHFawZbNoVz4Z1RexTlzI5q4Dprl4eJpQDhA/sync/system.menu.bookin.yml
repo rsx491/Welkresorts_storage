@@ -1,0 +1,8 @@
+uuid: 5a68b731-4cdb-45a5-a35b-7f8b9e7f229c
+langcode: en
+status: true
+dependencies: {  }
+id: bookin
+label: 'Booking Menu'
+description: 'This is the Menu used for the booking Pages'
+locked: false

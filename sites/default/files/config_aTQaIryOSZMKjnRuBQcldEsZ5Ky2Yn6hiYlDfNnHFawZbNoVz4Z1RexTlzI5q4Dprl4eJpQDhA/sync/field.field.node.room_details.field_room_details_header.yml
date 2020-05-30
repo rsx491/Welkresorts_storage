@@ -1,0 +1,21 @@
+uuid: 7b5e18fb-933a-4b30-bcc6-3de0fe87b4e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_room_details_header
+    - node.type.room_details
+  module:
+    - text
+id: node.room_details.field_room_details_header
+field_name: field_room_details_header
+entity_type: node
+bundle: room_details
+label: 'Room Details header'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

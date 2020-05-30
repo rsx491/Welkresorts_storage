@@ -1,0 +1,31 @@
+uuid: 144d96ce-fa98-415d-af84-dded865446ed
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:welkresort:62924027-9212-4e02-a4de-a6f10c405b88'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: thewelkexperience
+theme: welkresorts
+region: Welk_experience
+weight: 0
+provider: null
+plugin: 'block_content:62924027-9212-4e02-a4de-a6f10c405b88'
+settings:
+  id: 'block_content:62924027-9212-4e02-a4de-a6f10c405b88'
+  label: 'THE WELK EXPERIENCE'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /reservation/details
+    negate: true
+    context_mapping: {  }

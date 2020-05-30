@@ -1,0 +1,31 @@
+uuid: e6911917-b5dd-48a4-9d55-507f5b49c070
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:reservation_confirmed:7d579f76-0215-4669-99a0-334fb83cc7ba'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: reservationconfirmed
+theme: welkresorts
+region: reservation_thankyou
+weight: 0
+provider: null
+plugin: 'block_content:7d579f76-0215-4669-99a0-334fb83cc7ba'
+settings:
+  id: 'block_content:7d579f76-0215-4669-99a0-334fb83cc7ba'
+  label: 'Reservation Confirmed'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /reservation/details
+    negate: false
+    context_mapping: {  }

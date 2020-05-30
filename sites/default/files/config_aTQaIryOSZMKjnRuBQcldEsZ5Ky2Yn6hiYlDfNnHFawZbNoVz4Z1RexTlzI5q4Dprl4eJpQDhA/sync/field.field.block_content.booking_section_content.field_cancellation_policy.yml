@@ -1,0 +1,21 @@
+uuid: ad456d96-745f-4b92-97fa-6fb8e22a8962
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.field_cancellation_policy
+  module:
+    - text
+id: block_content.booking_section_content.field_cancellation_policy
+field_name: field_cancellation_policy
+entity_type: block_content
+bundle: booking_section_content
+label: 'Cancellation Policy'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: 3de8ff27-dc03-4a6f-9581-eae700d14b97
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_welk_exp_title
+field_name: field_welk_exp_title
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,31 @@
+uuid: 0233d9ae-7709-4882-a3eb-77d864adf84e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:0d4fa115-d12c-49cf-9639-5129cd790d9f'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: inspireyourstay
+theme: welkresorts
+region: blog_content
+weight: 0
+provider: null
+plugin: 'block_content:0d4fa115-d12c-49cf-9639-5129cd790d9f'
+settings:
+  id: 'block_content:0d4fa115-d12c-49cf-9639-5129cd790d9f'
+  label: 'Inspire Your Stay'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

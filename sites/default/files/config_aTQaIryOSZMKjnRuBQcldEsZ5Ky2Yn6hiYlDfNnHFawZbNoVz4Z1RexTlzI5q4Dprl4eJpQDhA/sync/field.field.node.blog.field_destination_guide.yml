@@ -1,0 +1,19 @@
+uuid: bc1b718a-3f5f-47d9-93e4-cf6b8e0f831f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_destination_guide
+    - node.type.blog
+id: node.blog.field_destination_guide
+field_name: field_destination_guide
+entity_type: node
+bundle: blog
+label: 'DESTINATION GUIDE'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

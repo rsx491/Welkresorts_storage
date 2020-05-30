@@ -1,0 +1,88 @@
+uuid: 1023d5b5-8058-437b-a79a-28d82099a168
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_section_me
+    - node.type.meetings_and_events
+    - paragraphs.paragraphs_type.videobackground_banner_block
+  module:
+    - entity_reference_revisions
+id: node.meetings_and_events.field_hero_section_me
+field_name: field_hero_section_me
+entity_type: node
+bundle: meetings_and_events
+label: 'Hero Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      videobackground_banner_block: videobackground_banner_block
+    target_bundles_drag_drop:
+      activities:
+        weight: 21
+        enabled: false
+      additional_ammenities:
+        weight: 22
+        enabled: false
+      amenities_accessibility_room_fea:
+        weight: 23
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 24
+        enabled: false
+      booking_offer_section:
+        weight: 25
+        enabled: false
+      calendar_activities:
+        weight: 26
+        enabled: false
+      featured_resort_activites:
+        weight: 27
+        enabled: false
+      google_map_attribute:
+        weight: 28
+        enabled: false
+      local_area_attractions:
+        weight: 29
+        enabled: false
+      local_area_traveler_tips:
+        weight: 30
+        enabled: false
+      resort_activities:
+        weight: 31
+        enabled: false
+      resort_offer_page_description:
+        weight: 32
+        enabled: false
+      room_bed_details_:
+        weight: 33
+        enabled: false
+      stay_and_play:
+        weight: 34
+        enabled: false
+      value_section_faq:
+        weight: 35
+        enabled: false
+      videobackground_banner_block:
+        enabled: true
+        weight: 36
+      welk_experience:
+        weight: 37
+        enabled: false
+      work_with_us_award_section:
+        weight: 38
+        enabled: false
+      work_with_us_benefits_section:
+        weight: 39
+        enabled: false
+      work_with_us_overview_items:
+        weight: 40
+        enabled: false
+field_type: entity_reference_revisions

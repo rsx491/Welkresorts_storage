@@ -1,0 +1,162 @@
+uuid: 62d0df61-b9e3-41d6-be60-c160163941c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.accomodation.body
+    - field.field.node.accomodation.field_accomodation_description
+    - field.field.node.accomodation.field_contact_number
+    - field.field.node.accomodation.field_destination
+    - field.field.node.accomodation.field_hero_gallery
+    - field.field.node.accomodation.field_hero_section_od
+    - field.field.node.accomodation.field_location_name
+    - field.field.node.accomodation.field_logo_image
+    - field.field.node.accomodation.field_mapped_triptease
+    - field.field.node.accomodation.field_meta_tags
+    - field.field.node.accomodation.field_overview_ac_block_descript
+    - field.field.node.accomodation.field_overview_ac_block_image
+    - field.field.node.accomodation.field_overview_ac_block_image_ca
+    - field.field.node.accomodation.field_overview_ac_block_subtitle
+    - field.field.node.accomodation.field_overview_ac_block_title
+    - field.field.node.accomodation.field_select_resort
+    - field.field.node.accomodation.field_select_state
+    - node.type.accomodation
+  module:
+    - entity_reference_revisions
+    - file
+    - image
+    - metatag
+    - options
+    - text
+    - user
+id: node.accomodation.default
+targetEntityType: node
+bundle: accomodation
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_accomodation_description:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_contact_number:
+    weight: 110
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_destination:
+    weight: 111
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_hero_gallery:
+    weight: 112
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_hero_section_od:
+    type: entity_reference_revisions_entity_view
+    weight: 108
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_logo_image:
+    weight: 109
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_mapped_triptease:
+    weight: 113
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_meta_tags:
+    weight: 114
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_overview_ac_block_descript:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_overview_ac_block_image:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_overview_ac_block_image_ca:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_overview_ac_block_subtitle:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_overview_ac_block_title:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_select_state:
+    weight: 115
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_location_name: true
+  field_select_resort: true

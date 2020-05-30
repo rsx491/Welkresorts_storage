@@ -1,0 +1,23 @@
+uuid: 73c56cc1-c281-4909-95ef-f794a3823ba6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_stay_and_play_vd
+    - paragraphs.paragraphs_type.stay_and_play
+  module:
+    - link
+id: paragraph.stay_and_play.field_stay_and_play_vd
+field_name: field_stay_and_play_vd
+entity_type: paragraph
+bundle: stay_and_play
+label: 'Stay and Play - view details'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

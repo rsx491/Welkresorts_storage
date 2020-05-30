@@ -1,0 +1,23 @@
+uuid: 1a605588-6c02-4306-8fee-f68611d45913
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.field_header_sign_in_link
+  module:
+    - link
+id: block_content.booking_section_content.field_header_sign_in_link
+field_name: field_header_sign_in_link
+entity_type: block_content
+bundle: booking_section_content
+label: 'Header Sign in Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

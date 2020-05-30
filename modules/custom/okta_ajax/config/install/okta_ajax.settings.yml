@@ -1,0 +1,24 @@
+okta_api_key: 00Btn6pySOrS38s9mGYxmGq7Ls40Xv4g_Cw4_ce8Wn
+default_group_id: ''
+organisation_url: ''
+okta_domain: welkexternal
+preview_domain: true
+okta_client_id: 0oamyegepiWpbi9Ec0h7
+okta_client_secret: QqaeKK-UR5rWOxp6abIyG0GqbBptJ3tgVg68qlYn
+registration_hook_id: calne0hgbbcLVRNpl0h7
+account_path: 'https://13.77.141.21/integration/Welkresorts/account'
+profile_path: 'https://13.77.141.21/integration/Welkresorts/profile'
+account_title: 'My Account'
+account_description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+profile_title: 'My Profile'
+profile_description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+overview_header: 'Review Your Guest Profile & Reservations'
+overview_subtext: 'Lorem ipsum dolor site amet, consectetur adipiscing elit.'
+overview_guest_header: 'Guest Information'
+manage_header: 'Review or Update your Account Information'
+manage_subtext: 'Lorem ipsum dolor site amet, consectetur adipiscing elit.'
+manage_guest_header: 'Guest Information'
+manage_signin_header: 'Sign-In Settings'
+manage_email_header: 'Email Preferences'
+azure_key: ''
+azure_account: ''

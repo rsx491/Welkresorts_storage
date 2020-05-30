@@ -1,0 +1,49 @@
+uuid: 2887fe49-5be6-4032-89a9-eb6e2cd97261
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_section_rd
+    - node.type.room_details
+    - paragraphs.paragraphs_type.videobackground_banner_block
+  module:
+    - entity_reference_revisions
+id: node.room_details.field_hero_section_rd
+field_name: field_hero_section_rd
+entity_type: node
+bundle: room_details
+label: 'Hero Section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      videobackground_banner_block: videobackground_banner_block
+    target_bundles_drag_drop:
+      activities:
+        weight: 8
+        enabled: false
+      additional_ammenities:
+        weight: 9
+        enabled: false
+      amenities_and_activities_highlig:
+        weight: 10
+        enabled: false
+      local_area_attractions:
+        weight: 11
+        enabled: false
+      local_area_traveler_tips:
+        weight: 12
+        enabled: false
+      videobackground_banner_block:
+        enabled: true
+        weight: 13
+      welk_experience:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

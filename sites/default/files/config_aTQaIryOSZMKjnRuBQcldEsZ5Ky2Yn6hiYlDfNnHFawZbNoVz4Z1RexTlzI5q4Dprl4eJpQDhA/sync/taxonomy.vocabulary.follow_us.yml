@@ -1,0 +1,8 @@
+uuid: c3f5a9e7-41f6-4646-96c9-b387d256a14e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Follow Us'
+vid: follow_us
+description: 'Link for follow us block in the footer'
+weight: 0

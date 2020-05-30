@@ -1,0 +1,46 @@
+uuid: c059db7f-41e2-4483-a4cf-23362e051aa4
+langcode: en
+status: true
+dependencies: {  }
+id: content_editor
+label: 'Content Editor'
+weight: 3
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'administer menu'
+  - 'administer nodes'
+  - 'bypass node access'
+  - 'delete any accomodation content'
+  - 'delete any amenities_activities content'
+  - 'delete any blog content'
+  - 'delete any local_area content'
+  - 'delete any media_landing_page content'
+  - 'delete any offers content'
+  - 'delete any page content'
+  - 'delete any privacy_policy content'
+  - 'delete any resort_destinations content'
+  - 'delete any room_details content'
+  - 'delete any terms_of_use content'
+  - 'delete any tours content'
+  - 'delete any weddings_and_events content'
+  - 'delete any welk_experience content'
+  - 'delete any work_with_us content'
+  - 'edit any accomodation content'
+  - 'edit any amenities_activities content'
+  - 'edit any blog content'
+  - 'edit any local_area content'
+  - 'edit any media_landing_page content'
+  - 'edit any offers content'
+  - 'edit any page content'
+  - 'edit any privacy_policy content'
+  - 'edit any resort_destinations content'
+  - 'edit any room_details content'
+  - 'edit any terms_of_use content'
+  - 'edit any tours content'
+  - 'edit any weddings_and_events content'
+  - 'edit any welk_experience content'
+  - 'edit any work_with_us content'
+  - 'view the administration theme'

@@ -1,0 +1,21 @@
+uuid: c555e7ee-bdb8-41c2-8400-b82e662bcb96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.dining
+  module:
+    - metatag
+id: node.dining.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: dining
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

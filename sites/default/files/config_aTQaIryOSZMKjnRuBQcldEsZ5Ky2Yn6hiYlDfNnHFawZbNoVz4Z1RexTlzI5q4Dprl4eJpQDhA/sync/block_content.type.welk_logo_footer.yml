@@ -1,0 +1,8 @@
+uuid: f30ddc65-79a2-41de-b77e-f649d31eeec3
+langcode: en
+status: true
+dependencies: {  }
+id: welk_logo_footer
+label: 'Welk logo footer'
+revision: 0
+description: 'Upload Welk logo in footer'

@@ -1,0 +1,8 @@
+uuid: b09e2698-b7cf-4b58-a415-b505aab77fd8
+langcode: en
+status: true
+dependencies: {  }
+id: branson-hotel
+label: 'Branson Hotel'
+description: 'This is the Menu for the Branson Hotel Resort'
+locked: false

@@ -1,0 +1,58 @@
+uuid: 3e863c52-86e9-43a7-a7db-1bc24bdf2fef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.stay_and_play.field_stay_and_play_desc
+    - field.field.paragraph.stay_and_play.field_stay_and_play_more_off
+    - field.field.paragraph.stay_and_play.field_stay_and_play_title
+    - field.field.paragraph.stay_and_play.field_stay_and_play_vd
+    - paragraphs.paragraphs_type.stay_and_play
+  module:
+    - link
+    - text
+id: paragraph.stay_and_play.default
+targetEntityType: paragraph
+bundle: stay_and_play
+mode: default
+content:
+  field_stay_and_play_desc:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_stay_and_play_more_off:
+    weight: 2
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_stay_and_play_title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_stay_and_play_vd:
+    weight: 3
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

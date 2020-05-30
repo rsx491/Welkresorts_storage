@@ -1,0 +1,22 @@
+uuid: 657b9afa-1811-4c95-b53d-cf243f9f3cc1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: path_pattern_for_local_area
+label: 'Path pattern for Local Area'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/local-area'
+selection_criteria:
+  12af6e14-fa79-4218-81ac-872810d54354:
+    id: node_type
+    bundles:
+      local_area: local_area
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 12af6e14-fa79-4218-81ac-872810d54354
+selection_logic: and
+weight: -5
+relationships: {  }

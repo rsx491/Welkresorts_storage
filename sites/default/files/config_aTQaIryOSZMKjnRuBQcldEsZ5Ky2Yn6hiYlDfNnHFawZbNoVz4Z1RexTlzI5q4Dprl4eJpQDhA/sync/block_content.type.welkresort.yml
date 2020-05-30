@@ -1,0 +1,8 @@
+uuid: c02ec240-c6e3-46e1-8aeb-058ed98eaef4
+langcode: en
+status: true
+dependencies: {  }
+id: welkresort
+label: 'WelkResort Experience Block'
+revision: 0
+description: 'This is for the WelkResort Experience Block for Homepage'

@@ -1,0 +1,21 @@
+uuid: 175e0774-e8e4-407d-911a-831c840797e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mapped_triptease
+    - node.type.weddings_and_events
+  module:
+    - options
+id: node.weddings_and_events.field_mapped_triptease
+field_name: field_mapped_triptease
+entity_type: node
+bundle: weddings_and_events
+label: 'Mapped Triptease with Hotel Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

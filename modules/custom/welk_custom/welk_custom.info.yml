@@ -1,0 +1,7 @@
+name: 'Welk Custom'
+type: module
+description: 'Module for all the customizations'
+# core: 8.x
+package: 'Welkgroup'
+version: '8.x'
+core: '8.x'

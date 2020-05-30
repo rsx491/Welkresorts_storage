@@ -1,0 +1,21 @@
+uuid: dc7bb449-a9d4-4625-bdd5-68de2a1eba99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_map_header
+    - node.type.resort_destinations
+  module:
+    - text
+id: node.resort_destinations.field_location_map_header
+field_name: field_location_map_header
+entity_type: node
+bundle: resort_destinations
+label: 'Location Map - Header'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: 6429a5bc-ceb5-459b-9424-df7e706706e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_amenities_description
+field_name: field_amenities_description
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

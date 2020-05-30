@@ -1,0 +1,31 @@
+ARG Version
+ARG DirPath
+FROM welkgroupdrupal.azurecr.io/welkresorts-dev-repository:${Version}
+
+ARG DB_Hostname
+ARG DB_Name
+ARG DB_Password
+ARG DB_Username
+
+RUN rm -rf /var/www/html/*
+
+RUN ls -lha /var/www/html/
+
+RUN ls -lha ${DirPath}/_Welkresorts/modules/contrib
+
+COPY ${DirPath}/_Welkresorts/. /var/www/html
+
+RUN ls -lha /var/www/html/modules/contrib
+
+#change DB Connection Params to use QA
+WORKDIR /var/www/html
+RUN sed -i "s/host' => 'localhost/host' => '$DB_Hostname/" /var/www/html/sites/default/settings.php
+RUN sed -i "s/database' => 'welk_sprint1/database' => '$DB_Name/" /var/www/html/sites/default/settings.php
+RUN sed -i "s/username' => 'welk_development/username' => '$DB_Username/" /var/www/html/sites/default/settings.php
+RUN sed -i "s/password' => 'Welk123!/password' => '$DB_Password/" /var/www/html/sites/default/settings.php
+
+RUN composer require drush/drush:9.7.1
+RUN drush status
+RUN drush cim -y
+RUN drush cache-rebuild -y
+RUN update-rc.d apache2 defaults

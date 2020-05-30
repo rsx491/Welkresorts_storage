@@ -1,0 +1,23 @@
+uuid: 670539cc-15b3-4675-93f7-c66fb189e807
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.field_footer_link
+  module:
+    - link
+id: block_content.booking_section_content.field_footer_link
+field_name: field_footer_link
+entity_type: block_content
+bundle: booking_section_content
+label: 'Footer Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

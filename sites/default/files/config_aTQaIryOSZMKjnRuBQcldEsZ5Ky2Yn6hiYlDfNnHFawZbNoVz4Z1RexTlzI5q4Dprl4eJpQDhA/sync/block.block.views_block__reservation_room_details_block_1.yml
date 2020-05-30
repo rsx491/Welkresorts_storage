@@ -1,0 +1,31 @@
+uuid: 0b9c3216-1469-41df-8b9c-2a85a02b4ad8
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.reservation_room_details
+  module:
+    - system
+    - views
+  theme:
+    - welkresorts
+id: views_block__reservation_room_details_block_1
+theme: welkresorts
+region: Room_details
+weight: 0
+provider: null
+plugin: 'views_block:reservation_room_details-block_1'
+settings:
+  id: 'views_block:reservation_room_details-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /reservation/details
+    negate: false
+    context_mapping: {  }

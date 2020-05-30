@@ -1,0 +1,21 @@
+uuid: 38ba81d3-0484-4fb9-9741-0c152d60bcda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subscription_section_descr
+    - node.type.blog
+  module:
+    - text
+id: node.blog.field_subscription_section_descr
+field_name: field_subscription_section_descr
+entity_type: node
+bundle: blog
+label: 'Subscription Section Description'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

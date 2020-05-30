@@ -1,0 +1,29 @@
+uuid: bf046b93-8342-42b3-99cc-3d22dd274cc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weding_resort_destination
+    - node.type.weddings_and_events
+    - taxonomy.vocabulary.destinations
+id: node.weddings_and_events.field_weding_resort_destination
+field_name: field_weding_resort_destination
+entity_type: node
+bundle: weddings_and_events
+label: 'Weding And Event Resort Destination'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      destinations: destinations
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

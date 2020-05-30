@@ -1,0 +1,19 @@
+uuid: 788a3440-e36a-4c48-8cce-c12fc9788f6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_listing_page_subtitle
+    - node.type.room_details
+id: node.room_details.field_listing_page_subtitle
+field_name: field_listing_page_subtitle
+entity_type: node
+bundle: room_details
+label: 'Listing page Subtitle'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,9 @@
+uuid: bcb81a86-ac13-4f64-92d7-a090bac953d4
+langcode: en
+status: true
+dependencies: {  }
+id: welk_experience
+label: 'Welk Experience'
+icon_uuid: null
+description: 'This Paragraph is for the Welk Experience Section'
+behavior_plugins: {  }

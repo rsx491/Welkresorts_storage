@@ -1,0 +1,38 @@
+uuid: 5da04e6b-b051-4ffa-87ac-17de6c7301e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_attraction_image
+    - paragraphs.paragraphs_type.local_area_attractions
+  module:
+    - image
+id: paragraph.local_area_attractions.field_attraction_image
+field_name: field_attraction_image
+entity_type: paragraph
+bundle: local_area_attractions
+label: 'Attraction Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

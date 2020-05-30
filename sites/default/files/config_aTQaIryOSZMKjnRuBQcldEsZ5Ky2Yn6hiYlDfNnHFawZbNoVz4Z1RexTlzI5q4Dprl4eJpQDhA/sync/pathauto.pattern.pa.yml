@@ -1,0 +1,22 @@
+uuid: 9ee7bae4-991e-44b0-92d8-cd4130eaa729
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: pa
+label: 'Path pattern for Resort Destinations'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/[node:title]'
+selection_criteria:
+  a044b16a-fb32-4f77-bcad-52d0a7eb8545:
+    id: node_type
+    bundles:
+      resort_destinations: resort_destinations
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a044b16a-fb32-4f77-bcad-52d0a7eb8545
+selection_logic: and
+weight: -5
+relationships: {  }

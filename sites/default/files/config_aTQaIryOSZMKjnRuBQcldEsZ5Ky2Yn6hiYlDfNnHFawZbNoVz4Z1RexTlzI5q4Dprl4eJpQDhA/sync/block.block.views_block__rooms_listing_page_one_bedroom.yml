@@ -1,0 +1,31 @@
+uuid: 14d5244c-d545-44b2-8d89-33b5c92055c4
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.rooms_listing_page
+  module:
+    - system
+    - views
+  theme:
+    - welkresorts
+id: views_block__rooms_listing_page_one_bedroom
+theme: welkresorts
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:rooms_listing_page-one_bedroom'
+settings:
+  id: 'views_block:rooms_listing_page-one_bedroom'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/16
+    negate: false
+    context_mapping: {  }

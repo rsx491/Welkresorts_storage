@@ -1,0 +1,9 @@
+uuid: e6074963-fbe0-4909-bf7d-b11e94edf477
+langcode: en
+status: true
+dependencies: {  }
+id: calendar_activities
+label: 'Calendar activities'
+icon_uuid: null
+description: 'Activities calendar items'
+behavior_plugins: {  }

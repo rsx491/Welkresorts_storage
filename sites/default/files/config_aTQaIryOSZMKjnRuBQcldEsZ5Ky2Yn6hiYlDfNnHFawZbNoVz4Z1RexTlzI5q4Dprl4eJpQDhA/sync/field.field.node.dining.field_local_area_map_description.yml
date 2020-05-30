@@ -1,0 +1,21 @@
+uuid: 475a5fcb-ca14-4d43-9d37-3c064954d04e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_local_area_map_description
+    - node.type.dining
+  module:
+    - text
+id: node.dining.field_local_area_map_description
+field_name: field_local_area_map_description
+entity_type: node
+bundle: dining
+label: 'Local Area Map - Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

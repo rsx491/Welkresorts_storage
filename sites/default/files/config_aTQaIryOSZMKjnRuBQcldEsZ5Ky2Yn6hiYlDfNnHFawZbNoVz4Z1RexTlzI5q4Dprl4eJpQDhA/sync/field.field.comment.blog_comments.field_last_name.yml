@@ -1,0 +1,19 @@
+uuid: b41e4296-3a5d-4bc0-a746-9850b2401d83
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.blog_comments
+    - field.storage.comment.field_last_name
+id: comment.blog_comments.field_last_name
+field_name: field_last_name
+entity_type: comment
+bundle: blog_comments
+label: 'Last Name:'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

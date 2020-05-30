@@ -1,0 +1,49 @@
+{#
+ /**
+  * Display booking search results
+ **/
+#}
+
+<div id="booking_results">
+<div style="display:none;width:100%;max-height:400px;overflow-y:scroll;">
+<pre>
+ {{ dump(_context[""]["#items"]) }}
+</pre>
+</div>
+</div>
+
+{#
+ /**
+  * Display booking search results
+ **/
+#}
+{% for b in _context[""]["#items"]["booking"].roomStays[0].roomTypes %}
+<li class="booking-view-list">
+                  <div class="row">
+                     <!--image-->
+                     <div class="col-12 col-lg-3 col-xl-3 clearfix">
+                        <div class="image-view-block">
+                           <img class="img-fluid d-block" src="dest/images/room-image-placeholder.jpg" alt="Room">
+                           <div class="resort-type">Most Popular</div>
+                           <a href="#" class="v-details" data-toggle="modal" data-target="#bookingRoom">View Details</a>
+                        </div>
+                     </div>
+                     <div class="col-12 col-lg-6 col-xl-6 list-view-block booking-view-block">
+                        <div class="title"><a href="#">{{ b.roomTypeName }}</a></div>
+                        <div class="description"> {{ b.description }}</div>
+                        <div class="rooms item">1 King Bed, 1 Sofa Bed</div>
+                        <div class="rooms size">580 Square Feet</div>
+                        <div class="rooms capacity">4 Guest Capacity</div>
+                     </div>
+                     <div class="col-12 col-lg-3 col-xl-3 price-view-block">
+                        <div class="status text-uppercase align-middle">Almost Sold Out</div>
+                        <div>
+                           <span class="d-block">From</span>
+                           <span class="d-block listing-price"> ${{ b.averageRates[0].rate }}</span>
+                           <span class="d-block">{{ _context[""]["#items"]["booking"].currencyCode }} per night</span>
+                        </div>
+                        <a title="Select Room" class="btn btn-primary small" href="#">Select Room</a>
+                     </div>
+                  </div>
+               </li>
+{% endfor %}

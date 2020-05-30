@@ -1,0 +1,10 @@
+name: 'Okta Ajax'
+description: 'Creates an ajax login widget to authenticate with Okta'
+type: module
+core: 8.x
+version: 8.x
+package: Welkgroup
+dependencies:
+  - okta_api
+  - block
+  - default_content

@@ -1,0 +1,21 @@
+uuid: 16ec7c03-d230-49ab-bddd-22194c9d7603
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.tet
+    - field.storage.comment.comment_body
+  module:
+    - text
+id: comment.tet.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: tet
+label: Comment
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: f7b9a428-ca7a-4cf8-ba50-f40ab6669f95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.resort_destinations
+  module:
+    - metatag
+id: node.resort_destinations.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: resort_destinations
+label: 'Meta tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

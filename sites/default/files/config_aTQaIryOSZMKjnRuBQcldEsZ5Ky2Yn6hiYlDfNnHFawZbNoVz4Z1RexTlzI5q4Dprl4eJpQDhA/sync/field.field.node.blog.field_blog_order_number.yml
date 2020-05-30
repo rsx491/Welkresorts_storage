@@ -1,0 +1,21 @@
+uuid: 8722eae8-f6d0-4573-b114-86cbedfeac92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_order_number
+    - node.type.blog
+  module:
+    - options
+id: node.blog.field_blog_order_number
+field_name: field_blog_order_number
+entity_type: node
+bundle: blog
+label: 'Blog order number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

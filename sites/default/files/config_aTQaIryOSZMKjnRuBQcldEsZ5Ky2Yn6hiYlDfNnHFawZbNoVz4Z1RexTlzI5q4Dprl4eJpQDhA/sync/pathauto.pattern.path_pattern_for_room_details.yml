@@ -1,0 +1,22 @@
+uuid: 6d567d10-5ece-42ae-aaf2-28e742aabc2d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: path_pattern_for_room_details
+label: 'Path pattern for Room Details'
+type: 'canonical_entities:node'
+pattern: '[node:field_select_state]/[node:field_location_name]/[node:field_select_resort]/[node:title]'
+selection_criteria:
+  f9ac8234-4ead-4012-b60c-62e6d951aac8:
+    id: node_type
+    bundles:
+      room_details: room_details
+    negate: false
+    context_mapping:
+      node: node
+    uuid: f9ac8234-4ead-4012-b60c-62e6d951aac8
+selection_logic: and
+weight: -5
+relationships: {  }

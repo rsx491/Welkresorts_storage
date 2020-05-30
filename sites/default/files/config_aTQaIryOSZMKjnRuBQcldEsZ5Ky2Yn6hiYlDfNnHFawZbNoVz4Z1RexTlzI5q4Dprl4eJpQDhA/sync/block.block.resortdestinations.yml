@@ -1,0 +1,31 @@
+uuid: 5ecbd5bc-f2ba-468e-821b-8728693e87f1
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:24ac2935-003d-4801-b8ad-f7ad8430f530'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: resortdestinations
+theme: welkresorts
+region: Welk_destination
+weight: -20
+provider: null
+plugin: 'block_content:24ac2935-003d-4801-b8ad-f7ad8430f530'
+settings:
+  id: 'block_content:24ac2935-003d-4801-b8ad-f7ad8430f530'
+  label: 'Resort Destinations'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

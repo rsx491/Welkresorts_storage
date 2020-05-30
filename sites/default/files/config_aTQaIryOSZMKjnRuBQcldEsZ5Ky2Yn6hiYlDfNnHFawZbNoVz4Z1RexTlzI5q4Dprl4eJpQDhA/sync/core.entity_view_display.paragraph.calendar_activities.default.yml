@@ -1,0 +1,75 @@
+uuid: 2e2ef05a-204b-4ef3-be44-b55f636c0f79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.calendar_activities.field_activity_center
+    - field.field.paragraph.calendar_activities.field_activity_charge
+    - field.field.paragraph.calendar_activities.field_activity_flags
+    - field.field.paragraph.calendar_activities.field_calendar_activity_descript
+    - field.field.paragraph.calendar_activities.field_calendar_activity_title
+    - field.field.paragraph.calendar_activities.field_day
+    - field.field.paragraph.calendar_activities.field_time_time_duration
+    - paragraphs.paragraphs_type.calendar_activities
+  module:
+    - options
+id: paragraph.calendar_activities.default
+targetEntityType: paragraph
+bundle: calendar_activities
+mode: default
+content:
+  field_activity_center:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_activity_charge:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_activity_flags:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_calendar_activity_descript:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_calendar_activity_title:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_day:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_time_time_duration:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,18 @@
+uuid: e99937c0-daf2-411e-9e23-73c62a22661f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.offers
+id: node.offers.title
+field_name: title
+entity_type: node
+bundle: offers
+label: Offers
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

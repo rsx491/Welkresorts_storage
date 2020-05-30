@@ -1,0 +1,21 @@
+uuid: 3c80c60a-e4b8-481f-8ccc-ab1ce6921b18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mapped_triptease
+    - node.type.events
+  module:
+    - options
+id: node.events.field_mapped_triptease
+field_name: field_mapped_triptease
+entity_type: node
+bundle: events
+label: 'Mapped Triptease with Hotel Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

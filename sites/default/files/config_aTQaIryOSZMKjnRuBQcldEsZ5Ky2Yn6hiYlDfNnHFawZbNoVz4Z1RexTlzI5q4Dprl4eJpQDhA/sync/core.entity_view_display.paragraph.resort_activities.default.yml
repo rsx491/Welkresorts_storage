@@ -1,0 +1,42 @@
+uuid: ec5de237-c313-411a-b6bd-6c9a10f0d50b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.resort_activities.field_description_rsact
+    - field.field.paragraph.resort_activities.field_image_rsact
+    - field.field.paragraph.resort_activities.field_name_rsact
+    - paragraphs.paragraphs_type.resort_activities
+  module:
+    - image
+    - text
+id: paragraph.resort_activities.default
+targetEntityType: paragraph
+bundle: resort_activities
+mode: default
+content:
+  field_description_rsact:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_image_rsact:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_name_rsact:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

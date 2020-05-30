@@ -1,0 +1,20 @@
+uuid: d439bf79-678d-4792-995a-c50f25afc777
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+id: node.field_local_area_node
+field_name: field_local_area_node
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: node
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

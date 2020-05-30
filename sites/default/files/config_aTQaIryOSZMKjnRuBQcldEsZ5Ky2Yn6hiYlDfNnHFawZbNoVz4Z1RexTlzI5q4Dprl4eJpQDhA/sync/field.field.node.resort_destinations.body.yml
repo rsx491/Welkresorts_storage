@@ -1,0 +1,22 @@
+uuid: 08c8d6d9-3ef0-4319-8eca-78217d4e073c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.resort_destinations
+  module:
+    - text
+id: node.resort_destinations.body
+field_name: body
+entity_type: node
+bundle: resort_destinations
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

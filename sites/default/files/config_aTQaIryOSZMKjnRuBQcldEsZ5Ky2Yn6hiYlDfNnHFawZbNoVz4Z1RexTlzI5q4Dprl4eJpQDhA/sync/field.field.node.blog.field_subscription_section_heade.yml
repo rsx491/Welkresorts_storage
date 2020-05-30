@@ -1,0 +1,19 @@
+uuid: 617d1bb0-af07-41ce-b2a8-edec162ef4e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subscription_section_heade
+    - node.type.blog
+id: node.blog.field_subscription_section_heade
+field_name: field_subscription_section_heade
+entity_type: node
+bundle: blog
+label: 'Subscription Section header'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

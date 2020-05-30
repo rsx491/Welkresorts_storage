@@ -1,0 +1,19 @@
+uuid: 851a7452-8487-4681-8ad6-0c982bf82267
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_offer_description_room
+field_name: field_offer_description_room
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

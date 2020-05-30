@@ -1,0 +1,48 @@
+uuid: aebc8ebb-0a03-4e74-8cb2-60eed4132a99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.resort_offer_page_description.field_offer_page_description
+    - field.field.paragraph.resort_offer_page_description.field_offer_page_image
+    - field.field.paragraph.resort_offer_page_description.field_offer_page_url
+    - paragraphs.paragraphs_type.resort_offer_page_description
+  module:
+    - image
+    - link
+    - text
+id: paragraph.resort_offer_page_description.default
+targetEntityType: paragraph
+bundle: resort_offer_page_description
+mode: default
+content:
+  field_offer_page_description:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_offer_page_image:
+    weight: 2
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_offer_page_url:
+    weight: 3
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden:
+  field_offer_highlight: true

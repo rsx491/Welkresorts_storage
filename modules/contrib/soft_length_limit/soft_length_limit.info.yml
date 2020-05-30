@@ -1,0 +1,11 @@
+name: Soft Length Limit
+type: module
+description: Soft limits number of chars in text fields, warning the user of too long texts
+package: Fields
+# core: 8.x
+
+# Information added by Drupal.org packaging script on 2019-04-16
+version: '8.x-1.0'
+core: '8.x'
+project: 'soft_length_limit'
+datestamp: 1555417689

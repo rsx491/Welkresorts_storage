@@ -1,0 +1,21 @@
+uuid: 601d5585-2c33-41a9-ae43-19f989760812
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.booking_section_content
+    - field.storage.block_content.field_resort_fee
+id: block_content.booking_section_content.field_resort_fee
+field_name: field_resort_fee
+entity_type: block_content
+bundle: booking_section_content
+label: 'Resort Fee'
+description: 'Resort fee per day in dollar'
+required: false
+translatable: false
+default_value:
+  -
+    value: '20'
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: bb8ddd86-afe1-42f7-8003-6725d27ae4ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - webform
+id: block_content.field_blog_comment
+field_name: field_blog_comment
+entity_type: block_content
+type: webform
+settings:
+  target_type: webform
+module: webform
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

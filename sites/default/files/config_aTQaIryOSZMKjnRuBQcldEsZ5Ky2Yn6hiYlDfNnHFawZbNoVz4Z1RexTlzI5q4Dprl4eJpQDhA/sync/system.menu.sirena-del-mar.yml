@@ -1,0 +1,8 @@
+uuid: c55d67cb-e3d9-4cf5-8de6-e65be17d9642
+langcode: en
+status: true
+dependencies: {  }
+id: sirena-del-mar
+label: 'Sirena Del Mar'
+description: 'This is the Menu for the Sirena Del Mar Resort'
+locked: false

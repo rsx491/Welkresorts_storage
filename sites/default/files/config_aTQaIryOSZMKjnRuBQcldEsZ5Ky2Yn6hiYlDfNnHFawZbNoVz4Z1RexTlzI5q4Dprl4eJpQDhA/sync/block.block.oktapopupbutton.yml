@@ -1,0 +1,26 @@
+uuid: 9a89b026-8cbc-4a92-b1d4-6fc9ce78a4e8
+langcode: en
+status: true
+dependencies:
+  module:
+    - okta_ajax
+    - system
+  theme:
+    - welkresorts
+id: oktapopupbutton
+theme: welkresorts
+region: Okta_popup
+weight: 0
+provider: null
+plugin: okta_ajax_popup_block
+settings:
+  id: okta_ajax_popup_block
+  label: 'Okta Popup Button'
+  provider: okta_ajax
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /reservation/confirm-stay
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,9 @@
+uuid: 97d3b5a8-1aaa-4e55-8d0c-8850709cac3a
+langcode: en
+status: true
+dependencies: {  }
+id: amenities_and_activities_highlig
+label: 'Inspire highlight section'
+icon_uuid: null
+description: 'Highlight images with information'
+behavior_plugins: {  }

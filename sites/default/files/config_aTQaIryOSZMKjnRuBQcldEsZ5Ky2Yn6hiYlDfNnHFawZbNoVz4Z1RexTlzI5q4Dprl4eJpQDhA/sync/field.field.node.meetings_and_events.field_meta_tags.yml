@@ -1,0 +1,21 @@
+uuid: 2549f1af-f2b2-4302-9224-6b8be925b565
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.meetings_and_events
+  module:
+    - metatag
+id: node.meetings_and_events.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: meetings_and_events
+label: 'Meta tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

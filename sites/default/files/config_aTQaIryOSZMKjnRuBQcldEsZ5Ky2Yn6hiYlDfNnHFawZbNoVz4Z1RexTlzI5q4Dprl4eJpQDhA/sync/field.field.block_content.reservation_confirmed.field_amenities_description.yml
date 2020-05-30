@@ -1,0 +1,19 @@
+uuid: 8ca5bda2-29fd-4ed9-a957-ffc121363d06
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.storage.block_content.field_amenities_description
+id: block_content.reservation_confirmed.field_amenities_description
+field_name: field_amenities_description
+entity_type: block_content
+bundle: reservation_confirmed
+label: 'Amenities - Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

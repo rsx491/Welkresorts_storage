@@ -1,0 +1,27 @@
+uuid: 913f4829-f6dd-45ba-9f85-1fe1628f5451
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_with_us_video
+    - node.type.work_with_us
+  module:
+    - file
+id: node.work_with_us.field_work_with_us_video
+field_name: field_work_with_us_video
+entity_type: node
+bundle: work_with_us
+label: 'work with us - video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: mp4
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

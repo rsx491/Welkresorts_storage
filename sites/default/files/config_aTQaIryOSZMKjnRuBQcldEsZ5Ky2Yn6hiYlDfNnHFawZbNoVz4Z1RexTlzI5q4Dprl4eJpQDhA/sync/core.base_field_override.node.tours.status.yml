@@ -1,0 +1,22 @@
+uuid: 288958d6-c5c6-41fc-8cb1-535e61e80463
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tours
+id: node.tours.status
+field_name: status
+entity_type: node
+bundle: tours
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,34 @@
+uuid: 8c275bd1-ed83-4bb8-a7e0-f2f28fcdbe5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.welkresort
+    - field.storage.block_content.field_faq
+    - paragraphs.paragraphs_type.welk_experience
+  module:
+    - entity_reference_revisions
+id: block_content.welkresort.field_faq
+field_name: field_faq
+entity_type: block_content
+bundle: welkresort
+label: Faq
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      welk_experience: welk_experience
+    target_bundles_drag_drop:
+      videobackground_banner_block:
+        weight: 3
+        enabled: false
+      welk_experience:
+        enabled: true
+        weight: 4
+field_type: entity_reference_revisions

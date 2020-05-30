@@ -1,0 +1,20 @@
+uuid: ee9c5395-dc0a-4f88-acf0-4aa54e40c126
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+id: node.field_amenities_activities_node
+field_name: field_amenities_activities_node
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: node
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

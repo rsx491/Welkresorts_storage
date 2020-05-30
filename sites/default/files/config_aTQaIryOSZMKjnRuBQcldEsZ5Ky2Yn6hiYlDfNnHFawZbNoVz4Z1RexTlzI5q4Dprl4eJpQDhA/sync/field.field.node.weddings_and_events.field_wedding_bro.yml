@@ -1,0 +1,19 @@
+uuid: d3390a92-eb12-451d-bcb5-08c0285442db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wedding_bro
+    - node.type.weddings_and_events
+id: node.weddings_and_events.field_wedding_bro
+field_name: field_wedding_bro
+entity_type: node
+bundle: weddings_and_events
+label: 'Wedding Brochure PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

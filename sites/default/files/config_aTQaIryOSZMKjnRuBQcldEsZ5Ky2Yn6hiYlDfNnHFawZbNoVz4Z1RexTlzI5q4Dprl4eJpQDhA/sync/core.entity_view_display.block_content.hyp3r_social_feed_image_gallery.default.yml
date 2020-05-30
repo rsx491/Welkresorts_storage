@@ -1,0 +1,58 @@
+uuid: 616bfb72-9eb3-4f5d-916e-89b895c0474f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hyp3r_social_feed_image_gallery
+    - field.field.block_content.hyp3r_social_feed_image_gallery.field_hyp3r_data_token
+    - field.field.block_content.hyp3r_social_feed_image_gallery.field_hyp3r_header_description
+    - field.field.block_content.hyp3r_social_feed_image_gallery.field_hyp3r_source_data_base
+    - field.field.block_content.hyp3r_social_feed_image_gallery.field_hyp3r_source_link
+  module:
+    - link
+    - text
+id: block_content.hyp3r_social_feed_image_gallery.default
+targetEntityType: block_content
+bundle: hyp3r_social_feed_image_gallery
+mode: default
+content:
+  field_hyp3r_data_token:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_hyp3r_header_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_hyp3r_source_data_base:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_hyp3r_source_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

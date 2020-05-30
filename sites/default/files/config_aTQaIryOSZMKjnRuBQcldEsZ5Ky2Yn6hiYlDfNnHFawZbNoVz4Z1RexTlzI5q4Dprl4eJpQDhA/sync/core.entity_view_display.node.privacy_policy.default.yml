@@ -1,0 +1,37 @@
+uuid: d8ae3395-e4db-457f-96a3-818d902150a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.privacy_policy.body
+    - field.field.node.privacy_policy.field_meta_tags
+    - node.type.privacy_policy
+  module:
+    - metatag
+    - text
+    - user
+id: node.privacy_policy.default
+targetEntityType: node
+bundle: privacy_policy
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_meta_tags:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

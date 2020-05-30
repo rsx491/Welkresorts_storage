@@ -1,0 +1,31 @@
+uuid: 0a158a73-a0e1-4d27-8fdc-cea66abfccd0
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:booking_form_for_front_page:8c0a0ec7-ad11-45f3-a713-9289928ce4c0'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: bookyourstay
+theme: welkresorts
+region: Primary_menu
+weight: -9
+provider: null
+plugin: 'block_content:8c0a0ec7-ad11-45f3-a713-9289928ce4c0'
+settings:
+  id: 'block_content:8c0a0ec7-ad11-45f3-a713-9289928ce4c0'
+  label: 'Book Your Stay'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

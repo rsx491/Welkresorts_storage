@@ -1,0 +1,8 @@
+uuid: 6215fa70-1075-4fe0-a3e3-16a952f331e2
+langcode: en
+status: true
+dependencies: {  }
+id: one-village-place
+label: 'One Village Place'
+description: 'This is the Menu for the One Village Place Resort'
+locked: false

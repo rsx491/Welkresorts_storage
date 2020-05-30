@@ -1,0 +1,31 @@
+uuid: 7d1b1b2a-0af4-4674-978b-1f9d9c9aadf7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e2d94fcf-cbd4-40fd-9d61-d8820f9c0b34'
+  module:
+    - block_content
+    - system
+  theme:
+    - welkresorts
+id: bestrateguaranteed
+theme: welkresorts
+region: best_rates_guaranteed
+weight: 0
+provider: null
+plugin: 'block_content:e2d94fcf-cbd4-40fd-9d61-d8820f9c0b34'
+settings:
+  id: 'block_content:e2d94fcf-cbd4-40fd-9d61-d8820f9c0b34'
+  label: 'Best Rate Guaranteed'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/*\r\n/reservation/booking\r\n/reservation/details"
+    negate: false
+    context_mapping: {  }

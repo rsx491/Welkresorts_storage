@@ -1,0 +1,21 @@
+uuid: adbd9291-2fe7-4de4-90c2-9ad36effe800
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_stay_and_play_desc
+    - paragraphs.paragraphs_type.stay_and_play
+  module:
+    - text
+id: paragraph.stay_and_play.field_stay_and_play_desc
+field_name: field_stay_and_play_desc
+entity_type: paragraph
+bundle: stay_and_play
+label: 'Stay and Play - Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

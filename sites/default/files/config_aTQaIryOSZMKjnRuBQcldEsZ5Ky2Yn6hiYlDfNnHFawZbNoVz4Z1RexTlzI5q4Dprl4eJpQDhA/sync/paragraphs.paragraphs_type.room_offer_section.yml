@@ -1,0 +1,9 @@
+uuid: 2825c296-f06a-4a38-ba5b-05385046c8a1
+langcode: en
+status: true
+dependencies: {  }
+id: room_offer_section
+label: 'Room selection offer section'
+icon_uuid: null
+description: 'This paragraph is used for the offer section for the room selection'
+behavior_plugins: {  }

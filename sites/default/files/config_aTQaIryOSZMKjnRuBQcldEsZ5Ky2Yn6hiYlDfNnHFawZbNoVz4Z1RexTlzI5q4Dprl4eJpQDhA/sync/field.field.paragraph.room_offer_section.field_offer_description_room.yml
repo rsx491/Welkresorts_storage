@@ -1,0 +1,21 @@
+uuid: ad993fe2-91c9-47b0-baa3-fc09cc46b61d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_offer_description_room
+    - paragraphs.paragraphs_type.room_offer_section
+  module:
+    - text
+id: paragraph.room_offer_section.field_offer_description_room
+field_name: field_offer_description_room
+entity_type: paragraph
+bundle: room_offer_section
+label: 'Offer Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

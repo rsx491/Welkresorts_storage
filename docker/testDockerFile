@@ -1,0 +1,50 @@
+FROM drupal:latest
+
+ARG DB_Hostname
+ARG DB_Name
+ARG DB_Password
+ARG DB_Username
+
+RUN echo $DB_Hostname
+
+
+WORKDIR /
+COPY . /var/www/html
+
+#COPY files/wait-for-it.sh /usr/local/bin/wait-for-it.sh
+
+ENV SSH_PASSWD "root:Docker!"
+RUN apt-get update \
+        && apt-get install -y --no-install-recommends dialog \
+        && apt-get install -y git curl wget nano vim \
+        && apt-get update \
+  && apt-get install -y --no-install-recommends openssh-server \
+  && echo "$SSH_PASSWD" | chpasswd
+#RUN apt-get update && apt-get install -y git curl wget nano vim openssh-server
+COPY /docker/sshd_config /etc/ssh/
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+
+EXPOSE 2222 80
+
+WORKDIR /root/
+RUN apt-get install mysql-client -y
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer && wget https://github.com/drush-ops/drush/releases/download/8.0.1/drush.phar
+RUN chmod +x drush.phar && mv drush.phar /usr/local/bin/drush && drush init
+
+WORKDIR /var/www/html
+RUN composer install
+
+#change db host to use docker network
+RUN sed -i "s/host' => 'localhost/host' => '$DB_Hostname/" /var/www/html/sites/default/settings.php
+RUN sed -i "s/database' => 'welk_sprint1/database' => '$DB_Name/" /var/www/html/sites/default/settings.php
+RUN sed -i "s/username' => 'welk_development/username' => '$DB_Username/" /var/www/html/sites/default/settings.php
+RUN sed -i "s/password' => 'Welk123!/password' => '$DB_Password/" /var/www/html/sites/default/settings.php
+
+
+RUN composer require drush/drush:9.7.1
+RUN drush status
+RUN drush cim -y
+RUN drush cache-rebuild -y
+RUN update-rc.d apache2 defaults

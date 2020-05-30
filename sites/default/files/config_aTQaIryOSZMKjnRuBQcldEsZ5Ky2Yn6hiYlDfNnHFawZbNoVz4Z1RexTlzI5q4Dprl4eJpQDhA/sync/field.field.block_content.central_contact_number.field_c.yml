@@ -1,0 +1,19 @@
+uuid: 9cc3d8de-6f92-447e-afd3-399d463603f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.central_contact_number
+    - field.storage.block_content.field_c
+id: block_content.central_contact_number.field_c
+field_name: field_c
+entity_type: block_content
+bundle: central_contact_number
+label: 'Central contact number'
+description: 'Update central contact number'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

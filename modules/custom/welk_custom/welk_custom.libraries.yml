@@ -1,0 +1,7 @@
+welk_custom.assests_session:
+  version: 1.x
+  js:
+    js/welk_custom.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings  

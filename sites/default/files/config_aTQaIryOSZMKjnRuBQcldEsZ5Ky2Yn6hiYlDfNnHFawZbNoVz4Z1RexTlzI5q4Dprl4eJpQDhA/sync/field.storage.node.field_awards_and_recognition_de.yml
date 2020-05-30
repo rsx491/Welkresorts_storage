@@ -1,0 +1,19 @@
+uuid: 230a7a78-6568-471c-bf17-24616b064a4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_awards_and_recognition_de
+field_name: field_awards_and_recognition_de
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

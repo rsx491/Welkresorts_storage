@@ -1,0 +1,27 @@
+uuid: a9b7c728-cc17-4e61-98e6-f7511bf4e349
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_gallery
+    - node.type.accomodation
+  module:
+    - file
+id: node.accomodation.field_hero_gallery
+field_name: field_hero_gallery
+entity_type: node
+bundle: accomodation
+label: 'Hero Gallery'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png jpg jpeg mp4'
+  max_filesize: '3 MB'
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

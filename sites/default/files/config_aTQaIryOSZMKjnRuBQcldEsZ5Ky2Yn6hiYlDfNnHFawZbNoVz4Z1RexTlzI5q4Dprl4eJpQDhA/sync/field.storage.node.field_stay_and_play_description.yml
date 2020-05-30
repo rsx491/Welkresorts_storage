@@ -1,0 +1,19 @@
+uuid: 306021db-3ba5-4a38-875b-1189505999ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_stay_and_play_description
+field_name: field_stay_and_play_description
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,138 @@
+uuid: 28c25ea8-f4cc-45e1-9f17-7ba654601f94
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.reservation_confirmed
+    - field.field.block_content.reservation_confirmed.field_amenities_activities_title
+    - field.field.block_content.reservation_confirmed.field_amenities_description
+    - field.field.block_content.reservation_confirmed.field_b
+    - field.field.block_content.reservation_confirmed.field_explore_amenities
+    - field.field.block_content.reservation_confirmed.field_guest_description
+    - field.field.block_content.reservation_confirmed.field_guest_link
+    - field.field.block_content.reservation_confirmed.field_guest_title
+    - field.field.block_content.reservation_confirmed.field_reservation_title
+    - field.field.block_content.reservation_confirmed.field_review_changed_reservation
+    - field.field.block_content.reservation_confirmed.field_thank_you
+    - field.field.block_content.reservation_confirmed.field_thank_you_description
+    - field.field.block_content.reservation_confirmed.field_travel_inspiration_title
+    - field.field.block_content.reservation_confirmed.field_user_signup_note
+  module:
+    - link
+    - text
+id: block_content.reservation_confirmed.default
+targetEntityType: block_content
+bundle: reservation_confirmed
+mode: default
+content:
+  field_amenities_activities_title:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_amenities_description:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_b:
+    weight: 10
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_explore_amenities:
+    weight: 8
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_guest_description:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_guest_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_guest_title:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_reservation_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_review_changed_reservation:
+    type: string
+    weight: 12
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_thank_you:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_thank_you_description:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_travel_inspiration_title:
+    weight: 9
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_user_signup_note:
+    type: string
+    weight: 11
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

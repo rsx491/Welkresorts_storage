@@ -1,0 +1,27 @@
+uuid: 5f2ed77d-6d1f-410c-8421-1b6eb0d32a25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inspire_video
+    - node.type.tours
+  module:
+    - file
+id: node.tours.field_inspire_video
+field_name: field_inspire_video
+entity_type: node
+bundle: tours
+label: 'Inspire Video'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: mp4
+  max_filesize: '3 MB'
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
